@@ -232,7 +232,7 @@
 <ul>
  <li>
   <a href="http://www.freebsd.org/">FreeBSD</a>:
-  <a href="http://www.freebsd.org/cgi/ports.cgi?query=ngircd&stype=all">Port</a>
+  <a href="http://www.freebsd.org/cgi/ports.cgi?query=ngircd&amp;stype=all">Port</a>
  </li>
  <li>
   <a href="http://www.gentoo.org/">Gentoo Linux</a>:

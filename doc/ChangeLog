@@ -10,6 +10,16 @@
                                -- ChangeLog --
 
 
+ngircd 0.8.1 (2004-12-25)
+
+  - Autoconf: Updated config.guess and config.sub
+  - Added some more debug code ...
+  - Fixed wrong variable names in output of "ngircd --configtest".
+  - Debian: Fxied the name of the "default file" in the init script for
+    ngircd-full packages. And do the test if the binary is executable after
+    reading this file.
+  - Enhanced the "test suite": please have a look at src/testsuite/README!
+
 ngircd 0.8.0 (2004-06-26)
 
   - Fixed wrong buffer size calculation for results of the resolver.

@@ -60,30 +60,19 @@
 <h2 id="status">Status</h2>
 
 <p>
- Die aktuelle &quot;stabile&quot; Version ist <strong>0.7.6</strong>.
+ Die aktuelle &quot;stabile&quot; Version ist <strong>0.7.7</strong>.
 </p>
-
 <p>
- Gleich vorweg: der ngIRCd befindet sich zur Zeit noch in Entwicklung und
- ist daher noch nicht komplett.
+ Wenngleich die aktuelle Version noch nicht 100% komplett ist (einige
+ IRC-Befehle werden noch nicht bzw. nicht im vollen von den RFCs vorgesehenen
+ Umfang unterst&uuml;tzt), so taugt der Server doch bereits schon recht
+ gut f&uuml;r den produktiven, t&auml;glichen Einsatz.
 </p>
-
 <p>
- Die aktuelle Version kann bereits schon im t&auml;glichen Einsatz verwendet
- werden und wird es auch: ein kleines IRC-Netzwerk, in dem auch mein
- Server aktiv ist, setzt teilweise den ngIRCd, teilweise das Original ein:
+ <em>Beispiel</em>: Ein kleines IRC-Netzwerk, in dem auch mein Server aktiv
+ ist, setzt teilweise den ngIRCd, teilweise das Original ein:
  <a href="http://Arthur.Ath.CX/irc/">Info-Seite</a> dieses IRC-Netzes.
 </p>
-
-<p>
- Bisher (mehr oder wenig vollst&auml;ndig) implementierte IRC-Befehle:
-</p>
-<p><kbd>
- ADMIN, AWAY, CHANINFO, CONNECT, DIE, DISCONNECT, ERROR, HELP, INVITE, ISON,
- JOIN, KICK, KILL, LINKS, LIST, LUSERS, MODE, MOTD, NAMES, NICK, NJOIN,
- NOTICE, OPER, PART, PASS, PING, PONG, PRIVMSG, QUIT, REHASH, RESTART, SERVER,
- SQUIT, STATS, TIME, TOPIC, TRACE, USER, USERHOST, VERSION, WHO, WHOIS.
-</kbd></p>
 <p>
  &Uuml;ber R&uuml;ckmeldungen, Bug-Reports (am besten &uuml;ber den
  <a href="#bugs">Bug-Tracker</a>) und Patches freue ich mich! Also los,
@@ -210,18 +199,18 @@
 
 <h2 id="download">Download</h2>
 <dl>
- <dt><strong>ngIRCd 0.7.6</strong> (2003-12-05):</dt>
+ <dt><strong>ngIRCd 0.7.7</strong> (2004-02-05):</dt>
  <dd>
 	<p>Server: <em>download.berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.7.6.tar.gz:
-		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.6.tar.gz">http</a>,
-		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.6.tar.gz">ftp</a>
+		<li>ngircd-0.7.7.tar.gz:
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.7.tar.gz">http</a>,
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.7.tar.gz">ftp</a>
 	</ul>
 	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.7.6.tar.gz:
-		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.6.tar.gz">ftp</a>.
+		<li>ngircd-0.7.7.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.7.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

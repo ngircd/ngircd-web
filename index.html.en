@@ -207,12 +207,13 @@
 <dl>
  <dt><strong>ngIRCd 0.7.0</strong> (2003-05-01):</dt>
  <dd>
-	<p>Server: <em>download.berlios.de</em></p>
+	<p>Server: <em>download.berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
 		<li>ngircd-0.7.0.tar.gz:
-		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.0.tar.gz">http</a>
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.0.tar.gz">http</a>,
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.0.tar.gz">ftp</a>
 	</ul>
-	<p>Server: <em>arthur.ath.cx</em></p>
+	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
 	<ul>
 		<li>ngircd-0.7.0.tar.gz:
 		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.0.tar.gz">ftp</a>.

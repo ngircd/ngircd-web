@@ -67,6 +67,8 @@
  Die aktuelle &quot;stabile&quot; Version ist <strong>0.7.7</strong>.
 </p>
 <p>
+ Als Vorabversion ist <strong>0.8.0-pre1</strong> verf&uuml;gbar.
+<p>
  Wenngleich die aktuelle Version noch nicht 100% komplett ist (einige
  IRC-Befehle werden noch nicht bzw. nicht im vollen von den RFCs vorgesehenen
  Umfang unterst&uuml;tzt), so taugt der Server doch bereits schon recht
@@ -115,6 +117,7 @@
  <li><a href="http://www.linux.org/">Linux</a> (2.2.x/i386, 2.4.x/i386 und 2.4.x/hppa, GNU C)
  <li><a href="http://www.apple.com/macosx/">Mac OS X</a> (10.x, GNU C 2.95.x/3.x)
  <li><a href="http://www.netbsd.org/">NetBSD</a> (1.5.2/i386 und 1.5.3/m68k, GNU C)
+ <li><a href="http://www.obenbsd.org/">OpenBSD</a> (3.4/i386)
  <li><a href="http://www.sun.com/">Solaris</a> (2.5.1 und 2.6, GNU C)
  <li>Windows mit <a href="http://sources.redhat.com/cygwin/">Cygwin</a> (GNU C)
 </ul>
@@ -216,6 +219,14 @@
 	<ul>
 		<li>ngircd-0.7.7.tar.gz:
 		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.7.tar.gz">ftp</a>.
+	</ul>
+ </dd>
+ <dt><strong>ngIRCd 0.8.0-pre1</strong> (2004-05-07):</dt>
+ <dd>
+ 	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
+	<ul>
+		<li>ngircd-0.8.0-pre1.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.8.0-pre1.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

@@ -35,7 +35,7 @@
  <li><strong><a href="#download">Download</a></strong>
  <ul>
   <li><a href="#source">Source Code</a></li>
-  <li><a href="#packages">Pakete</a></li>
+  <li><a href="#packages">Packages</a></li>
  </ul>
  <li><a href="#people">Contact</a>
  <li><a href="#cvs">CVS Repository</a>
@@ -219,7 +219,7 @@
  (generated from the CVS HEAD sources) are also available. Look here:
  <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/">ftp</a>.
 </p>
-<h3 id="packages">Pakete</h3>
+<h3 id="packages">Packages</h3>
 <p>
  If you are using one of the following distributions, you can use their packages:
 </p>

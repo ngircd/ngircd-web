@@ -60,7 +60,7 @@
 <h2 id="status">Status</h2>
 
 <p>
- Current &quot;stable&quot; version is <strong>0.7.1</strong>.
+ Current &quot;stable&quot; version is <strong>0.7.5</strong>.
 </p>
 
 <p>
@@ -119,7 +119,7 @@
  <li><a href="http://www.hp.com/">HP-UX</a> (9.10/m68k, HP-UX cc)
  <li>IRIX (6.5, SGI MIPSpro C 7.30)
  <li><a href="http://www.linux.org/">Linux</a> (2.2.x/i386, 2.4.x/i386 and 2.4.x/hppa, GNU C)
- <li><a href="http://www.apple.com/macosx/">Mac OS X</a> (10.x, GNU C 2.95.x/3.1)
+ <li><a href="http://www.apple.com/macosx/">Mac OS X</a> (10.x, GNU C 2.95.x/3.x)
  <li><a href="http://www.netbsd.org/">NetBSD</a> (1.5.2/i386 and 1.5.3/m68k, GNU C)
  <li><a href="http://www.sun.com/">Solaris</a> (2.5.1 and 2.6, GNU C)
  <li>Windows with <a href="http://sources.redhat.com/cygwin/">Cygwin</a> (GNU C)
@@ -205,18 +205,18 @@
 
 <h2 id="download">Download</h2>
 <dl>
- <dt><strong>ngIRCd 0.7.1</strong> (2003-07-18):</dt>
+ <dt><strong>ngIRCd 0.7.5</strong> (2003-11-07):</dt>
  <dd>
 	<p>Server: <em>download.berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.7.1.tar.gz:
-		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.1.tar.gz">http</a>,
-		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.1.tar.gz">ftp</a>
+		<li>ngircd-0.7.5.tar.gz:
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.5.tar.gz">http</a>,
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.5.tar.gz">ftp</a>
 	</ul>
 	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.7.1.tar.gz:
-		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.1.tar.gz">ftp</a>.
+		<li>ngircd-0.7.5.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.5.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

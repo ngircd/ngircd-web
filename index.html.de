@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="de">
+
+<head>
+ <title>ngIRCd: Next Generation IRC Daemon</title>
+ <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+ <meta http-equiv="content-language" content="de">
+ <meta name="author" content="Alexander Barton">
+ <meta name="author-email" content="alex@arthur.ath.cx">
+ <meta name="MSSmartTagsPreventParsing" content="TRUE">
+ <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+ <link rel="author" href="mailto:alex@arthur.ath.cx" title="E-Mail an Alex">
+</head>
+
+<body>
+
+<h1>ngIRCd: Next Generation IRC Daemon</h1>
+
+<p>
+ ngIRCd ist ein freier Open-Source Server f&uuml;r den Internet Relay Chat (IRC),
+ der unter der GNU General Public License
+ (<a href="http://www.gnu.org/licenses/gpl.html">GPL</a>)
+ entwickelt wird.
+ Er ist von Grund auf neu geschrieben, basiert also nicht wie die meisten
+ anderen IRCd's auf dem &quot;Urvater&quot;, dem Daemon des IRCNet.
+</p>
+
+<ol>
+ <li><a href="#status">Status</a>
+ <li><a href="#why">Vorteile</a>
+ <li><a href="#platforms">Unterst&uuml;tzte Platformen</a>
+ <li><a href="#docu">Dokumentation</a>
+ <li><a href="#ml">Mailingliste</a>
+ <li><a href="#install">Installation</a>
+ <li><a href="#download">Download</a>
+ <li><a href="#people">Kontakt</a>
+ <li><a href="#cvs">CVS-Repository</a>
+ <li><a href="#bugs">Bug-Tracker</a>
+ <li><a href="index.html.en#history">History</a> (in englisch!)
+</ol>
+
+<p>
+ Noch ein Hinweis: bei <a href="http://freshmeat.net/">freshmeat.net</a>
+ gibt es einen <a href="http://freshmeat.net/projects/ngircd/">Projekteintrag</a>
+ f&uuml;r den ngIRCd. Dort ist es z.B. m&ouml;glich, sich &uuml;ber neue Versionen
+ zu informieren und via E-Mail benachrichtigen zu lassen.
+</p>
+
+<p>
+ BTW: There's an <a href="index.html.en">English</a> version of
+ this page, too.
+</p>
+
+<p>Mirrors:</p>
+<ul>
+ <li><a href="http://ngircd.berlios.de/index.html.de">ngircd.berlios.de</a>
+ <li><a href="http://arthur.ath.cx/~alex/ngircd/index.html.de">arthur.ath.cx</a>
+</ul>
+
+<h2 id="status">Status</h2>
+
+<p>
+ Die aktuelle &auot;stabile&quot; Version ist <strong>0.6.1</strong>.
+</p>
+
+<!--
+<p style="background:#aff; padding: 5px; border: 2px dotted black;">
+ date:<br>text
+</p>
+//-->
+
+<p>
+ Gleich vorweg: der ngIRCd befindet sich zur Zeit noch in Entwicklung und
+ ist daher noch nicht komplett.
+</p>
+
+<p>
+ Die aktuelle Version kann bereits schon im t&auml;glichen Einsatz verwendet
+ werden und wird es auch: ein kleines IRC-Netzwerk, in dem auch mein
+ Server aktiv ist, setzt teilweise den ngIRCd, teilweise das Original ein:
+ <a href="http://arthur.ath.cx/irc/">Info-Seite</a> dieses IRC-Netzes.
+</p>
+
+<p>
+ Bisher (mehr oder wenig vollst&auml;ndig) implementierte IRC-Befehle:
+</p>
+<p><kbd>
+ ADMIN, AWAY, CHANINFO, CONNECT, DIE, ERROR, INVITE, ISON, JOIN, KICK, KILL,
+ LINKS, LIST, LUSERS, MODE, MOTD, NAMES, NICK, NJOIN, NOTICE, OPER, PART,
+ PASS, PING, PONG, PRIVMSG, QUIT, REHASH, RESTART, SERVER, SQUIT, STATS, TIME,
+ TOPIC, USERHOST, USER, VERSION, WHO, WHOIS.
+</kbd></p>
+<p>
+ &Uuml;ber R&uuml;ckmeldungen, Bug-Reports (am besten &uuml;ber den
+ <a href="#bugs">Bug-Tracker</a>) und Patches freue ich mich! Also los,
+ haut in die Tasten!
+</p>
+<p>
+ Du erreichst mich (Alex Barton) via E-Mail als 
+ <a href="mailto:alex@barton.de">alex@barton.de</a>.
+</p>
+
+<h2 id="why">Vorteile</h2>
+<p>
+ Warum man den ngIRCd benutzen sollte? Ganz einfach, unter anderem aus
+ diesen Gr&uuml;nden:
+</p>
+<ul>
+ <li>keine Probleme mit Servern, deren IP-Adressen nicht statisch sind,
+ <li>&uuml;bersichtliche (&quot;schlanke&quot;) Konfigurationsdatei,
+ <li>frei verf&uuml;gbarer, moderner und &quot;aufger&auml;umter&quot; C-Quellcode.
+ <li>ngIRCd wird aktiv weiter entwickelt.
+</ul>
+
+<h2 id="platforms">Unterst&uuml;tzte Plattformen</h2>
+<p>
+ Auf den folgenden Platformen wird der ngIRCd regelm&auml;&szlig;ig getestet
+ (in Klammern die jeweils benutzen Versionen), sie sind die
+ offiziell unterst&uuml;tzten Systeme:
+</p>
+<ul>
+ <li>AIX (3.2.5, IBM XL C Compiler)
+ <li>A/UX (3.x, original Apple C Compiler oder GNU C)
+ <li><a href="http://www.freebsd.org/">FreeBSD</a> (4.5/i386, GNU C)
+ <li><a href="http://www.hp.com/">HP-UX</a> (10.20, GNU C)
+ <li>IRIX (6.5, SGI MIPSpro C 7.30)
+ <li><a href="http://www.linux.org/">Linux</a> (2.2.x/i386, 2.4.x/i386 und 2.4.x/hppa, GNU C)
+ <li><a href="http://www.apple.com/macosx/">Mac OS X</a> (10.x, GNU C 2.95.x/3.1)
+ <li><a href="http://www.netbsd.org/">NetBSD</a> (1.5.2/i386 und 1.5.3/m68k, GNU C)
+ <li><a href="http://www.sun.com/">Solaris</a> (2.5.1 und 2.6, GNU C)
+ <li>Windows mit <a href="http://sources.redhat.com/cygwin/">Cygwin</a> (GNU C)
+</ul>
+<p>
+ Da sich der ngIRCd an &uuml;bliche UNIX-Standards h&auml;lt und GNU
+ automake sowie GNU autoconf verwendet, stehen die Chancen nicht
+ schlecht, da&szlig; er sich auf weiteren UNIXoiden Systemen &uuml;bersetzen
+ bzw. relativ einfach anpassen l&auml;&szlig;t.
+</p>
+
+<h2 id="docu">Dokumentation</h2>
+<p>
+ Ein wenig Dokumentation ist im Quellpaket enthalten, zum Teil im Hauptverzeichnis (so z.B.
+ die Dokumente INSTALL, README, NEWS und COPYING), andere im Unterverzeichnis &quot;doc&quot;
+ (wie z.B. CVS.txt, FAQ.txt und die Beispiel-Konfiguration sample-ngircd.conf).
+</p>
+<p>Teile von letzteren sind hier im Web (mehr oder weniger aktuell) verf&uuml;gbar:</p>
+<ul>
+ <li>README: <a href="doc/README">deutsch</a>, <a href="doc/en/README">english</a>
+ <li>INSTALL: <a href="doc/INSTALL">deutsch</a>, <a href="doc/en/INSTALL">english</a>
+</ul>
+<ul>
+ <li><a href="doc/CVS.txt">CVS.txt</a>
+ <li><a href="doc/FAQ.txt">FAQ.txt</a>
+ <li><a href="doc/RFC.txt">RFC.txt</a>
+</ul>
+<ul>
+ <li><a href="doc/sample-ngircd.conf">sample-ngircd.conf</a>
+</ul>
+<ul>
+ <li><a href="doc/README-AUX.txt">README-AUX.txt</a>
+</ul>
+
+<h2 id="ml">Mailingliste</h2>
+<p>
+ Es gibt eine (englischsprachige) Mailingliste, die sich mit allen
+ "technischen" Fragen rund um den ngIRCd besch&auml;ftigt: Compilieren,
+ Installieren, Konfigurieren und auch die weitere Entwicklung und
+ Erweiterungen. Zudem werden hier Updates und wichtige CVS-Updates
+ angek&uuml;ndigt.
+</p>
+<p>Die Anmeldung erfolgt &uuml;ber die <a href="http://arthur.ath.cx/mailman/listinfo/ngircd-ml">Hauptseite der Mailingliste</a>.
+<p>Alle Beitr&auml;ge werden zudem in einem <a href="http://arthur.ath.cx/pipermail/ngircd-ml/">Archiv</a> gespeichert.
+
+<h2 id="install">Installation</h2>
+<p>
+ ngIRCd ist f&uuml;r UNIXoide Systeme konzipiert, die Installation sollte auf
+ einem modernen UNIX-&auml;hnlichen System, das von GNU automake und GNU autoconf
+ (&quot;configure&quot;) unterst&uuml;tzt wird, keine besonderen Schwierigkeiten bereiten.
+</p>
+<p>
+ Der &quot;Standardfall&quot; sieht so aus:
+</p>
+<blockquote><p><code>
+ tar xzf ngircd-&lt;version&gt;.tar.gz<br>
+ cd ngircd-&lt;version&gt;<br>
+ ./configure<br>
+ make
+</code></p></blockquote>
+<p>
+ Nun sollte sich in <code>src/ngircd</code> der ausf&uuml;hrbare Server (in der
+ Regel &quot;<code>ngircd</code>&quot;) befinden.
+</p>
+<blockquote><p><code>
+ make install
+</code></p></blockquote>
+<p>
+ Der ausf&uuml;hrbare Server wurde nun in <code>/usr/local/sbin</code> installiert.
+</p>
+<p>
+ Vom Server wird die Konfigurationsdatei <code>ngircd.conf</code> in
+ <code>/usr/local/etc</code> erwartet; eine Beispiel-Konfigurationsdatei ist
+ im Verzeichnis <code>doc</code> zu finden.
+</p>
+<p>
+ Weitere Hinweise zur Installation und Konfiguration finden sich in
+ der Datei <a href="doc/INSTALL">INSTALL</a>.
+</p>
+
+<h2 id="download">Download</h2>
+<dl>
+ <dt><strong>ngIRCd 0.6.1</strong> (2003-01-21):</dt>
+ <dd>
+	<p>Server: <em>download.berlios.de</em></p>
+	<ul>
+		<li>ngircd-0.6.1.tar.gz:
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.6.1.tar.gz">http</a>
+	</ul>
+	<p>Server: <em>arthur.ath.cx</em></p>
+	<ul>
+		<li>ngircd-0.6.1.tar.gz:
+		    <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/ngircd-0.6.1.tar.gz">ftp</a>.
+	</ul>
+ </dd>
+</dl>
+<p>
+ Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie &quot;nightly tarballs&quot;
+ aus den aktuellen CVS-HEAD-Quellen k&ouml;nnen zudem via
+ <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/">ftp</a>
+ heruntergeladen werden.
+</p>
+
+<h2 id="people">Kontakt</h2>
+<p>
+ Die Idee, den ngIRCd zu entwickeln, hatte
+ Alexander Barton (<a href="mailto:alex@barton.de">alex@barton.de</a>);
+ von ihm sind fast alle Teile des heutigen Source-Codes.
+</p>
+<p>
+ Dank geb&uuml;hrt
+ Ilja Osthoff (<a href="mailto:ilja@glide.ath.cx">ilja@glide.ath.cx</a>)
+ f&uuml;r englische &Uuml;bersetzungen der Dokumentation sowie
+ G&ouml;tz Hoffart (<a href="mailto:goetz@hoffart.de">goetz@hoffart.de</a>)
+ f&uuml;r die englische Webseite.
+</p>
+<p>
+ Solltest du Bugs finden oder Ideen f&uuml;r Erweiterungen haben, trage
+ diese am Besten in den <a href="#bugs">Bug-Tracker</a> des ngIRCd ein.
+ F&uuml;r Diskussionen und Fragen rund um den ngIRCd ist zudem eine
+ <a href="#ml">Mailingliste</a> eingerichtet.
+</p>
+<p>BTW: &uuml;ber Patches und weitere "Mitstreiter" freuen wir uns immer!</p>
+
+<h2 id="cvs">CVS-Repository</h2>
+<p>
+ Der Quelltext und alle zum ngIRCd geh&ouml;renden Dateien werden im
+ <a hreflang="en" href="http://www.cvshome.org/"><abbr title="Concurrent Versions System">CVS</abbr></a>, 
+ verwaltet. Anonymer Zugang ist m&ouml;glich, Details hier:
+ <a href="doc/CVS.txt">CVS.txt</a>.
+</p>
+<p>
+ Im Web ist die Repository auch online verf&uuml;gbar:
+ <a href="http://arthur.ath.cx/cgi-bin/cvsweb.cgi/?cvsroot=ngIRCd">ngIRCd CVS Repository</a>.
+</p>
+
+<h2 id="bugs">Bug-Tracker</h2>
+<p>
+ Damit ich den &Uuml;berlick &uuml;ber eventuell(!?) im ngIRCd vorhandene Bugs und
+ Feature-W&uuml;nsche nicht verliere, ist ein Bug-Tracking-System installiert:
+ <a href="http://arthur.ath.cx/bugzilla/ngircd/">Bugzilla</a>
+</p>
+<p>
+ Solltest du Fehler finden, so lege dort bitte einen
+ <a href="http://arthur.ath.cx/bugzilla/ngircd/enter_bug.cgi">Bug-Report</a>
+ an! Vielen Dank!
+</p>
+<p>
+ Zudem kannst du dich dort auch &uuml;ber bekannte und vielleicht bereits
+ behobene Fehler
+ <a href="http://arthur.ath.cx/bugzilla/ngircd/query.cgi">informieren</a>.
+</p>
+
+<!-- Footer -->
+<hr style="margin-top: 0.75em;">
+<p style="text-align: center">
+ Dank an:<br>
+ <a href="http://developer.berlios.de"><img src="http://developer.berlios.de/sflogo.php?group_id=546&amp;type=1" width="124" height="32" alt="BerliOS Logo" style="border: 0"></a>
+</p>
+<hr>
+<p>
+ <img src="valid-html401.gif" style="float: right;" alt="Valid HTML 4.01!" height="31" width="88">
+ <small>
+  Letzte &Auml;nderungen: 2003-01-21 (alex).
+  Seite <a hreflang="en" href="http://validator.w3.org/check?uri=http%3A%2F%2Farthur.ath.cx%2F%7Ealex%2Fngircd%2Findex.html.de">pr&uuml;fen</a>.<br>
+  Kontakt: Alexander Barton, E-Mail: <a href="mailto:alex@arthur.ath.cx">alex@arthur.ath.cx</a>.<br>
+ </small>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+
+                     ngIRCd - Next Generation IRC Server
+
+                      (c)2001-2003 by Alexander Barton,
+                    alex@barton.de, http://www.barton.de/
+
+               ngIRCd is free software and published under the
+                   terms of the GNU General Public License.
+
+                                  -- NEWS --
+
+
+ngIRCd 0.7.1 (2003-07-18)
+
+  - Added support for GNU/Hurd.
+
+ngIRCd 0.7.0 (2003-05-01)
+
+  - New command CONNECT to enable and add server links. The syntax is not
+    RFC-compatible: use "CONNECT <name> <port>" to enable and connect an
+    configured server and "CONNECT <name> <port> <host> <mypwd> <peerpwd>"
+    to add a new server (ngIRCd tries to connect new servers only once!).
+  - Added DISCONNECT command ("DISCONNECT <name>") to disable servers.
+  - New command TRACE (you can trace only servers at the moment).
+  - New command HELP that lists all understood commands.
+  - ngIRCd can register itself with Rendezvous: to enable support pass the
+    new switch "--with-rendezvous" to configure.
+  - Added support for TCP Wrappers library: pass "--with-tcp-wrappers" to
+    configure to enable it.
+  - Changed some configure options to use "--with"/"--without" as prefix
+    insetead of "--enable"/"--disable": "--without-syslog", "--without-zlib",
+    "--with-tcp-wrappers", and "--with-rendezvous".
+  - Enhanced manual pages ngircd(8) and ngircd.conf(5).
+  - Documentation is now installed in $(datadir)/doc/ngircd.
+
+
+Older news (sorry, only available in german language):
+
+ngIRCd 0.6.0, 2002-12-24
+
+  - beim Schliessen einer Verbindung zeigt der Server nun vor dem ERROR
+    noch eine Statistik ueber die empfangene und gesendete Datenmenge an.
+  - Connection-Strukturen werden nun "pool-weise" verwaltet; der Pool wird
+    bei Bedarf bis zu einem konfigurierten Limit vergroessert.
+  - Mit der neuen Konfigurationsvariable "MaxConnections" (Sekion "Global")
+    kann die maximale Anzahl gleichzeitiger Verbindungen begrenzt werden.
+    Der Default ist -1, "unlimitiert".
+  - der Server erkennt nun, ob bereits eine eingehende Verbindung von einem
+    Peer-Server besteht und versucht dann nicht mehr, selber eine eigene
+    ausgehende Verbindung zu diesem auufzubauen. Dadurch kann nun auf beiden
+    Servern in der Konfiguration ein Port fuer den Connect konfiguriert
+    werden (beide Server versuchen sich dann gegenseitig zu connectieren).
+  - Server identifizieren sich nun mit asyncronen Passwoertern, d.h. das
+    Passwort, welches A an B schickt, kann ein anderes sein als das, welches
+    B als Antwort an A sendet. In der Konfig.-Datei, Abschnitt "Server",
+    wurde "Password" dazu durch "MyPassword" und "PeerPassword" ersetzt.
+  - Der Server kann nun zur Laufzeit die Konfiguration neu einlesen: dies
+    macht er nach dem Befehl REHASH oder wenn ein HUP-Signal empfangen wird.
+  - Server-Server-Links koennen nun komprimiert werden, dazu wird die zlib
+    (www.zlib.org) benoetigt. Unterstuetzt die Gegenseite die Komprimierung
+    nicht, wird automatisch unkomprimiert kommuniziert. Das Verfahren ist
+    kompatibel mit dem Original-ircd 2.10.3, d.h. beide Server koennen
+    miteinander ueber komprimiert Links kommunizieren.
+  - neue Konfigurations-Variable "MaxJoins": Hiermit kann die maximale Zahl
+    der Channels, in denen ein User Mitglied sein kann, begrent werden.
+  - neue Channel-Modes l (User-Limit) und k (Channel-Key) implementiert.
+
+ngIRCd 0.5.0, 20.09.2002
+
+  - AIX (3.2.5), HP-UX (10.20), IRIX (6.5), NetBSD (1.5.3/m68k) und Solaris
+    (2.5.1, 2.6) gehoeren nun auch zu den unterstuetzten Platformen.
+  - Unter A/UX (und evtl. weiteren Systemen) kompiliert der ngIRCd nun mit
+    dem "nativen" (ggf. pre-ANSI) Compiler.
+  - "persistente Channels" (Mode 'P') implementiert: diese koennen in der
+    Konfigurationsdatei definiert werden (Sektion "Channel", vgl. Beispiel-
+    Konfiguration "sample-ngircd.conf") und bleiben auch dann bestehen,
+    wenn kein User mehr im Channel ist.
+  - neue IRC-Befehle: KICK, INVITE, ADMIN, CHANINFO; LIST wurde erweitert.
+    Mit dem neuen Befehl CHANINFO syncronisieren Server, die das IRC+-
+    Protokoll unterstuetzen, Channel-Modes und Topics. Fuer den ADMIN-Befehl
+    gibt es neue Konfigurationsoptionen (Sektion "Global"): "AdminInfo1",
+    "AdminInfo2" und "AdminEMail".
+  - Invite- und Ban-Lists implementiert.
+  - neue Konfigurationsoption "OperCanUseMode" (Sektion "Global"):
+    ist sie aktiv, koennen IRC-Operatoren immer Channel-Modes setzen.
+  - "Test-Suite" begonnen: mit "make check" wird sie durchlaufen.
+
+ngIRCd 0.4.2, 29.04.2002
+
+  - IRC-Funktion LIST implementiert; bisher werden allerdings noch keine
+    Regular Expressions (bis auf "*") unterstuetzt.
+
+ngIRCd 0.4.0, 01.04.2002
+
+  - WHO implementiert (bisher ohne komplette Unterstuetzung von Masks).
+  - stderr wird nun in eine Datei umgelenkt (/ngircd-<PID>.err).
+    Laeuft der Server nicht im Debug-Modus, so wird diese bei Programm-
+    ende geloescht. Sollte der Server abstuerzen, finden sich hier evtl.
+    zusaetzliche Informationen.
+  - Server-Gruppen implementiert: es wird immer nur zu einem Server in
+    einer Gruppe eine Verbindung aufgebaut, klappt es beim ersten Server
+    nicht, so wird der naechste probiert.
+  - Clients und Channels werden nicht mehr ueber ihren Namen, sondern
+    einen Hash-Wert gesucht: sollte deutlich schneller sein.
+  - neuer Kommandozeilen-Parameter "--configtest": die Konfiguration wird
+    gelesen und die dann verwendeten Werte angezeigt.
+  - Client-Mode "s" (Server Notices) implementiert.
+  - mit dem neuen Kommandozeilen-Parameter "--config"/"-f" kann eine
+    alternative Konfigurationsdatei angegeben werden.
+  - nach dem Start kann der ngIRCd, wenn er mit root-Rechten laeuft,
+    zu einer anderen User-ID und Group-ID wechseln.
+
+ngIRCd 0.3.0, 02.03.2002
+
+  - bekommt der Server ein HUP-Signal, so startet er neu -- genau so, wie
+    er auf den IRC-Befehl RESTART reagiert.
+  - neuer Kommandozeilen-Schalter "--passive" (-p): wird er angegeben, so
+    verbindet sich der ngIRCd nicht mehr automatisch zu anderen Servern.
+    Zum Debuggen manchmal ganz praktisch :-)
+  - neue Befehle VERSION und KILL implementiert. NAMES korrigiert.
+  - Anpassungen an A/UX: gehoert nun auch zu den unterstuetzten Platformen.
+  - AWAY (und der User-Mode 'a') ist nun implementiert.
+  - der ngIRCd unterstuetzt nun Channel-Topics (TOPIC-Befehl).
+  - Channel- und Nicknames werden nun ordentlich validiert.
+
+ngIRCd 0.2.0, 15.02.2002
+
+  - Begonnen Channel-Modes und User-Channel-Modes zu implementieren: der
+    Server versteht an User-Modes o und v, beachtet letzteres allerdings
+    noch nirgends. Bekannte (aber nicht beachtete!) Channel-Modes sind
+    bisher a, m, n, p, q, s und t. Diese Modes werden von Usern ange-
+    nommen, von anderen Servern werden auch unbekannte Modes uebernommen.
+  - Nach dem Connect eines Users werden LUSERS-Informationen angezeigt.
+
+ngIRCd 0.1.0, 29.01.2002
+
+  - Channels implementiert, bisher jedoch noch ohne Channel-Modes, d.h.
+    es gibt keine Channel-Ops, kein Topic, kein "topic lock" etc. pp.
+    Chatten in Channels ist aber natuerlich moeglich ;-)
+    Dadurch zum Teil groessere Aenderungen an bisherigen Funktionen.
+  - neue Befehle fuer Channles: JOIN, PART und NJOIN.
+  - FAQ.txt in doc/ begonnen.
+
+ngIRCd 0.0.3, 16.01.2002
+
+  - Server-Links vollstaendig implementiert: der ngIRCd kann nun auch
+    "Sub-Server" haben, also sowohl als Leaf-Node als auch Hub in einem
+    IRC-Netzwerk arbeiten.
+  - WHOIS wird nun immer an den "Original-Server" weitergeleitet.
+  - Parser handhabt Leerzeichen zw. Parametern nun etwas "lockerer".
+  - Kommandozeilen-Parser: Debug- und No-Daemon-Modus, Hilfe.
+  - ngIRCd wandelt sich nun in einen Daemon (Hintergrundprozess) um.
+  - neue Befehle: LUSERS, LINKS.
+
+ngIRCd 0.0.2, 06.01.2002
+
+  - neuer Aufbau der Konfigurationsdatei,
+  - mehrere IRC-Operatoren koennen konfiguriert werden,
+  - Server-Links teilweise implementiert. Bisher kann der ngIRCd jedoch
+    nur "leafed server" sein, d.h. keine "Client-Server" haben.
+
+ngIRCd 0.0.1, 31.12.2001
+
+  - erste oeffentliche Version von ngIRCd als "public preview" :-)
+
+
+-- 
+$Id$

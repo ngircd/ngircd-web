@@ -1,0 +1,461 @@
+
+                     ngIRCd - Next Generation IRC Server
+
+                      (c)2001-2003 by Alexander Barton,
+                    alex@barton.de, http://www.barton.de/
+
+               ngIRCd is free software and published under the
+                   terms of the GNU General Public License.
+
+                               -- ChangeLog --
+
+
+ngIRCd 0.7.1 (2003-07-18)
+  
+  - Included files to build Debian packages (located in "debian/").
+  - Updated config.guess and config.sub to newer upstream versions.
+  - NJOIN propagates user channel modes correctly again ... Upsa.
+  - Made Makefile more compatible with "make -j<n>".
+  - Added support for GNU/Hurd.
+  - Fixed a compiler warning related to an unnecessary assert().
+  - Enhanced VERSION command when using debug versions.
+
+ngIRCd 0.7.0 (2003-05-01)
+
+  - "ServerName" is checked better now: a dot (".") is required.
+  - The KILL command verifies and logs more parameters.
+
+  ngIRCd 0.7.0-pre2 (2003-04-27)
+  - CVS build system fixes (made autogen.sh more portable).
+  - Fixed compilation and test-suite on Solaris (tested with 2.6).
+  - New documentation file "doc/Platforms.txt" describing the status of
+    ngIRCd on the various tested platforms.
+  - Test for broken GCC on Mac OS X and disable "-pedantic" in this case.
+  - Disable "-ansi" on Cygwin: system headers are incompatible.
+  - The server tried to connect to other servers only once when DNS or
+    socket failures occurred.
+  - Fixed --configtest: There is no variable "ServerPwd", it's "Password".
+
+  ngIRCd 0.7.0-pre1 (2003-04-22)
+  - New signal handler (more secure, actions are executed outside).
+  - GCC: the compiler is now called with more warning options enabled.
+  - Replaced a lot of str[n]cpy(), str[n]cat() and sprintf() calls with the
+    more secure functions strlcpy(), strlcat() and snprintf(). On systems
+    that don't support strlcpy() and strlcat(), these functions are included
+    in the libngportab now (with prototypes in portab.h).
+  - If the server can't close a socket, it panics now. This is an error that
+    can't occur during normal operation so there is something broken.
+  - The order of log messages during disconnects is more "natural" now ;-)
+  - Cleaned up handling of server configuration structures: modifying and
+    removing servers during runtime works more reliable now.
+  - Compression code from "conn.[ch]" is now found in new "conn-zip.[ch]"
+  - Moved some connection functions from "conn.[ch]" to "conn-func.[ch]".
+  - New command CONNECT to enable and add server links. The syntax is not
+    RFC-compatible: use "CONNECT <name> <port>" to enable and connect an
+    configured server and "CONNECT <name> <port> <host> <mypwd> <peerpwd>"
+    to add a new server (ngIRCd tries to connect new servers only once!).
+  - Added DISCONNECT command ("DISCONNECT <name>") to disable servers.
+  - Restructured the documentation: Now the main language is English. The
+    german documentation has been removed (until there is a maintainer).
+  - Enhanced killing of users caused by a nickname collision.
+  - Better error detection for status code ("numerics") forwarding.
+  - Moved tool functions to own library: "libngtool".
+  - New command TRACE (you can trace only servers at the moment).
+  - New command HELP that lists all understood commands.
+  - There should no longer remain "unknown connections" (see e.g. LUSERS)
+    if an outgoing server link can't be established.
+  - Added AC_PREREQ(2.50) to configure.in for better autoconf compatibility.
+  - Conn_Close() now handles recursive calls for the same link correctly.
+  - ngIRCd can register itself with Rendezvous: to enable support pass the
+    new switch "--with-rendezvous" to configure.
+  - Added support for TCP Wrappers library: pass "--with-tcp-wrappers" to
+    configure to enable it.
+  - Changed some configure options to use "--with"/"--without" as prefix
+    instead of "--enable"/"--disable": "--without-syslog", "--without-zlib",
+    "--with-tcp-wrappers", and "--with-rendezvous".
+  - Better error reporting to clients on connect.
+  - Enhanced manual pages ngircd(8) and ngircd.conf(5).
+  - Documentation is now installed in $(datadir)/doc/ngircd.
+  - Enhanced hanling of NJOIN in case of nick collisions.
+
+ngIRCd 0.6.1, 2003-01-21
+
+  - Fixed KILL: you can't crash the server by killing yourself any more,
+    ngIRCd no longer sends a QUIT to other servers after the KILL, and you
+    can kill only valid users now.
+  - The server no longer forwards commands to ordinary users, instead it
+    answers with the correct error message ("no such server") now.
+  - WHOIS commands weren't always forwarded as requested.
+  - The server sets a correct default AWAY message now when propagating
+    between servers (bug introduced in 0.6.0).
+  - Fixed up and enhanced CHANINFO command: channel keys and user limits
+    are synchronized between servers now, too.
+  - MODE returns the key and user limit for channel members correctly now.
+  - Non-members of a channel could crash the server when trying to change
+    its modes or modes of its members.
+  - The server didn't validate weather a target user is a valid channel
+    member when changing his channel user modes which could crash ngIRCd.
+
+
+Older changes (sorry, only available in german language):
+
+ngIRCd 0.6.0, 2002-12-24
+
+  ngIRCd 0.6.0-pre2, 2002-12-23
+  - neuer Numeric 005 ("Features") beim Connect.
+  - LUSERS erweitert: nun wird die maximale Anzahl der lokalen und globalen
+    Clients, die dem Server bzw. im Netzwerk seit dem letzten (Re-)Start
+    dem Server gleichzeitig bekannt waren, angezeigt.
+
+  ngIRCd 0.6.0-pre1, 2002-12-18
+  - beim Schliessen einer Verbindung zeigt der Server nun vor dem ERROR
+    noch eine Statistik ueber die empfangene und gesendete Datenmenge an.
+  - der Server wartet bei einer eingehenden Verbindung nun laenger auf den
+    Resolver (4 Sekunden), wenn das Ergebnis eintrifft setzt er aber den
+    Login sofort fort (bisher wurde immer mind. 1 Sekunde gewartet).
+  - Connection-Strukturen werden nun "pool-weise" verwaltet; der Pool wird
+    bei Bedarf bis zu einem konfigurierten Limit vergroessert.
+  - Mit der neuen Konfigurationsvariable "MaxConnections" (Sektion "Global")
+    kann die maximale Anzahl gleichzeitiger Verbindungen begrenzt werden.
+    Der Default ist -1, "unlimitiert".
+  - der Server erkennt nun, ob bereits eine eingehende Verbindung von einem
+    Peer-Server besteht und versucht dann nicht mehr, selber eine eigene
+    ausgehende Verbindung zu diesem auufzubauen. Dadurch kann nun auf beiden
+    Servern in der Konfiguration ein Port fuer den Connect konfiguriert
+    werden (beide Server versuchen sich dann gegenseitig zu connectieren).
+  - Test-Suite und Dokumentation an A/UX angepasst.
+  - unter HP-UX definiert das configure-Script nun _XOPEN_SOURCE_EXTENDED.
+  - Server identifizieren sich nun mit asyncronen Passwoertern, d.h. das
+    Passwort, welches A an B schickt, kann ein anderes sein als das, welches
+    B als Antwort an A sendet. In der Konfig.-Datei, Abschnitt "Server",
+    wurde "Password" dazu durch "MyPassword" und "PeerPassword" ersetzt.
+  - Der Server kann nun zur Laufzeit die Konfiguration neu einlesen: dies
+    macht er nach dem Befehl REHASH oder wenn ein HUP-Signal empfangen wird.
+  - Channel-Mode "P" ("persistent") kann nur noch von IRC-Operatoren gesetzt
+    werden. Grund: User koennen den Server sonst leicht "Channel-Flooden".
+  - MOTD kann nun an andere Server geforwarded werden.
+  - IRC-Befehl "TIME" implementiert.
+  - Server-Server-Links koennen nun komprimiert werden, dazu wird die zlib
+    (www.zlib.org) benoetigt. Unterstuetzt die Gegenseite die Komprimierung
+    nicht, wird automatisch unkomprimiert kommuniziert. Das Verfahren ist
+    kompatibel mit dem Original-ircd 2.10.3, d.h. beide Server koennen
+    miteinander ueber komprimiert Links kommunizieren.
+  - Handling der Schreibpuffer umgestellt: Server sollte schneller arbeiten.
+  - Prefix-Fehler werden besser protokolliert (mit verursachendem Befehl).
+  - SQUIT wird nicht mehr doppelt an andere Server weitergeleitet.
+  - Der Server versucht nun vor dem Schliessen einer Verbindung Daten, die
+    noch im Schreibpuffer stehen, zu senden.
+  - Source in weiteres Modul "irc-info" aufgespalten.
+  - Konfigurationsvariablen werden besser validiert: Laengen, Zahlen, ...
+  - neuen Befehl STATS begonnen: bisher unterstuetzt wird "l" und "m".
+  - bei ISON und USERHOST fehlte im Ergebnis-String der korrekte Absender.
+  - IRC Operatoren koennen nun mit KILL User toeten. Achtung: ein Grund muss
+    zwingend als zweiter Parameter angegeben werden!
+  - neue Konfigurations-Variable "MaxJoins": Hiermit kann die maximale Zahl
+    der Channels, in denen ein User Mitglied sein kann, begrent werden.
+  - neuer, deutlich flexiblerer Parser fuer den MODE Befehl.
+  - neue Channel-Modes l (User-Limit) und k (Channel-Key) implementiert.
+
+ngIRCd 0.5.4, 24.11.2002
+
+  - Fehler-Handling von connect() gefixed: der Server kann sich nun auch   
+    unter A/UX wieder zu anderen verbinden.
+  - in den Konfigurationsvariablen ServerUID und ServerGID kann nun nicht
+    nur die numerische ID, sondern auch der Name des Users bzw. der Gruppe
+    verwendet werden. Beim Start des Daemons wird nun beides angezeigt.
+  - Besseres Logging von Prefix-Fehlern.
+  - angenommene Sockets werden nun korrekt auf "non-blocking" konfiguriert,
+    beim Senden und Empfangen werden Blockierungen besser abgefangen.
+  - RPL_UMODEIS hat Code 221, nicht 211 ... *argl*
+  - select() in Try_Write() hat falschen (keinen!) Timeout verwendet;
+    die "Zeit-Aufloesung" des Servers sind zudem nun 2 Sekunden (TIME_RES).
+    Insgesamt sollte die Reaktionszeit des Server nun besser sein.
+
+ngIRCd 0.5.3, 08.11.2002
+
+  - NOTICE liefert nun wirklich nie mehr einen Fehler, auch dann nicht,
+    wenn der sendende Client noch gar nicht registriert ist.
+  - ein "schneller Server-Reconnect" wird nur noch dann versucht, wenn die
+    Verbindung zuvor ordentlich (="lange genug") in Ordnung war; somit also
+    nicht meht, wenn der Peer-Server gleich beim Connect ein ERROR liefert.
+    Das vermeidet "Connect-Orgien".
+  - einige Datentypen aufgeraumt: z.B. sind viele INT32s nun LONGs. Das ist
+    auf Platformen mit 8-Byte-Integern kompatibler.
+  - RPL_YOURHOST_MSG ist nun ircII- und RFC-kompatibel ;-)
+  - Segfault unter hoher Netzaktivitaet behoben: in Conn_Close() wird die
+    Connection-Struktur nun frueher als "ungueltig" markiert.
+
+ngIRCd 0.5.2, 04.10.2002
+
+  - Buffer Overflow in Read_Resolver_Result() behoben.
+  - Format-String-Bugs, die zum Abbruch des Servers fuehrten, behoben.
+  - Maximale Laenge eines IRC-Prefix wurde falsch berechnet.
+
+ngIRCd 0.5.1, 03.10.2002
+
+  - in RPL_YOURHOST_MSG wurde ein fehlerhafter Versionsstring geliefert.
+  - Test-Suite: start-server.sh, stop-server.sh und stress-server.sh koennen
+    nun "manuell" von der Kommandozeile gestartet werden, stress-server.sh
+    startet per Default nur noch 5 Sessions, eine andere Zahl kann auf der
+    Kommandozeile uebergeben werden (Syntax: "stress-server.sh <count>").
+  - In bestimmten Faellen hat der Server versucht auf einen bereits wieder
+    geschlossenen Socket Daten zu schreiben; das fuehrte zu einem Abbruch des
+    Servers durch ein assert(). Nun wird geprueft, ob der Socket noch ok ist.
+  - im "contrib"-Verzeichnis befindet sich nun eine RPM-Spec-Datei, aus den
+    .tar.gz's koennen nun mit "rpm -ta <archiv>" RPM's erzeugt werden. Danke
+    an Sean Reifschneider <jafo@tummy.com>!
+  - Syntax von RPL_MYINFO_MSG korrigiert: liefert nun vier Parameter.
+
+ngIRCd 0.5.0, 20.09.2002
+
+  - Dokumentation aktualisiert.
+  - Fehler bei Validierung von "AdminInfo2" behoben.
+  - Test der Flags fuer "ps" in der Testsuite verbessert, ist nun zu mehr
+    Plattformen kompatibler.
+
+  ngIRCd 0.5.0-pre2, 17.09.2002
+  - Fix in IRC_WriteStrServersPrefix() war "badly broken" -- behoben.
+
+  ngIRCd 0.5.0-pre1, 16.09.2002
+  - Manual-Pages ngircd.8 und ngircd.conf.5 begonnen.
+  - Wird der Netzwerk-Sniffer aktiviert (--sniffer), so schaltet der
+    ngIRCd nun automatisch in den Debug-Modus.
+  - auf Systemen, die inet_aton() nicht kennen (wie z.B. A/UX), kann der
+    ngIRCd nun dennoch auch aktiv Server-Links aufbauen.
+  - h_errno wird auf Systemen, die das nicht kennen (wie z.B. HP-UX 10.20)
+    nicht mehr verwendet. Somit compiliert der ngIRCd nun auch dort :-)
+  - um auf dem Ziel-System nicht vorhandene Funktionen nachzubilden wird nun
+    die "libngportab" erzeugt; genutzt wird dies bisher fuer vsnprintf().
+    Nun compiliert der ngIRCd auch unter Solaris 2.5.1.
+  - "persistente Channels" (Mode 'P') implementiert: diese koennen in der
+    Konfigurationsdatei definiert werden (Sektion "Channel", vgl. Beispiel-
+    Konfiguration "sample-ngircd.conf") und bleiben auch dann bestehen,
+    wenn kein User mehr im Channel ist. Zu Channel-Operatoren werden bisher
+    nur IRC-Operatoren, die den Channel betreten. Die persistenten Channels
+    werden durch das Flag "P" gelennzeichnet, welches normal durch Channel-
+    Op's gesetzt und geloescht werden kann.
+  - bei "--configtest" werden keine leere Abschnitte mehr ausgegeben.
+  - Source in weitere Module aufgespalten: lists, irc-op und resolve.
+  - #include's aufgeraeumt: Header includieren keine anderen mehr.
+  - KICK implementiert (bisher kann nur ein User aus einem Channel geckicked
+    werden, Listen, wir im RFC vorgesehen, werden bisher nicht unterstuetzt).
+  - INVITE, den Channel-Mode "i" sowie Invite-Lists ueber den MODE-Befehl
+    (setzen, erfragen und loeschen) implementiert.
+  - Source an ansi2knr fuer pre-ANSI-Compiler angepasst; ansi2knr in Source-
+    Tree aufgenommen und in Build-System integriert; der ngIRCd compiliert
+    nun z.B. unter A/UX mit dem nativen Compiler von Apple.
+  - TOPIC lieferte bei unbekanntem Channel einen falschen Fehlercode.
+  - LIST versteht nun Wildcards und kann an andere Server geforwarded werden.
+  - wurde ein KILL fuer nicht-lokale Clients empfangen, so wurden die
+    Verwaltungs-Strukturen nicht korrekt freigegeben.
+  - empfangene NJOIN's wurden "zerhackt" an andere Server weitergegeben.
+  - neue Konfigurationsoption "OperCanUseMode" (Sektion "Global"):
+    ist sie aktiv, koennen IRC-Operatoren immer Channel-Modes setzen.
+  - Dokumentation des neuen IRC+-Protokolls begonnen: doc/Protocol.txt
+  - Protokoll- und Server-ID bei PASS-Befehlen auf neues Format umgestellt;
+    bei empfangenen PASS-Befehlen werden diese zudem nun auch ausgewertet.
+    Die unterstuetzten Flags sind in doc/Protocol.txt beschrieben.
+  - mit dem neuen Befehl CHANINFO syncronisieren Server, die das IRC+-
+    Protokoll unterstuetzen, Channel-Modes und Topics.
+  - neue Option "--disable-ircplus" fuer das configure-Script, um das
+    IRC+-Protokoll abzuschalten (per Default ist es aktiviert).
+  - Ban-Lists (setzen, erfragen und loeschen) implementiert.
+  - wird der Server mit "-n"/"--nodaemon" gestartet, so werden keine Mel-
+    dungen mehr ueber Syslog ausgegeben, sondern nur noch auf der Konsole.
+  - "Test-Suite" begonnen (in "make check" integriert): Dabei wird ein
+    speziell konfigurierter Server auf Port 6789 gestartet, mit dem dann
+    einige Tests durchgefuehrt werden (u.a. "Stress-Test" mit 50 Clients).
+  - zu lange Operator-Namen in der Konfiguration wurden falsch gekuerzt.
+  - kleine Anpassung an AIX 3.2.5: nun laeuft der ngIRCd auch dort :-)
+  - ADMIN-Befehl implementiert. Die Daten hierzu werden in der Konfig-Datei
+    im [Global]-Abschnitt mit den Variablen "AdminInfo1", "AdminInfo2" und
+    "AdminEMail" konfiguriert.
+  
+ngIRCd 0.4.3, 11.06.2002
+
+  - Bei PRIVMSG und NOTICE hat der ngIRCd nicht ueberpruft, ob das Ziel
+    ueberhaupt ein User ist. War es keiner, so fuehrte dies zu einem
+    Abbruch des Servers [es wurde assert() aufgerufen].
+
+ngIRCd 0.4.2, 29.04.2002
+
+  - LUSERS verzaehlt sich bei eigenen Server-Links nicht mehr.
+  - QUIT wird nun auch von noch nicht registrierten Clients akzeptiert.
+  - IRC-Funktion LIST implementiert; bisher werden allerdings noch keine
+    Wildcards (bis auf "*") unterstuetzt.
+
+ngIRCd 0.4.1, 08.04.2002
+
+  - Bei Server-Links wird nicht mehr an Hand der Anzahl der Parameter
+    eines empfangenen SERVER-Befehls, sondern "intern" erkannt, ob es
+    sich um eine ein- oder ausgehende Verbindung handelt und somit das
+    eigene PASS-SERVER-Paar gesendet werden muss oder nicht. Da sich
+    verschiedene Versionen des Original-ircd's anders verhalten, schlug
+    die Anmeldung je nach Gehenseite evtl. fehl.
+  - Bei einem NICK-Befehl eines lokalen Client konnte der Server ab-
+    stuerzen, da ein Format-String einer Log-Meldung fehlerhaft war.
+
+ngIRCd 0.4.0, 01.04.2002
+
+  - IRC-Befehle nochmal auf weitere Source-Dateien aufgespalten.
+  - WHO implementiert (bisher ohne komplette Unterstuetzung von Masks).
+  - Der AWAY-Mode wurde nicht ueber mehrere Server-Links weitergegeben.
+  - stderr wird nun in eine Datei umgelenkt (/tmp/ngircd-<PID>.err).
+    Laeuft der Server nicht im Debug-Modus, so wird diese bei Programm-
+    ende geloescht. Sollte der Server abstuerzen, finden sich hier evtl.
+    zusaetzliche Informationen.
+  - In Nicknames wird das Zeichen "-" nun als zulaessig erkannt.
+  - die Beispiel-Konfigurationsdatei (doc/sample-ngircd.conf) wird als
+    ngircd.conf installiert, wenn noch keine "echte" Konfigurationsdatei
+    vorhanden ist.
+  - bei WHO, WHOIS und NAMES wird nun nur noch der Status "Operator" oder
+    "voiced" geliefert -- nicht mehr beides.
+  - Server-Gruppen implementiert: es wird immer nur zu einem Server in
+    einer Gruppe eine Verbindung aufgebaut, klappt es beim ersten Server
+    nicht, so wird der naechste probiert (Variable "Group" in der Kon-
+    figurationsdatei, Sektion [Server]).
+  - IRC_PING() ist, wenn nicht im "strict RFC"-Mode, toleranter und ak-
+    zeptiert beliebig viele Parameter (z.B. BitchX sendet soetwas).
+  - die "Portab-Header" werden nicht mehr benoetigt, die System-Erkennung
+    wird nun ausschliesslich vom configure-Script durchgefuehrt. System-
+    abhaengige Definitionen finden sich nun unter src/portrab/.
+  - Clients und Channels werden nicht mehr ueber ihren Namen, sondern
+    einen Hash-Wert gesucht: sollte deutlich schneller sein.
+  - neuer Kommandozeilen-Parameter "--configtest": die Konfiguration wird
+    gelesen und dann die verwendeten Werte angezeigt.
+  - Client-Mode "s" (Server Notices) implementiert.
+  - mit dem neuen Kommandozeilen-Parameter "--config"/"-f" kann eine
+    alternative Konfigurationsdatei angegeben werden.
+  - nach dem Start kann der ngIRCd, wenn er mit root-Rechten laeuft,
+    zu einer anderen User-ID und Group-ID wechseln.
+  - URL der Homepage wird u.a. bei "--version" mit angezeigt.
+
+ngIRCd 0.3.0, 02.03.2002
+
+  - bekommt der Server ein HUP-Signal, so startet er neu -- genau so, wie
+    er auf den IRC-Befehl RESTART reagiert.
+  - FAQ um Hinweise auf den Bugtracker erweitert.
+  - neuer Kommandozeilen-Schalter "--passive" (-p): wird er angegeben, so
+    verbindet sich der ngIRCd nicht mehr automatisch zu anderen Servern.
+    Zum Debuggen manchmal ganz praktisch :-)
+  - direkt nach dem Start schreibt der ngIRCd nun die aktiven Kommando-
+    zeilenschalter in's Logfile (Passive, Debug, Sniffer ...).
+  - das Signal-Flag SA_RESTART wird nur noch gesetzt, wenn es auf dem
+    jeweiligen System auch definiert ist.
+  - bei ausgehenden Verbindungen wird nun der Ziel-Port protokolliert.
+  - neue Befehle VERSION und KILL implementiert.
+  - make-Target "check" (und "distcheck") mit Sinn erfuellt :-)
+    (die Tests sind aber bisher nicht all zu tiefgehend ...)
+  - Durch einen Ueberlauf konnte die Idle-Time bei WHOIS negativ werden ...
+  - Anpassungen an A/UX: gehoert nun auch zu den unterstuetzten Platformen.
+  - WHOIS wird nicht mehr automatisch an den "Original-Server" weiterge-
+    leitet: war eh nicht RFC-konform und machte mit Clients Probleme.
+  - an User wird nun immer ein "komplettes" Prefix (mit Host-Mask) ver-
+    schickt, Server bekommen nach wie vor kurze: das "Original" hat bei
+    bestimmten Befehlen (PRIVMSG) ansonsten evtl. Probleme ...
+  - NAMES korrigiert und vollstaendig implementiert.
+  - SQUIT wird auf jeden Fall geforwarded, zudem besseres Logging.
+  - Ist ein Nick bei der User-Registrierung bereits belegt, nimmt der
+    Server nun korrekt weitere NICK-Befehle an und verwendet diese.
+  - PRIVMSG beachtet nun die Channel-Modes "n" und "m".
+  - AWAY implementiert. PRIVMSG, MODE, USERHOST und WHOIS angepasst.
+  - der ngIRCd unterstuetzt nun Channel-Topics (TOPIC-Befehl).
+  - ausgehende Server-Verbindungen werden nun asyncron connectiert und
+    blockieren nicht mehr den ganzen Server, wenn die Gegenseite nicht
+    erreicht werden kann (bis zum Timeout konnten Minuten vergehen!).
+  - Wert der Konfigurations-Variable "ConnectRetry" wird besser beachtet.
+  - Channel- und Nicknames werden nun ordentlich validiert.
+
+ngIRCd 0.2.1, 17.02.2002
+
+  - NICK korrigiert: es werden nun auch alle "betroffenen" User informiert.
+  - configure-Script erweitert, u.a. bessere Anpassung an BeOS: dort wird
+    nun die "libbe" zum ngIRCd gelinkt, somit funktioniert auch syslog.
+  - Fehlerhafte bzw. noch nicht verstandene Modes werden nun ausfuehrlicher
+    an den Client geliefert.
+
+ngIRCd 0.2.0, 15.02.2002
+
+  - Nicknames und Channel-Namen werden etwas besser auf Gueltigkeit ueber-
+    prueft; ist aber nach wie vor noch nicht ausreichend.
+  - NJOINS von Servern wurden nicht an andere Server weitergeleitet.
+  - Begonnen Channel-Modes und User-Channel-Modes zu implementieren: der
+    Server versteht an User-Modes o und v, beachtet letzteres allerdings
+    noch nirgends. Bekannte (aber nicht beachtete!) Channel-Modes sind
+    bisher a, m, n, p, q, s und t. Diese Modes werden von Usern ange-
+    nommen, von anderen Servern werden auch unbekannte Modes uebernommen.
+  - Benutzer von connectierenden Servern wurden nicht in den Channels ange-
+    kuendigt, es wurden nur die internen Strukturen angepasst.
+  - Nach dem Connect eines Users werden LUSERS-Informationen angezeigt.
+
+ngIRCd 0.1.0, 29.01.2002
+
+  - User-Modes bei User-Registrierungen von andere Servern (NICK-Befehl)
+    wurden falsch uebernommen. Zudem wurden die Modes falsch gekuerzt.
+  - Server-Verbindungen werden nun nach dem Start erst nach einer kurzen
+    Pause aufgebaut (zur Zeit drei Sekunden).
+  - Hilfetext korrigiert: --help und --version waren vertauscht, die
+    Option --sniffer wurde gar nicht erwaehnt.
+  - FAQ.txt in doc/ begonnen.
+  - der IRC-Sniffer wird nur noch aktiviert, wenn die Option auf der
+    Kommandozeile angegeben wurde (bei entsprechend compiliertem Server).
+  - Channels implementiert, bisher jedoch noch ohne Channel-Modes, d.h.
+    es gibt keine Channel-Ops, kein Topic, kein "topic lock" etc. pp.
+    Chatten in Channels ist aber natuerlich moeglich ;-)
+  - neue Befehle fuer Channles: JOIN, PART und NJOIN.
+  - durch die Channels einige Aenderungen an PRIVMSG, WHOIS, MODE etc.
+  - neu connectierenden Servern werden nun Channels mit NJOIN angekuendigt.
+  - Signal-Hander geaendert: die Fehlermeldung "interrupted system call"
+    sollte so nicht mehr auftreten.
+  - "spaeter" neu connectierende Server werden nun im Netz angekuendigt.
+  - SERVER-Meldungen an andere Server sind nun korrekt sortiert.
+  - Clients werden nun korrekt sowohl nur ueber den Nickname als auch die
+    komplette "Host Mask" erkannt.
+
+ngIRCd 0.0.3, 16.01.2002
+
+  - Server-Links vollstaendig implementiert: der ngIRCd kann nun auch
+    "Sub-Server" haben, also sowohl als Leaf-Node als auch Hub in einem
+    IRC-Netzwerk arbeiten.
+  - MODE und NICK melden nun die Aenderungen an andere Server, ebenso
+    die Befehle QUIT und SQUIT.
+  - WHOIS wird nun immer an den "Original-Server" weitergeleitet.
+  - Parses handhabt Leerzeichen zw. Parametern nun etwas "lockerer".
+  - Status-Codes an den Server selber werden ignorier.
+  - Log-Meldungen und Log-Level ueberarbeitet und korrigiert.
+  - Kommandozeilen-Parser: Debug- und No-Daemon-Modus, Hilfe.
+  - ngIRCd wandelt sich nun in einen Daemon (Hintergrundprozess) um.
+  - WHOIS korrigiert: Anfrage wurde u.U. an User geforwarded anstatt vom
+    Server beantwortet zu werden.
+  - neue Befehle: LUSERS, LINKS
+  - Client-Modes von Remote-Servern wurden nicht korrekt uerbernommen.
+
+ngIRCd 0.0.2, 06.01.2002
+
+  - Struktur der Konfigurationsdatei geaendert: sie ist nun "Samba like",
+    d.h. sie besteht aus Abschnitten (siehe "doc/sample-ngircd.conf").
+  - Es koennen mehrere IRC-Server-Opertatoren konfiguriert werden.
+  - Zombies der Resolver-Prozesse werden nun ordentlich "getoetet".
+  - NICK kann nun die Gross- und Kleinschreibung eines Nicks aendern.
+  - ein Server-Passwort ist nun konfigurierbar.
+  - neue Befehle: ERROR, SERVER, NJOIN (nur als "Fake"), SQUIT.
+  - Asyncroner Resolver Hostname->IP implementiert.
+  - Server-Links teilweise implementiert: bisher kann der ngIRCd jedoch
+    nur "leafed server" sein, d.h. keine "Client-Server" haben. Einige
+    Befehle sind auch noch nicht (optimal) angepasst: PRIVMSG funktioniert
+    aber bereits, ebenso wie WHOIS (letzterer wird immer an den Server,
+    auf dem der User registriert ist, weitergegeben).
+  - "arpa/inet.h" wird nur noch includiert, wenn vorhanden.
+  - Fehler bei select() fuerhen nun zum Abbruch von ngIRCd, bisher landete
+    der Server zumeist in einer Endlosschleife.
+  - Logmeldungen und Level an vielen Stellen verbessert.
+  - lokalen Usernamen wird nun ein "~" vorangestellt, da bisher noch keine
+    Ident-Anfragen gemacht werden.
+
+ngIRCd 0.0.1, 31.12.2001
+
+  - erste oeffentliche Version von ngIRCd als "public preview" :-)
+
+
+-- 
+$Id$

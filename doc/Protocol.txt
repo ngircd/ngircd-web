@@ -1,0 +1,107 @@
+
+                     ngIRCd - Next Generation IRC Server
+
+                      (c)2001-2003 by Alexander Barton,
+                    alex@barton.de, http://www.barton.de/
+
+               ngIRCd is free software and published under the
+                   terms of the GNU General Public License.
+
+                              -- Protocol.txt --
+
+
+I. Compatibility
+~~~~~~~~~~~~~~~~
+
+The ngIRCd implements the Internet Relay Chat (IRC) protocol version 2.10
+as defined in RFC ("request for comment") 1459 and 2810-2813. These (and
+probably further relevant RFCs) are listed in doc/RFC.txt.
+
+Unfortunately, even the "original" ircd doesn't follow these specifications
+in all details. But because the ngIRCd should be a fully compatible
+replacement for this server ("ircd") it tries to emulate these differences.
+
+If you don't like this behavior please ./configure the ngIRCd using the
+"--enable-strict-rfc" command line option. But please note: not all IRC
+clients are compatible with such an server, some can't even connect at all!
+Therefore this option isn't desired for "normal operation".
+
+
+II. The IRC+ Protocol
+~~~~~~~~~~~~~~~~~~~~~
+
+Starting with version 0.5.0, the ngIRCd extends the original IRC protocol
+as defined in RFC 2810-2813. This enhanced protocol is named "IRC+". It is
+backwards compatible to the "plain" IRC protocol and will only be used by
+the ngIRCd if it detects that the peer supports it as well.
+
+The "PASSV" command is used to detect the protocol and peer versions (see
+RFC 2813, section 4.1.1).
+
+
+II.1 Register new server link
+
+     Command: PASS
+  Parameters: <password> <version> <flags> [<options>]
+     Used by: servers only (with these parameters)
+
+<password> is the password for this new server link as defined in the server
+configuration which is sent to the peer or received from it.
+
+<version> consists of two parts and is at least 4, at most 14 characters
+long: the first four bytes contain the IRC protocol version number, whereas
+the first two bytes represent the major version, the last two bytes the
+minor version (the string "0210" indicates version 2.10, e.g.).
+
+The following optional(!) 10 bytes contain an implementation-dependent
+version number. Servers supporting the IRC+ protocol as defined in this
+document provide the string "-IRC+" here.
+
+<flags> consists of two parts separated with the character "|" and is at
+most 100 bytes long. The first part contains the name of the implementation
+(ngIRCd sets this to "ngIRCd", the original ircd to "IRC", e.g.). The second
+part is implementation-dependent and should only be parsed if the peer
+supports the IRC+ protocol as well. In this case the following syntax is
+used: "<serverversion>[:<serverflags>]".
+
+<serverversion> is an ASCII representation of the clear-text server version
+number, <serverflags> indicates the supported IRC+ protocol extensions (and
+may be empty!).
+
+The optional parameter <options> is used to propagate server options as
+defined in RFC 2813, section 4.1.1.
+
+The following <serverflags> are defined at the moment:
+
+- o: IRC operators are allowed to change channel- and channel-user-modes
+     even if they aren't channel-operator of the affected channel.
+
+- C: The server supports the CHANINFO command.
+
+
+II.2 Exchange channel-modes, topics, and persistent channels
+
+     Command: CHANINFO
+  Parameters: <channel> +<modes> <key> <maxusers> [<topic>]
+     Used by: servers only
+
+CHANINFO is used by servers to inform each other about a channel: its
+modes, channel key, user limits and its topic. <topic> is optional.
+
+If the channel already exists on the server receiving the CHANINFO command,
+it only adopts the <modes> (or the <topic>) if there are no modes (or topic)
+already set. It there are already values set the server ignores the
+corresponding parameter.
+
+If the channel doesn't exists at all it will be created.
+
+The parameter <key> must be ignored if a channel has no key (the parameter
+<modes> doesn't list the "k" channel mode). In this case <key> should
+contain "*" because the parameter <key> is required by the CHANINFO syntax
+and therefore can't be omitted. The parameter <limit> must be ignored when
+a channel has no user limit (the parameter <modes> doesn't list the "l"
+channel mode). In this case <limit> should be "0".
+
+
+-- 
+$Id$

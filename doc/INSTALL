@@ -1,0 +1,161 @@
+
+                     ngIRCd - Next Generation IRC Server
+
+                      (c)2001-2003 by Alexander Barton,
+                    alex@barton.de, http://www.barton.de/
+
+               ngIRCd is free software and published under the
+                   terms of the GNU General Public License.
+
+                                -- INSTALL --
+
+                         
+
+I. Upgrade Information
+~~~~~~~~~~~~~~~~~~~~~~
+
+Differences to version 0.6.x
+
+- Some options of the configure script have been renamed:
+    --disable-syslog  ->  --without-syslog
+    --disable-zlib    ->  --without-zlib
+  Please call "./configure --help" to review the full list of options!
+
+Differences to version 0.5.x
+
+- Starting with version 0.6.0, other servers are identified using asynchronous
+  passwords: therefore the variable "Password" in [Server]-sections has been
+  replaced by "MyPassword" and "PeerPassword".
+
+- New configuration variables, section [Global]: MaxConnections, MaxJoins
+  (see example configuration file "doc/sample-ngircd.conf"!).
+
+
+II. Standard Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ngIRCd is developed for UNIX-based systems, which means that the installation
+on modern UNIX-like systems that are supported by GNU autoconf and GNU
+automake ("configure") should be no problem.
+
+The normal installation procedure after getting (and expanding) the source
+files (using a distribution archive or CVS) is as following:
+
+  1) ./autogen.sh	[only necessary when using CVS]
+  2) ./configure
+  3) make
+  4) make install
+
+
+1): "autogen.sh"
+
+The first step, autogen.sh, is only necessary if the configure-script isn't
+already generated. This never happens in official ("stable") releases in
+tar.gz-archives, but when using CVS.
+
+This step is therefore only interesting for developers.
+
+autogen.sh produces the Makefile.in's, which are necessary for the configure
+script itself, and some more files for make. To run autogen.sh you'll need
+GNU autoconf and GNU automake (use recent versions! autoconf 2.53 and
+automake 1.6.1 are known to work).
+
+Again: "end users" do not need this step!
+
+
+2): "./configure"
+
+The configure-script is used to detect local system dependencies.
+
+In the perfect case, configure should recognise all needed libraries, header
+files and so on. If this shouldn't work, "./configure --help" shows all
+possible options.
+
+In addition, you can pass some command line options to "configure" to enable
+and/or disable some features of ngIRCd. All these options are shown using
+"./configure --help", too.
+
+
+3): "make"
+
+The make command uses the Makefiles produced by configure and compiles the
+ngIRCd daemon.
+
+
+4): "make install"
+
+Use "make install" to install the server and a sample configuration file on
+the local system. Normally, root privileges are necessary to complete this
+step. If there is already an older configuration file present, it won't be
+overwritten.
+
+This files will be installed by default:
+
+- /usr/local/sbin/ngircd: executable server
+- /usr/local/etc/ngircd.conf: sample configuration (if not already present)
+- /usr/local/share/doc/ngircd/: documentation
+
+
+II. Useful make-targets
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The Makefile produced by the configure-script contains always these useful
+targets:
+
+ - clean: delete every product from the compiler/linker
+   next step: -> make
+
+ - distclean: the above plus erase all generated Makefiles
+   next step: -> ./configure
+
+ - maintainer-clean: erase all automatic generated files
+   next step: -> ./autogen.sh
+
+
+III. Sample configuration file ngircd.conf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the sample configuration file, there are comments beginning with "#" OR
+";" -- this is only for the better understanding of the file.
+
+The file is separated in four blocks: [Global], [Operator], [Server], and
+[Channel].
+
+In the [Global] section, there is the main configuration like the server
+name and the ports, on which the server should be listening. IRC operators
+of this server are defined in [Operator] blocks. [Server] is the section
+where server links are configured. And [Channel] blocks are used to
+configure pre-defined ("persistent") IRC channels.
+
+The meaning of the variables in the configuration file is explained in the 
+"doc/sample-ngircd.conf", which is used as sample configuration file in
+/usr/local/etc after running "make install" (if you don't already have one)
+and in the "ngircd.conf" manual page.
+
+
+IV. Command line options
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+These parameters could be passed to the ngIRCd:
+
+-f, --config <file>
+	The daemon uses the file <file> as configuration file rather than
+	the standard configuration /usr/local/etc/ngircd.conf.
+
+-n, --nodaemon
+	ngIRCd should be running as a foreground process.
+
+-p, --passive
+	Server-links won't be automatically established.
+
+--configtest
+	Reads, validates and dumps the configuration file as interpreted
+	by the server. Then exits.
+
+Use "--help" to see a short help text describing all available parameters
+the server understands, with "--version" the ngIRCd shows its version
+number. In both cases the server exits after the output.
+
+
+-- 
+$Id$

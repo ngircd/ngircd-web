@@ -1,0 +1,67 @@
+
+                     ngIRCd - Next Generation IRC Server
+
+                      (c)2001-2003 by Alexander Barton,
+                    alex@barton.de, http://www.barton.de/
+
+               ngIRCd is free software and published under the
+                   terms of the GNU General Public License.
+
+                    -- FAQ: Frequently Asked Questions --
+
+
+I. General
+~~~~~~~~~~
+Q: Is it possible to link the ngIRCd with non-ngIRCd servers?
+A: Yes. ngIRCd is compatible to the original ircd used by IRCNet. Actually
+   this is being tested with version 2.10.3p3.
+
+Q: Is there a homepage with further information and downloads?
+A: Yes. Please visit <http://arthur.ath.cx/~alex/ngircd/>.
+
+Q: Why should I use ngIRCd instead of the original one?
+A: ngIRCd offers several benefits: no problems with dynamic IPs, easy to
+   configure, open source (GPL), under active development.
+
+
+II. Compilation
+~~~~~~~~~~~~~~~
+Q: I did a "CVS checkout" but can't execute ./configure because the script
+   is missing in the generated directory!?
+A: When using development versions via CVS, the configure script as well as
+   the Makefile.in templates must be generated using GNU automake and GNU
+   autoconf. To simplify this task run the ./autogen.sh script which will
+   execute the required tools for you; then continue with executing the
+   ./configure script as usual.
+
+Q: The ./autogen.sh script complains "aclocal: command not found".
+A: GNU automake is missing on your system but required for building CVS
+   versions of ngIRCd. Install GNU automake 1.6 or later and try again.
+
+Q: The ./autogen.sh script stops with "autoheader: command not found".
+A: GNU autoconf is missing on your system but required for building CVS
+   versions of ngIRCd. Install GNU autoconf 2.52 or later and try again.
+
+Q: The ./autogen.sh script fails and the message "automake: configure.in:
+   AM_INIT_AUTOMAKE must be used" is displayed.
+A: Most probably you are using version 1.5 of GNU automake which seems to be
+   incompatible to the build system of ngIRCd. Solution: upgrade to at least
+   version 1.6 of GNU automake.
+   (If you are using Debian 3.0 "Woody" you can try to downgrade to version
+   1.4 of GNU automake shipped with this distribution; it should work, too.)
+
+
+III. Bugs!?
+~~~~~~~~~~~
+Q: Is there a list of known bugs and desired feature enhancements?
+A: Yes. Have a look at the bug tracking system (Bugzilla) for ngIRCd located
+   at <http://arthur.ath.cx/bugzilla/ngircd/>. There you can file bug reports
+   and feature requests as well as search the bug database.
+
+Q: What should I do if I found a bug?
+A: Please file a bug report at <http://arthur.ath.cx/bugzilla/ngircd/>!
+   The author of the particular component will be notified automagically :-)
+
+
+-- 
+$Id$

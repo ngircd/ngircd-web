@@ -1,0 +1,33 @@
+/* style.css for http://arthur.ath.cx/~alex/ */
+/* last changes: 2002-05-20, alex@arthur.ath.cx */
+
+BODY {
+	background-color: white;
+	color: black;
+	margin: 30px;
+}
+
+A:visited { color: purple; background: transparent; }
+A:link { color: navy; background: transparent; }
+A:active { color: red; background: transparent; }
+A:hover { background: #ffa; }
+
+H1, H2, H3 {
+	font-family: Verdana, sans-serif;
+	background-color: white;
+	color: #005555;
+}
+H1 { margin-bottom: 10px; }
+H2 { margin-top: 20px; }
+
+P, LI, TD, TH, DT {
+	font-family: Geneva, sans-serif;
+	font-size: 12px;
+	line-height: 1.2
+}
+
+UL { list-style-type: square; }
+
+SMALL { line-height: 1; }
+
+/* -eof- */

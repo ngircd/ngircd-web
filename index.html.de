@@ -290,7 +290,8 @@
 <p>
  <img src="valid-html401.gif" style="float: right;" alt="Valid HTML 4.01!" height="31" width="88">
  <small>
-  Letzte &Auml;nderungen: 2003-01-21 (alex).
+  Version: $Id$
+  <br>
   Seite <a hreflang="en" href="http://validator.w3.org/check?uri=http%3A%2F%2Farthur.ath.cx%2F%7Ealex%2Fngircd%2Findex.html.de">pr&uuml;fen</a>.<br>
   Kontakt: Alexander Barton, E-Mail: <a href="mailto:alex@arthur.ath.cx">alex@arthur.ath.cx</a>.<br>
  </small>

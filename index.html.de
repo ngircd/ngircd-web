@@ -28,7 +28,7 @@
 <ol>
  <li><a href="#status">Status</a>
  <li><a href="#why">Vorteile</a>
- <li><a href="#platforms">Unterst&uuml;tzte Platformen</a>
+ <li><a href="#platforms">Unterst&uuml;tzte Plattformen</a>
  <li><a href="#docu">Dokumentation</a>
  <li><a href="#ml">Mailingliste</a>
  <li><a href="#install">Installation</a>
@@ -108,7 +108,7 @@
 
 <h2 id="platforms">Unterst&uuml;tzte Plattformen</h2>
 <p>
- Auf den folgenden Platformen wird der ngIRCd regelm&auml;&szlig;ig getestet
+ Auf den folgenden Plattformen wird der ngIRCd regelm&auml;&szlig;ig getestet
  (in Klammern die jeweils benutzen Versionen), sie sind die
  offiziell unterst&uuml;tzten Systeme:
 </p>

@@ -221,6 +221,8 @@
 		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.7.tar.gz">ftp</a>.
 	</ul>
  </dd>
+</dl>
+<dl>
  <dt><strong>ngIRCd 0.8.0-pre1</strong> (2004-05-07):</dt>
  <dd>
  	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>

@@ -1,5 +1,9 @@
-/* style.css for http://arthur.ath.cx/~alex/ */
-/* last changes: 2002-05-20, alex@arthur.ath.cx */
+/*
+ * Cascading Style Sheet for ngIRCd homepage
+ * http://arthur.ath.cx/~alex/ngircd/
+ *
+ * $Id$
+ */
 
 BODY {
 	background-color: white;
@@ -33,6 +37,13 @@ SMALL { line-height: 1; }
 .Hint {
 	padding: 1px;
 	border: 1px dotted silver;
+}
+
+.Security {
+	padding: 1px;
+	border: 1px dotted silver;
+	color: black;
+	background: #fdd;
 }
 
 /* -eof- */

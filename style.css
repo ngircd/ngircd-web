@@ -30,4 +30,9 @@ UL { list-style-type: square; }
 
 SMALL { line-height: 1; }
 
+.Hint {
+	padding: 1px;
+	border: 1px dotted silver;
+}
+
 /* -eof- */

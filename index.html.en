@@ -43,12 +43,12 @@
  <li><a href="#history">History</a>
 </ol>
 
-<p>
+<p><span class="Hint">
  Hint: at  <a href="http://freshmeat.net/">freshmeat.net</a>
  there's an <a href="http://freshmeat.net/projects/ngircd/">entry</a>
  for the ngIRCd project. You can inform about new releases and get
  update notifications via E-Mail.
-</p>
+</span></p>
 
 <p>
  BTW: Von dieser Seite gibt es auch eine <a href="index.html.de">deutsche</a>

@@ -60,17 +60,8 @@
 <h2 id="status">Status</h2>
 
 <p>
- Current &quot;stable&quot; version is <strong>0.6.1</strong>.
+ Current &quot;stable&quot; version is <strong>0.7.0</strong>.
 </p>
-
-<!--
-<p style="background:#aff; padding: 5px; border: 2px dotted black;">
- 2002-09-17:<br>
- Version 0.5.0 is almost ready, I'll publish it "these days". At the moment, the
- last tests are done with the pre-releases.
- Current version is <a href="#download">0.5.0-pre2</a>.
-</p>
-//-->
 
 <p>
  ngIRCd is under heavy development and is not complete yet.
@@ -81,17 +72,17 @@
  quite stable and flawless although it is not tested in huge IRC
  networks under heavy load yet.
 
- Read more about our private IRC network on these <a href="http://arthur.ath.cx/irc/">web pages</a>.
+ Read more about our private IRC network on these <a href="http://Arthur.Ath.CX/irc/">web pages</a>.
 </p>
 
 <p>
  IRC commands implemented (more or less complete) so far:
 </p>
 <p><kbd>
- ADMIN, AWAY, CHANINFO, CONNECT, DIE, ERROR, INVITE, ISON, JOIN, KICK, KILL,
- LINKS, LIST, LUSERS, MODE, MOTD, NAMES, NICK, NJOIN, NOTICE, OPER, PART,
- PASS, PING, PONG, PRIVMSG, QUIT, REHASH, RESTART, SERVER, SQUIT, STATS, TIME,
- TOPIC, USERHOST, USER, VERSION, WHO, WHOIS.
+ ADMIN, AWAY, CHANINFO, CONNECT, DIE, DISCONNECT, ERROR, HELP, INVITE, ISON,
+ JOIN, KICK, KILL, LINKS, LIST, LUSERS, MODE, MOTD, NAMES, NICK, NJOIN,
+ NOTICE, OPER, PART, PASS, PING, PONG, PRIVMSG, QUIT, REHASH, RESTART, SERVER,
+ SQUIT, STATS, TIME, TOPIC, TRACE, USER, USERHOST, VERSION, WHO, WHOIS.
 </kbd></p>
 <p>
  I'm glad to receive feedback, bug reports (best choice for this is the
@@ -108,10 +99,10 @@
  Why should you use ngIRCd? Because ...
 </p>
 <ul>
- <li>... there are no problems with servers on changing or non-static IP addresses.
- <li>... there is a small and lean configuration file.
- <li>... there is a free, modern and open source C source code.
- <li>... it is still under active development.
+ <li>there are no problems with servers on changing or non-static IP addresses.
+ <li>there is a small and lean configuration file.
+ <li>there is a free, modern and open source C source code.
+ <li>it is still under active development.
 </ul>
 
 <h2 id="platforms">Supported platforms</h2>
@@ -145,14 +136,17 @@
  subdirectories like <code>&quot;doc&quot;</code> (e.g. CVS.txt, FAQ.txt
  and sample configuration files like sample-ngircd.conf).
 </p>
-<p>Parts of the sample configuration file sample-ngircd.conf are available here:</p>
+<p>Parts of the documentation are available here:</p>
 <ul>
- <li>README: <a href="doc/README">deutsch</a>, <a href="doc/en/README">english</a>
- <li>INSTALL: <a href="doc/INSTALL">deutsch</a>, <a href="doc/en/INSTALL">english</a>
+ <li><a href="doc/README">README</a>
+ <li><a href="doc/INSTALL">INSTALL</a>
 </ul>
 <ul>
  <li><a href="doc/CVS.txt">CVS.txt</a>
+ <li><a href="doc/ChangeLog">ChangeLog</a>
  <li><a href="doc/FAQ.txt">FAQ.txt</a>
+ <li><a href="doc/NEWS">NEWS</a>
+ <li><a href="doc/Protocol.txt">Protocol.txt</a>
  <li><a href="doc/RFC.txt">RFC.txt</a>
 </ul>
 <ul>
@@ -160,6 +154,7 @@
 </ul>
 <ul>
  <li><a href="doc/README-AUX.txt">README-AUX.txt</a>
+ <li><a href="doc/README-BeOS.txt">README-BeOS.txt</a> (german)
 </ul>
 
 <h2 id="ml">Mailing List</h2>
@@ -210,17 +205,17 @@
 
 <h2 id="download">Download</h2>
 <dl>
- <dt><strong>ngIRCd 0.6.1</strong> (2003-01-21):</dt>
+ <dt><strong>ngIRCd 0.7.0</strong> (2003-05-01):</dt>
  <dd>
 	<p>Server: <em>download.berlios.de</em></p>
 	<ul>
-		<li>ngircd-0.6.1.tar.gz:
-		    <a href="http://download.berlios.de/ngircd/ngircd-0.6.1.tar.gz">http</a>
+		<li>ngircd-0.7.0.tar.gz:
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.0.tar.gz">http</a>
 	</ul>
 	<p>Server: <em>arthur.ath.cx</em></p>
 	<ul>
-		<li>ngircd-0.6.1.tar.gz:
-		    <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/ngircd-0.6.1.tar.gz">ftp</a>.
+		<li>ngircd-0.7.0.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.0.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>
@@ -277,26 +272,12 @@
 </p>
 
 <h2 id="history">History</h2>
-<dl>
- <dt>21. Januar 2003: <strong>ngIRCd 0.6.1</strong>:
-     <dd><ul>
-         <li>Fixed KILL: you can't crash the server by killing yourself any more,
-             ngIRCd no longer sends a QUIT to other servers after the KILL, and you
-             can kill only valid users now.
-         <li>The server no longer forwards commands to ordinary users, instead it
-             answers with the correct error message ("no such server") now.
-         <li>WHOIS commands weren't always forwarded as requested.
-         <li>The server sets a correct default AWAY message now when propagating
-             between servers (bug introduced in 0.6.0).
-         <li>Fixed up and enhanced CHANINFO command: channel keys and user limits
-             are syncronized between servers now, too.
-         <li>MODE returns the key and user limit for channel members correctly now.
-         <li>Non-members of a channel could crash the server when trying to change
-             its modes or modes of its members.
-         <li>The server didn't validate weather a target user is a valid channel
-             member when changing his channel user modes which could crash ngIRCd.
-     </ul>
-</dl>
+<p>
+ Please read the files
+ <a href="doc/NEWS">NEWS</a> and
+ <a href="doc/ChangeLog">ChangeLog</a>
+ for details information.
+</p>
 
 <!-- Footer -->
 <hr style="margin-top: 0.75em;">

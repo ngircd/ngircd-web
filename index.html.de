@@ -36,7 +36,7 @@
  <li><a href="#people">Kontakt</a>
  <li><a href="#cvs">CVS-Repository</a>
  <li><a href="#bugs">Bug-Tracker</a>
- <li><a href="index.html.en#history">History</a> (in englisch!)
+ <li><a href="#history">History</a>
 </ol>
 
 <p>
@@ -60,14 +60,8 @@
 <h2 id="status">Status</h2>
 
 <p>
- Die aktuelle &auot;stabile&quot; Version ist <strong>0.6.1</strong>.
+ Die aktuelle &auot;stabile&quot; Version ist <strong>0.7.0</strong>.
 </p>
-
-<!--
-<p style="background:#aff; padding: 5px; border: 2px dotted black;">
- date:<br>text
-</p>
-//-->
 
 <p>
  Gleich vorweg: der ngIRCd befindet sich zur Zeit noch in Entwicklung und
@@ -78,17 +72,17 @@
  Die aktuelle Version kann bereits schon im t&auml;glichen Einsatz verwendet
  werden und wird es auch: ein kleines IRC-Netzwerk, in dem auch mein
  Server aktiv ist, setzt teilweise den ngIRCd, teilweise das Original ein:
- <a href="http://arthur.ath.cx/irc/">Info-Seite</a> dieses IRC-Netzes.
+ <a href="http://Arthur.Ath.CX/irc/">Info-Seite</a> dieses IRC-Netzes.
 </p>
 
 <p>
  Bisher (mehr oder wenig vollst&auml;ndig) implementierte IRC-Befehle:
 </p>
 <p><kbd>
- ADMIN, AWAY, CHANINFO, CONNECT, DIE, ERROR, INVITE, ISON, JOIN, KICK, KILL,
- LINKS, LIST, LUSERS, MODE, MOTD, NAMES, NICK, NJOIN, NOTICE, OPER, PART,
- PASS, PING, PONG, PRIVMSG, QUIT, REHASH, RESTART, SERVER, SQUIT, STATS, TIME,
- TOPIC, USERHOST, USER, VERSION, WHO, WHOIS.
+ ADMIN, AWAY, CHANINFO, CONNECT, DIE, DISCONNECT, ERROR, HELP, INVITE, ISON,
+ JOIN, KICK, KILL, LINKS, LIST, LUSERS, MODE, MOTD, NAMES, NICK, NJOIN,
+ NOTICE, OPER, PART, PASS, PING, PONG, PRIVMSG, QUIT, REHASH, RESTART, SERVER,
+ SQUIT, STATS, TIME, TOPIC, TRACE, USER, USERHOST, VERSION, WHO, WHOIS.
 </kbd></p>
 <p>
  &Uuml;ber R&uuml;ckmeldungen, Bug-Reports (am besten &uuml;ber den
@@ -144,14 +138,20 @@
  die Dokumente INSTALL, README, NEWS und COPYING), andere im Unterverzeichnis &quot;doc&quot;
  (wie z.B. CVS.txt, FAQ.txt und die Beispiel-Konfiguration sample-ngircd.conf).
 </p>
-<p>Teile von letzteren sind hier im Web (mehr oder weniger aktuell) verf&uuml;gbar:</p>
+<p>
+ Teile von letzteren sind hier im Web (mehr oder weniger aktuell) in englischer Sprache
+ verf&uuml;gbar:
+</p>
 <ul>
- <li>README: <a href="doc/README">deutsch</a>, <a href="doc/en/README">english</a>
- <li>INSTALL: <a href="doc/INSTALL">deutsch</a>, <a href="doc/en/INSTALL">english</a>
+ <li><a href="doc/README">README</a>
+ <li><a href="doc/INSTALL">INSTALL</a>
 </ul>
 <ul>
  <li><a href="doc/CVS.txt">CVS.txt</a>
+ <li><a href="doc/ChangeLog">ChangeLog</a>
  <li><a href="doc/FAQ.txt">FAQ.txt</a>
+ <li><a href="doc/NEWS">NEWS</a>
+ <li><a href="doc/Protocol.txt">Protocol.txt</a>
  <li><a href="doc/RFC.txt">RFC.txt</a>
 </ul>
 <ul>
@@ -159,6 +159,7 @@
 </ul>
 <ul>
  <li><a href="doc/README-AUX.txt">README-AUX.txt</a>
+ <li><a href="doc/README-BeOS.txt">README-BeOS.txt</a> (deutsch)
 </ul>
 
 <h2 id="ml">Mailingliste</h2>
@@ -209,24 +210,24 @@
 
 <h2 id="download">Download</h2>
 <dl>
- <dt><strong>ngIRCd 0.6.1</strong> (2003-01-21):</dt>
+ <dt><strong>ngIRCd 0.7.0</strong> (2003-05-01):</dt>
  <dd>
 	<p>Server: <em>download.berlios.de</em></p>
 	<ul>
-		<li>ngircd-0.6.1.tar.gz:
-		    <a href="http://download.berlios.de/ngircd/ngircd-0.6.1.tar.gz">http</a>
+		<li>ngircd-0.7.0.tar.gz:
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.0.tar.gz">http</a>
 	</ul>
 	<p>Server: <em>arthur.ath.cx</em></p>
 	<ul>
-		<li>ngircd-0.6.1.tar.gz:
-		    <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/ngircd-0.6.1.tar.gz">ftp</a>.
+		<li>ngircd-0.7.0.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.0.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>
 <p>
  Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie &quot;nightly tarballs&quot;
  aus den aktuellen CVS-HEAD-Quellen k&ouml;nnen zudem via
- <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/">ftp</a>
+ <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>
  heruntergeladen werden.
 </p>
 
@@ -278,6 +279,12 @@
  Zudem kannst du dich dort auch &uuml;ber bekannte und vielleicht bereits
  behobene Fehler
  <a href="http://arthur.ath.cx/bugzilla/ngircd/query.cgi">informieren</a>.
+</p>
+
+<h2 id="history">History</h2>
+<p>
+ Die <a href="doc/NEWS">NEWS</a>-Datei und das <a href="doc/ChangeLog">ChangeLog</a>
+ sind (in englischer Sprache) online verf&uuml;gbar sowie in den Archiven enthalten.
 </p>
 
 <!-- Footer -->

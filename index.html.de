@@ -67,7 +67,7 @@
  Die aktuelle &quot;stabile&quot; Version ist <strong>0.7.7</strong>.
 </p>
 <p>
- Als Vorabversion ist <strong>0.8.0-pre1</strong> verf&uuml;gbar.
+ Als Vorabversion ist <strong>0.8.0-pre2</strong> verf&uuml;gbar.
 <p>
  Wenngleich die aktuelle Version noch nicht 100% komplett ist (einige
  IRC-Befehle werden noch nicht bzw. nicht im vollen von den RFCs vorgesehenen
@@ -223,12 +223,12 @@
  </dd>
 </dl>
 <dl>
- <dt><strong>ngIRCd 0.8.0-pre1</strong> (2004-05-07):</dt>
+ <dt><strong>ngIRCd 0.8.0-pre2</strong> (2004-05-16):</dt>
  <dd>
  	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.8.0-pre1.tar.gz:
-		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.8.0-pre1.tar.gz">ftp</a>.
+		<li>ngircd-0.8.0-pre2.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.8.0-pre2.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

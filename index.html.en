@@ -29,10 +29,14 @@
  <li><a href="#status">Status</a>
  <li><a href="#why">Advantages</a>
  <li><a href="#platforms">Supported platforms</a>
- <li><a href="#docu">Documentation</a>
+ <li><strong><a href="#docu">Documentation</a></strong>
  <li><a href="#ml">Mailing List</a>
  <li><a href="#install">Installation</a>
- <li><a href="#download">Download</a>
+ <li><strong><a href="#download">Download</a></strong>
+ <ul>
+  <li><a href="#source">Source Code</a></li>
+  <li><a href="#packages">Pakete</a></li>
+ </ul>
  <li><a href="#people">Contact</a>
  <li><a href="#cvs">CVS Repository</a>
  <li><a href="#bugs">Bug Tracker</a>
@@ -192,6 +196,7 @@
 </p>
 
 <h2 id="download">Download</h2>
+<h3 id="source">Source Code</h3>
 <dl>
  <dt><strong>ngIRCd 0.7.7</strong> (2003-12-05):</dt>
  <dd>
@@ -213,6 +218,30 @@
  (generated from the CVS HEAD sources) are also available. Look here:
  <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/">ftp</a>.
 </p>
+<h3 id="packages">Pakete</h3>
+<p>
+ If you are using one of the following distributions, you can use their packages:
+</p>
+<ul>
+ <li>
+  <a href="http://www.freebsd.org/">FreeBSD</a>:
+  <a href="http://www.freebsd.org/cgi/ports.cgi?query=ngircd&stype=all">Port</a>
+ </li>
+ <li>
+  <a href="http://www.gentoo.org/">Gentoo Linux</a>:
+  <a href="http://packages.gentoo.org/packages/?category=net-irc;name=ngircd">ebuild</a>
+ </li>
+</ul>
+<p>
+ Inofficial packages:
+</p>
+<ul>
+ <li>
+  <a href="http://www.debian.org/">Debian Linux</a>:
+  <a href="ftp://arthur.ath.cx/debian/dists/ab/main/">dpkg</a>
+  (Autor: Alex Barton)
+ </li>
+</ul>
 
 <h2 id="people">Contact</h2>
 <p>

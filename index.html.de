@@ -72,7 +72,7 @@
  diese Version aktualisieren: &auml;ltere Versionen enthalten einen Fehler,
  der remote ausnutzbar ist und den Daemon zum abst&uuml;rzen bringen kann!<br>
  Ein Update von 0.8.2 auf 0.8.3 ist nicht erforderlich, wenn der Server ohne
- IDENT-Unterst&uuml;tzung arbeitet&amp; das ist der Default.
+ IDENT-Unterst&uuml;tzung arbeitet; das ist der Default.
 </p>
 <p>
  Wenngleich die aktuelle Version noch nicht 100% komplett ist (einige

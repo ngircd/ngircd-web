@@ -10,6 +10,21 @@
                                   -- NEWS --
 
 
+ngIRCd 0.8.0 (2004-06-26)
+
+  - Two new configuration options: "ChrootDir" and "MotdPhrase", thanks to
+    Benjamin Pineau <ben@zouh.org>. Now you can force the daemon to change
+    its root and working directory to something "safe". MotdPhrase is used
+    to define an "MOTD string" instead of a whole file, useful if the
+    "real" MOTD file would be outside the "jail".
+  - INVITE- and BAN-lists become synchronized between IRC+ servers when
+    establishing new connections, if the peer supports this as well.
+  - The type of service (TOS) of all sockets is set to "interactive" now.
+  - Added short command line option "-t" as alternative to "--configtest".
+  - Added optional support for "IDENT" lookups on incoming connections. You
+    have to enable this function with the ./configure switch "--with-ident".
+    The default is not to do IDENT lookups.
+
 ngIRCd 0.7.5 (2003-07-11)
 
   - New configuration variable "MaxConnectionsIP" to limit the number of
@@ -18,7 +33,7 @@ ngIRCd 0.7.5 (2003-07-11)
     (DoS), the default is 5 connections per client IP.
   - Added new configuration variable "Listen" to bind all listening
     sockets of the server to a single IP address.
-
+       
 ngIRCd 0.7.1 (2003-07-18)
 
   - Added support for GNU/Hurd.

@@ -75,6 +75,10 @@ The following <serverflags> are defined at the moment:
 
 - C: The server supports the CHANINFO command.
 
+- L: INVITE- and BAN-lists should be synchronized between servers: if the
+     peer understands this flag, it will send "MODE +I" and "MODE +b"
+     commands after the server link has been established.
+
 - o: IRC operators are allowed to change channel- and channel-user-modes
      even if they aren't channel-operator of the affected channel.
 

@@ -12,14 +12,21 @@
 
 Main Authors
 ~~~~~~~~~~~~
-Alexander Barton, <alex@barton.de>, "alex"
+Alexander Barton, <alex@barton.de> (alex)
 
 
 Contributors
 ~~~~~~~~~~~~
-Goetz Hoffart, <goetz@hoffart.de>
-Ilja Osthoff, <i.osthoff@gmx.net>
+Goetz Hoffart, <goetz@hoffart.de> (goetz)
+Ilja Osthoff, <i.osthoff@gmx.net> (ilja)
 Sean Reifschneider, <jafo-rpms@tummy.com>
+
+
+Code snippets
+~~~~~~~~~~~~~
+J. Kercheval: pattern matching functions
+Patrick Powell, <papowell@astart.com>: snprintf()-function
+Andrew Tridgell & Martin Pool: strl{cpy|cat}()-functions
 
 
 -- 

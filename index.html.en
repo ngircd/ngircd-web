@@ -60,7 +60,7 @@
 <h2 id="status">Status</h2>
 
 <p>
- Current &quot;stable&quot; version is <strong>0.7.5</strong>.
+ Current &quot;stable&quot; version is <strong>0.7.6</strong>.
 </p>
 
 <p>
@@ -205,18 +205,18 @@
 
 <h2 id="download">Download</h2>
 <dl>
- <dt><strong>ngIRCd 0.7.5</strong> (2003-11-07):</dt>
+ <dt><strong>ngIRCd 0.7.6</strong> (2003-12-05):</dt>
  <dd>
 	<p>Server: <em>download.berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.7.5.tar.gz:
-		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.5.tar.gz">http</a>,
-		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.5.tar.gz">ftp</a>
+		<li>ngircd-0.7.6.tar.gz:
+		    <a href="http://download.berlios.de/ngircd/ngircd-0.7.6.tar.gz">http</a>,
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.7.6.tar.gz">ftp</a>
 	</ul>
 	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.7.5.tar.gz:
-		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.5.tar.gz">ftp</a>.
+		<li>ngircd-0.7.6.tar.gz:
+		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.7.6.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

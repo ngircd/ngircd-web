@@ -1,7 +1,7 @@
 
                      ngIRCd - Next Generation IRC Server
 
-                       (c)2001-2005 Alexander Barton,
+                        (c)2001-2005 Alexander Barton,
                     alex@barton.de, http://www.barton.de/
 
                ngIRCd is free software and published under the
@@ -9,6 +9,56 @@
 
                                -- ChangeLog --
 
+
+ngIRCd 0.9.x
+
+  - Fixed maximum length of user names, now allow up to 9 characters.
+  - Cut off oversized IRC messages that should be sent to the network instead
+    of shuttding down the (wrong) connection.
+  - Don't generate error messages for unknown commands received before the
+    client is registered with the server (like the original ircd).
+  - Never run with root privileges but always switch the user ID.
+  - Make "netsplit" messages RFC compliant.
+  - Fix handling of QUIT Messages: send only one message, even if the client
+    is member of multiple channels.
+  - Don't exit server if closing of a socket fails; instead ignore it and
+    pray that this will be "the right thing" ...
+  - Implemented the IRC function "WHOWAS".
+  - Don't enable assert() calls when not ./configure'd with --enable-debug.
+  - Fixed ./configure test for TCP Wrappers: now it runs on Mac OS X as well.
+  - Enhanced configure script: now you can pass an (optional) search path
+    to all --with-XXX parameters, e. g. "--with-ident=/opt/ident".
+  - Removed typedefs for the native C datatypes.
+    Use stdbool.h / inttypes.h if available.
+  - New configuration option "OperServerMode" to enable a workaround needed
+    when running an network with ircd2 servers and "OperCanUseMode" enabled
+    to prevent the ircd2 daemon to drop mode changes of IRC operators.
+    Patch by Florian Westphal, <westphal@foo.fh-furtwangen.de>.
+  - Implemented support for "secret channels" (channel mode "s").
+  - New configuration option "Mask" for [Operator] sections to limit OPER
+    commands to users with a specific IRC mask. Patch from Florian Westphal.
+  - Write "error file" (/tmp/ngircd-XXX.err) only if compiled with debug
+    code ("--enable-debug") and running as daemon process.
+  - Don't create version information string each time a client connects
+    but instead on server startup. By Florian Westphal.
+  - New configuration variable "PidFile", section "[Global]": if defined,
+    the server writes its process ID (PID) to this file. Default: off.
+    Idea of Florian Westphal, <westphal@foo.fh-furtwangen.de>.
+  - Code cleanups from Florian Westphal, <westphal@foo.fh-furtwangen.de>.
+  - Raised the maximum length of passwords to 20 characters.
+  - Fixed a memory leak when resizing the connection pool and realloc()
+    failed. Now we don't fall back to malloc(), which should be sane anyway.
+    Patch from Florian Westphal, <westphal@foo.fh-furtwangen.de>.
+  - Added support for the Howl (http://www.porchdogsoft.com/products/howl/)
+    Rendezvous API, in addition to the API of Apple (Mac OS X). The available
+    API will be autodetected when you call "./configure --with-rendezvous".
+  - Made ngIRCd compile on HP/UX 10.20 with native HP pre-ANSI C compiler and
+    most probably other older C compilers on other systems.
+  - When the daemon should switch to another user ID (ServerID is defined in
+    the configuration file) and is not running in a chroot environment, it
+    changes its working directory to the home directory of this user. This
+    should enable the system to write proper core files when not running with
+    root privileges ...
 
 ngIRCd 0.8.3 (2005-02-03)
 
@@ -31,12 +81,12 @@ ngIRCd 0.8.2 (2005-01-26)
     It has only been used when the system didn't implement strlcpy by itself,
     not on "modern" systems. Florian Westphal, <westphal@foo.fh-furtwangen.de>.
 
-nIRCd 0.8.1 (2004-12-25)
+ngIRCd 0.8.1 (2004-12-25)
 
   - Autoconf: Updated config.guess and config.sub
   - Added some more debug code ...
   - Fixed wrong variable names in output of "ngircd --configtest".
-  - Debian: Fxied the name of the "default file" in the init script for
+  - Debian: Fixed the name of the "default file" in the init script for
     ngircd-full packages. And do the test if the binary is executable after
     reading this file.
   - Enhanced the "test suite": please have a look at src/testsuite/README!
@@ -45,11 +95,11 @@ ngIRCd 0.8.0 (2004-06-26)
 
   - Fixed wrong buffer size calculation for results of the resolver.
 
-  ngIRCd 0.8.0-pre2 (2004-05-16)
+  ngircd 0.8.0-pre2 (2004-05-16)
   - Enhanced logging to console when running in "no-detached mode": added
     PID and log messages of resolver sub-processes.
   - Fixed host name lookups when using IDENT user lookups.
-  - "make clean" and "make maintainer-clean" remove more files mow.
+  - "make clean" and "make maintainer-clean" remove more files now.
 
   ngIRCd 0.8.0-pre1 (2004-05-07)
   - Two new configuration options: "ChrootDir" and "MotdPhrase", thanks to

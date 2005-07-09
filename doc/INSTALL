@@ -14,6 +14,12 @@
 I. Upgrade Information
 ~~~~~~~~~~~~~~~~~~~~~~
 
+Differences to version 0.8.x
+
+- The maximum length of passwords has been raised to 20 characters (instead
+  of 8 characters). If your passwords are longer than 8 characters then they
+  are cut at an other position now.
+
 Differences to version 0.6.x
 
 - Some options of the configure script have been renamed:

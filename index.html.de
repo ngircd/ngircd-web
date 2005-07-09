@@ -300,17 +300,17 @@
 <p>
  Damit ich den &Uuml;berlick &uuml;ber eventuell(!?) im ngIRCd vorhandene Bugs und
  Feature-W&uuml;nsche nicht verliere, ist ein Bug-Tracking-System installiert:
- <a href="http://arthur.barton.de/cgi-bin/bugzilla/index.cgi">Bugzilla</a>
+ <a href="http://ngircd.barton.de/bugzilla/index.cgi">Bugzilla</a>
 </p>
 <p>
  Solltest du Fehler finden, so lege dort bitte einen
- <a href="http://arthur.barton.de/cgi-bin/bugzilla/enter_bug.cgi">Bug-Report</a>
+ <a href="http://ngircd.barton.de/bugzilla/enter_bug.cgi">Bug-Report</a>
  an! Vielen Dank!
 </p>
 <p>
  Zudem kannst du dich dort auch &uuml;ber bekannte und vielleicht bereits
  behobene Fehler
- <a href="http://arthur.barton.de/cgi-bin/bugzilla/query.cgi">informieren</a>.
+ <a href="http://ngircd.barton.de/bugzilla/query.cgi">informieren</a>.
 </p>
 
 <h2 id="history">History</h2>

@@ -289,15 +289,15 @@
 <h2 id="bugs">Bug Tracker</h2>
 <p>
  In order to keep track of feature requests and found bugs there's a
- Bug Tracking system: <a href="http://arthur.barton.de/cgi-bin/bugzilla/index.cgi">Bugzilla</a>
+ Bug Tracking system: <a href="http://ngircd.barton.de/bugzilla/index.cgi">Bugzilla</a>
 </p>
 <p>
  In case you found a bug please check
- <a href="http://arthur.barton.de/cgi-bin/bugzilla/enter_bug.cgi">Bug-Report</a>
+ <a href="http://ngircd.barton.de/bugzilla/enter_bug.cgi">Bug-Report</a>
  and describe the circumstances. Thank you!
 </p>
 <p>
- In addition you can <a href="http://arthur.barton.de/cgi-bin/bugzilla/query.cgi">inform</a>
+ In addition you can <a href="http://ngircd.barton.de/bugzilla/query.cgi">inform</a>
  about known and perhaps fixed bugs.
 </p>
 

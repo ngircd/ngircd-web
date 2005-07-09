@@ -149,12 +149,16 @@
  <li><a href="doc/INSTALL">INSTALL</a>
 </ul>
 <ul>
+ <li><a href="doc/AUTHORS">AUTHORS</a>
+ <li><a href="doc/COPYING">COPYING</a>
  <li><a href="doc/CVS.txt">CVS.txt</a>
  <li><a href="doc/ChangeLog">ChangeLog</a>
  <li><a href="doc/FAQ.txt">FAQ.txt</a>
  <li><a href="doc/NEWS">NEWS</a>
+ <li><a href="doc/Platforms.txt">Platforms.txt</a>
  <li><a href="doc/Protocol.txt">Protocol.txt</a>
  <li><a href="doc/RFC.txt">RFC.txt</a>
+ <li><a href="doc/SSL.txt">SSL.txt</a>
 </ul>
 <ul>
  <li><a href="doc/sample-ngircd.conf">sample-ngircd.conf</a>

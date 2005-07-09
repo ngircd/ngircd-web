@@ -6,10 +6,10 @@
  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
  <meta http-equiv="content-language" content="de">
  <meta name="author" content="Alexander Barton">
- <meta name="author-email" content="alex@arthur.ath.cx">
+ <meta name="author-email" content="alex@barton.de">
  <meta name="MSSmartTagsPreventParsing" content="TRUE">
  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
- <link rel="author" href="mailto:alex@arthur.ath.cx" title="E-Mail an Alex">
+ <link rel="author" href="mailto:alex@barton.de" title="E-Mail an Alex">
 </head>
 
 <body>
@@ -58,7 +58,7 @@
 <p>Mirrors:</p>
 <ul>
  <li><a href="http://ngircd.berlios.de/index.html.de">ngircd.berlios.de</a>
- <li><a href="http://arthur.ath.cx/~alex/ngircd/index.html.de">arthur.ath.cx</a>
+ <li><a href="http://ngircd.barton.de/index.html.de">ngircd.barton.de</a>
 </ul>
 
 <h2 id="status">Status</h2>
@@ -83,7 +83,7 @@
 <p>
  <em>Beispiel</em>: Ein kleines IRC-Netzwerk, in dem auch mein Server aktiv
  ist, setzt teilweise den ngIRCd, teilweise das Original ein:
- <a href="http://Arthur.Ath.CX/irc/">Info-Seite</a> dieses IRC-Netzes.
+ <a href="http://irc.barton.de/">Info-Seite</a> dieses IRC-Netzes.
 </p>
 <p>
  &Uuml;ber R&uuml;ckmeldungen, Bug-Reports (am besten &uuml;ber den
@@ -172,8 +172,8 @@
  Erweiterungen. Zudem werden hier Updates und wichtige CVS-Updates
  angek&uuml;ndigt.
 </p>
-<p>Die Anmeldung erfolgt &uuml;ber die <a href="http://arthur.ath.cx/mailman/listinfo/ngircd-ml">Hauptseite der Mailingliste</a>.
-<p>Alle Beitr&auml;ge werden zudem in einem <a href="http://arthur.ath.cx/pipermail/ngircd-ml/">Archiv</a> gespeichert.
+<p>Die Anmeldung erfolgt &uuml;ber die <a href="http://arthur.barton.de/mailman/listinfo/ngircd-ml">Hauptseite der Mailingliste</a>.
+<p>Alle Beitr&auml;ge werden zudem in einem <a href="http://arthur.barton.de/pipermail/ngircd-ml/">Archiv</a> gespeichert.
 
 <h2 id="install">Installation</h2>
 <p>
@@ -221,17 +221,17 @@
 		    <a href="http://download.berlios.de/ngircd/ngircd-0.8.3.tar.gz">http</a>,
 		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.8.3.tar.gz">ftp</a>
 	</ul>
-	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
+	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
 		<li>ngircd-0.8.3.tar.gz:
-		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.8.3.tar.gz">ftp</a>.
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.8.3.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>
 <p>
  Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie &quot;nightly tarballs&quot;
  aus den aktuellen CVS-HEAD-Quellen k&ouml;nnen zudem via
- <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>
+ <a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>
  heruntergeladen werden.
 </p>
 <h3 id="packages">Pakete</h3>
@@ -254,7 +254,7 @@
 <ul>
  <li>
   <a href="http://www.debian.org/">Debian Linux</a>:
-  <a href="ftp://arthur.ath.cx/debian/dists/ab/main/">deb</a>
+  <a href="ftp://arthur.barton.de/debian/dists/ab/main/">deb</a>
   (Autor: Alex Barton)
  </li>
 </ul>
@@ -289,24 +289,24 @@
 </p>
 <p>
  Im Web ist die Repository auch online verf&uuml;gbar:
- <a href="http://Arthur.Ath.CX/cgi-bin/viewcvs.cgi/ngircd/">ngIRCd CVS Repository</a>.
+ <a href="http://arthur.barton.de/cgi-bin/viewcvs.cgi/ngircd/">ngIRCd CVS Repository</a>.
 </p>
 
 <h2 id="bugs">Bug-Tracker</h2>
 <p>
  Damit ich den &Uuml;berlick &uuml;ber eventuell(!?) im ngIRCd vorhandene Bugs und
  Feature-W&uuml;nsche nicht verliere, ist ein Bug-Tracking-System installiert:
- <a href="http://arthur.ath.cx/bugzilla/ngircd/">Bugzilla</a>
+ <a href="http://arthur.barton.de/cgi-bin/bugzilla/index.cgi">Bugzilla</a>
 </p>
 <p>
  Solltest du Fehler finden, so lege dort bitte einen
- <a href="http://arthur.ath.cx/bugzilla/ngircd/enter_bug.cgi">Bug-Report</a>
+ <a href="http://arthur.barton.de/cgi-bin/bugzilla/enter_bug.cgi">Bug-Report</a>
  an! Vielen Dank!
 </p>
 <p>
  Zudem kannst du dich dort auch &uuml;ber bekannte und vielleicht bereits
  behobene Fehler
- <a href="http://arthur.ath.cx/bugzilla/ngircd/query.cgi">informieren</a>.
+ <a href="http://arthur.barton.de/cgi-bin/bugzilla/query.cgi">informieren</a>.
 </p>
 
 <h2 id="history">History</h2>
@@ -327,8 +327,8 @@
  <small>
   Version: $Id$
   <br>
-  Seite <a hreflang="en" href="http://validator.w3.org/check?uri=http%3A%2F%2Farthur.ath.cx%2F%7Ealex%2Fngircd%2Findex.html.de">pr&uuml;fen</a>.<br>
-  Kontakt: Alexander Barton, E-Mail: <a href="mailto:alex@arthur.ath.cx">alex@arthur.ath.cx</a>.<br>
+  Seite <a hreflang="en" href="http://validator.w3.org/check?uri=http%3A%2F%2Fngircd.barton.de%2F%index.html.de">pr&uuml;fen</a>.<br>
+  Kontakt: Alexander Barton, E-Mail: <a href="mailto:alex@barton.de">alex@barton.de</a>.<br>
  </small>
 </p>
 

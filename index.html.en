@@ -6,10 +6,10 @@
  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
  <meta http-equiv="content-language" content="en">
  <meta name="author" content="Alexander Barton">
- <meta name="author-email" content="alex@arthur.ath.cx">
+ <meta name="author-email" content="alex@barton.de">
  <meta name="MSSmartTagsPreventParsing" content="TRUE">
  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
- <link rel="author" href="mailto:alex@arthur.ath.cx" title="write an E-Mail to Alex">
+ <link rel="author" href="mailto:alex@barton.de" title="write an E-Mail to Alex">
 </head>
 
 <body>
@@ -58,7 +58,7 @@
 <p>Mirrors:</p>
 <ul>
  <li><a href="http://ngircd.berlios.de/index.html.en">ngircd.berlios.de</a>
- <li><a href="http://arthur.ath.cx/~alex/ngircd/index.html.en">arthur.ath.cx</a>
+ <li><a href="http://ngircd.barton.de/index.html.en">ngircd.barton.de</a>
 </ul>
 
 <h2 id="status">Status</h2>
@@ -82,7 +82,7 @@
 </p>
 <p>
  Read more about our private IRC network on these
- <a href="http://Arthur.Ath.CX/irc/">web pages</a>.
+ <a href="http://irc.barton.de/">web pages</a>.
 </p>
 <p>
  I'm glad to receive feedback, bug reports (best choice for this is the
@@ -165,8 +165,8 @@
  and the further development. Updates and CVS-commits are announced
  here.
 </p>
-<p>Please subscribe using the <a href="http://arthur.ath.cx/mailman/listinfo/ngircd-ml">homepage of the list</a>.
-<p>All postings are archived <a href="http://arthur.ath.cx/pipermail/ngircd-ml/">here</a>.
+<p>Please subscribe using the <a href="http://arthur.barton.de/mailman/listinfo/ngircd-ml">homepage of the list</a>.
+<p>All postings are archived <a href="http://arthur.barton.de/pipermail/ngircd-ml/">here</a>.
 
 <h2 id="install">Installation</h2>
 <p>
@@ -215,17 +215,16 @@
 		    <a href="http://download.berlios.de/ngircd/ngircd-0.8.3.tar.gz">http</a>,
 		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.8.3.tar.gz">ftp</a>
 	</ul>
-	<p>Server: <em>arthur.ath.cx</em> (<a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/">ftp</a>)</p>
+	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
 		<li>ngircd-0.8.3.tar.gz:
-		    <a href="ftp://Arthur.Ath.CX/pub/Users/alex/ngircd/ngircd-0.8.3.tar.gz">ftp</a>.
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.8.3.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>
 <p>
- In addition, all previous versions, GnuPG signatures, as well as nightly tar-balls
- (generated from the CVS HEAD sources) are also available. Look here:
- <a href="ftp://arthur.ath.cx/pub/Users/alex/ngircd/">ftp</a>.
+ In addition, all previous versions and GnuPG signatures are also available. Look here:
+ <a href="ftp://ngircd.barton.de/pub/Users/alex/ngircd/">ftp</a>.
 </p>
 <h3 id="packages">Packages</h3>
 <p>
@@ -247,7 +246,7 @@
 <ul>
  <li>
   <a href="http://www.debian.org/">Debian Linux</a>:
-  <a href="ftp://arthur.ath.cx/debian/dists/ab/main/">deb</a>
+  <a href="ftp://arthur.barton.de/debian/dists/ab/main/">deb</a>
   (Autor: Alex Barton)
  </li>
 </ul>
@@ -280,21 +279,21 @@
 </p>
 <p>
  The repository is online available through HTTP:
- <a href="http://Arthur.Ath.CX/cgi-bin/viewcvs.cgi/ngircd/">ngIRCd CVS Reposidtory</a>.
+ <a href="http://arthur.barton.de/cgi-bin/viewcvs.cgi/ngircd/">ngIRCd CVS Reposidtory</a>.
 </p>
 
 <h2 id="bugs">Bug Tracker</h2>
 <p>
  In order to keep track of feature requests and found bugs there's a
- Bug Tracking system: <a href="http://arthur.ath.cx/bugzilla/ngircd/">Bugzilla</a>
+ Bug Tracking system: <a href="http://arthur.barton.de/cgi-bin/bugzilla/index.cgi">Bugzilla</a>
 </p>
 <p>
  In case you found a bug please check
- <a href="http://arthur.ath.cx/bugzilla/ngircd/enter_bug.cgi">Bug-Report</a>
+ <a href="http://arthur.barton.de/cgi-bin/bugzilla/enter_bug.cgi">Bug-Report</a>
  and describe the circumstances. Thank you!
 </p>
 <p>
- In addition you can <a href="http://arthur.ath.cx/bugzilla/ngircd/query.cgi">inform</a>
+ In addition you can <a href="http://arthur.barton.de/cgi-bin/bugzilla/query.cgi">inform</a>
  about known and perhaps fixed bugs.
 </p>
 
@@ -318,8 +317,8 @@
  <small>
   Version: $Id$
   <br>
-  <a hreflang="en" href="http://validator.w3.org/check?uri=http%3A%2F%2Farthur.ath.cx%2F%7Ealex%2Fngircd%2Findex.html.en">Validate</a> page.<br>
-  Contact: Alexander Barton, E-Mail: <a href="mailto:alex@arthur.ath.cx">alex@arthur.ath.cx</a>.<br>
+  <a hreflang="en" href="http://validator.w3.org/check?uri=http%3A%2F%2Fngircd.barton.de%2Findex.html.en">Validate</a> page.<br>
+  Contact: Alexander Barton, E-Mail: <a href="mailto:alex@barton.de">alex@barton.de</a>.<br>
   Thanks to <a href="mailto:goetz@hoffart.de">G&ouml;tz Hoffart</a> for cleaning up this page and the english translation!
  </small>
 </p>

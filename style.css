@@ -30,6 +30,8 @@ P, LI, TD, TH, DT {
 	line-height: 1.2
 }
 
+DD { margin-bottom: 1em; }
+
 UL { list-style-type: square; }
 
 SMALL { line-height: 1; }

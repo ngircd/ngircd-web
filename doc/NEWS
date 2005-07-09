@@ -1,7 +1,7 @@
 
                      ngIRCd - Next Generation IRC Server
 
-                      (c)2001-2004 by Alexander Barton,
+                        (c)2001-2005 Alexander Barton,
                     alex@barton.de, http://www.barton.de/
 
                ngIRCd is free software and published under the
@@ -9,6 +9,25 @@
 
                                   -- NEWS --
 
+
+ngIRCd 0.9.0
+
+  - Never run with root privileges but always switch the user ID.
+  - Make "netsplit" messages RFC compliant.
+  - Implemented the IRC function "WHOWAS".
+  - New configuration option "OperServerMode" to enable a workaround needed
+    when running an network with ircd2 servers and "OperCanUseMode" enabled
+    to prevent the ircd2 daemon to drop mode changes of IRC operators.
+    Patch by Florian Westphal, <westphal@foo.fh-furtwangen.de>.
+  - Implemented support for "secret channels" (channel mode "s").
+  - New configuration option "Mask" for [Operator] sections to limit OPER
+    commands to users with a specific IRC mask. Patch from Florian Westphal.
+  - New configuration variable "PidFile", section "[Global]": if defined,
+    the server writes its process ID (PID) to this file. Default: off.
+    Idea of Florian Westphal, <westphal@foo.fh-furtwangen.de>.
+  - Added support for the Howl (http://www.porchdogsoft.com/products/howl/)
+    Rendezvous API, in addition to the API of Apple (Mac OS X). The available
+    API will be autodetected when you call "./configure --with-rendezvous".
 
 ngIRCd 0.8.0 (2004-06-26)
 
@@ -52,7 +71,7 @@ ngIRCd 0.7.0 (2003-05-01)
   - Added support for TCP Wrappers library: pass "--with-tcp-wrappers" to
     configure to enable it.
   - Changed some configure options to use "--with"/"--without" as prefix
-    insetead of "--enable"/"--disable": "--without-syslog", "--without-zlib",
+    instead of "--enable"/"--disable": "--without-syslog", "--without-zlib",
     "--with-tcp-wrappers", and "--with-rendezvous".
   - Enhanced manual pages ngircd(8) and ngircd.conf(5).
   - Documentation is now installed in $(datadir)/doc/ngircd.

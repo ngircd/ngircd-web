@@ -66,6 +66,8 @@
 <p>
  Current &quot;stable&quot; version is <strong>0.8.3</strong>.
 </p>
+<p>
+ The current &quot;testing&quot; release is <strong>0.9.0-pre1</strong>.
 <p class="Security">
  <strong>Attention:</strong>
  It is highly recommended to update to at lease ngIRCd release 0.8.3,
@@ -223,6 +225,14 @@
 	<ul>
 		<li>ngircd-0.8.3.tar.gz:
 		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.8.3.tar.gz">ftp</a>.
+	</ul>
+ </dd>
+ <dt><strong>ngIRCd 0.9.0-pre1</strong> (2005-07-09):</dt>
+ <dd>
+	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
+	<ul>
+		<li>ngircd-0.9.0-pre1.tar.gz:
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.9.0-pre1.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

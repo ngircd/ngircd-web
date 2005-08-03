@@ -10,8 +10,17 @@
                                -- ChangeLog --
 
 
-ngIRCd 0.9.x
+ngIRCd 0.9.1 (2005-08-03)
 
+  - The KILL command killed much more than desired (including server links!)
+    when the target user is connected to a remote server. Bug introduced in
+    ngIRCd 0.9.0 ...  Reported by <qssl@fastmail.fm>, Thanks!
+  - Changed some constants to be "signed" (instead of unsigned) to solve
+    problems with old (pre-ANSI) compilers.
+
+ngIRCd 0.9.0 (2005-07-24)
+
+  ngIRCd 0.9.0-pre1 (2005-07-09)
   - Fixed maximum length of user names, now allow up to 9 characters.
   - Cut off oversized IRC messages that should be sent to the network instead
     of shuttding down the (wrong) connection.

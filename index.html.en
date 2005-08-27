@@ -236,6 +236,10 @@
 </p>
 <ul>
  <li>
+  <a hrfe="http://darwinports.opendarwin.org/">DarwinPorts</a>:
+  <a href="http://darwinports.opendarwin.org/ports/?by=name&substr=ngircd">Port</a>
+ </li>
+ <li>
   <a href="http://www.freebsd.org/">FreeBSD</a>:
   <a href="http://www.freebsd.org/cgi/ports.cgi?query=ngircd&amp;stype=all">Port</a>
  </li>

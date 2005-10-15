@@ -10,6 +10,15 @@
                                -- ChangeLog --
 
 
+ngIRCd 0.9.2 (2005-10-15)
+
+  - Fixed a bug that could cause the damon to crash when outgoing server
+    connections can't be established.
+  - Fixed a bug that caused the daemon to leak file descriptors when no
+    resolver subprocesses could be created.
+  - Fixed server NOTICEs to users with "s" mode ("server messages").
+  - Fixed a format string bug in "connection statistics" messages to clients.
+
 ngIRCd 0.9.1 (2005-08-03)
 
   - The KILL command killed much more than desired (including server links!)

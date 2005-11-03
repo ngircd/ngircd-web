@@ -277,7 +277,7 @@
  <a href="#ml">mailing list</a> for discussions concerning the ngIRCd.
 </p>
 <p>BTW: Patches are welcome ;-)</p>
-
+<p>ngIRCd on IRC: <a href="irc://irc.barton.de/ngircd">irc://irc.barton.de/ngircd</a>.</p>
 <h2 id="cvs">CVS Repository</h2>
 <p>
  The source and all files belonging to ngIRCd are managed using

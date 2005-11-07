@@ -244,6 +244,10 @@
 </p>
 <ul>
  <li>
+  <a href="http://amiga.sourceforge.net/">Amiga.sf</a>:
+  <a href="http://amiga.sourceforge.net/index.php?showpackage=ngIRCd">Port</a>
+ </li>
+ <li>
   <a href="http://darwinports.opendarwin.org/">DarwinPorts</a>:
   <a href="http://darwinports.opendarwin.org/ports/?by=name&substr=ngircd">Port</a>
  </li>
@@ -257,7 +261,7 @@
  </li>
 </ul>
 <p>
- Inoffizielle Pakete:
+ <q>Inoffizielle</q> Pakete:
 </p>
 <ul>
  <li>

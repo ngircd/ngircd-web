@@ -252,6 +252,10 @@
   <a href="http://darwinports.opendarwin.org/ports/?by=name&substr=ngircd">Port</a>
  </li>
  <li>
+  <a href="http://www.debian.org/">Debian Linux</a>:
+  <a href="http://packages.debian.org/ngircd">deb</a>
+ </li>
+ <li>
   <a href="http://www.freebsd.org/">FreeBSD</a>:
   <a href="http://www.freebsd.org/cgi/ports.cgi?query=ngircd&amp;stype=all">Port</a>
  </li>
@@ -266,7 +270,7 @@
 <ul>
  <li>
   <a href="http://www.debian.org/">Debian Linux</a>:
-  <a href="ftp://arthur.barton.de/debian/dists/ab/main/">deb</a>
+  <a href="ftp://arthur.barton.de/debian/pool/main/n/ngircd/">deb</a>
   (Autor: Alex Barton)
  </li>
 </ul>

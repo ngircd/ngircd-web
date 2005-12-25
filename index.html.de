@@ -249,7 +249,7 @@
  </li>
  <li>
   <a href="http://darwinports.opendarwin.org/">DarwinPorts</a>:
-  <a href="http://darwinports.opendarwin.org/ports/?by=name&substr=ngircd">Port</a>
+  <a href="http://darwinports.opendarwin.org/ports/?by=name&amp;substr=ngircd">Port</a>
  </li>
  <li>
   <a href="http://www.debian.org/">Debian Linux</a>:

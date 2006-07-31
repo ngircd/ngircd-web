@@ -255,6 +255,10 @@
   <a href="http://www.gentoo.org/">Gentoo Linux</a>:
   <a href="http://packages.gentoo.org/packages/?category=net-irc;name=ngircd">ebuild</a>
  </li>
+ <li>
+  <a href="http://www.ubuntu.com/">Ubuntu Linux</a>:
+  <a href="http://packages.ubuntu.com/ngircd">deb</a>
+ </li>
 </ul>
 <p>
  <q>Inofficial</q> packages:

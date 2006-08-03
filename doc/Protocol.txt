@@ -93,7 +93,7 @@ defined in RFC 2813, section 4.1.1.
 II.2 Exchange channel-modes, topics, and persistent channels
 
      Command: CHANINFO
-  Parameters: <channel> +<modes> <key> <maxusers> [<topic>]
+  Parameters: <channel> +<modes> <key> <limit> [<topic>]
      Used by: servers only
 
 CHANINFO is used by servers to inform each other about a channel: its

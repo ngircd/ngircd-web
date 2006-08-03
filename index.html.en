@@ -230,6 +230,11 @@
  </dd>
  <dt><strong>ngIRCd 0.10.0-pre1</strong> (2006-08-03):</dt>
  <dd>
+	<p>Server: <em>download.berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
+	<ul>
+		<li>ngircd-0.10.0-pre1.tar.gz:
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.10.0-pre1.tar.gz">ftp</a>
+	</ul>
 	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
 		<li>ngircd-0.10.0-pre1.tar.gz:

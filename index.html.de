@@ -66,6 +66,9 @@
 <p>
  Die aktuelle &quot;stabile&quot; Version ist <strong>0.9.2</strong>.
 </p>
+<p>
+ Im Test befindet sich die Version <strong>0.10.0-pre1</strong>.
+</p>
 <p class="Security">
  <strong>Achtung:</strong>
  Jeder, der Versionen vor 0.8.3 einsetzt, sollte unbedingt auf mindestens
@@ -230,6 +233,13 @@
 		<li>ngircd-0.9.2.tar.gz:
 		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.9.2.tar.gz">ftp</a>.
 	</ul>
+ </dd>
+ <dt><strong>ngIRCd 0.10.0-pre1</strong> (2006-08-03):</dt>
+ <dd>
+	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
+	<ul>
+		<li>ngircd-0.10.0-pre1.tar.gz:
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.10.0-pre1.tar.gz">ftp</a>.
  </dd>
 </dl>
 <p>

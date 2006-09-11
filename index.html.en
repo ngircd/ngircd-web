@@ -67,7 +67,7 @@
  Current &quot;stable&quot; version is <strong>0.9.2</strong>.
 </p>
 <p>
- Actual &quot;testing&quot; version is <strong>0.10.0-pre1</strong>.
+ Actual &quot;testing&quot; version is <strong>0.10.0-pre2</strong>.
 </p>
 <p class="Security">
  <strong>Attention:</strong>
@@ -228,17 +228,17 @@
 		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.9.2.tar.gz">ftp</a>.
 	</ul>
  </dd>
- <dt><strong>ngIRCd 0.10.0-pre1</strong> (2006-08-03):</dt>
+ <dt><strong>ngIRCd 0.10.0-pre2</strong> (2006-09-09):</dt>
  <dd>
 	<p>Server: <em>download.berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.10.0-pre1.tar.gz:
-		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.10.0-pre1.tar.gz">ftp</a>
+		<li>ngircd-0.10.0-pre2.tar.gz:
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.10.0-pre2.tar.gz">ftp</a>
 	</ul>
 	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.10.0-pre1.tar.gz:
-		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.10.0-pre1.tar.gz">ftp</a>.
+		<li>ngircd-0.10.0-pre2.tar.gz:
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.10.0-pre2.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

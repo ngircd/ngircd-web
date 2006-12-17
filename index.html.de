@@ -263,6 +263,10 @@
   <a href="http://packages.gentoo.org/packages/?category=net-irc;name=ngircd">ebuild</a>
  </li>
  <li>
+  <a href="http://www.opensuse.de/">OpenSUSE</a>:
+  <a href="http://software.opensuse.org/download/server:/irc/">rpm</a>
+ </li>
+ <li>
   <a href="http://www.ubuntu.com/">Ubuntu Linux</a>:
   <a href="http://packages.ubuntu.com/ngircd">deb</a>
  </li>

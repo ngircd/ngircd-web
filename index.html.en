@@ -64,7 +64,9 @@
 <h2 id="status">Status</h2>
 
 <p>
- Current &quot;stable&quot; version is <strong>0.10.1</strong>.
+ Current &quot;stable&quot; version is <strong>0.10.1</strong>, version
+ <strong>0.10.2-pre2</strong> is available for testing. Please see
+ <a href="#download">below</a> for download locations.
 </p>
 <p class="Security">
  <strong>Attention:</strong>
@@ -226,8 +228,10 @@
  </dd>
 </dl>
 <p>
- In addition, all previous versions and GnuPG signatures are also available. Look here:
- <a href="ftp://ngircd.barton.de/pub/Users/alex/ngircd/">ftp</a>.
+ All previous released versions, GnuPG signatures as well as available test
+ releases of upcoming versions are available via FTP from
+ <a href="ftp://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a> and
+ <a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>.
 </p>
 <h3 id="packages">Packages</h3>
 <p>

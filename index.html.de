@@ -64,7 +64,9 @@
 <h2 id="status">Status</h2>
 
 <p>
- Die aktuelle &quot;stabile&quot; Version ist <strong>0.10.1</strong>.
+ Die aktuelle &quot;stabile&quot; Version ist <strong>0.10.1</strong>,
+ im Test befindet sich Version <strong>0.10.2-pre2</strong>.
+ Download-M&ouml;glichkeiten <a href="#download">siehe unten</a>.
 </p>
 <p class="Security">
  <strong>Achtung:</strong>
@@ -232,9 +234,10 @@
  </dd>
 </dl>
 <p>
- Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie &quot;nightly tarballs&quot;
- aus den aktuellen CVS-HEAD-Quellen k&ouml;nnen zudem via
- <a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>
+ Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie vorhandene
+ Test-Versionen aus den CVS-Quellen (so vorhanden) k&ouml;nnen zudem via FTP
+ von <a href="ftp://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a>
+ und <a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>
  heruntergeladen werden.
 </p>
 <h3 id="packages">Pakete</h3>

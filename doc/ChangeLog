@@ -1,7 +1,7 @@
 
                      ngIRCd - Next Generation IRC Server
 
-                        (c)2001-2006 Alexander Barton,
+                        (c)2001-2007 Alexander Barton,
                     alex@barton.de, http://www.barton.de/
 
                ngIRCd is free software and published under the
@@ -9,6 +9,22 @@
 
                                -- ChangeLog --
 
+
+ngIRCd 0.10.2 (2007-06-08)
+
+  ngIRCd 0.10.2-pre2 (2007-05-19)
+  - Server links are allowed to use larger write buffers now (up to 50 KB).
+
+  ngIRCd 0.10.2-pre1 (2007-05-05)
+  - Fix compressed server links (broken since 0.10.0).
+  - Predefined Channel configuration now allows specification of channel key
+    (mode k) and maximum user count (mode l).
+  - When using epoll() IO interface, compile in the select() interface as
+    well and fall back to it when epoll() isn't available on runtime.
+  - New configure option "--without-select" to disable select() IO API
+    (even when using epoll(), see above).
+  - Added support for IO APIs "poll()" and "/dev/poll".
+  - Reorganized internal handling of invite and ban lists.
 
 ngIRCd 0.10.1 (2006-12-17)
 

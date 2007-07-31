@@ -64,18 +64,15 @@
 <h2 id="status">Status</h2>
 
 <p>
- Current &quot;stable&quot; version is <strong>0.10.2</strong>.
+ Current &quot;stable&quot; version is <strong>0.10.3</strong>.
  <!-- Version <strong>?</strong> is available for testing. -->
  Please see <a href="#download">below</a> for download locations.
 </p>
 <p class="Security">
  <strong>Attention:</strong>
- It is highly recommended to update to at lease ngIRCd release 0.8.3,
- because older versions of ngIRCd had a remotely exploitable bug which could
- cause the daemon to crash!<br>
- You don't need to update from 0.8.2 to 0.8.3 if the daemon isn't compiled
- to do IDENT lookups (which is the default).
-</p>
+ ngIRCd-versions previous to 0.10.3 comprise an error which can be used
+ (also by remote) to crash the daemon. All installations should be updated
+ to version 0.10.3 or subsequent versions.</p>
 <p>
  This version is used in private IRC networks and is known to run quite
  stable and flawless although it is not tested in huge IRC networks under
@@ -213,17 +210,17 @@
 <h2 id="download">Download</h2>
 <h3 id="source">Source Code</h3>
 <dl>
- <dt><strong>ngIRCd 0.10.2</strong> (2007-06-08):</dt>
+ <dt><strong>ngIRCd 0.10.3</strong> (2007-07-31):</dt>
  <dd>
 	<p>Server: <em>berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.10.2.tar.gz:
-		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.10.2.tar.gz">ftp</a>
+		<li>ngircd-0.10.3.tar.gz:
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-0.10.3.tar.gz">ftp</a>
 	</ul>
 	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
 	<ul>
-		<li>ngircd-0.10.2.tar.gz:
-		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.10.2.tar.gz">ftp</a>.
+		<li>ngircd-0.10.3.tar.gz:
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.10.3.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

@@ -1,7 +1,7 @@
 
                      ngIRCd - Next Generation IRC Server
 
-                        (c)2001-2005 Alexander Barton,
+                        (c)2001-2007 Alexander Barton,
                     alex@barton.de, http://www.barton.de/
 
                ngIRCd is free software and published under the
@@ -10,9 +10,16 @@
                        -- AUTHORS and CONTRIBUTORS --
 
 
+Note: If you have critics, patches or something else, please feel free to
+post a mail to the ngIRCd mailing list: <ngircd-ml@arthur.ath.cx> (please see
+<http://ngircd.barton.de/#ml> for details). Don't mail the contributors
+directly, if possible!
+
+
 Main Authors
 ~~~~~~~~~~~~
 Alexander Barton, <alex@barton.de> (alex)
+Florian Westphal, <westphal@foo.fh-furtwangen.de> (fw)
 
 
 Contributors
@@ -21,7 +28,6 @@ Goetz Hoffart, <goetz@hoffart.de> (goetz)
 Ilja Osthoff, <i.osthoff@gmx.net> (ilja)
 Benjamin Pineau, <ben@zouh.org>
 Sean Reifschneider, <jafo-rpms@tummy.com>
-Florian Westphal, <westphal@foo.fh-furtwangen.de> (fw)
 
 
 Code snippets

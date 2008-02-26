@@ -10,6 +10,14 @@
                                -- ChangeLog --
 
 
+ngIRCd 0.11.1 (2008-02-26)
+
+ - Fix sending of JOIN commands between servers when remote server appended
+   mode flags. (Rolf Eike Beer) [from HEAD]
+ - Send "G" instead of "H" flag in WHO replies. (reported by Dana Dahlstrom)
+ - Under some circumstances ngIRCd issued channel MODE message with a
+   trailing space. (Dana Dahlstrom) [from HEAD]
+
 ngIRCd 0.11.0 (2008-01-15)
 
   ngIRCd 0.11.0-pre2 (2008-01-07)

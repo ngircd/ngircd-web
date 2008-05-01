@@ -38,7 +38,7 @@
   <li><a href="#packages">Packages</a></li>
  </ul>
  <li><a href="#people">Contact</a>
- <li><a href="#cvs">CVS Repository</a>
+ <li><a href="#git">GIT Repository</a>
  <li><a href="#bugs">Bug Tracker</a>
  <li><a href="#history">History</a>
 </ol>
@@ -133,7 +133,7 @@
 <p>
  There's a bit of documentation in the source code package. One's located
  in the main directory (e.g. INSTALL, README, NEWS and COPYING) others in
- subdirectories like <code>&quot;doc&quot;</code> (e.g. CVS.txt, FAQ.txt
+ subdirectories like <code>&quot;doc&quot;</code> (e.g. GIT.txt, FAQ.txt
  and sample configuration files like sample-ngircd.conf).
 </p>
 <p>Parts of the documentation are available here:</p>
@@ -144,7 +144,7 @@
 <ul>
  <li><a href="doc/AUTHORS">AUTHORS</a>
  <li><a href="doc/COPYING">COPYING</a>
- <li><a href="doc/CVS.txt">CVS.txt</a>
+ <li><a href="doc/GIT.txt">GIT.txt</a>
  <li><a href="doc/ChangeLog">ChangeLog</a>
  <li><a href="doc/FAQ.txt">FAQ.txt</a>
  <li><a href="doc/NEWS">NEWS</a>
@@ -165,8 +165,7 @@
 <p>
  There is a mailing list which deals with the &quot;technical&quot;
  questions concerning ngIRCd: compilation, installation, configuration,
- and the further development. Updates and CVS-commits are announced
- here.
+ and the further development. Updates and news are announced there.
 </p>
 <p>Please subscribe using the <a href="http://arthur.barton.de/mailman/listinfo/ngircd-ml">homepage of the list</a>.
 <p>All postings are archived <a href="http://arthur.barton.de/pipermail/ngircd-ml/">here</a>.
@@ -294,16 +293,15 @@
 </p>
 <p>BTW: Patches are welcome ;-)</p>
 <p>ngIRCd on IRC: <a href="irc://irc.barton.de/ngircd">irc://irc.barton.de/ngircd</a>.</p>
-<h2 id="cvs">CVS Repository</h2>
+<h2 id="git">GIT Repository</h2>
 <p>
  The source and all files belonging to ngIRCd are managed using
- <a hreflang="en" href="http://www.cvshome.org/"><abbr title="Concurrent Versions
- System">CVS</abbr></a>. Anonymous access is available, read:
- <a href="doc/CVS.txt">CVS.txt</a>.
+ <a hreflang="en" href="http://git.or.cz/">GIT</a>.
+ Anonymous access is available, read: <a href="doc/GIT.txt">GIT.txt</a>.
 </p>
 <p>
  The repository is online available through HTTP:
- <a href="http://arthur.barton.de/cgi-bin/viewcvs.cgi/ngircd/">ngIRCd CVS Reposidtory</a>.
+ <a href="http://ngircd.barton.de/cgi-bin/gitweb.cgi?p=ngircd.git">ngIRCd GIT Reposidtory</a>.
 </p>
 
 <h2 id="bugs">Bug Tracker</h2>

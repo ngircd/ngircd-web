@@ -243,6 +243,10 @@
   <a href="http://packages.debian.org/ngircd">deb</a>
  </li>
  <li>
+  <a href="http://fedoraproject.org/">Fedora Linux</a>:
+  <a href="https://admin.fedoraproject.org/pkgdb/packages/name/ngircd/">rpm</a>
+ </li>
+ <li>
   <a href="http://www.finkproject.org/">Fink Project</a>:
   <a href="http://pdb.finkproject.org/pdb/package.php/ngircd">Port</a>
  </li>

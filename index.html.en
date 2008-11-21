@@ -65,7 +65,7 @@
 
 <p>
  Current &quot;stable&quot; version is <strong>0.12.1</strong>.
- <!-- Version <strong>0.12.0-pre2</strong> is available for testing. -->
+ Version <strong>13~rc1</strong> is available for testing.
  Please see <a href="#download">below</a> for download locations.
 </p>
 <p class="Security">
@@ -220,6 +220,19 @@
 	<ul>
 		<li>ngircd-0.12.1.tar.gz:
 		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-0.12.1.tar.gz">ftp</a>.
+	</ul>
+ </dd>
+ <dt><strong>ngIRCd 13~rc1</strong> (2008-11-21):</dt>
+ <dd>
+	<p>Server: <em>berlios.de</em> (<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>)</p>
+	<ul>
+		<li>ngircd-13~rc1.tar.gz:
+		    <a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-13~rc1.tar.gz">ftp</a>
+	</ul>
+	<p>Server: <em>ngircd.barton.de</em> (<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>)</p>
+	<ul>
+		<li>ngircd-13~rc1.tar.gz:
+		    <a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-13~rc1.tar.gz">ftp</a>.
 	</ul>
  </dd>
 </dl>

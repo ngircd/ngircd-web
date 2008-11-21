@@ -10,6 +10,25 @@
                                   -- NEWS --
 
 
+ngIRCd-dev
+
+  - New version numer scheme :-)
+  - Initial support for IRC services, using a RFC1459 styel interface,
+    tested with IRCServices (http://www.ircservices.za.net/) version 5.1.13.
+    For this to work, ngIRCd now supports server-server links conforming
+    to RFC 1459. New ngircd.conf(5) option: ServiceMask.
+  - Support for SSL-encrypted server-server and client-server links using
+    OpenSSL (configure: --with-openssl) or GNUTLS (configure: --with-gnutls).
+    New ngircd.conf(5) options: SSLPorts, SSLKeyFile, SSLKeyFilePassword,
+    SSLCertFile, SSLDHFile, and SSLConnect.
+  - Server local channels have been implemented, prefix "&", that are only
+    visible to users of the same server and are not visible in the network.
+    In addition ngIRCd creates a "special" channel &SERVER on startup and logs
+    all the messages to it that a user with mode +s receives.
+  - New make target "osxpkg" to build a Mac OS X installer package.
+  - New configuration option "NoIdent" to disable IDENT lookups even if the
+    daemon is compiled with IDENT support.
+
 ngIRCd 0.12.1 (2008-07-09)
 
   - Add option aliases -V (for --version) and -h (for --help).

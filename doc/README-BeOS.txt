@@ -50,4 +50,4 @@ mir in Verbindung setzen (alex@barton.de), ich maile gerne meine Patches zu.
 Fuer eine Aenderung im CVS ist es aber meiner Meinung nach noch zu frueh ...
 
 -- 
-$Id$
+$Id: README-BeOS.txt,v 1.7 2003/05/15 21:47:57 alex Exp $

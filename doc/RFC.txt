@@ -30,4 +30,4 @@ Comments (RFC), which you can get e.g. via <http://www.faqs.org/>:
 
 
 -- 
-$Id$
+$Id: RFC.txt,v 1.6 2003/03/07 20:42:20 alex Exp $

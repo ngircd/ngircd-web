@@ -1,0 +1,32 @@
+<?php
+	include('includes/common.php');
+	begin_page('en', 'News');
+?>
+<h2>
+	News &amp; History
+</h2>
+<h3 id="status">
+	Status
+</h3>
+<p>
+	The current, sound version is <strong>Release 13</strong>,
+	please also refer to the <a href="download.php.en">Download</a>.
+</p>
+<p class="security">
+	<strong>Caution:</strong>
+	ngIRCd-versions previous to 0.10.4 contain a bug which can be used
+	(also remotely) to crash the daemon. All installations should be
+	updated to version 0.10.4 or newer!
+</p>
+<h3 id="history">
+	History
+</h3>
+<p>
+	The <a href="doc/NEWS">NEWS</a>-file and the
+	<a href="doc/ChangeLog">ChangeLog</a>
+	are available online and in the archives.
+</p>
+<?php
+	end_page();
+?>
+

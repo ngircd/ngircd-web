@@ -1,0 +1,106 @@
+<?php
+	include('includes/common.php');
+	begin_page('de', 'Dokumentation');
+?>
+<h2>
+	Dokumentation
+</h2>
+<h3 id="platforms">
+	Unterstützte Plattformen
+</h3>
+<p>
+	Auf den folgenden Plattformen wird der ngIRCd regelmäßig getestet
+	(in Klammern die jeweils benutzen Versionen), sie sind die
+	offiziell unterstützten Systeme:
+</p>
+<?php
+	include('common/platforms.inc');
+?>
+<p>
+	Da sich der ngIRCd an übliche UNIX-Standards hält und GNU automake
+	sowie GNU autoconf verwendet, stehen die Chancen nicht schlecht,
+	daß er sich auf weiteren UNIXoiden Systemen übersetzen bzw. relativ
+	einfach anpassen läßt.
+</p>
+<h3 id="install">
+	Installation
+</h3>
+<p>
+	ngIRCd ist für UNIXoide Systeme konzipiert, die Installation sollte
+	auf einem modernen UNIX-ähnlichen System, das von GNU automake und
+	GNU autoconf („configure“) unterstützt wird, keine besonderen
+	Schwierigkeiten bereiten.
+</p>
+<p>
+	Der Standardfall sieht so aus:
+</p>
+<blockquote><p><code>
+	tar xzf ngircd-&lt;version&gt;.tar.gz<br>
+	cd ngircd-&lt;version&gt;<br>
+	./configure<br>
+	make
+</code></p></blockquote>
+<p>
+	Nun sollte sich in <code>src/ngircd</code> der ausführbare Server
+	(in der Regel <code>ngircd</code>) befinden.
+</p>
+<blockquote><p><code>
+	make install
+</code></p></blockquote>
+<p>
+	Der ausführbare Server wurde nun in <code>/usr/local/sbin</code>
+	installiert.
+</p>
+<p>
+	Vom Server wird die Konfigurationsdatei <code>ngircd.conf</code> in
+	<code>/usr/local/etc</code> erwartet; eine Beispiel-Konfigurationsdatei
+	ist im Verzeichnis <code>doc</code> zu finden.
+</p>
+<p>
+	Weitere Hinweise zur Installation und Konfiguration finden sich in
+	der Datei <a href="doc/INSTALL">INSTALL</a>.
+</p>
+<h3>
+	Dokumentation
+</h3>
+<p>
+	Ein wenig Dokumentation ist im Quellpaket enthalten, zum Teil im
+	Hauptverzeichnis (so z. B. die Dokumente INSTALL, README, NEWS und
+	COPYING), andere im Unterverzeichnis <samp>doc</samp> (wie z. B.
+	GIT.txt, FAQ.txt und die Beispiel-Konfiguration sample-ngircd.conf).
+</p>
+<p>
+	Die Dateien der aktuellen Version sind hier im Web (in englischer
+	Sprache) zu finden:
+</p>
+<ul>
+	<li><a href="doc/README">README</a></li>
+	<li><a href="doc/INSTALL">INSTALL</a></li>
+</ul>
+<ul>
+	<li><a href="doc/sample-ngircd.conf">sample-ngircd.conf</a>
+</ul>
+<ul>
+	<li><a href="doc/FAQ.txt">FAQ.txt</a>
+	<li><a href="doc/NEWS">NEWS</a>
+	<li><a href="doc/ChangeLog">ChangeLog</a>
+</ul>
+<ul>
+	<li><a href="doc/AUTHORS">AUTHORS</a>
+	<li><a href="doc/COPYING">COPYING</a>
+	<li><a href="doc/GIT.txt">GIT.txt</a>
+	<li><a href="doc/Platforms.txt">Platforms.txt</a>
+	<li><a href="doc/Protocol.txt">Protocol.txt</a>
+	<li><a href="doc/RFC.txt">RFC.txt</a>
+	<li><a href="doc/Services.txt">Services.txt</a>
+	<li><a href="doc/SSL.txt">SSL.txt</a>
+	<li><a href="doc/Zeroconf.txt">Zeroconf.txt</a>
+</ul>
+<ul>
+	<li><a href="doc/README-AUX.txt">README-AUX.txt</a>
+	<li><a href="doc/README-BeOS.txt">README-BeOS.txt</a> (deutsch)
+</ul>
+<?php
+	end_page();
+?>
+

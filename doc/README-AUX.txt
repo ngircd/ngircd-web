@@ -64,4 +64,4 @@ A few hints in case of errors:
    even if you don't use ngIRCd.
 
 -- 
-$Id$
+$Id: README-AUX.txt,v 1.10 2006/07/23 12:19:57 alex Exp $

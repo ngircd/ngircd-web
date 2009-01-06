@@ -1,0 +1,57 @@
+<?php
+	include('includes/common.php');
+	begin_page('de', 'Download');
+?>
+<h2>
+	Download
+</h2>
+<h3 id="source">
+	Source Code
+</h3>
+<?php
+	include('common/download.inc');
+?>
+<p>
+	Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie
+	vorhandene Test-Versionen aus den GIT-Quellen (so vorhanden)
+	können zudem via FTP von
+	<a href="ftp://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a> und
+	<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>
+	heruntergeladen werden.
+</p>
+<h3 id="packages">
+	Pakete
+</h3>
+<p>
+	Von den folgenden Distributionen gibt es fertige Pakete für den ngIRCd:
+</p>
+<?php
+	include('common/distributions.inc');
+?>
+<p>
+	Inoffizielle Pakete:
+</p>
+<ul>
+	<li>
+		<a href="http://www.debian.org/">Debian Linux</a>:
+		<a href="ftp://arthur.barton.de/debian/pool/main/n/ngircd/">deb</a>
+		(Autor: Alex Barton)
+	</li>
+</ul>
+<h3 id="git">
+	GIT-Repository
+</h3>
+<p>
+	Der Quelltext und alle zum ngIRCd geh&ouml;renden Dateien werden mit
+	<a hreflang="en" href="http://git.or.cz/">GIT</a>, verwaltet.
+	Anonymer Zugang ist m&ouml;glich, Details hier:
+	<a href="doc/GIT.txt">GIT.txt</a>.
+</p>
+<p>
+	Im Web ist die Repository auch online verf&uuml;gbar:
+	<a href="http://ngircd.barton.de/cgi-bin/gitweb.cgi?p=ngircd.git">ngIRCd GIT Repository</a>.
+</p>				
+<?php
+	end_page();
+?>
+

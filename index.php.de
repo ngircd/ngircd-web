@@ -1,0 +1,87 @@
+<?php
+	include('includes/common.php');
+	begin_page('de');
+?>
+<h2>
+	ngIRCd
+</h2>
+<p>
+	ngIRCd ist ein freier Open-Source Server für den Internet Relay Chat
+	(IRC), der unter der GNU General Public License
+	(<a href="http://www.gnu.org/licenses/gpl.html" hreflang="en">GPL</a>)
+	entwickelt wird. Er ist von Grund auf neu geschrieben, basiert also
+	nicht wie die meisten anderen IRC-Daemons auf dem „Urvater“, dem
+	Daemon des IRCNet.
+</p>
+<p class="hint">
+	<em>Tip:</em>
+	bei freshmeat.net gibt es einen
+	<a href="http://freshmeat.net/projects/ngircd/">Projekteintrag</a>
+	für ngIRCd. Dort ist es z. B. möglich, sich über neue Versionen zu
+	informieren und via E-Mail benachrichtigen zu lassen.
+</p>
+<p class="btw">
+	BTW: There's an <a href="index.php.en">English</a> version of this
+	page, too.
+</p>
+<?php
+	include('common/mirrors.inc');
+?>
+<h2 id="why">
+	Vorteile
+</h2>
+<p>
+	Warum man den ngIRCd benutzen sollte? Unter anderem aus diesen
+	Gründen:
+</p>
+<ul>
+	<li>
+		keine Probleme mit Servern, deren IP-Adressen dynamisch sind
+	</li>
+	<li>
+		übersichtliche (schlanke) Konfigurationsdatei
+	</li>
+	<li>
+		frei verfügbarer, moderner und „aufgeräumter“ C-Quellcode
+	</li>
+	<li>
+		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren aktiv
+		weiter entwickelt
+	</li>
+</ul>
+<div id="preview">
+	<code><a id="v_toggle" href="#" name="v_toggle">ngircd --help</a></code><br>
+	<div id="vertical_slide">
+		<samp>ngircd 13-SYSLOG+ZLIB+SSL+TCPWRAP+IDENT+IRCPLUS+IPv6-x86_64/pc/linux-gnu
+Copyright (c)2001-2008 Alexander Barton (&lt;alex@barton.de&gt;) and Contributors.
+Homepage: &lt;http://ngircd.barton.de/&gt;
+
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+  -f, --config &lt;f&gt;   use file &lt;f&gt; as configuration file
+  -n, --nodaemon     don't fork and don't detach from controlling terminal
+  -p, --passive      disable automatic connections to other servers
+  -t, --configtest   read, validate and display configuration; then exit
+  -V, --version      output version information and exit
+  -h, --help         display this help and exit</samp>
+	</div>
+</div>
+<h2>
+	Einfachheit
+</h2>
+<p>
+	ngIRCd unterstützt aktiv eine ganze Reihe von Plattformen: Linux,
+	BSD, Mac OS X. Aber auch auf Solaris, HP-UX, AIX und anderen Unices
+	läuft ngIRCd.
+</p>
+<p>
+	Nach der Installation, die via Paketinstallation oder
+	configure-make-make-install erfolgt, kann man nach dem Editieren der
+	ngircd.conf bereits nach 5 Minuten loslegen&nbsp;– geändert werden
+	müssen dort nur wenige Zeilen, der Rest ist optional.
+</p>
+<?php
+	end_page();
+?>
+

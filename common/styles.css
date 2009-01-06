@@ -1,0 +1,135 @@
+html {
+	overflow-y: scroll;
+}
+body {
+	background-color: rgb(0,95,95);
+	font-family: "Trebuchet MS", sans-serif;
+}
+
+/* @group General */
+
+div#bodyBox {
+	min-width: 25em;
+	max-width: 55em;
+	margin: 3em auto;
+	border: 1px solid gray;
+	background-color: white;
+}
+
+/* @end */
+
+/* @group Header */
+
+div#sloganhead {
+	text-align: center;
+}
+div#sloganhead p {
+	margin: 0.2em 0 1em 0;
+	color: rgb(150,150,150);
+}
+
+h1.titel {
+	font-size: 1.8em;
+	color: rgb(150,150,150);
+	margin-bottom:0;
+}
+
+h1.titel span {
+	color: #005555;
+}
+
+/* @end */
+
+/* @group Navigation */
+
+ul.nav {
+	margin: 0 auto;
+	padding: 0;
+	width: 51em;
+	text-indent: 0;
+}
+
+ul.nav li {
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+	background-image: url(bevel.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	width: 8em;
+	text-align: center;
+	list-style-type: none;
+	border: 1px solid #005555;
+	margin: 0.1em 0.1em;
+	float:left;
+}
+
+ul.nav li a {
+	font-family: sans-serif;
+	color: rgb(230,230,230);
+	display: block;
+	padding: 0.1em;
+	text-decoration: none;
+}
+
+ul.nav li a:link {
+}
+
+ul.nav li a:visited {
+}
+
+ul.nav li a:hover {
+	color: white;
+}
+
+/* @end */
+
+/* @group Content */
+
+h2,h3,h4 {
+	margin: 1.5em 0 0.2em 0;
+}
+
+div#content {
+	margin: 0.2em 3em;
+}
+
+a {
+	text-decoration: underline;
+	color: #005555;
+}
+
+div#vertical_slide {
+	border: 1px solid gray;
+	padding: 1em;
+}
+div#preview samp {
+	font-family: Monaco,"Courier New", Courier, mono;
+	font-size: 0.9em;
+	color: rgb(65,65,65);
+	white-space: pre;
+}
+
+.btw {
+	border: 1px dotted silver;
+	padding: 1px 2px;
+}
+
+.security {
+	border: 1px solid silver;
+	padding: 1px 2px;
+	background-color: #fee;
+}
+
+/* @end */
+
+/* @group Footer */
+
+p#footer {
+	font-size: xx-small;
+	text-align: center;
+	margin-top: 5em;
+}
+
+/* @end */
+

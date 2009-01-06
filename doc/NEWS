@@ -10,7 +10,7 @@
                                   -- NEWS --
 
 
-ngIRCd Release 13
+ngIRCd Release 13 (2008-12-25)
 
   ngIRCd 13~rc1 (2008-11-21):
   - New version numer scheme :-)
@@ -298,4 +298,4 @@ ngIRCd 0.0.1, 31.12.2001
 
 
 -- 
-$Id$
+$Id: NEWS,v 1.88 2008/02/26 22:05:42 fw Exp $

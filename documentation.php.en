@@ -1,0 +1,102 @@
+<?php
+	include('includes/common.php');
+	begin_page('en', 'Documentation');
+?>
+<h2>
+	Documentation
+</h2>
+<h3 id="platforms">
+	Supported platforms
+</h3>
+<p>
+	ngIRCd is being tested regularly on the following platforms (used
+	version in brackets). The systems that are officially supported are:
+</p>
+<?php
+	include('common/platforms.inc');
+?>
+<p>
+	As the ngIRCd complies to common UNIX standards and uses GNU automake
+	and GNU autoconf, chances are that it can be ported to or adapted for
+	further UNIXoid systems.
+</p>
+<h3 id="install">
+	Installation
+</h3>
+<p>
+	ngIRCd is designed for UNIXoid systems and the installation on a
+	modern UNIX-like system, which is supported by GNU automake and GNU
+	autoconf, shouldn't cause any problems.
+</p>
+<p>
+	Typically it looks like this:
+</p>
+<blockquote><p><code>
+	tar xzf ngircd-&lt;version&gt;.tar.gz<br>
+	cd ngircd-&lt;version&gt;<br>
+	./configure<br>
+	make
+</code></p></blockquote>
+<p>
+	Now, the executing server (normally <code>ngircd</code>) should be in
+	<code>src/ngircd</code>.
+</p>
+<blockquote><p><code>
+	make install
+</code></p></blockquote>
+<p>
+	The executing server has now been installed in
+	<code>/usr/local/sbin</code>.
+</p>
+<p>
+	The configuration file <code>ngircd.conf</code> is now expected in
+	the server directory <code>/usr/local/etc</code>; an exemplary
+	configuration file can be found in the directory <code>doc</code>.
+</p>
+<p>
+	Further comments on the installation and configuration can be found
+	in the file <a href="doc/INSTALL">INSTALL</a>.
+</p>
+<h3>
+	Documentation
+</h3>
+<p>
+	Documentation is compiled in the source package, some in the main
+	directory (such as INSTALL, README, NEWS und COPYING), and some in
+	the sub directory <samp>doc</samp> (such as GIT.txt, FAQ.txt and the
+	exemplary configurations sample-ngircd.conf).
+</p>
+<p>
+	The documents of tha actual version can be found online here:
+</p>
+<ul>
+	<li><a href="doc/README">README</a></li>
+	<li><a href="doc/INSTALL">INSTALL</a></li>
+</ul>
+<ul>
+	<li><a href="doc/sample-ngircd.conf">sample-ngircd.conf</a>
+</ul>
+<ul>
+	<li><a href="doc/FAQ.txt">FAQ.txt</a>
+	<li><a href="doc/NEWS">NEWS</a>
+	<li><a href="doc/ChangeLog">ChangeLog</a>
+</ul>
+<ul>
+	<li><a href="doc/AUTHORS">AUTHORS</a>
+	<li><a href="doc/COPYING">COPYING</a>
+	<li><a href="doc/GIT.txt">GIT.txt</a>
+	<li><a href="doc/Platforms.txt">Platforms.txt</a>
+	<li><a href="doc/Protocol.txt">Protocol.txt</a>
+	<li><a href="doc/RFC.txt">RFC.txt</a>
+	<li><a href="doc/Services.txt">Services.txt</a>
+	<li><a href="doc/SSL.txt">SSL.txt</a>
+	<li><a href="doc/Zeroconf.txt">Zeroconf.txt</a>
+</ul>
+<ul>
+	<li><a href="doc/README-AUX.txt">README-AUX.txt</a>
+	<li><a href="doc/README-BeOS.txt">README-BeOS.txt</a> (deutsch)
+</ul>
+<?php
+	end_page();
+?>
+

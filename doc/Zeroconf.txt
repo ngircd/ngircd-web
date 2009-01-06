@@ -37,4 +37,4 @@ Links:
 
 
 -- 
-$Id$
+$Id: Zeroconf.txt,v 1.2 2006/08/03 14:37:29 alex Exp $

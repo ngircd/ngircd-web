@@ -1,0 +1,27 @@
+<?php
+	include('includes/common.php');
+	begin_page('de', 'Bugtracker');
+?>
+<h2>
+	Bug-Tracker
+</h2>
+<p>
+	Damit wir den Überlick über im ngIRCd vorhandene Bugs und
+	Feature-Wünsche nicht verliere, ist ein Bug-Tracking-System
+	installiert:
+	<a href="http://ngircd.barton.de/bugzilla/index.cgi">Bugzilla</a>
+</p>
+<p>
+	Solltest du Fehler finden, so lege dort bitte einen
+	<a href="http://ngircd.barton.de/bugzilla/enter_bug.cgi">Bug-Report</a>
+	an! Vielen Dank!
+</p>
+<p>
+	Zudem kannst du dich dort auch über bekannte und vielleicht bereits
+	behobene Fehler
+	<a href="http://ngircd.barton.de/bugzilla/query.cgi">informieren</a>.
+</p>
+<?php
+	end_page();
+?>
+

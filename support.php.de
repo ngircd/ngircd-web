@@ -1,0 +1,70 @@
+<?php
+	include('includes/common.php');
+	begin_page('de', 'Support');
+?>
+<h2>
+	Support
+</h2>
+<h3 id="people">
+	Kontakt
+</h3>
+<p>
+	Die Idee, den ngIRCd zu entwickeln, hatte Alexander Barton
+	(<a href="mailto:alex@barton.de">alex@barton.de</a>);
+	von ihm sind fast alle Teile des heutigen Source-Codes.
+</p>
+<p>
+	Solltest du Bugs finden oder Ideen f&uuml;r Erweiterungen haben, trage
+	diese am Besten in den <a href="#bugs">Bug-Tracker</a> des ngIRCd ein.
+	F&uuml;r Diskussionen und Fragen rund um den ngIRCd ist zudem eine
+	<a href="#ml">Mailingliste</a> eingerichtet.
+</p>
+<p>
+	BTW: &uuml;ber Patches und weitere „Mitstreiter“ freuen wir uns immer!
+</p>
+<p>
+	ngIRCd im IRC:
+	<a href="irc://irc.barton.de/ngircd">irc://irc.barton.de/ngircd</a>.
+</p>
+<h3 id="ml">
+	Mailingliste
+</h3>
+<p>
+	Es gibt eine (englischsprachige) Mailingliste, die sich mit allen
+	„technischen“ Fragen rund um den ngIRCd besch&auml;ftigt: Compilieren,
+	Installieren, Konfigurieren und auch die weitere Entwicklung und
+	Erweiterungen. Zudem werden hier Updates und Neuerungen
+	angek&uuml;ndigt.
+</p>
+<p>
+	Die Anmeldung erfolgt &uuml;ber die
+	<a href="http://arthur.barton.de/mailman/listinfo/ngircd-ml">Hauptseite der Mailingliste</a>.
+</p>
+<p>
+	Alle Beitr&auml;ge werden zudem in einem
+	<a href="http://arthur.barton.de/pipermail/ngircd-ml/">Archiv</a>
+	gespeichert.
+</p>
+<h4 id="gmane">
+	GMANE
+</h4>
+<p>
+	Alle Mails der Mailingliste werden zudem von
+	<a href="http://gmane.org/">GMANE</a> als Gruppe
+	<a href="http://dir.gmane.org/gmane.network.irc.ngircd">gmane.network.irc.ngircd</a>
+	gef&uuml;hrt und kann dort &uuml;ber ein Web-Frontend, als RSS-Feed
+	oder &uuml;ber NNTP gelesen werden.
+</p>
+<h3>
+	Sonstiges
+</h3>
+<p>
+	Dank geb&uuml;hrt allen Mitwirkenden und denjenigen, die sich mit
+	Feedback gemeldet haben. Eine Liste, die keinen Anspruch auf
+	Vollst&auml;ndigkeit erhebt, findet sich in der Datei
+	<a href="doc/AUTHORS">doc/AUTHORS</a>.
+</p>
+<?php
+	end_page();
+?>
+

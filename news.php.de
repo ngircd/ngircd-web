@@ -1,0 +1,34 @@
+<?php
+	include('includes/common.php');
+	begin_page('de', 'Neuigkeiten');
+?>
+<h2>
+	Neuigkeiten &amp; Historie
+</h2>
+<h3 id="status">
+	Status
+</h3>
+<p>
+	Die aktuelle stabile Version ist <strong>Release 13</strong>,
+	siehe die <a href="download.php.de">Download-M&ouml;glichkeiten</a>.
+</p>
+<p class="security">
+	<strong>Achtung:</strong>
+	ngIRCd-Versionen vor 0.10.4 beinhalten einen Fehler, der (auch remote)
+	dazu genutzt werden kann, den Daemon zum Absturz zu bringen. Alle
+	Installationen sollten auf Version 0.10.4 (oder neuer) aktualisiert
+	werden!
+</p>
+<h3 id="history">
+	Historie
+</h3>
+<p>
+	Die <a href="doc/NEWS">NEWS</a>-Datei und das
+	<a href="doc/ChangeLog">ChangeLog</a>
+	sind (in englischer Sprache) online verf&uuml;gbar sowie in den
+	Archiven enthalten.
+</p>
+<?php
+	end_page();
+?>
+

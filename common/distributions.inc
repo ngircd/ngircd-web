@@ -4,6 +4,10 @@
 		<a href="http://amiga.sourceforge.net/index.php?showpackage=ngIRCd">Port</a>
 	</li>
 	<li>
+		<a href="http://www.archlinux.org/">Arch Linux</a>:
+		<a href="http://aur.archlinux.org/packages.php?ID=11545">pkg</a>
+	</li>
+	<li>
 		<a href="http://www.debian.org/">Debian Linux</a>:
 		<a href="http://packages.debian.org/ngircd">deb</a>
 	</li>

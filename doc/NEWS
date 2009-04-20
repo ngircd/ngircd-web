@@ -1,7 +1,7 @@
 
                      ngIRCd - Next Generation IRC Server
 
-                        (c)2001-2008 Alexander Barton,
+                        (c)2001-2009 Alexander Barton,
                     alex@barton.de, http://www.barton.de/
 
                ngIRCd is free software and published under the
@@ -10,11 +10,22 @@
                                   -- NEWS --
 
 
+ngIRCd Release 14 (2009-04-20)
+
+  ngIRCd 14~rc1 (2009-03-29)
+  - Allow creation of persistent modeless channels.
+  - The INFO command reports the compile time now (if available).
+  - Support individual channel keys for pre-defined channels: introduce
+    new configuration variable "KeyFile" in [Channel] sections in ngircd.conf,
+    here a file can be configured for each pre-defined channel which contains
+    individual channel keys for different users.
+  - Remove limit on maximum number of predefined channels in ngircd.conf.
+
 ngIRCd Release 13 (2008-12-25)
 
   ngIRCd 13~rc1 (2008-11-21):
-  - New version numer scheme :-)
-  - Initial support for IRC services, using a RFC1459 styel interface,
+  - New version number scheme :-)
+  - Initial support for IRC services, using a RFC1459 style interface,
     tested with IRCServices (http://www.ircservices.za.net/) version 5.1.13.
     For this to work, ngIRCd now supports server-server links conforming
     to RFC 1459. New ngircd.conf(5) option: ServiceMask.
@@ -33,7 +44,7 @@ ngIRCd Release 13 (2008-12-25)
 ngIRCd 0.12.1 (2008-07-09)
 
   - Add option aliases -V (for --version) and -h (for --help).
-  - Make Listen parameter a comma-seperated list of addresses. This also
+  - Make Listen parameter a comma-separated list of addresses. This also
     obsoletes ListenIPv4 and ListenIPv6 options. If Listen is unset, it
     is treated as Listen="::,0.0.0.0".
     Note: ListenIPv4 and ListenIPv6 options are still recognized,
@@ -42,7 +53,7 @@ ngIRCd 0.12.1 (2008-07-09)
 ngIRCd 0.12.0 (2008-05-13)
 
   ngIRCd 0.12.0-pre2 (2008-04-29)
-  - IPv6: Add config options to disabe ipv4/ipv6 support.
+  - IPv6: Add config options to disable ipv4/ipv6 support.
 
   ngIRCd 0.12.0-pre1 (2008-04-20)
   - Add IPv6 support.
@@ -61,7 +72,7 @@ ngIRCd 0.11.0 (2008-01-15)
 
   - Add support for /STAT u (server uptime) command.
   - New [Server] configuration Option "Bind" allows to specify
-    the source ip adress to use when connecting to remote server.
+    the source IP address to use when connecting to remote server.
   - New configuration option "MaxNickLength" to specify the allowed maximum
     length of user nick names. Note: must be unique in an IRC network!
   - Numeric 317: implemented "signon time" (displayed in WHOIS result).

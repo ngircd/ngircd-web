@@ -37,6 +37,11 @@
 		<a href="ftp://arthur.barton.de/debian/pool/main/n/ngircd/">deb</a>
 		(Autor: Alex Barton)
 	</li>
+	<li>
+		<a href="http://www.apple.com/macosx/">Mac OS X</a>:
+		<a href="ftp://ngircd.barton.de/pub/ngircd/macosx/">pkg</a>
+		(Autor: Alex Barton)
+	</li>
 </ul>
 <h3 id="git">
 	GIT-Repository

@@ -53,7 +53,7 @@ function begin_page($lang = 'en', $title = null) {
 
 function end_page() {
 	echo '</div>';
-	echo '<p id="footer">ngIRCd &copy;2001-2008 Alexander Barton</p>';
+	echo '<p id="footer">ngIRCd &copy;2001-2009 Alexander Barton</p>';
 	echo '</div></body></html>';
 }
 

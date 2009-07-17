@@ -9,7 +9,7 @@
 	Status
 </h3>
 <p>
-	Die aktuelle stabile Version ist <strong>Release 14</strong>,
+	Die aktuelle stabile Version ist <strong>Release 14.1</strong>,
 	siehe die <a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
 <p class="security">
@@ -17,6 +17,10 @@
 	ngIRCd-Versionen vor 0.10.4 beinhalten einen Fehler, der (auch remote)
 	dazu genutzt werden kann, den Daemon zum Absturz zu bringen. Alle
 	Installationen sollten auf Version 0.10.4 (oder neuer) aktualisiert
+	werden!<br>
+	Versionen vor 14.1 beinhalten einen Fehler in den SSL/TLS Funktionen,
+	die ebenfalls den Daemon zum Absturz bringen können. Wenn SSL/TLS
+	verwendet wird, sollte mindestens Version 14.1 (oder neuer) eingesetzt
 	werden!
 </p>
 <h3 id="history">

@@ -9,17 +9,17 @@
 	Contact
 </h3>
 <p>
-	Alexander Barton
-	(<a href="mailto:alex&#64;barton.de">alex&#64;barton.de</a>)
-	had the idea to develop the ngIRCD; he is responsible for almost all
-	parts of today's soucre code.
-</p>
-<p>
 	If you find any bugs or you have any ideas on developing ngIRCD, it
 	is best to put them into the <a href="#bugs">Bug-Tracker</a> of the
 	ngIRCd. There is also a
 	<a href="#ml">mailing list</a> for discussions and questions concerning
-	the ngIRCd.
+	the ngIRCd (and you don't need an account for posting).
+</p>
+<p>
+	Alexander Barton
+	(<a href="mailto:alex&#64;barton.de">alex&#64;barton.de</a>)
+	had the idea to develop the ngIRCD; he is responsible for big
+	parts of today's soucre code.
 </p>
 <p>
 	BTW: we are always happy any patches or additional peers!

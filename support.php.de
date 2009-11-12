@@ -9,15 +9,16 @@
 	Kontakt
 </h3>
 <p>
-	Die Idee, den ngIRCd zu entwickeln, hatte Alexander Barton
-	(<a href="mailto:alex@barton.de">alex@barton.de</a>);
-	von ihm sind fast alle Teile des heutigen Source-Codes.
-</p>
-<p>
 	Solltest du Bugs finden oder Ideen f&uuml;r Erweiterungen haben, trage
 	diese am Besten in den <a href="#bugs">Bug-Tracker</a> des ngIRCd ein.
 	F&uuml;r Diskussionen und Fragen rund um den ngIRCd ist zudem eine
-	<a href="#ml">Mailingliste</a> eingerichtet.
+	<a href="#ml">Mailingliste</a> eingerichtet (an welche auch ohne
+	Registrierung geschrieben werden kann).
+</p>
+<p>
+	Die urspr&uuml;ngliche Idee, den ngIRCd zu entwickeln, hatte Alexander Barton
+	(<a href="mailto:alex@barton.de">alex@barton.de</a>);
+	von ihm sind gro&szlig;e Teile des heutigen Source-Codes.
 </p>
 <p>
 	BTW: &uuml;ber Patches und weitere „Mitstreiter“ freuen wir uns immer!

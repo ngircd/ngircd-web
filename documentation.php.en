@@ -9,8 +9,12 @@
 	Supported platforms
 </h3>
 <p>
-	ngIRCd is being tested regularly on the following platforms (used
-	version in brackets). The systems that are officially supported are:
+	ngIRCd is mainly being developed and tested on current versions of
+	Linux, Mac OS X, and FreeBSD.
+</p>
+<p>
+	In addition ngIRCd has been successfully compiled and run on the
+	following platforms:
 </p>
 <?php
 	include('common/platforms.inc');

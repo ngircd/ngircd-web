@@ -12,6 +12,9 @@
 	The current, sound version is <strong>Release 15</strong>,
 	please also refer to the <a href="download.php.en">Download</a>.
 </p>
+<p>
+	Release 16~rc1 is avaliable for testing.
+</p>
 <p class="security">
 	<strong>Caution:</strong>
 	ngIRCd-versions previous to 0.10.4 contain a bug which can be used

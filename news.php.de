@@ -12,6 +12,9 @@
 	Die aktuelle stabile Version ist <strong>Release 15</strong>,
 	siehe die <a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
+<p>
+	Release 16~rc1 ist zu Testzwecken verfügbar.
+</p>
 <p class="security">
 	<strong>Achtung:</strong>
 	ngIRCd-Versionen vor 0.10.4 beinhalten einen Fehler, der (auch remote)

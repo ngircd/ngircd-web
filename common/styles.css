@@ -94,7 +94,7 @@ div#content {
 	margin: 0.2em 3em;
 }
 
-a {
+a:link, a:visited {
 	text-decoration: underline;
 	color: #005555;
 }

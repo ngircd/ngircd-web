@@ -1,7 +1,7 @@
 
                      ngIRCd - Next Generation IRC Server
 
-                        (c)2001-2007 Alexander Barton,
+                        (c)2001-2010 Alexander Barton,
                     alex@barton.de, http://www.barton.de/
 
                ngIRCd is free software and published under the
@@ -9,10 +9,14 @@
 
                                 -- INSTALL --
 
-                         
 
 I. Upgrade Information
 ~~~~~~~~~~~~~~~~~~~~~~
+
+Differences to version 16
+
+- Changes to the "MotdFile" specified in ngircd.conf now require a ngircd
+  configuration reload to take effect (HUP signal, REHASH command).
 
 Differences to version 0.9.x
 
@@ -183,6 +187,24 @@ standard locations.
   Include support for Wietse Venemas "TCP Wrappers" to limit client access
   to the daemon, for example by using "/etc/hosts.{allow|deny}".
   The "libwrap" is required for this option.
+
+* PAM:
+  --with-pam[=<path>]
+
+  Enable support for PAM, the Pluggable Authentication Modules library.
+  See doc/PAM.txt for details.
+
+* SSL:
+  --with-openssl[=<path>]
+  --with-gnutls[=<path>]
+
+  Enable support for SSL/TLS using OpenSSL or gnutls libraries.
+  See doc/SSL.txt for details.
+
+* IPv6:
+  --enable-ipv6
+
+  Adds support for version 6 of the Internet Protocol.
 
 
 IV. Useful make-targets

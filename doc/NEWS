@@ -10,6 +10,42 @@
                                   -- NEWS --
 
 
+ngIRCd Release 17
+
+  ngIRCd 17~rc2 (2010-10-25)
+  - Generate ngIRCd version number from GIT tag.
+  - Make sourcecode compatible with ansi2knr again. This allows to compile
+    ngIRCd using a pre-ANSI K&R C compiler again.
+
+  ngIRCd 17~rc1 (2010-10-11)
+  - New configuration option "NoZeroConf" to disable service registration at
+    runtime even if ngIRCd is compiled with support for ZeroConf (e.g. using
+    Howl, Avahi or on Mac OS X).
+  - New configuration option "SyslogFacility" to define the syslog "facility"
+    (the "target"), to which ngIRCd should send its log messages.
+    Possible values are system dependant, but most probably "auth", "daemon",
+    "user" and "local1" through "local7" are possible values; see syslog(3).
+    Default is "local5" for historical reasons.
+  - Dump the "internal server state" (configured servers, established
+    connections and known clients) to the console or syslog when receiving
+    the SIGUSR2 signal and debug mode is enabled.
+  - Enable the daemon to disable and enable "debug mode" on runtime using
+    signal SIGUSR1, when debug code is compiled in, not only on startup
+    using the command line parameters.
+  - Implement user mode "x": hostname cloaking (closes: #102).
+  - Change MOTD file handling: ngIRCd now caches the contens of the MOTD
+    file, so the daemon now requires a HUP signal or REHASH command to
+    re-read the MOTD file when its content changed.
+  - Allow IRC ops to change channel modes even without OperServerMode set.
+  - Allow IRC operators to use MODE command on any channel (closes: #100).
+  - New configuration option "NoPAM" to disable PAM.
+  - Implement asynchronous user authentication using PAM, please see the
+    file doc/PAM.txt for details.
+  - Add some documentation for using BOPM with ngIRCd, see doc/Bopm.txt.
+  - Implement user mode "c": receive connect/disconnect NOTICEs. Note that
+    this new mode requires the user to be an IRC operator.
+  - Show SSL status in WHOIS output, numeric 275.
+
 ngIRCd Release 16 (2010-05-02)
 
   ngIRCd 16~rc2 (2010-04-25)

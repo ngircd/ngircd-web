@@ -9,8 +9,11 @@
 	Status
 </h3>
 <p>
-	The current, sound version is <strong>Release 16</strong>,
+	The current stable version is <strong>Release 16</strong>,
 	please also refer to the <a href="download.php.en">Download</a>.
+</p>
+<p>
+	Version 17~rc3 is available for testing the upcoming release.
 </p>
 <p class="security">
 	<strong>Caution:</strong>

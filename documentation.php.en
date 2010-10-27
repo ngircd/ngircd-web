@@ -87,8 +87,11 @@
 </ul>
 <ul>
 	<li><a href="doc/AUTHORS">AUTHORS</a>
+	<li><a href="doc/Bopm.txt">Bopm.txt</a>
 	<li><a href="doc/COPYING">COPYING</a>
 	<li><a href="doc/GIT.txt">GIT.txt</a>
+	<li><a href="doc/HowToRelease.txt">HowToRelease.txt</a>
+	<li><a href="doc/PAM.txt">PAM.txt</a>
 	<li><a href="doc/Platforms.txt">Platforms.txt</a>
 	<li><a href="doc/Protocol.txt">Protocol.txt</a>
 	<li><a href="doc/RFC.txt">RFC.txt</a>
@@ -99,6 +102,7 @@
 <ul>
 	<li><a href="doc/README-AUX.txt">README-AUX.txt</a>
 	<li><a href="doc/README-BeOS.txt">README-BeOS.txt</a> (deutsch)
+	<li><a href="doc/README-Interix.txt">README-Interix.txt</a>
 </ul>
 <?php
 	end_page();

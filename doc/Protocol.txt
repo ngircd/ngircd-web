@@ -141,11 +141,17 @@ therefore to disconnect the peer prior to registering it in the network.
 II.3 Exchange channel-modes, topics, and persistent channels
 
      Command: CHANINFO
-  Parameters: <channel> +<modes> <key> <limit> [<topic>]
+  Parameters: <channel> +<modes> [[<key> <limit>] <topic>]
      Used by: servers only
 
 CHANINFO is used by servers to inform each other about a channel: its
-modes, channel key, user limits and its topic. <topic> is optional.
+modes, channel key, user limits and its topic. The parameter combination
+<key> and <limit> is optional, as well as the <topic> parameter, so that
+there are three possible forms of this command:
+
+  CHANINFO <channel> +<modes>
+  CHANINFO <channel> +<modes> <topic>
+  CHANINFO <channel> +<modes> <key> <limit> <topic>
 
 If the channel already exists on the server receiving the CHANINFO command,
 it only adopts the <modes> (or the <topic>) if there are no modes (or topic)
@@ -160,4 +166,18 @@ contain "*" because the parameter <key> is required by the CHANINFO syntax
 and therefore can't be omitted. The parameter <limit> must be ignored when
 a channel has no user limit (the parameter <modes> doesn't list the "l"
 channel mode). In this case <limit> should be "0".
+
+
+II.4 Update webchat/proxy client information
+
+     Command: WEBIRC
+  Parameters: <password> <username> <hostname> <ip-address>
+     Used by: unregistered clients only
+
+The WEBIRC command is used by some Web-to-IRC gateways to set the correct
+user name and host name of users instead of their own. It must be the very
+first command sent to the server, even before USER and NICK commands!
+
+The <password> must be set in the server configuration file to prevent
+unauthorized clients to fake their identity; it is an arbitrary string.
 

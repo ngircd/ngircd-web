@@ -14,8 +14,10 @@
 <p>
 	All previous versions, GnuPG signatures of the archives and test
 	versions from GIT sources (if available) can be downloaded here:
-	<a href="ftp://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a> and
-	here <a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>.
+	<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>
+        (FTP) and here
+	<a href="http://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a>
+	(HTTP).
 </p>
 <h3 id="packages">
 	Packages
@@ -33,12 +35,12 @@
 <ul>
 	<li>
 		<a href="http://www.debian.org/">Debian Linux</a>:
-		<a href="ftp://arthur.barton.de/debian/pool/main/n/ngircd/">deb</a>
+		<a href="http://debian.barton.de/debian/pool/main/n/ngircd/">deb</a>
 		(Author: Alex Barton)
 	</li>
 	<li>
 		<a href="http://www.apple.com/macosx/">Mac OS X</a>:
-		<a href="ftp://ngircd.barton.de/pub/ngircd/macosx/">pkg</a>
+		<a href="http://ngircd.barton.de/pub/ngircd/">pkg</a>
 		(Autor: Alex Barton)
 	</li>
 </ul>

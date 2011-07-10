@@ -1,14 +1,14 @@
 <dl>
 	<dt>
-		<strong>ngIRCd Release 17.1</strong> (2010-12-19):
+		<strong>ngIRCd Release 18</strong> (2011-07-10):
 	</dt>
 	<dd>
-		<p>Server: <em>ftp.berlios.de</em>
+		<p>Server: <em>ftp.berlios.de</em> (FTP)
 		(<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp</a>):
-		<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-17.1.tar.gz">ngircd-17.1.tar.gz</a>
-		<br>Server: <em>ngircd.barton.de</em>
-		(<a href="ftp://ngircd.barton.de/pub/ngircd/">ftp</a>):
-		<a href="ftp://ngircd.barton.de/pub/ngircd/ngircd-17.1.tar.gz">ngircd-17.1.tar.gz</a>
+		<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-18.tar.gz">ngircd-18.tar.gz</a>
+		<br>Server: <em>ngircd.barton.de</em> (HTTP)
+		(<a href="http://ngircd.barton.de/pub/ngircd/">ftp</a>):
+		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-18.tar.gz">ngircd-18.tar.gz</a>
 		</ul>
 	</dd>
 </dl>

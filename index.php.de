@@ -71,7 +71,9 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	Einfachheit
 </h2>
 <p>
-	ngIRCd unterstützt aktiv eine ganze Reihe von Plattformen: Linux,
+	ngIRCd unterstützt aktiv
+	<a href="doc/Platforms.txt">eine ganze Reihe</a>
+	von Plattformen: Linux,
 	BSD, Mac OS X. Aber auch auf Solaris, HP-UX, AIX und anderen Unices
 	läuft ngIRCd.
 </p>

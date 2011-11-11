@@ -9,15 +9,11 @@
 	</li>
 	<li>
 		<a href="http://www.freebsd.org/">FreeBSD</a>
-		(4.5/i386 [GNU C])
+		(4.5 and newer on i386, x86_64 [GNU C])
 	</li>
 	<li>
 		<a href="http://www.hp.com/">HP-UX</a>
-		(10.20 [GNU C])
-	</li>
-	<li>
-		<a href="http://www.hp.com/">HP-UX</a>
-		(9.10/m68k [HP-UX cc]; 11.11/hppa [GNU C 4.2.3])
+		(9.10, 10.20, 11.11 on hppa, m68k [HP-UX cc, GNU C])
 	</li>
 	<li>
 		IRIX
@@ -25,23 +21,23 @@
 	</li>
 	<li>
 		<a href="http://www.linux.org/">Linux</a>
-		(2.2.x/i386, 2.4.x/i386+hppa, 2.6.x/i386+hppa [GNU C])
+		(2.x.y, 3.x on hppa, i386, mipsel, powerpc, x86_64, ... [GNU C])
 	</li>
 	<li>
-		<a href="http://www.apple.com/macosx/">Mac OS X</a>
-		(10.x [GNU C 2.95.x, 3.x, 4.0.1])
+		<a href="http://www.apple.com/macosx/">Mac OS X</a> (Darwin)
+		(10.0 and newer on i386, powerpc, x86_64 [GNU C 2.95.x, 3.x, 4.x])
 	</li>
 	<li>
 		<a href="http://www.netbsd.org/">NetBSD</a>
-		(1.5.2/i386, 1.5.3/m68k [GNU C])
+		(1.5.2 and newer on alpha, i386, m86k, sparc, x86_64, ... [GNU C])
 	</li>
 	<li>
 		<a href="http://www.obenbsd.org/">OpenBSD</a>
-		(3.4/i386 [GNU C])
+		(3.4 and newer on hppa, i386, powerpc, x86_64 [GNU C])
 	</li>
 	<li>
 		<a href="http://www.sun.com/">Solaris</a>
-		(2.5.1, 2.6 [GNU C])
+		(2.5.1 and newer on i386, sparc [GNU C])
 	</li>
 	<li>
 		Windows mit <a href="http://sources.redhat.com/cygwin/">Cygwin</a>

@@ -13,6 +13,11 @@
 	nicht wie die meisten anderen IRC-Daemons auf dem „Urvater“, dem
 	Daemon des IRCNet.
 </p>
+<p>
+	<em>ngIRCd</em> steht für <em>next generation IRC daemon<em>, was
+	ein wenig übertrieben ist: <em>leichtgewichtiger Internet Relay
+	Chat Server</em> würde es wohl besser treffen :-)
+</p>
 <p class="hint">
 	<em>Tip:</em>
 	bei freshmeat.net gibt es einen
@@ -36,13 +41,21 @@
 </p>
 <ul>
 	<li>
-		keine Probleme mit Servern, deren IP-Adressen dynamisch sind
-	</li>
-	<li>
 		übersichtliche (schlanke) Konfigurationsdatei
 	</li>
 	<li>
-		frei verfügbarer, moderner und „aufgeräumter“ C-Quellcode
+		einfach zu compilieren/installieren, zu konfigurieren und
+		in Betrieb zu halten
+	</li>
+	<li>
+		unterstützt IPv6 und SSL
+	</li>
+	<li>
+		keine Probleme mit Servern, deren IP-Adressen dynamisch sind
+	</li>
+	<li>
+		frei verfügbarer, moderner, portabler und „aufgeräumter“
+		C-Quellcode
 	</li>
 	<li>
 		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren aktiv

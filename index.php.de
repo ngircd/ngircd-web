@@ -8,7 +8,7 @@
 <p>
 	ngIRCd ist ein freier Open-Source Server für den Internet Relay Chat
 	(IRC), der unter der GNU General Public License
-	(<a href="http://www.gnu.org/licenses/gpl.html" hreflang="en">GPL</a>)
+	(<a href="doc/COPYING" hreflang="en">GPL</a>)
 	entwickelt wird. Er ist von Grund auf neu geschrieben, basiert also
 	nicht wie die meisten anderen IRC-Daemons auf dem „Urvater“, dem
 	Daemon des IRCNet.

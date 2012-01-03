@@ -14,8 +14,8 @@
 	IRCNet.
 </p>
 <p>
-	<em>ngIRCd</em> means <em>next generation IRC daemon</em>, which is
-	a little bit exaggerated: <em>lightweight Internet Relay Chat
+	The name <em>ngIRCd</em> means <em>next generation IRC daemon</em>,
+	which is a little bit exaggerated: <em>lightweight Internet Relay Chat
 	server</em> most probably would be a better name :-)
 </p>
 <p class="hint">

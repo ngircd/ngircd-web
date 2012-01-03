@@ -14,8 +14,8 @@
 	Daemon des IRCNet.
 </p>
 <p>
-	<em>ngIRCd</em> steht für <em>next generation IRC daemon<em>, was
-	ein wenig übertrieben ist: <em>leichtgewichtiger Internet Relay
+	Der Name <em>ngIRCd</em> steht für <em>next generation IRC daemon</em>,
+	was ein wenig übertrieben ist: <em>leichtgewichtiger Internet Relay
 	Chat Server</em> würde es wohl besser treffen :-)
 </p>
 <p class="hint">

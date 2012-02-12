@@ -2,12 +2,151 @@
                      ngIRCd - Next Generation IRC Server
                            http://ngircd.barton.de/
 
-               (c)2001-2011 Alexander Barton and Contributors.
+               (c)2001-2012 Alexander Barton and Contributors.
                ngIRCd is free software and published under the
                    terms of the GNU General Public License.
 
                                -- ChangeLog --
 
+
+ngIRCd Release 19
+
+  ngIRCd 19~rc1 (2012-02-12)
+  - Enhance command limits for server links: the limit now is dependent
+    on the number of users connected in the network and higher while
+    servers are joining the network to make the login of servers faster.
+  - Log more information about server synchronization.
+  - Update preliminary ngIRCd protocol module for Anope 1.9.6, which now
+    is the only supported version.
+  - New numeric RPL_WHOISHOST_MSG(378), which returns the DNS hostname
+    (if available) and the IP address of a client in the WHOIS reply.
+    Only the user itself and local IRC operators get this numeric.
+  - Implement channel exception list (mode 'e'). This allows a channel
+    operator to define exception masks that allow users to join the
+    channel even when a "ban" would match and prevent them from joining:
+    the exception list (e) overrides the ban list (b).
+  - PRIVMSG and NOTICE: Handle nick!user@host masks case-insensitive.
+  - Implement user mode 'C': If the target user of a PRIVMSG or NOTICE
+    command has the user mode 'C' set, it is required that both sender
+    and receiver are on the same channel. This prevents private flooding
+    by completely unknown clients.
+  - New RPL_WHOISREGNICK_MSG(307) numeric in WHOIS command replies: it
+    indicates if a nick name is registered (if user mode 'R' set).
+  - Limit channel invite, ban, and exception lists to 50 entries and fix
+    duplicate check and error messages when adding already listed entries
+    or deleting no (longer) existing ones.
+  - Fix both ERR_SUMMONDISABLED(445) and ERR_USERSDISABLED(446) replies.
+  - MODE command: correctly return ERR_UNKNOWNMODE(472) numeric for
+    unknown channel modes, instead of ERR_UMODEUNKNOWNFLAG(501).
+  - ISUPPORT(005) numeric: add "O", "R", and "z" modes to "CHANMODES",
+    add "EXCEPTS=e" and "INVEX=I", add "MAXLIST=beI:50".
+  - Limit the number of list items in the reply of LIST (100), WHO (25),
+    WHOIS (10), and WHOWAS (25) commands.
+  - LIST command: compare pattern case insensitive.
+  - Limit the MODE command to handle a maximum number of 5 channel modes
+    that require an argument (+Ibkl) per call and report this number
+    in the ISUPPORT(005) numeric: "MODES=5".
+  - Fix handling of channel mode sequence with/without arguments.
+    For example, don't generate wrong error messages when handling
+    "MODE #chan +IIIIItn *!aa@b *!bb@c *!cc@d *!dd@e *!ee@f".
+  - When sending data on a connection, only try to get the type of
+    the client if there still is one assigned. This could trigger an
+    assertion and end the daemon in some error paths.
+  - Don't try to close already closed/invalid sockets to forked child
+    processes. This could potentially crash the daemon in some cases
+    with IDENT lookups enabled.
+  - WHOIS command: make sure that the reply ends with RPL_ENDOFWHOIS,
+    don't answer queries for IRC servers, make sure mask matching is
+    case-insensitive, and that RPL_ENDOFWHOIS numeric is sent with the
+    unmodified mask (like it has been received from the client).
+  - LINKS command: support <mask> parameter to limit the reply.
+  - Add 1 second penalty for every further target on PRIVMSG/NOTICE
+    commands: this reduces the possibility of flooding channels with
+    commands like "PRIVMSG/NOTICE #a,#n,#c,... :message" a little bit.
+    Problem noticed by Cahata, thanks!
+  - Display correct error message when "Server{UID|GID}" variabe in the
+    configuration file is invalid (not a number and no existing user).
+  - Update Copyright notices for 2012 :-)
+  - JOIN command: don't stop handling of channel lists when a single
+    channel cannot be joined (because of bad name, wrong key or channel
+    limit reached), but report an error and continue. And don't check
+    the channel limit and don't report with "too many channels" when
+    trying to join a channel that the client already is a member of.
+  - ISON command: reply with the correct upper-/lowercase nick names.
+  - New configuration option "PAMIsOptional": when set, clients not
+    sending a password are still allowed to connect: they won't become
+    "identified" and keep the "~" character prepended to their supplied
+    user name. See "man 5 ngircd.conf" for details.
+  - Fixed handling of WHO commands. This fixes two bugs: "WHO <nick>"
+    returned nothing at all if the user was "+i" (reported by Cahata,
+    thanks) and "WHO <nick|nickmask>" returned channel names instead
+    of "*" when the user was member of a (visible) channel.
+  - Fixed some spelling errors in documentation and code comments
+    (Thanks to Christoph Biedl).
+  - contrib/Debian/control: Update and complete "Build-Depends" and
+    update our Debian package descriptions with "official" ones.
+  - Fixed typo in two error messages.
+  - LUSERS reply: only count channels that are visible to the requesting
+    client, so the existence of secret channels is no longer revealed by
+    using LUSERS. Reported by Cahata, thanks!
+  - Unknown user and channel modes no longer stop the mode parser, but
+    are simply ignored. Therefore modes after the unknown one are now
+    handled. This is how ircd2.10/ircd2.11/ircd-seven behave, at least.
+    Reported by Cahata, thanks!
+  - README: Update list of implemented commands.
+  - Log better error messages when rejecting clients.
+  - Implement IRC commands "GLINE" and "KLINE" to ban users. G-Lines are
+    synchronized between server on peering, K-Lines are local only.
+    If you use "*!<user>@<host>" or "*!*@<host>" masks, these connections
+    are blocked even before the user is fully logged in (before PASS,
+    NICK, and USER commands have been processed) and before the child
+    processes for authentication are forked, so resource usage is smaller.
+  - Xcode: update project file for Xcode 4.2 and define HAVE_GAI_STRERROR
+    for Mac OS X Xcode builds.
+  - ./configure: Fix logic and quoting of poll() detection code: only use
+    poll() when poll.h exists as well.
+  - Suppress 'Can't create pre-defined channel: invalid name: ""' message.
+  - whois-test: handle local hostname = "localhost.localdomain" using the
+    pattern "localhost*" for valid local hostnames.
+  - sample-ngircd.conf: show correct default for "PAM" variable: The
+    default of "PAM" is "yes" when ngIRCd has been configured to use it,
+    so show the correct default value in the sample configuration file.
+    (Closes #119)
+  - Update GPL 2 license text to current version.
+  - Only close "unrelated" sockets in forked child processes: This fixes
+    the problem that ngIRCd can't do any IDENT lookups because of the
+    socket has already been closed in the child process.
+    The bug has been introduced starting with ngIRCd 17 ... :-(
+    (commit ID 6ebb31ab35e)
+  - Added doc/Modes.txt: document modes supported by ngIRCd.
+  - Implement user mode "R": indicates that the nick name of this user
+    is "registered". This mode isn't handled by ngIRCd itself, but must
+    be set and unset by IRC services like Anope.
+  - Implement channel mode "R": only registered users (having the user
+    mode "R" set) are allowed to join this channel.
+  - Test suite: bind to loopback (127.0.0.1) interface only.
+  - New 2nd message "Nickname too long" for error code 432.
+  - Xcode: Mac OS X config.h: support 10.5 as well as 10.6/10.7 SDK.
+  - Xcode: exclude more Xcode 4 specific directories in ".gitignore".
+  - Disconnect directly linked servers sending QUIT. Without this,
+    the server becomes removed from the network and the client list,
+    but the connection isn't shut down at all ...
+  - contrib/ngindent: detect "gindent" as GNU indent.
+  - Handle unknown user and channel modes: these modes are saved and
+    forwarded to other servers, but ignored otherwise.
+  - Handle channel user modes 'a', 'h', and 'q' from remote servers.
+    These channel user modes aren't used for anything at the moment,
+    but ngIRCd knows that these three modes are "channel user modes"
+    and not "channel modes", that is that these modes take an "nick name"
+    argument. Like unknown user and channel modes, these modes are saved
+    and forwarded to other servers, but ignored otherwise.
+  - Correctly inform clients when other servers change their user modes.
+    This is required for some services to work correctly.
+  - Test suite: make getpid.sh work even when run as root.
+  - Spoofed prefixes: close connection on non-server links only.
+    On server-links, spoofed prefixes can happen because of the
+    asynchronous nature of the IRC protocol. So don't break server-
+    links, only log a message and ignore the command. (Closes #113)
 
 ngIRCd Release 18 (2011-07-10)
 
@@ -797,7 +936,7 @@ ngIRCd 0.6.0, 2002-12-24
     werden (beide Server versuchen sich dann gegenseitig zu connectieren).
   - Test-Suite und Dokumentation an A/UX angepasst.
   - unter HP-UX definiert das configure-Script nun _XOPEN_SOURCE_EXTENDED.
-  - Server identifizieren sich nun mit asyncronen Passwoertern, d.h. das
+  - Server identifizieren sich nun mit asynchronen Passwoertern, d.h. das
     Passwort, welches A an B schickt, kann ein anderes sein als das, welches
     B als Antwort an A sendet. In der Konfig.-Datei, Abschnitt "Server",
     wurde "Password" dazu durch "MyPassword" und "PeerPassword" ersetzt.
@@ -927,7 +1066,7 @@ ngIRCd 0.5.0, 20.09.2002
   - Protokoll- und Server-ID bei PASS-Befehlen auf neues Format umgestellt;
     bei empfangenen PASS-Befehlen werden diese zudem nun auch ausgewertet.
     Die unterstuetzten Flags sind in doc/Protocol.txt beschrieben.
-  - mit dem neuen Befehl CHANINFO syncronisieren Server, die das IRC+-
+  - mit dem neuen Befehl CHANINFO synchronisieren Server, die das IRC+-
     Protokoll unterstuetzen, Channel-Modes und Topics.
   - neue Option "--disable-ircplus" fuer das configure-Script, um das
     IRC+-Protokoll abzuschalten (per Default ist es aktiviert).
@@ -1032,7 +1171,7 @@ ngIRCd 0.3.0, 02.03.2002
   - PRIVMSG beachtet nun die Channel-Modes "n" und "m".
   - AWAY implementiert. PRIVMSG, MODE, USERHOST und WHOIS angepasst.
   - der ngIRCd unterstuetzt nun Channel-Topics (TOPIC-Befehl).
-  - ausgehende Server-Verbindungen werden nun asyncron connectiert und
+  - ausgehende Server-Verbindungen werden nun asynchron connectiert und
     blockieren nicht mehr den ganzen Server, wenn die Gegenseite nicht
     erreicht werden kann (bis zum Timeout konnten Minuten vergehen!).
   - Wert der Konfigurations-Variable "ConnectRetry" wird besser beachtet.
@@ -1111,7 +1250,7 @@ ngIRCd 0.0.2, 06.01.2002
   - NICK kann nun die Gross- und Kleinschreibung eines Nicks aendern.
   - ein Server-Passwort ist nun konfigurierbar.
   - neue Befehle: ERROR, SERVER, NJOIN (nur als "Fake"), SQUIT.
-  - Asyncroner Resolver Hostname->IP implementiert.
+  - Asynchroner Resolver Hostname->IP implementiert.
   - Server-Links teilweise implementiert: bisher kann der ngIRCd jedoch
     nur "leafed server" sein, d.h. keine "Client-Server" haben. Einige
     Befehle sind auch noch nicht (optimal) angepasst: PRIVMSG funktioniert

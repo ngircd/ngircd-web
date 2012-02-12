@@ -2,11 +2,79 @@
                      ngIRCd - Next Generation IRC Server
                            http://ngircd.barton.de/
 
-               (c)2001-2011 Alexander Barton and Contributors.
+               (c)2001-2012 Alexander Barton and Contributors.
                ngIRCd is free software and published under the
                    terms of the GNU General Public License.
 
                                   -- NEWS --
+
+ngIRCd Release 19
+
+  ngIRCd 19~rc1 (2012-02-12)
+  - Update preliminary ngIRCd protocol module for Anope 1.9.6, which now
+    is the only supported version.
+  - New numeric RPL_WHOISHOST_MSG(378), which returns the DNS hostname
+    (if available) and the IP address of a client in the WHOIS reply.
+    Only the user itself and local IRC operators get this numeric.
+  - Implement channel exception list (mode 'e'). This allows a channel
+    operator to define exception masks that allow users to join the
+    channel even when a "ban" would match and prevent them from joining:
+    the exception list (e) overrides the ban list (b).
+  - Implement user mode 'C': If the target user of a PRIVMSG or NOTICE
+    command has the user mode 'C' set, it is required that both sender
+    and receiver are on the same channel. This prevents private flooding
+    by completely unknown clients.
+  - New RPL_WHOISREGNICK_MSG(307) numeric in WHOIS command replies: it
+    indicates if a nick name is registered (if user mode 'R' set).
+  - Limit channel invite, ban, and exception lists to 50 entries and fix
+    duplicate check and error messages when adding already listed entries
+    or deleting no (longer) existing ones.
+  - Limit the number of list items in the reply of LIST (100), WHO (25),
+    WHOIS (10), and WHOWAS (25) commands.
+  - Limit the MODE command to handle a maximum number of 5 channel modes
+    that require an argument (+Ibkl) per call and report this number
+    in the ISUPPORT(005) numeric: "MODES=5".
+  - LINKS command: support <mask> parameter to limit the reply.
+  - Add 1 second penalty for every further target on PRIVMSG/NOTICE
+    commands: this reduces the possibility of flooding channels with
+    commands like "PRIVMSG/NOTICE #a,#n,#c,... :message" a little bit.
+    Problem noticed by Cahata, thanks!
+  - New configuration option "PAMIsOptional": when set, clients not
+    sending a password are still allowed to connect: they won't become
+    "identified" and keep the "~" character prepended to their supplied
+    user name. See "man 5 ngircd.conf" for details.
+  - Fixed handling of WHO commands. This fixes two bugs: "WHO <nick>"
+    returned nothing at all if the user was "+i" (reported by Cahata,
+    thanks) and "WHO <nick|nickmask>" returned channel names instead
+    of "*" when the user was member of a (visible) channel.
+  - LUSERS reply: only count channels that are visible to the requesting
+    client, so the existence of secret channels is no longer revealed by
+    using LUSERS. Reported by Cahata, thanks!
+  - Unknown user and channel modes no longer stop the mode parser, but
+    are simply ignored. Therefore modes after the unknown one are now
+    handled. This is how ircd2.10/ircd2.11/ircd-seven behave, at least.
+    Reported by Cahata, thanks!
+  - Implement IRC commands "GLINE" and "KLINE" to ban users. G-Lines are
+    synchronized between server on peering, K-Lines are local only.
+    If you use "*!<user>@<host>" or "*!*@<host>" masks, these connections
+    are blocked even before the user is fully logged in (before PASS,
+    NICK, and USER commands have been processed) and before the child
+    processes for authentication are forked, so resource usage is smaller.
+  - Added doc/Modes.txt: document modes supported by ngIRCd.
+  - Implement user mode "R": indicates that the nick name of this user
+    is "registered". This mode isn't handled by ngIRCd itself, but must
+    be set and unset by IRC services like Anope.
+  - Implement channel mode "R": only registered users (having the user
+    mode "R" set) are allowed to join this channel.
+  - Test suite: bind to loopback (127.0.0.1) interface only.
+  - Handle unknown user and channel modes: these modes are saved and
+    forwarded to other servers, but ignored otherwise.
+  - Handle channel user modes 'a', 'h', and 'q' from remote servers.
+    These channel user modes aren't used for anything at the moment,
+    but ngIRCd knows that these three modes are "channel user modes"
+    and not "channel modes", that is that these modes take an "nick name"
+    argument. Like unknown user and channel modes, these modes are saved
+    and forwarded to other servers, but ignored otherwise.
 
 ngIRCd Release 18 (2011-07-10)
 
@@ -351,7 +419,7 @@ ngIRCd 0.6.0, 2002-12-24
     ausgehende Verbindung zu diesem auufzubauen. Dadurch kann nun auf beiden
     Servern in der Konfiguration ein Port fuer den Connect konfiguriert
     werden (beide Server versuchen sich dann gegenseitig zu connectieren).
-  - Server identifizieren sich nun mit asyncronen Passwoertern, d.h. das
+  - Server identifizieren sich nun mit asynchronen Passwoertern, d.h. das
     Passwort, welches A an B schickt, kann ein anderes sein als das, welches
     B als Antwort an A sendet. In der Konfig.-Datei, Abschnitt "Server",
     wurde "Password" dazu durch "MyPassword" und "PeerPassword" ersetzt.
@@ -377,7 +445,7 @@ ngIRCd 0.5.0, 20.09.2002
     Konfiguration "sample-ngircd.conf") und bleiben auch dann bestehen,
     wenn kein User mehr im Channel ist.
   - neue IRC-Befehle: KICK, INVITE, ADMIN, CHANINFO; LIST wurde erweitert.
-    Mit dem neuen Befehl CHANINFO syncronisieren Server, die das IRC+-
+    Mit dem neuen Befehl CHANINFO synchronisieren Server, die das IRC+-
     Protokoll unterstuetzen, Channel-Modes und Topics. Fuer den ADMIN-Befehl
     gibt es neue Konfigurationsoptionen (Sektion "Global"): "AdminInfo1",
     "AdminInfo2" und "AdminEMail".
@@ -463,7 +531,3 @@ ngIRCd 0.0.2, 06.01.2002
 ngIRCd 0.0.1, 31.12.2001
 
   - erste oeffentliche Version von ngIRCd als "public preview" :-)
-
-
--- 
-$Id: NEWS,v 1.88 2008/02/26 22:05:42 fw Exp $

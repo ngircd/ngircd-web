@@ -17,6 +17,9 @@
 	siehe auch die
 	<a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
+<h3 id="history">
+	Historie
+</h3>
 <p class="security">
 	<strong>Achtung:</strong>
 	ngIRCd-Versionen vor 0.10.4 beinhalten einen Fehler, der (auch remote)
@@ -28,9 +31,6 @@
 	verwendet wird, sollte mindestens Version 14.1 (oder neuer) eingesetzt
 	werden!
 </p>
-<h3 id="history">
-	Historie
-</h3>
 <p>
 	Die <a href="doc/NEWS">NEWS</a>-Datei und das
 	<a href="doc/ChangeLog">ChangeLog</a>

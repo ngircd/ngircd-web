@@ -22,6 +22,16 @@ function begin_page($lang = 'en', $title = null) {
 	echo '<div id="bodyBox">';
 
 	// Title & Slogan
+	echo '<div id="metaNav">';
+	switch($lang) {
+		case 'de':
+				echo 'Deutsch&nbsp;|&nbsp;<a href="index.php.en">English</a>';
+				break;
+		case 'en':
+				echo '<a href="index.php.de">Deutsch</a>&nbsp;|&nbsp;English';
+				break;
+	}
+	echo '&nbsp;|&nbsp;<a href="mirrors.php">Mirrors</a></div>';
 	echo '<div id="sloganhead">';
 	echo '<h1 class="titel">ng<span>IRC</span>d: Next Generation IRC Daemon</h1>';
 	echo '<p style="font-family: Georgia">“… serving <em>white hat</em> 6667!”</p>';
@@ -53,7 +63,7 @@ function begin_page($lang = 'en', $title = null) {
 
 function end_page() {
 	echo '</div>';
-	echo '<p id="footer">ngIRCd &copy;2001-2010 Alexander Barton and ';
+	echo '<p id="footer">ngIRCd &copy;2001-2012 Alexander Barton and ';
 	echo '<a href="doc/AUTHORS">Contributors</a></p>';
 	echo '</div></body></html>';
 }

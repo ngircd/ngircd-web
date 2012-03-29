@@ -25,13 +25,6 @@
 	für ngIRCd. Dort ist es z. B. möglich, sich über neue Versionen zu
 	informieren und via E-Mail benachrichtigen zu lassen.
 </p>
-<p class="btw">
-	BTW: There's an <a href="index.php.en">English</a> version of this
-	page, too.
-</p>
-<?php
-	include('common/mirrors.inc');
-?>
 <h2 id="why">
 	Vorteile
 </h2>

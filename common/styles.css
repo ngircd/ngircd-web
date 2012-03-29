@@ -38,6 +38,12 @@ h1.titel span {
 	color: #005555;
 }
 
+#metaNav {
+	font-size: 80%;
+	text-align: right;
+	padding: 0.1em 1em;
+}
+
 /* @end */
 
 /* @group Navigation */

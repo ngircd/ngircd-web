@@ -22,8 +22,8 @@
 <p>
 	Da sich der ngIRCd an übliche UNIX-Standards hält und GNU automake
 	sowie GNU autoconf verwendet, stehen die Chancen nicht schlecht,
-	daß er sich auf weiteren UNIXoiden Systemen übersetzen bzw. relativ
-	einfach anpassen läßt.
+	dass er sich auf weiteren UNIXoiden Systemen übersetzen bzw. relativ
+	einfach anpassen lässt.
 </p>
 <h3 id="install">
 	Installation

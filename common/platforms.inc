@@ -29,7 +29,7 @@
 	</li>
 	<li>
 		<a href="http://www.netbsd.org/">NetBSD</a>
-		(1.5.2 and newer on alpha, i386, m86k, sparc, x86_64, ... [GNU C])
+		(1.5.2 and newer on alpha, i386, m68k, sparc, x86_64, ... [GNU C])
 	</li>
 	<li>
 		<a href="http://www.obenbsd.org/">OpenBSD</a>

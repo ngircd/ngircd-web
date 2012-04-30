@@ -25,9 +25,6 @@
 	for the ngIRCd project. You can inform about new releases and get
 	update notifications via E-Mail.
 </p>
-<?php
-	include('common/mirrors.inc');
-?>
 <h2 id="why">
 	Advantages
 </h2>

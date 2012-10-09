@@ -10,14 +10,15 @@
 	for small or private networks, developed under the GNU General Public
 	License
 	(<a href="doc/COPYING" hreflang="en">GPL</a>).
-	It is simple to configure, can cope with dynamic IP addresses, and
-	supports IPv6 as well as SSL. It is written from scratch and not based
-	on the original IRCd.
+	It is easy to configure, can cope with dynamic IP addresses, and
+	supports IPv6, SSL-protected connections as well as PAM for
+	authentication. It is written from scratch and not based on the
+	original IRCd.
 </p>
 <p>
 	The name <em>ngIRCd</em> means <em>next generation IRC daemon</em>,
 	which is a little bit exaggerated: <em>lightweight Internet Relay Chat
-	server</em> most probably would be a better name :-)
+	server</em> most probably would have been a better name :-)
 </p>
 <p class="hint">
 	<em>Hint:</em>

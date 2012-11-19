@@ -32,7 +32,7 @@
 		<a href="http://trac.macports.org/browser/trunk/dports/irc/ngircd/Portfile">Port</a>
 	<li>
 		<a href="http://www.opensuse.org/">OpenSUSE</a>:
-		<a href="http://software.opensuse.org/download/server:/irc/">rpm</a>
+		<a href="http://download.opensuse.org/repositories/server:/irc/">rpm</a>
 	</li>
 	<li>
 		<a href="http://www.ubuntu.com/">Ubuntu Linux</a>:

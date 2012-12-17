@@ -9,9 +9,106 @@
                                   -- NEWS --
 
 
+ngIRCd 20 (2012-12-17)
+
+  - Allow user names ("INDENT") up to 20 characters when ngIRCd has not
+    been configured for "strict RFC mode". This is useful if you are using
+    external (PAM) authenticaion mechanisms that require longer user names.
+    Patch suggested by Brett Smith <brett@w3.org>, see
+    <http://arthur.barton.de/pipermail/ngircd-ml/2012-October/000579.html>.
+
+  ngIRCd 20~rc2 (2012-12-02)
+  - Rework cloaked hostname handling and implement the "METADATA cloakhost"
+    subcommand: Now ngIRCd uses two fields internally, one to store the
+    "real" hostname and one to save the "cloaked" hostname. This allows
+    "foreign servers" (aka "IRC services") to alter the real and cloaked
+    hostnames of clients without problems, even when the user itself issues
+    additional "MODE +x" and "MODE -x" commands.
+
+  ngIRCd 20~rc1 (2012-11-11)
+  - Update doc/Services.txt: describe the upcoming version of Anope 1.9.8,
+    then including a protocol module for ngIRCd. And remove our own patches
+    in ./contrib/Anope because they aren't supported any more ...
+  - Implement new "METADATA" command which can be used by remote servers
+    and IRC services to update client metadata like the client info text
+    ("real name"), user name, and hostname, and use this command to
+    configure an cloaked hostname (user mode "+x") on remote servers:
+    This prevents "double cloaking" of hostnames and even cloaked
+    hostnames are in sync on all servers supporting "METADATA" now.
+  - Implement new IRC "SVSNICK" command to allow remote servers (and IRC
+    services) to change nicknames of already registered users. The SVSNICK
+    command itself doesn't change the nickname, but it becomes forwarded
+    to the server to which the user is connected to. And then this server
+    initiates the real nickname changing using regular NICK commands.
+    This allows to run mixed networks with old servers not supporting the
+    SVSNICK command, because SVSNICK commands for nicknames on such servers
+    are silently ignored and don't cause a desynchronization of the network.
+  - New configuration option "MaxListSize" to configure the maximum number
+    of channels returned by a LIST command. The default is 100, as before.
+  - Implement user mode "b", "block messages": when a user has set mode "b",
+    all private messages and notices to this user are blocked if they don't
+    originate from a registered user, an IRC Op, server or service. The
+    originator gets an error numeric sent back in this case,
+    ERR_NONONREG_MSG (486), which is used by UnrealIRCd, too. (Closes #144)
+  - Implement channel mode "V" (invite disallow): If the new channel mode
+    "V" is set, the INVITE command becomes invalid and all clients get the
+    new ERR_NOINVITE_MSG (518) reply. (Closes #143)
+  - Implement channel mode "Q" and user mode "q": Both modes protect users
+    from channel kicks: only IRC operators and servers can kick users having
+    mode "q" or in channels with mode "Q". (Closes #141)
+  - Allow users to "cloak" their hostname only when the configuration
+    variable "CloakHostModeX" (introduced in 19.2) is set. Otherwise, only
+    IRC operators, other servers, and services are allowed to set the user
+    mode "+x": this prevents regular users from changing their hostmask to
+    the name of the IRC server itself, which confused quite a few people ;-)
+    (Closes #133)
+  - New configuration option "OperChanPAutoOp": If disabled, IRC operators
+    don't become channel operators in persistent channels when joining.
+    Enabled by default, which has been the behavior of ngIRCd up to this
+    patch. (Closes #135)
+  - Allow IRC operators to see secret (+s) channels in LIST command as long
+    as the "MorePrivacy" configuration option isn't enabled in the
+    configuration file. (Closes #136)
+  - Implement new (optional) IRC+ "CHARCONV" command to set a client
+    character set that the server translates all messages to/from UTF-8.
+    This feature requires the "libiconv" library and must be enabled using
+    the new "--with-iconv" option of the ./configure script. See
+    doc/Protocol.txt for details. (Closes #109)
+  - Implement user mode "B" ("Bot flag"): it is settable and unsettable by
+    every (non-restricted) client. This is how Unreal and InspIRCd do
+    behave, and so do we :-)
+  - Implement channel mode "M": Only the server, identified users and IRC
+    operators are able to talk in such a channel.
+  - Block nicknames that are reserved for services and are defined using the
+    configuration variable "ServiceMask" in "Server" blocks; And this
+    variable now can handle more than one mask separated by commas.
+  - Implemented XOP channel user modes: "Half Op" ("+h", prefix "%") can set
+    the channel modes +imntvIbek and kick all +v and normal users; "Admin"
+    ("+a", prefix "&") can set channel modes +imntvIbekoRsz and kick all +o,
+    +h, +v and normal users; and "Owner" ("+q", prefix "~") can set channel
+    modes +imntvIbekoRsz and kick all +a, +o, +h, +v and normal users.
+  - Implement hashed cloaked hostnames for both the "CloakHost" and
+    "CloakHostModeX" configuration options: now the admin can use the new
+    '%x' placeholder to insert a hashed version of the clients hostname,
+    and the new configuration option "CloakHostSalt" defines the salt for
+    the hash function. When "CloakHostSalt" is not set (the default), a
+    random salt will be generated after each server restart.
+
+ngIRCd Release 19.2 (2012-06-19)
+
+  ngIRCd 19.2~rc1 (2012-06-13)
+  - New configuration option "CloakHostModeX" to configure the hostname
+    that gets used for IRC clients which have user mode "+x" enabled.
+    Up to now, the name of the IRC server itself has been used for this,
+    which still is the default when "CloakHostModeX" isn't set.
+  - Add instructions for setting up Atheme IRC services.
+  - Implement support for IRC capability handling, the new "CAP" command,
+    and capablity "multi-prefix" which allows both the NAME and	WHO command
+    handlers to return more than one "class prefix" to the client.
+
 ngIRCd Release 19.1 (2012-03-19)
 
-  - Really include _all_ patchtes to build the Anope module into the
+  - Really include _all_ patches to build the Anope module into the
     distribution archive ... ooops!
 
 ngIRCd Release 19 (2012-02-29)
@@ -19,7 +116,7 @@ ngIRCd Release 19 (2012-02-29)
   ngIRCd 19~rc1 (2012-02-12)
   - Update preliminary ngIRCd protocol module for Anope 1.9.6, which now
     is the only supported version.
-  - New numeric RPL_WHOISHOST_MSG(378), which returns the DNS hostname
+  - New numeric RPL_WHOISHOST_MSG(378), which returns the DNS host name
     (if available) and the IP address of a client in the WHOIS reply.
     Only the user itself and local IRC operators get this numeric.
   - Implement channel exception list (mode 'e'). This allows a channel
@@ -31,7 +128,7 @@ ngIRCd Release 19 (2012-02-29)
     and receiver are on the same channel. This prevents private flooding
     by completely unknown clients.
   - New RPL_WHOISREGNICK_MSG(307) numeric in WHOIS command replies: it
-    indicates if a nick name is registered (if user mode 'R' set).
+    indicates if a nickname is registered (if user mode 'R' set).
   - Limit channel invite, ban, and exception lists to 50 entries and fix
     duplicate check and error messages when adding already listed entries
     or deleting no (longer) existing ones.
@@ -67,7 +164,7 @@ ngIRCd Release 19 (2012-02-29)
     NICK, and USER commands have been processed) and before the child
     processes for authentication are forked, so resource usage is smaller.
   - Added doc/Modes.txt: document modes supported by ngIRCd.
-  - Implement user mode "R": indicates that the nick name of this user
+  - Implement user mode "R": indicates that the nickname of this user
     is "registered". This mode isn't handled by ngIRCd itself, but must
     be set and unset by IRC services like Anope.
   - Implement channel mode "R": only registered users (having the user
@@ -78,7 +175,7 @@ ngIRCd Release 19 (2012-02-29)
   - Handle channel user modes 'a', 'h', and 'q' from remote servers.
     These channel user modes aren't used for anything at the moment,
     but ngIRCd knows that these three modes are "channel user modes"
-    and not "channel modes", that is that these modes take an "nick name"
+    and not "channel modes", that is that these modes take an "nickname"
     argument. Like unknown user and channel modes, these modes are saved
     and forwarded to other servers, but ignored otherwise.
 
@@ -134,10 +231,10 @@ ngIRCd Release 18 (2011-07-10)
     (booleans, text strings, integer numbers) and add type information to each
     variable description.
   - Terminate incoming connections on HTTP commands "GET" and "POST".
-  - New configuration option "CloakHost": when set, this hostname is used for
-    every client instead of the real DNS hostname (or IP address).
+  - New configuration option "CloakHost": when set, this host name is used for
+    every client instead of the real DNS host name (or IP address).
   - New configuration option "CloakUserToNick": when enabled, ngIRCd sets
-    every clients' user name to their nick name and hides the user name
+    every clients' user name to their nickname and hides the user name
     supplied by the IRC client.
   - Make write buffers bigger, but flush early. Before this change, a client
     got disconnected if the buffer flushing at 4k failed, now regular clients
@@ -187,7 +284,7 @@ ngIRCd Release 17 (2010-11-07)
   - Enable the daemon to disable and enable "debug mode" on runtime using
     signal SIGUSR1, when debug code is compiled in, not only on startup
     using the command line parameters.
-  - Implement user mode "x": hostname cloaking (closes: #102).
+  - Implement user mode "x": host name cloaking (closes: #102).
   - Change MOTD file handling: ngIRCd now caches the contens of the MOTD
     file, so the daemon now requires a HUP signal or REHASH command to
     re-read the MOTD file when its content changed.
@@ -292,7 +389,7 @@ ngIRCd 0.12.0 (2008-05-13)
   - Implemented IRC commands INFO, SUMMON (dummy), and USERS (dummy) and
     enhanced test suite to check these commands. (Dana Dahlstrom)
   - IRC_WHO now supports search patterns and will test this against user
-    nickname/servername/hostname, etc. as required by RFC 2812, Section 3.6.1.
+    nickname/server name/host name, etc. as required by RFC 2812, Section 3.6.1.
     (reported by Dana Dahlstrom)
   - Implement RFC 2812 handling of "0" argument to 'JOIN': must be treated
     as if the user had sent PART commands for all channels the user is a
@@ -305,7 +402,7 @@ ngIRCd 0.11.0 (2008-01-15)
   - New [Server] configuration Option "Bind" allows to specify
     the source IP address to use when connecting to remote server.
   - New configuration option "MaxNickLength" to specify the allowed maximum
-    length of user nick names. Note: must be unique in an IRC network!
+    length of user nicknames. Note: must be unique in an IRC network!
   - Numeric 317: implemented "signon time" (displayed in WHOIS result).
   - Added new server configuration option "Passive" for "Server" blocks to
     disable automatic outgoing connections (similar to -p option to ngircd,

@@ -2,7 +2,7 @@
                      ngIRCd - Next Generation IRC Server
                            http://ngircd.barton.de/
 
-               (c)2001-2011 Alexander Barton and Contributors.
+               (c)2001-2012 Alexander Barton and Contributors.
                ngIRCd is free software and published under the
                    terms of the GNU General Public License.
 
@@ -22,10 +22,13 @@ channels he is using at the moment.
   mode	since	description
 
   a	0.3.0	User is away.
+  b	20	User blocks private messages and notices.
+  B	20	User is flagged as a "bot".
   c	17	IRC operator wants to receive connect/disconnect NOTICEs.
   C	19	Only users that share a channel are allowed to send messages.
   i	0.0.1	User is "invisible".
   o	0.0.1	User is IRC operator.
+  q	20	User is protected, can not be kicked from a channel.
   r	0.0.1	User is restricted.
   R (1)	19	User is registered (e.g. by NickServ).
   s	0.4.0	User wants to receive server notices.
@@ -49,13 +52,16 @@ users to lists (e.g. "invite list", "ban list"), others have parameters
   k	0.6.0	Channel has a "key" (a password).
   l	0.6.0	Channel has a user limit.
   m	0.3.0	Channel is moderated, only "voiced" users can send messages.
+  M	20	Only registered users (and IRC Ops) can send messages.
   n	0.3.0	Channel doesn't allow messages of users not being members.
   O	18	Only IRC operators are allowed to join this channel.
   P	0.5.0	Channel is "persistent".
+  Q	20	Nobody can be kicked from the channel.
   r (1)	19	Channel is "registered" (e.g. by ChanServ).
   R	19	Only registered users are allowed to join this channel.
   s	0.9.0	Channel is "secret".
   t	0.3.0	Only ChanOps are allowed to modify the channel topic.
+  V	20	Channel doesn't allow invites.
   z	16	Only users connected via SSL are allowed to join the channel.
 
 III. Channel User Modes
@@ -66,7 +72,12 @@ channel of which he is a member.
 
   mode	since	description
 
+  q	20	User is channel owner can only be set by a service, other
+		owner and irc op. Can promote other users to q, a, o, h, v.
+  a	20	User is channel admin and can promote other users to v, h, o
   o	0.2.0	User is channel operator and can op/kick/... other members.
+  h	20	User is half op and can set channel modes imntvIbek and kick
+		voiced and normal users.
   v	0.2.0	User is "voiced" and can speak even if channel is moderated.
 
 

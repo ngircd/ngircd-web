@@ -60,8 +60,8 @@
 <div id="preview">
 	<code><a id="v_toggle" href="#" name="v_toggle">ngircd --help</a></code><br>
 	<div id="vertical_slide">
-		<samp>ngircd 19.2-SYSLOG+ZLIB+SSL+TCPWRAP+IDENT+PAM+IRCPLUS+IPv6-x86_64/unknown/linux-gnu
-Copyright (c)2001-2012 Alexander Barton (<alex@barton.de>) and Contributors.
+		<samp>ngIRCd 20.1-CHARCONV+IDENT+IPv6+IRCPLUS+PAM+SSL+SYSLOG+ZLIB-x86_64/apple/darwin12.2.0
+Copyright (c)2001-2013 Alexander Barton (<alex@barton.de>) and Contributors.
 Homepage: <http://ngircd.barton.de/>
 
 This is free software; see the source for copying conditions. There is NO

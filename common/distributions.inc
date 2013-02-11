@@ -13,7 +13,7 @@
 	</li>
 	<li>
 		<a href="http://fedoraproject.org/">Fedora Linux</a>:
-		<a href="https://admin.fedoraproject.org/pkgdb/packages/name/ngircd/">rpm</a>
+		<a href="https://admin.fedoraproject.org/pkgdb/acls/name/ngircd">rpm</a>
 	</li>
 	<li>
 		<a href="http://www.finkproject.org/">Fink Project</a>:

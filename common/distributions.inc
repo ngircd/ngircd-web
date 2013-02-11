@@ -5,7 +5,7 @@
 	</li>
 	<li>
 		<a href="http://www.archlinux.org/">Arch Linux</a>:
-		<a href="http://aur.archlinux.org/packages.php?ID=11545">pkg</a>
+		<a href="https://www.archlinux.org/packages/?q=ngircd">pkg</a>
 	</li>
 	<li>
 		<a href="http://www.debian.org/">Debian Linux</a>:

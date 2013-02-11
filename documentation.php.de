@@ -91,6 +91,8 @@
 <ul>
 	<li><a href="doc/AUTHORS">AUTHORS</a>
 	<li><a href="doc/Bopm.txt">Bopm.txt</a>
+	<li><a href="doc/Capabilities.txt">Capabilities.txt</a>
+	<li><a href="doc/Commands.txt">Commands.txt</a>
 	<li><a href="doc/Contributing.txt">Contributing.txt</a>
 	<li><a href="doc/COPYING">COPYING</a>
 	<li><a href="doc/GIT.txt">GIT.txt</a>
@@ -102,7 +104,6 @@
 	<li><a href="doc/RFC.txt">RFC.txt</a>
 	<li><a href="doc/Services.txt">Services.txt</a>
 	<li><a href="doc/SSL.txt">SSL.txt</a>
-	<li><a href="doc/Zeroconf.txt">Zeroconf.txt</a>
 </ul>
 <ul>
 	<li><a href="doc/README-AUX.txt">README-AUX.txt</a>

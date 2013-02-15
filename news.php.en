@@ -13,7 +13,7 @@
 </h3>
 <p>
 	The current stable version is
-	<strong>Release 20</strong> of January 2 2013,
+	<strong>Release 20.2</strong> of February 15 2013,
 	please also refer to the <a href="download.php.en">Download</a>
 	options.
 </p>
@@ -22,12 +22,9 @@
 </h3>
 <p class="security">
 	<strong>Caution:</strong>
-	ngIRCd-versions previous to 0.10.4 contain a bug which can be used
-	(also remotely) to crash the daemon. All installations should be
-	updated to version 0.10.4 or newer!<br>
-	The SSL/TLS functions prior to 14.1 have a bug which can crash the
-	daemon as well. If using SSL/TLS you should update to at least
-	ngIRCd 14.1 (or newer)!
+	ngIRCd 20 and 20.1 both contain an error that allows arbitrary users to
+	crash the server daemon. All installations should be updated to version
+	20.2 or newer! Releases prior to ngIRCd 20 are not affected.
 </p>
 <p>
 	The <a href="doc/NEWS">NEWS</a>-file and the
@@ -37,4 +34,3 @@
 <?php
 	end_page();
 ?>
-

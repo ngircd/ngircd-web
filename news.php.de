@@ -13,7 +13,7 @@
 </h3>
 <p>
 	Die aktuelle stabile Version ist
-	<strong>Release 20.1</strong> vom 2. Januar 2013,
+	<strong>Release 20.2</strong> vom 15. Februar 2013,
 	siehe auch die
 	<a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
@@ -22,14 +22,10 @@
 </h3>
 <p class="security">
 	<strong>Achtung:</strong>
-	ngIRCd-Versionen vor 0.10.4 beinhalten einen Fehler, der (auch remote)
-	dazu genutzt werden kann, den Daemon zum Absturz zu bringen. Alle
-	Installationen sollten auf Version 0.10.4 (oder neuer) aktualisiert
-	werden!<br>
-	Versionen vor 14.1 beinhalten einen Fehler in den SSL/TLS Funktionen,
-	die ebenfalls den Daemon zum Absturz bringen können. Wenn SSL/TLS
-	verwendet wird, sollte mindestens Version 14.1 (oder neuer) eingesetzt
-	werden!
+	ngIRCd 20 und 20.1 beinhaltet einen Fehler, der es jedem Nutzer
+	ermöglicht, den Server-Dienst zum Absturz zu bringen. Alle
+	Installationen sollten auf Version 20.2 (oder neuer) aktualisiert
+	werden. Versionen vor Release 20 sind hiervon nicht betroffen.
 </p>
 <p>
 	Die <a href="doc/NEWS">NEWS</a>-Datei und das
@@ -40,4 +36,3 @@
 <?php
 	end_page();
 ?>
-

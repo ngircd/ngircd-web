@@ -30,6 +30,11 @@
 	<li>
 		<a href="http://www.macports.org/">Mac Ports</a>:
 		<a href="http://trac.macports.org/browser/trunk/dports/irc/ngircd/Portfile">Port</a>
+	</li>
+	<li>
+		<a href="http://www.openbsd.org/">OpenBSD</a>:
+		<a href="http://www.openbsd.org/cgi-bin/cvsweb/ports/net/ngircd/">Port</a>
+	</li>
 	<li>
 		<a href="http://www.opensuse.org/">OpenSUSE</a>:
 		<a href="http://download.opensuse.org/repositories/server:/irc/">rpm</a>

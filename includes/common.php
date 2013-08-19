@@ -66,7 +66,7 @@ function end_page() {
 	echo '<p id="footer">ngIRCd &copy;2001-2013 Alexander Barton and ';
 	echo '<a href="doc/AUTHORS">Contributors</a><br />';
 	echo '<a href="http://flattr.com/thing/343331/ngIRCd" target="_blank">';
-	echo '<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />';
+	echo '<img src="common/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />';
 	echo '</a></p>';
 	echo '</div></body></html>';
 }

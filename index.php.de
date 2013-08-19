@@ -22,8 +22,8 @@
 </p>
 <p class="hint">
 	<em>Tip:</em>
-	bei freshmeat.net gibt es einen
-	<a href="http://freshmeat.net/projects/ngircd/">Projekteintrag</a>
+	bei Freecode gibt es einen
+	<a href="http://freecode.com/projects/ngircd">Projekteintrag</a>
 	für ngIRCd. Dort ist es z. B. möglich, sich über neue Versionen zu
 	informieren und via E-Mail benachrichtigen zu lassen.
 </p>
@@ -54,7 +54,7 @@
 	</li>
 	<li>
 		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren aktiv
-		weiter entwickelt
+		weiterentwickelt.
 	</li>
 </ul>
 <div id="preview">

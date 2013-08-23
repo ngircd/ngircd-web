@@ -13,7 +13,7 @@
 </h3>
 <p>
 	Die aktuelle stabile Version ist
-	<strong>Release 20.2</strong> vom 15. Februar 2013,
+	<strong>Release 20.3</strong> vom 23. August 2013,
 	siehe auch die
 	<a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
@@ -22,10 +22,11 @@
 </h3>
 <p class="security">
 	<strong>Achtung:</strong>
-	ngIRCd 20 und 20.1 beinhaltet einen Fehler, der es jedem Nutzer
-	ermöglicht, den Server-Dienst zum Absturz zu bringen. Alle
-	Installationen sollten auf Version 20.2 (oder neuer) aktualisiert
-	werden. Versionen vor Release 20 sind hiervon nicht betroffen.
+	ngIRCd 18 und neuer bis einschließlich 20.2 beinhaltet einen Fehler,
+	der zum Absturz des Servers führen kann, wenn die Konfigurationsoption
+	<q>NoticeAuth</q> aktiviert ist (was <em>nicht</em> der Default ist).
+	Alle Installationen sollten auf Version 20.3 (oder neuer) aktualisiert
+	werden.
 </p>
 <p>
 	Die <a href="doc/NEWS">NEWS</a>-Datei und das

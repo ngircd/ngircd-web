@@ -22,7 +22,9 @@
 </h3>
 <p class="security">
 	<strong>Caution:</strong>
-	ngIRCd 18 up to and including 20.2 contains an error that could crash
+	ngIRCd 20 and 20.1 both contain an error that allows arbitrary users to
+	crash the server daemon.
+	ngIRCd 20.2 contains an error that could crash
 	the server daemon when the configuration option <q>NoticeAuth</q> is
 	enabled (which is <em>not</em> the default).
 	All installations should be updated to version 20.3 or newer!

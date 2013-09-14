@@ -14,11 +14,11 @@
 		<br>Server: <em>ngircd.barton.de</em>
 		(<a href="http://ngircd.barton.de/pub/ngircd/">http</a>):
 		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-20.3.tar.gz">ngircd-20.3.tar.gz</a>
-		(<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-20.3.tar.gz.sig">Sig</a>),
-		<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-20.3.tar.xz">tar.xz</a>
-		(<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-20.3.tar.xz.sig">Sig</a>),
-		<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-20.3.tar.Z">tar.Z</a>
-		(<a href="ftp://ftp.berlios.de/pub/ngircd/ngircd-20.3.tar.Z.sig">Sig</a>)
+		(<a href="http://ngircd.barton.de/pub/ngircd/ngircd-20.3.tar.gz.sig">Sig</a>),
+		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-20.3.tar.xz">tar.xz</a>
+		(<a href="http://ngircd.barton.de/pub/ngircd/ngircd-20.3.tar.xz.sig">Sig</a>),
+		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-20.3.tar.Z">tar.Z</a>
+		(<a href="http://ngircd.barton.de/pub/ngircd/ngircd-20.3.tar.Z.sig">Sig</a>)
 		</ul>
 	</dd>
 </dl>

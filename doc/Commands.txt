@@ -97,53 +97,123 @@ Connection Handling Commands
 	clients using UTF-8, which should be the default today.
 
 	References:
-	 - <http://ngircd.barton.de/doc/Protocol.txt>
-	 - doc/Protocol.txt
+	 - IRC+, <http://ngircd.barton.de/doc/Protocol.txt>
+	 - IRC+, doc/Protocol.txt
 
 - NICK
-	NICK <nick>
+	NICK <nickname>
+	NICK <nickname> [<hops>]
+	NICK <nickname> <hops> <username> <host> <servertoken> <usermodes> <realname>
 	.
-	Change your nickname to <nick>.
+	Set or change the <nickname> of a client (first form) and register
+	remote clients (second and third form; servers only).
+
+	References:
+	 - RFC 1459, 4.1.2 "Nick message" (old client and server protocol)
+	 - RFC 2812, 3.1.2 "Nick message" (client protocol)
+	 - RFC 2813, 4.1.3 "Nick" (server protocol)
 
 - PASS
+	PASS <password>
 	PASS <password> <version> <flags> [<options>]
 	.
-	Set a connection <password>. This command must be sent before the
-	NICK/USER registration combination.
+	Set a connection <password>. This command must be the first command
+	sent to the server, even before the NICK/USER or SERVER commands.
 	.
-	See doc/Protocol.txt for more info.
+	The first form is used by user sessions or (old) RFC 1459 servers,
+	the second form is used by RFC 2812 or IRC+ compliant servers and
+	enables the server to indicate its version and supported protocol
+	features.
+
+	References:
+	 - RFC 1459, 4.1.1 "Password message" (old client and server protocol)
+	 - RFC 2812, 3.1.1 "Password message" (client protocol)
+	 - RFC 2813, 4.1.1 "Password message" (server protocol)
+	 - IRC+, <http://ngircd.barton.de/doc/Protocol.txt>
+	 - IRC+, doc/Protocol.txt
 
 - PING
-	PING <server1> [<server2>]
+	PING <token> [<target>]
 	.
-	Tests the presence of a connection. A PING message results in a PONG
-	reply. If <server2> is specified, the message gets passed on to it.
+	Tests the presence of a connection to a client or server.
+	.
+	If no <target> has been given, the local server is used. User clients
+	can only use other servers as <target>, no user clients.
+	.
+	A PING message results in a PONG reply containing the <token>, which
+	can be arbitrary text.
+
+	Please note:
+	The RFCs state that the <token> parameter is used to specify the
+	origin of the PING command when forwarded in the network, but this
+	is not the case: the sender is specified using the prefix as usual,
+	and the parameter is used to identify the PONG reply in practice.
+
+	References:
+	 - RFC 2812, 3.7.2 "Ping message"
 
 - PONG
-	PONG <server1> [<server2>]
+	PONG <target> [<token>]
 	.
-	This command is a reply to the PING command and works in much the
-	same way.
+	Reply to a "PING" command, indicate that the connection is alive.
+	.
+	The <token> is the arbitrary text received in the "PING" command and
+	can be used to identify the correct PONG sent as answer.
+	.
+	When the "PONG" command is received from a user session, the <target>
+	parameter is ignored; otherwise the PONG is forwarded to this client.
+
+	References:
+	 - RFC 2812, 3.7.3 "Pong message"
 
 - QUIT
 	QUIT [<quit-message>]
 	.
-	End IRC session and disconnect from the server.
+	Terminate a user session.
 	.
-	If a <quit-message> has been given, it is displayed to all the
-	channels that you are a member of when leaving.
+	When received from a user, the server acknowledges this by sending
+	an "ERROR" message back to the client and terminates the connection.
+	.
+	When a <quit-message> has been given, it is sent to all the channels
+	that the client is a member of when leaving.
+
+	References:
+	 - RFC 2812, 3.1.7 "Quit"
+	 - RFC 2813, 4.1.5 "Quit"
 
 - USER
-	USER <user> <modes> <realname>
+	USER <username> <hostname> <unused> <realname>
 	.
-	This command is used at the beginning of a connection to specify the
-	<user>name, hostname, <realname> and initial user <modes> of the
-	connecting client.
+	Register (and authenticate) a new user session with a short <username>
+	and a human-readable <realname>.
 	.
-	<realname> may contain spaces, and thus must be prefixed with a colon.
+	The parameter <hostname> is only used when received by an other server
+	and ignored otherwise; and the parameter <unused> is always ignored.
+	But both parameters are required on each invocation by the protocol
+	and can be set to arbitrary characters/text when not used.
+	.
+	If <username> contains an "@" character, the full <username> is used
+	for authentication, but only the first part up to this character is
+	set as "user name" for this session.
+
+	References:
+	 - RFC 2812, 3.1.3 "User message"
 
 - WEBIRC
-	See doc/Protocol.txt
+	WEBIRC <password> <username> <hostname> <ip-address>
+	.
+	Allow Web-to-IRC gateway software (for example) to set the correct
+	user name and host name of users instead of their own.
+	.
+	It must be the very first command sent to the server, even before
+	USER and NICK commands!
+	.
+	The <password> must be set in the server configuration file to prevent
+	unauthorized clients to fake their identity; it is an arbitrary string.
+
+	References:
+	 - IRC+, <http://ngircd.barton.de/doc/Protocol.txt>
+	 - IRC+, doc/Protocol.txt
 
 
 General Commands
@@ -156,6 +226,9 @@ General Commands
 	PRIVMSG directed at the user, but not to a channel they are on.
 	.
 	If <message> is omitted, the away status is removed.
+
+	References:
+	 - RFC 2812, 4.1 "Away"
 
 - HELP
 	HELP [<command>]
@@ -173,32 +246,102 @@ General Commands
 	ngIRCd replies using "NOTICE" commands like ircd 2.10/2.11; other
 	implementations are using numerics 704, 705, and 706.
 
-
 - MODE
-	MODE <nickname> <flags> (user)
-	MODE <channel> <flags> [<args>]
+	MODE <nickname> [{+|-}<mode>[<mode>] [{+|-}<mode>[<mode>] [...]]]
+	MODE <channel> [{+|-}<mode>[<mode>] [<arg> [<arg> [...]]] [{+|-}<mode>[<mode>] [<arg> [<arg> [...]]] [...]]]
 	.
-	The MODE command is dual-purpose. It can be used to set both (user) and
-	<channel> modes.
+	Set and get user and channel modes.
 	.
-	See doc/Modes.txt for more information.
+	When no mode parameters are given, the currently set user or channel
+	modes are returned. Otherwise the modes are adjusted accordingly
+	and the changes will be reported back to the client.
+	.
+	All user and channel "modes" are indicated by single case-sensitive
+	characters.
+	.
+	Please note that a user can only get and set his own modes, and not
+	all user "levels" are allowed to change all channel modes ...
+	.
+	The mode parameters can become quite complex, especially when dealing
+	with channel modes that require additional arguments:
+	.
+	  {+|-}<mode(s}>  -- set or unset one or more modes.
+	  +<mode(s)> -<mode(s)>  -- set some modes and unset others.
+	  +<modes> <arg1> <arg2>  -- set (at least) two modes with arguments.
+	.
+	Some examples:
+	.
+	  MODE nick +i  -- set user to "invisible".
+	  MODE #chan +tn  -- set "topic lock" and "no external messages".
+	  MODE #chan -t +l 50  -- remove "topic lock", set "user limit" to 50.
+	  MODE #chan +ov nick1 nick2  -- set "channel op" and "voice" mode
+	                                 to nick1 and nick2 in channel #chan.
+	.
+	A complete list of all modes supported by ngIRCd can be found online
+	here: <http://ngircd.barton.de/doc/Modes.txt>.
+
+	References:
+	 - RFC 2811, 4. "Channel Modes"
+	 - RFC 2812, 3.1.5 "User mode message"
+	 - RFC 2812, 3.2.3 "Channel mode message"
+	 - <http://ngircd.barton.de/doc/Modes.txt>
+	 - doc/Modes.txt
 
 - NOTICE
-	NOTICE <target> <notice>
+	NOTICE <target>[,<target>[,...]] <message>
 	.
-	Send <notice> to <target> (nick or channel).
+	Send a <message> to a given <target>, which can be a user or a
+	channel, but DON'T report any error.
 	.
-	This command works similarly to PRIVMSG, except automatic replies must
-	never be sent in reply to NOTICE messages.
+	The "NOTICE" command exactly behaves like the "PRIVMSG" command, but
+	doesn't report any errors it encounters (like an unknown <target>).
+	Please see the help text of the "PRIVMSG" command for a detailed
+	description of the parameters!
+
+	References:
+	 - RFC 2812, 2.3.1 "Message format in Augmented BNF"
+	 - RFC 2812, 3.3 "Sending messages"
+	 - RFC 2812, 3.3.2 "Notice"
 
 - PRIVMSG
-	PRIVMSG <target> <message>
+	PRIVMSG <target>[,<target>[,...]] <message>
 	.
-	Send <message> to <target> (nick or channel).
+	Send a <message> to a given <target>, which can be a user or a
+	channel, and report all errors.
 	.
-	Common IRC clients use MSG as PRIVMSG alias.
-	(Some clients use "QUERY <nick> [<message>]" to open a private chat.)
+	The <target> must follow one of these syntax variants:
+	.
+	 - <nickname>
+	 - <channel>
+	 - <user>[%<host>]@<server>
+	 - <user>%<host>
+	 - <nickname>!<user>@<host>
+	.
+	If the <target> is a user, a private message is sent directly to this
+	user; if it resolves to a channel name, a public message is sent
+	to all the members of that channel.
+	.
+	In addition, IRC Ops can use these two forms to specify the <target>:
+	.
+	 - #<hostmask>
+	 - #<servermask>
+	.
+	The <mask> can contain the wildcard characters "*" and "?", but must
+	contain at least one dot (".") and no wildcard after the last one.
+	Then, the <message> is sent to all users matching this <mask>.
+	.
+	All warnings and errors are reported back to the initiator using
+	numeric status codes, which is the only difference to the "NOTICE"
+	command, which doesn't report back any errors or warnings at all.
+	.
+	Please note that clients often use "MSG" as an alias to PRIVMSG, and
+	a command "QUERY <nick> [<message>]" to initiate private chats. Both
+	are command extensions of the client and never sent to the server.
 
+	References:
+	 - RFC 2812, 2.3.1 "Message format in Augmented BNF"
+	 - RFC 2812, 3.3 "Sending messages"
+	 - RFC 2812, 3.3.1 "Private messages"
 
 Status and Informational Commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -308,17 +451,21 @@ Status and Informational Commands
 	Show statistics and other information of type <query> of a particular
 	IRC server in the network.
 	.
-	The following <query> types are supported (case-insensitive):
+	The following <query> types are supported (case-insensitive where
+	applicable):
 	.
 	 - g  Network-wide bans ("G-Lines").
 	 - k  Server-local bans ("K-Lines").
-	 - l  Link status (parent server and own link only).
+	 - L  Link status (servers and user links).
+	 - l  Link status (servers and own link).
 	 - m  Command usage count.
 	 - u  Server uptime.
 	.
 	<target> can be a server name, the nickname of a client connected to
 	a specific server, or a mask matching a server name in the network.
 	The server of the current connection is used when <target> is omitted.
+	.
+	To use "STATS L" the user must be an IRC Operator.
 
 	References:
 	 - RFC 2812, 3.4.4 "Stats message"
@@ -336,10 +483,19 @@ Status and Informational Commands
 	 - RFC 2812, 3.4.6 "Time message"
 
 - TRACE
-	TRACE [<server>]
+	TRACE [<target>]
 	.
-	Trace a path across the IRC network of the current server, or if given
-	of a specific <server>, in a similar method to traceroute.
+	Find the route to a specific server and send information about its
+	peers. Each server that processes this command reports back to the
+	sender about it: the replies from pass-through servers form a chain
+	which shows the route to the destination.
+	.
+	<target> can be a server name, the nickname of a client connected to
+	a specific server, or a mask matching a server name in the network.
+	The server of the current connection is used when <target> is omitted.
+
+	References:
+	 - RFC 2812, 3.4.8 "Trace message"
 
 - USERHOST
 	USERHOST <nickname> [<nickname> [...]]
@@ -419,129 +575,244 @@ Channel Commands
 ~~~~~~~~~~~~~~~~
 
 - INVITE
-	INVITE <nick> <channel>
+	INVITE <nickname> <channel>
 	.
-	Invites <nick> to <channel>.
+	Invite <nickname> to join channel <channel>.
+	.
 	<channel> does not have to exist, but if it does, only members of the
-	channel are allowed to invite other clients.
-	.
-	If the <channel> mode "+i" is set, only <channel> operators may invite
-	other clients.
+	channel are allowed to invite other users. If the channel mode "+i"
+	is set, only channel "half-ops" (and above) may invite other clients,
+	and if channel mode "+V" is set, nobody can invite other users.
+
+	References:
+	 - RFC 2812, 3.2.7 "Invite message"
 
 - JOIN
-	JOIN <channels> [<channel-keys>]
+	JOIN {<channel>[,<channel>[,...]] [<key>[,<key>[,...]]] | 0}
 	.
-	Makes the client join the <channels> (comma-separated list), specifying
-	the passwords, if needed, in the comma-separated <channel-keys> list.
-	A <channel-key> is only needed, if the <channel> mode "+k" is set.
+	Makes the client join the <channel> (comma-separated list), specifying
+	the channel keys ("passwords"). A <channel-key> is only needed if the
+	<channel> has the mode "+k" set.
 	.
 	If the channel(s) do not exist, then they will be created.
+	.
+	Using "JOIN 0" parts all channels at once.
+
+	References:
+	 - RFC 2812, 3.2.1 "Join message" (client protocol)
+	 - RFC 2813, 4.2.1 "Join message" (server protocol)
 
 - KICK
-	KICK <channel> <nick> [<kick-message>]
+	KICK <channel>[,<channel>[,...]] <nickname>[,<nickname>[,...]] [<reason>]
 	.
-	Remove <nick> from <channel>, optional with a <kick-message>.
+	Remove users(s) with <nickname>(s) from <channel>(s).
 	.
-	Only <channel> operators are able to KICK.
+	There must be either exactly one <channel> parameter and multiple
+	<nickname> parameters, or as many <channel> parameters as there are
+	<nickname> parameters. The <reason> is shown to the users being
+	kicked, and the nickname of the current user is used when <reason>
+	is omitted.
+
+	References:
+	 - RFC 2812, 3.2.8 "Kick command"
 
 - LIST
-	LIST [<channels> [<server>]]
+	LIST [<channel>[,<channel>[,...]] [<server>]]
 	.
-	List all visible <channels> (comma-seperated list) on the current
-	server.
+	List all visible <channels> (comma-separated list).
+	.
 	If <server> is given, the command will be forwarded to <server> for
 	evaluation.
 
+	References:
+	 - RFC 2812, 3.2.6 "List message"
+
 - PART
-	PART <channels> [<part-message>]
+	PART <channel>[,<channel>[,...]] [<part-message>]
 	.
-	Leave <channels> (comma-separated list), optional with a
-	<part-message>.
+	Leave <channel> (comma-separated list), optionally with sending a
+	<part-message> to all the other channel members.
+
+	References:
+	 - RFC 2812, 3.2.2 "Part message"
 
 - TOPIC
-	TOPIC <channel> <topic>
+	TOPIC <channel> [<topic>]
 	.
-	Set a <topic> for <channel>.
+	Change or view the topic of a channel.
 	.
-	Only <channel> operators are able to set a <topic>.
+	The topic for channel <channel> is returned if there is no <topic>
+	given. If the <topic> parameter is present, the topic for that
+	channel will be changed, if this action is allowed for the user
+	requesting it. If the <topic> parameter is an empty string, the
+	topic for that channel will be removed.
+
+	References:
+	 - RFC 2812, 3.2.4 "Topic message"
 
 
 Administrative Commands
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 - CONNECT
-	CONNECT <target server> [<port> [<remote server> [<mypwd> <peerpwd>]]]
+	CONNECT <server> [<port> [<remote-server> [<my-pwd> <peer-pwd>]]]
 	.
-	Instructs the current server, or <remote server> if specified,
-	to connect to <target server>.
+	Instructs the current server, or <remote-server> if specified,
+	to connect to the server named <server>, which must be configured
+	in the server configuration file.
 	.
-	To connect <remote server> you need to have remote oper status.
-	If <port> is omitted, it uses the server port of the configuration.
-	If <mypwd> and <peerpwd> is given, it uses those passwords instead
-	of the ones in the configuration.
+	To use this command, the user must be an IRC Operator. To establish
+	a connection on a <remote-server>, you must have remote IRC operator
+	privileges.
+	.
+	If <port>, <my-pwd> and <peer-pwd> are given, these values override
+	the ones specified in the server configuration file.
+
+	References:
+	 - RFC 2812, 3.4.7 "Connect message"
 
 - DIE
-	DIE
+	DIE [<message>]
 	.
 	Instructs the server to shut down.
+	.
+	The optional (and non-standard) <message> text is sent to each client
+	connected to this server before all connections are closed.
+	.
+	To use this command, the user must be an IRC Operator.
+
+	References:
+	 - RFC 2812, 4.3 "Die message"
 
 - DISCONNECT
-	DISCONNECT [<remote server>]
+	DISCONNECT <server>
 	.
-	Disconnects the current server, or <remote server> if specified.
-	To disconnect a <remote server> you need to have remote oper status.
+	Disconnect and disable a locally linked server.
+	.
+	To use this command, the user must be an IRC Operator.
+
+	References:
+	 - This command is not specified in the IRC RFCs, it is an extension
+	   of ngIRCd.
 
 - GLINE
-	GLINE <nick!user@hostmask> <seconds> :<reason>
+	GLINE <nick!user@hostmask> [<timeout> :<reason>]
 	.
-	This command provides timed G-Lines (Network-wide bans).
+	This command provides timed G-Lines (network-wide bans).
+	.
 	If a client matches a G-Line, it cannot connect to any server on
-	the IRC network. If you put 0 as <seconds>, it makes the G-Line
-	permanent.
+	the IRC network for <timeout> seconds. When <timeout> is 0, it make
+	the G-Line permanent.
 	.
-	To remove a G-Line, type "GLINE <nick!user@hostmask>".
-	To list the G-Lines, type "STATS g".
+	If no <timeout> and no <reason> is given, the G-Line is removed.
+	.
+	To use this command, the user must be an IRC Operator.
+	.
+	"STATS g" can be used to list all currently active G-Lines.
+
+	References:
+	 - This command is not specified in the IRC RFCs, it is an extension
+	   of ngIRCd.
 
 - KILL
-	KILL <nick> <reason>
+	KILL <nickname> <reason>
 	.
-	Forcibly removes <nick> from the IRC network with a <reason>.
+	Forcibly remove all users with a given <nickname> from the IRC
+	network and display the given <reason> to them.
+	.
+	This command is used internally between servers, too, for example
+	to disconnect duplicate <nickname>'s after a "net split".
+	.
+	To use this command, the user must be an IRC Operator.
+
+	References:
+	 - RFC 2812, 3.7.1 "Kill message"
 
 - KLINE
-	KLINE <nick!user@hostmask> <seconds> :<reason>
+	KLINE <nick!user@hostmask> [<timeout> :<reason>]
 	.
-	This command provides timed K-Lines (Server-local bans).
-	If a client matches a K-Line, it cannot connect to the issued server.
-	If you put 0 as <seconds>, it makes the K-Line permanent.
+	This command provides timed K-Lines (server-local bans).
 	.
-	To remove a K-Line, type "KLINE <nick!user@hostmask>".
-	To list the K-Lines, type "STATS k".
+	If a client matches a K-Line, it cannot connect to this server for
+	<timeout> seconds. When <timeout> is 0, it makes the K-Line permanent.
+	.
+	If no <timeout> and no <reason> is given, the K-Line is removed.
+	.
+	To use this command, the user must be an IRC Operator.
+	.
+	"STATS k" can be used to list all currently active K-Lines.
+
+	References:
+	 - This command is not specified in the IRC RFCs, it is an extension
+	   of ngIRCd.
 
 - OPER
-	OPER <user> <password>
+	OPER <name> <password>
 	.
-	Authenticates <user> as an IRC operator on the current server/network.
+	Authenticates a user named <name> as an IRC operator on the current
+	server/network.
+	.
+	This operator <name> must be configured in the server configuration.
+	.
+	Please note that <name> is NOT related to a nickname at all!
+
+	References:
+	 - RFC 2812, 3.1.4 "Oper message"
 
 - REHASH
 	REHASH
 	.
 	Causes the server to re-read and re-process its configuration file(s).
+	.
+	While rehashing, no new connections are accepted, but all already
+	established connections stay connected.
+	.
+	To use this command, the user must be an IRC Operator.
+
+	References:
+	 - RFC 2812, 4.2 "Rehash message"
 
 - RESTART
 	RESTART
 	.
 	Restart the server.
+	.
+	While restarting, all connections are reset and no new connections
+	are accepted.
+	.
+	To use this command, the user must be an IRC Operator.
+
+	References:
+	 - RFC 2812, 4.4 "Restart message"
 
 - WALLOPS
 	WALLOPS <message>
 	.
 	Sends <message> to all users with user mode "+w".
+	.
+	To use this command, the user must be an IRC Operator.
 
+	References:
+	 - RFC 2812, 4.7 "Operwall message"
 
 IRC Service Commands
 ~~~~~~~~~~~~~~~~~~~~
 
 - SERVICE
+	SERVICE <name> <reserved1> <distribution> <type> <reserved2> <info>
+	SERVICE <name> <servertoken> <distribution> {<type>|+<modes>} <hops> <info>
+	.
+	Register a new service in the network.
+	.
+	The first form is used by directly linked services and isn't supported
+	by ngIRCd at the moment. The second form announces services connected
+	to remote "pseudo-servers" ("services hubs").
+	.
+	The <distribution> and <type> parameters are ignored by ngIRCd.
+
+	References:
+	 - RFC 2812, 3.1.6 "Service message"
+	 - RFC 2813, 4.1.4 "Service message"
 
 - SERVLIST
 	SERVLIST [<mask> [<type>]]
@@ -558,8 +829,39 @@ IRC Service Commands
 	 - RFC 2812, 3.5.1 "Servlist message"
 
 - SQUERY
+	SQUERY <target>[,<target>[,...]] <message>
+	.
+	Send a <message> to a given <target> IRC service, and report all
+	errors.
+	.
+	The "SQUERY" command exactly behaves like the "PRIVMSG" command, but
+	enforces that the <target> of the <message> is an IRC service.
+	Please see the help text of the "PRIVMSG" command for a detailed
+	description of the parameters!
+	.
+	If a user wants to interact with IRC services, he should use "SQUERY"
+	instead of "PRIVMSG" or "NOTICE": only "SQUERY makes sure that no
+	regular user, which uses the nickname of an IRC service, receives
+	the command in error, for example during a "net split"!
+
+	References:
+	 - RFC 2812, 2.3.1 "Message format in Augmented BNF"
+	 - RFC 2812, 3.3 "Sending messages"
+	 - RFC 2812, 3.3.2 "Notice"
 
 - SVSNICK
+	SVSNICK <oldnick> <newnick>
+	.
+	Forcefully change foreign user nicknames. This command is allowed
+	for servers only.
+	.
+	The "SVSNICK" command is forwarded to the server to which the user
+	with nickname <oldnick> is connected to, which in turn generates a
+	regular "NICK" command that then is sent to the client, so no special
+	support in the client software is required.
+
+	References:
+	 - ngIRCd GIT commit e3f300d3231f
 
 
 Server Protocol Commands
@@ -571,16 +873,27 @@ Server Protocol Commands
 	CHANINFO is used by servers to inform each other about a channel:
 	its modes, channel key, user limits and its topic.
 	.
-	See doc/Protocol.txt for more information.
+	The CHANINFO command is allowed on server-links only.
+
+	References:
+	 - IRC+, <http://ngircd.barton.de/doc/Protocol.txt>
+	 - IRC+, doc/Protocol.txt
 
 - ERROR
 	ERROR [<message> [<> [...]]]
 	.
-	Return an error message to the server. The first parameter, if given,
-	will be logged by the server, all further parameters are silently
-	ignored.
+	Inform a client or a server about an error condition. The first 
+	parameter, if given, is logged by the server receiving the message,
+	all other parameters are silently ignored.
 	.
-	This command is silently ignored on non-server and non-service links.
+	This command is silently ignored on non-server and non-service links
+	and shouldn't be used by regular IRC clients.
+	.
+	The ERROR message is also sent before terminating a regular client
+	connection.
+
+	References:
+	 - RFC 2812, 3.7.4 "Error message"
 
 - METADATA
 	METADATA <target> <key> <value>
@@ -589,17 +902,49 @@ Server Protocol Commands
 	information of clients, like the hostname, the info text ("real name"),
 	or the user name.
 	.
-	See doc/Protocol.txt for more information.
+	The METADATA command is allowed on server-links only.
+
+	References:
+	 - IRC+, <http://ngircd.barton.de/doc/Protocol.txt>
+	 - IRC+, doc/Protocol.txt
 
 - NJOIN
+	NJOIN <channel> [<mode>]<nick>[,[<mode>]<nick>[,...]]
+	.
+	The NJOIN command is used on server-links to add users with <nick>
+	and <mode> to a <channel> while peering.
+	.
+	The NJOIN command is allowed on server-links only.
+
+	References:
+	 - RFC 2813, 4.2.2 "Njoin message"
 
 - SERVER
+	SERVER <servername> <info>
+	SERVER <servername> <hopcount> <info>
+	SERVER <servername> <hopcount> <token> <info>
+	.
+	The first form registers the local connection as a new server in the
+	network, the second (RFC 1459) and third (RFC 2812) form announce a
+	new remote server in the network.
+	.
+	The SERVER command is allowed on unregistered or server-links only.
+
+	References:
+	 - RFC 1459, 4.1.4 "Server message"
+	 - RFC 2813, 4.1.2 "Server message"
 
 - SQUIT
-	SQUIT <server>
+	SQUIT <server> <comment>
 	.
 	Disconnects an IRC Server from the network.
+	.
+	This command is used on server-links, but can be used by IRC Operators
+	to forcefully disconnect servers from the network, too.
 
+	References:
+	 - RFC 2812, 3.1.8 "Squit"
+	 - RFC 2813, 4.1.6 "Server quit message"
 
 Dummy Commands
 ~~~~~~~~~~~~~~
@@ -628,5 +973,19 @@ Dummy Commands
 	 - RFC 2812, 4.6 "Users"
 
 - GET
+	GET [...]
+	.
+	Fake HTTP GET command. When received, the connection is shut down
+	immediately again to protect against crazy web browsers ...
+
+	References:
+	 - ngIRCd GIT commit 33e8c2480649
 
 - POST
+	POST [...]
+	.
+	Fake HTTP POST command. When received, the connection is shut down
+	immediately again to protect against crazy web browsers ...
+
+	References:
+	 - ngIRCd GIT commit 33e8c2480649

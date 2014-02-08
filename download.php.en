@@ -56,7 +56,13 @@
 <p>
 	The repository is also available online:
 	<a href="http://ngircd.barton.de/cgi-bin/gitweb.cgi?p=ngircd.git">ngIRCd GIT Repository</a>.
-</p>				
+	A <a href="https://github.com/alexbarton/ngircd">iirror</a> is
+	available on <a href="https://github.com/">GitHub</a>.
+</p>
+<p style="vertical-align: middle;">
+	Current build status on <a href="https://travis-ci.org">Travis-CI</a>:
+	<a href="https://travis-ci.org/alexbarton/ngircd"><img style="vertical-align: middle;" src="https://travis-ci.org/alexbarton/ngircd.png?branch=master"></a>
+</p>
 <?php
 	end_page();
 ?>

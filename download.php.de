@@ -56,7 +56,13 @@
 <p>
 	Im Web ist die Repository auch online verf&uuml;gbar:
 	<a href="http://ngircd.barton.de/cgi-bin/gitweb.cgi?p=ngircd.git">ngIRCd GIT Repository</a>.
-</p>				
+	Bei <a href="https://github.com/">GitHub</a> existiert ein
+	<a href="https://github.com/alexbarton/ngircd">Mirror</a>.
+</p>
+<p>
+	Aktueller <q>Build Status</q> auf <a href="https://travis-ci.org">Travis-CI</a>:
+	<a href="https://travis-ci.org/alexbarton/ngircd"><img style="vertical-align: middle;" src="https://travis-ci.org/alexbarton/ngircd.png?branch=master"></a>
+</p>
 <?php
 	end_page();
 ?>

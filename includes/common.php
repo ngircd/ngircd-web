@@ -54,7 +54,7 @@ function begin_page($lang = 'en', $title = null) {
 		echo '<li><a href="download.php.en">Download</a></li>';
 		echo '<li><a href="documentation.php.en">Documentation</a></li>';
 		echo '<li><a href="support.php.en">Support</a></li>';
-		echo '<li><a href="bugtracker.php.en">Bug-Tracker</a></li>';
+		echo '<li><a href="bugtracker.php.en">Bug Tracker</a></li>';
 	}
 	echo '</ul><br style="clear:both">';
 

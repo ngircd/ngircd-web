@@ -54,15 +54,15 @@
 	</li>
 	<li>
 		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren aktiv
-		weiterentwickelt.
+		weiterentwickelt
 	</li>
 </ul>
 <div id="preview">
 	<code><a id="v_toggle" href="#" name="v_toggle">ngircd --help</a></code><br>
 	<div id="vertical_slide">
-		<samp>ngIRCd 20.1-CHARCONV+IDENT+IPv6+IRCPLUS+PAM+SSL+SYSLOG+ZLIB-x86_64/apple/darwin12.2.0
-Copyright (c)2001-2013 Alexander Barton (<alex@barton.de>) and Contributors.
-Homepage: <http://ngircd.barton.de/>
+		<samp>ngIRCd 21~59-g384b27c-IRCPLUS+SYSLOG+ZLIB-x86_64/apple/darwin13.1.0
+Copyright (c)2001-2014 Alexander Barton (&lt;alex@barton.de&gt;) and Contributors.
+Homepage: &lt;http://ngircd.barton.de/&gt;
 
 This is free software; see the source for copying conditions. There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

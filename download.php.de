@@ -14,10 +14,8 @@
 <p>
 	Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie
 	vorhandene Test-Versionen aus den GIT-Quellen (so vorhanden)
-	können zudem via FTP von
-	<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>
-	sowie via HTTP von
-	<a href="http://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a>
+	können zudem aus dem
+	<a href="pub/ngircd/">Download-Verzeichnis</a>
 	heruntergeladen werden.
 </p>
 <h3 id="packages">

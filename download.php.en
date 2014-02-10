@@ -13,11 +13,8 @@
 ?>
 <p>
 	All previous versions, GnuPG signatures of the archives and test
-	versions from GIT sources (if available) can be downloaded here:
-	<a href="ftp://ftp.berlios.de/pub/ngircd/">ftp.berlios.de</a>
-        (FTP) and here
-	<a href="http://ngircd.barton.de/pub/ngircd/">ngircd.barton.de</a>
-	(HTTP).
+	versions from GIT sources (if available) can be downloaded from the
+	<a href="pub/ngircd/">download directory</a>.
 </p>
 <h3 id="packages">
 	Packages
@@ -56,7 +53,7 @@
 <p>
 	The repository is also available online:
 	<a href="http://ngircd.barton.de/cgi-bin/gitweb.cgi?p=ngircd.git">ngIRCd GIT Repository</a>.
-	A <a href="https://github.com/alexbarton/ngircd">iirror</a> is
+	A <a href="https://github.com/alexbarton/ngircd">Mirror</a> is
 	available on <a href="https://github.com/">GitHub</a>.
 </p>
 <p style="vertical-align: middle;">

@@ -60,7 +60,7 @@
 <div id="preview">
 	<code><a id="v_toggle" href="#" name="v_toggle">ngircd --help</a></code><br>
 	<div id="vertical_slide">
-		<samp>ngIRCd 21~59-g384b27c-IRCPLUS+SYSLOG+ZLIB-x86_64/apple/darwin13.1.0
+		<samp>ngIRCd 21.1-IRCPLUS+SYSLOG+ZLIB-x86_64/unknown/linux-gnu
 Copyright (c)2001-2014 Alexander Barton (&lt;alex@barton.de&gt;) and Contributors.
 Homepage: &lt;http://ngircd.barton.de/&gt;
 

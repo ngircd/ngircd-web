@@ -23,19 +23,11 @@
 	Ready packages for ngIRCd are available for the following
 	distributions:
 </p>
-<?php
-	include('common/distributions.inc');
-?>
-<p>
-	Inofficial packages:
-</p>
-<ul>
-	<li>
-		<a href="http://www.debian.org/">Debian Linux</a>:
-		<a href="http://debian.barton.de/debian/pool/main/n/ngircd/">deb</a>
-		(Author: Alex Barton)
-	</li>
-</ul>
+<?php include('common/distributions.inc'); ?>
+<h4>Other</h4>
+<?php include('common/distributions-other.inc'); ?>
+<h4>Inofficial packages</h4>
+<?php include('common/distributions-unofficial.inc'); ?>
 <h3 id="git">
 	GIT Repository
 </h3>

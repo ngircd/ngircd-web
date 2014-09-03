@@ -6,7 +6,7 @@
 	</li>
 	<li>
 		<a href="http://www.openbsd.org/">OpenBSD</a>:
-		<a href="http://www.openbsd.org/cgi-bin/cvsweb/ports/net/ngircd/">Port</a>
+		<a href="http://openbsd.cs.toronto.edu/cgi-bin/cvsweb/ports/net/ngircd/">Port</a>
 	</li>
 </ul>
 <h4>Linux</h4>
@@ -21,7 +21,7 @@
 	</li>
 	<li>
 		<a href="http://fedoraproject.org/">Fedora Linux</a>:
-		<a href="https://admin.fedoraproject.org/pkgdb/acls/name/ngircd">rpm</a>
+		<a href="https://admin.fedoraproject.org/pkgdb/package/ngircd/">rpm</a>
 	</li>
 	<li>
 		<a href="http://www.gentoo.org/">Gentoo Linux</a>:

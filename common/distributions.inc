@@ -28,6 +28,10 @@
 		<a href="http://packages.gentoo.org/package/net-irc/ngircd">ebuild</a>
 	</li>
 	<li>
+		<a href="http://brew.sh/">Homebrew</a>:
+		<a href="https://github.com/Homebrew/homebrew/blob/master/Library/Formula/ngircd.rb">Formula</a>
+	</li>
+	<li>
 		<a href="http://www.macports.org/">Mac Ports</a>:
 		<a href="http://trac.macports.org/browser/trunk/dports/irc/ngircd/Portfile">Port</a>
 	</li>

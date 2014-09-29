@@ -9,6 +9,59 @@
                                   -- NEWS --
 
 
+ngIRCd 22
+
+  ngIRCd 22~rc1 (2014-09-29)
+  - Sync "except lists" between servers: Up to now, ban, invite, and G-Line
+    lists have been synced between servers while linking -- but obviously
+    nobody noticed that except list have been missing ever since. Until now.
+    Thanks to "j4jackj", who reported this issue in #ngircd.
+  - Allow longer user names (up to 63 characters) for authentication.
+  - Increase MAX_SERVERS from 16 to 64: There are installations out there
+    that would like to configure more than 16 links per server, so increase
+    this limit. Best would be to get rid of MAX_SERVERS altogether and make
+    if fully dynamic, but start with this quick and dirty hack ...
+  - Test suite/platformtest.sh: Detect when tests have been skipped.
+  - Allow "DefaultUserModes" to set all possible modes, including modes only
+    settable by IRC Operators.
+  - Implement user mode "F": "relaxed flood protection". Clients with mode "F"
+    set are allowed to send data to the daemon. This mode is only settable by
+    IRC Operators and can cause problems in the network -- so be careful and
+    only set it on "trusted" clients!
+    User mode "F" is used by Bahamut for this purpose, for example.
+  - Use server password when PAM is compiled in but disabled.
+  - Streamline punctuation of log messages.
+  - Return ISUPPORT(005) numerics on "VERSION". This is how ircd-seven,
+    Charybdis, Hybrid, and InspIRCd behave, for example.
+  - configure: Only link "contrib/Debian" if it exists, which isn't the case
+    on "VPATH builds", for example.
+  - Show the account name in WHOIS. This uses the same numeric as Charybdis
+    and ircu families: WHOISLOGGEDIN(330).
+  - Pattern matching: Remove "range matching" in our pattern matching code
+    using the "[...]" syntax, because [ and ] are valid characters in nick
+    names and one has to quote them currently using the "\" character, which
+    is quite unexpected for users.
+  - platformtest.sh: New option "-x", don't regenerate build system and
+    allow using separate source and build trees.
+  - Test suite: explicitly enable glibc memory checking.
+  - Make "MODE -k" handling more robust and compatible, send "fake '*' key"
+    in all replies.
+  - portabtest: Actually test the functions snprintf(), strlcpy(), strlcat(),
+    and vsnprintf() for correctness, not only existence (which was quite
+    useless, because if they weren't available, the program could not have
+    been linked at all ...).
+  - Implement new configuration option "Network": it is used to set the
+    (completely optional) "network name", to which this instance of the
+    daemon belongs. When set, this name is used in the ISUPPORT(005) numeric
+    which is sent to all clients connecting to the server after logging in.
+  - Update doc/Platforms.txt.
+  - Various code cleanups, remove unused code, streamline error handling.
+    Remove all imp.h and exp.h header files, support non-standard vsnprintf()
+    return codes, and fix some K&R C portability issues. Streamline
+    DEBUG_ARRAY, DEBUG_BUFFER, DEBUG_IO, DEBUG_ZIP definitions.
+  - Increase penalty time to 10 seconds when handling OPER commands with an
+    invalid password.
+
 ngIRCd 21.1 (2014-03-25)
 
   - Don't ignore but use the server password when PAM is compiled in but
@@ -208,7 +261,7 @@ ngIRCd 20 (2012-12-17)
     the hash function. When "CloakHostSalt" is not set (the default), a
     random salt will be generated after each server restart.
 
-ngIRCd Release 19.2 (2012-06-19)
+ngIRCd 19.2 (2012-06-19)
 
   ngIRCd 19.2~rc1 (2012-06-13)
   - New configuration option "CloakHostModeX" to configure the hostname
@@ -220,12 +273,12 @@ ngIRCd Release 19.2 (2012-06-19)
     and capablity "multi-prefix" which allows both the NAME and	WHO command
     handlers to return more than one "class prefix" to the client.
 
-ngIRCd Release 19.1 (2012-03-19)
+ngIRCd 19.1 (2012-03-19)
 
   - Really include _all_ patches to build the Anope module into the
     distribution archive ... ooops!
 
-ngIRCd Release 19 (2012-02-29)
+ngIRCd 19 (2012-02-29)
 
   ngIRCd 19~rc1 (2012-02-12)
   - Update preliminary ngIRCd protocol module for Anope 1.9.6, which now
@@ -293,7 +346,7 @@ ngIRCd Release 19 (2012-02-29)
     argument. Like unknown user and channel modes, these modes are saved
     and forwarded to other servers, but ignored otherwise.
 
-ngIRCd Release 18 (2011-07-10)
+ngIRCd 18 (2011-07-10)
 
   - Add preliminary ngIRCd protocol module for Anope 1.9 to contrib/Anope/.
 
@@ -368,13 +421,13 @@ ngIRCd Release 18 (2011-07-10)
     vice-versa). The defaults are adjusted accordingly and the old variables
     in [Global] are still accepted, so there is no functional change.
 
-ngIRCd Release 17.1 (2010-12-19)
+ngIRCd 17.1 (2010-12-19)
 
   - Don't log critical (or worse) messages to stderr
   - Remove "error file" when compiled with debug code enabled
   - New numeric 329: get channel creation time on "MODE #chan" commands
 
-ngIRCd Release 17 (2010-11-07)
+ngIRCd 17 (2010-11-07)
 
   - doc: change path names in sample-ngircd.conf depending on sysconfdir
 
@@ -412,7 +465,7 @@ ngIRCd Release 17 (2010-11-07)
     this new mode requires the user to be an IRC operator.
   - Show SSL status in WHOIS output, numeric 275.
 
-ngIRCd Release 16 (2010-05-02)
+ngIRCd 16 (2010-05-02)
 
   ngIRCd 16~rc2 (2010-04-25)
   - Enhace connection statistics counters: display total number of served
@@ -432,7 +485,7 @@ ngIRCd Release 16 (2010-05-02)
     every channel, and c) remote clients using a server not supporting this
     mode are not checked either and therefore always allowed to join.
 
-ngIRCd Release 15 (2009-11-07)
+ngIRCd 15 (2009-11-07)
 
   ngIRCd 15~rc1 (2009-10-15)
   - Do not add default listening port (6667) if SSL ports were specified, so
@@ -446,13 +499,13 @@ ngIRCd Release 15 (2009-11-07)
     a throttling scheme: an IRC client can send up to 3 commands or 256 bytes
     per second before a one second pause is enforced.
 
-ngIRCd Release 14.1 (2009-05-05)
+ngIRCd 14.1 (2009-05-05)
 
   - Security: fix remotely triggerable crash in SSL/TLS code.
   - Debian: build ngircd-full-dbg package.
   - Allow ping timeout quit messages to show the timeout value.
 
-ngIRCd Release 14 (2009-04-20)
+ngIRCd 14 (2009-04-20)
 
   ngIRCd 14~rc1 (2009-03-29)
   - Allow creation of persistent modeless channels.
@@ -463,7 +516,7 @@ ngIRCd Release 14 (2009-04-20)
     individual channel keys for different users.
   - Remove limit on maximum number of predefined channels in ngircd.conf.
 
-ngIRCd Release 13 (2008-12-25)
+ngIRCd 13 (2008-12-25)
 
   ngIRCd 13~rc1 (2008-11-21):
   - New version number scheme :-)
@@ -595,7 +648,7 @@ ngIRCd 0.7.5 (2003-07-11)
     (DoS), the default is 5 connections per client IP.
   - Added new configuration variable "Listen" to bind all listening
     sockets of the server to a single IP address.
-       
+
 ngIRCd 0.7.1 (2003-07-18)
 
   - Added support for GNU/Hurd.
@@ -622,7 +675,7 @@ ngIRCd 0.7.0 (2003-05-01)
 
 Older news (sorry, only available in german language):
 
-ngIRCd 0.6.0, 2002-12-24
+ngIRCd 0.6.0, 24.12.2002
 
   - beim Schliessen einer Verbindung zeigt der Server nun vor dem ERROR
     noch eine Statistik ueber die empfangene und gesendete Datenmenge an.

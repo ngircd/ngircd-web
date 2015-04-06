@@ -63,7 +63,7 @@ function begin_page($lang = 'en', $title = null) {
 
 function end_page() {
 	echo '</div>';
-	echo '<p id="footer">ngIRCd &copy;2001-2014 Alexander Barton and ';
+	echo '<p id="footer">ngIRCd &copy;2001-2015 Alexander Barton and ';
 	echo '<a href="doc/AUTHORS">Contributors</a><br />';
 	echo '<a href="http://flattr.com/thing/343331/ngIRCd" target="_blank">';
 	echo '<img src="common/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />';

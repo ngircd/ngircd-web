@@ -1,2 +1,4 @@
 Options +MultiViews
-Redirect /bugzilla http://arthur.barton.de/cgi-bin/bugzilla
+Redirect /bugzilla/index.cgi http://github.com/ngircd/ngircd/issues
+Redirect /bugzilla/enter_bug.cgi https://github.com/ngircd/ngircd/issues/new
+Redirect /bugzilla/query.cgi http://github.com/ngircd/ngircd/issues

@@ -7,21 +7,19 @@
 </h2>
 <p>
 	Damit wir den Überlick über im ngIRCd vorhandene Bugs und
-	Feature-Wünsche nicht verliere, ist ein Bug-Tracking-System
-	installiert:
-	<a href="http://ngircd.barton.de/bugzilla/index.cgi">Bugzilla</a>
+	Feature-Wünsche nicht verliere, nutzen wir das Bug-Tracking-System
+	auf <a href="http://github.com/">GitHub</a>:
 </p>
 <p>
-	Solltest du Fehler finden, so lege dort bitte einen
-	<a href="http://ngircd.barton.de/bugzilla/enter_bug.cgi">Bug-Report</a>
-	an! Vielen Dank!
-</p>
-<p>
-	Zudem kannst du dich dort auch über bekannte und vielleicht bereits
+	Dort kannst du dich über bekannte und vielleicht bereits
 	behobene Fehler
-	<a href="http://ngircd.barton.de/bugzilla/query.cgi">informieren</a>.
+	<a href="http://github.com/ngircd/ngircd/issues">informieren</a>.
+</p>
+<p>
+	Solltest du einen neuen Fehler finden, so lege dort bitte einen
+	<a href="https://github.com/ngircd/ngircd/issues/new">Bug-Report</a>
+	an! Vielen Dank!
 </p>
 <?php
 	end_page();
 ?>
-

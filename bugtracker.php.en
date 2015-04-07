@@ -6,21 +6,21 @@
 	Bug-Tracker
 </h2>
 <p>
-	We have installed a bug tracking system to avoid losing sight of
-	existing bugs and suggestions for features in ngIRCd:
-	<a href="http://ngircd.barton.de/bugzilla/index.cgi">Bugzilla</a>
+	We are using the bug tracking system at
+	<a href="http://github.com/">GitHub</a>
+	to avoid losing sight of existing bugs and suggestions for
+	features in ngIRCd.
 </p>
 <p>
-	If you find any mistakes, please create a
-	<a href="http://ngircd.barton.de/bugzilla/enter_bug.cgi">bug report</a>
-	here! Thank you!
+	You can get
+	<a href="http://github.com/ngircd/ngircd/issues">information</a>
+	on all known bugs (and probable fixes) there.
 </p>
 <p>
-	Additionally, you can get
-	<a href="http://ngircd.barton.de/bugzilla/query.cgi">information</a>
-	on known and maybe already corrected bugs.
+	If you find any new mistakes, please create a
+	<a href="https://github.com/ngircd/ngircd/issues/new">bug report</a>!
+	Thank you!
 </p>
 <?php
 	end_page();
 ?>
-

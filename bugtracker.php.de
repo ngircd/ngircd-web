@@ -8,12 +8,12 @@
 <p>
 	Damit wir den Überlick über im ngIRCd vorhandene Bugs und
 	Feature-Wünsche nicht verliere, nutzen wir das Bug-Tracking-System
-	auf <a href="http://github.com/">GitHub</a>:
+	auf <a href="https://github.com/">GitHub</a>:
 </p>
 <p>
 	Dort kannst du dich über bekannte und vielleicht bereits
 	behobene Fehler
-	<a href="http://github.com/ngircd/ngircd/issues">informieren</a>.
+	<a href="https://github.com/ngircd/ngircd/issues">informieren</a>.
 </p>
 <p>
 	Solltest du einen neuen Fehler finden, so lege dort bitte einen

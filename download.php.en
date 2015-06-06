@@ -40,7 +40,7 @@
 </p>
 <p style="vertical-align: middle;">
 	Current build status on <a href="https://travis-ci.org">Travis-CI</a>:
-	<a hreflang="en" href="https://travis-ci.org/alexbarton/ngircd"><img style="vertical-align: middle;" src="https://travis-ci.org/alexbarton/ngircd.png?branch=master"></a>
+	<a hreflang="en" href="https://travis-ci.org/ngircd/ngircd"><img style="vertical-align: middle;" src="https://travis-ci.org/ngircd/ngircd.png?branch=master"></a>
 </p>
 <?php
 	end_page();

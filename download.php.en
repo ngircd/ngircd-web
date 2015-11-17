@@ -12,7 +12,7 @@
 	include('common/download.inc');
 ?>
 <p>
-	All previous versions, GnuPG signatures of the archives and test
+	All previous versions, GnuPG signatures of the archives, and test
 	versions from GIT sources (if available) can be downloaded from the
 	<a href="pub/ngircd/">download directory</a>.
 </p>
@@ -20,13 +20,13 @@
 	Packages
 </h3>
 <p>
-	Ready packages for ngIRCd are available for the following
+	Precompiled ngIRCd packages are available for the following
 	distributions:
 </p>
 <?php include('common/distributions.inc'); ?>
 <h4>Other</h4>
 <?php include('common/distributions-other.inc'); ?>
-<h4>Inofficial packages</h4>
+<h4>Unofficial packages</h4>
 <?php include('common/distributions-unofficial.inc'); ?>
 <h3 id="git">
 	Git Repository

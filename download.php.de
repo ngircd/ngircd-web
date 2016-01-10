@@ -13,8 +13,7 @@
 ?>
 <p>
 	Alle bisherigen Versionen, GnuPG-Signaturen der Archive sowie
-	vorhandene Test-Versionen aus den GIT-Quellen (so vorhanden)
-	können zudem aus dem
+	vorhandene Test-Versionen aus den GIT-Quellen können zudem aus dem
 	<a href="pub/ngircd/">Download-Verzeichnis</a>
 	heruntergeladen werden.
 </p>

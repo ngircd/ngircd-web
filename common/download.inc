@@ -4,13 +4,13 @@
 	</dt>
 	<dd>
 		Server: <em>ngircd.barton.de</em>
-		(<a href="http://ngircd.barton.de/pub/ngircd/">http</a>&thinsp;🔓):
-		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-23.tar.gz">ngircd-23.tar.gz</a>
-		(<a href="http://ngircd.barton.de/pub/ngircd/ngircd-23.tar.gz.sig">Sig</a>),
-		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-23.tar.xz">tar.xz</a>
-		(<a href="http://ngircd.barton.de/pub/ngircd/ngircd-23.tar.xz.sig">Sig</a>),
-		<a href="http://ngircd.barton.de/pub/ngircd/ngircd-23.tar.Z">tar.Z</a>
-		(<a href="http://ngircd.barton.de/pub/ngircd/ngircd-23.tar.Z.sig">Sig</a>)
+		(<a href="https://ngircd.barton.de/pub/ngircd/">http</a>&thinsp;🔒):
+		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.gz">ngircd-23.tar.gz</a>
+		(<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.gz.sig">Sig</a>),
+		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.xz">tar.xz</a>
+		(<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.xz.sig">Sig</a>),
+		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.Z">tar.Z</a>
+		(<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.Z.sig">Sig</a>)
 	</dd>
 	<dd>
 

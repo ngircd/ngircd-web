@@ -23,7 +23,7 @@
 </h3>
 <p class="security">
 	<strong>Achtung:</strong>
-	ngIRCd 20, 20.1 und 20.2 beinhaltet einen Fehler,
+	ngIRCd 20, 20.1 und 20.2 beinhalten einen Fehler,
 	der zum Absturz des Servers führen kann, wenn die Konfigurationsoption
 	<q>NoticeAuth</q> aktiviert ist (was <em>nicht</em> der Default ist).
 	ngIRCd 20 und 20.1 beinhaltet zudem einen Fehler, der es jedem Nutzer

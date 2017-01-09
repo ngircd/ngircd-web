@@ -4,7 +4,7 @@
 	</dt>
 	<dd>
 		Server: <em>ngircd.barton.de</em>
-		(<a href="https://ngircd.barton.de/pub/ngircd/">http</a>&thinsp;🔒):
+		(<a href="https://ngircd.barton.de/pub/ngircd/">https</a>&thinsp;🔒):
 		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.gz">ngircd-23.tar.gz</a>
 		(<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.gz.sig">Sig</a>),
 		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-23.tar.xz">tar.xz</a>
@@ -29,7 +29,7 @@
 	</dt>
 	<dd>
 		Server: <em>ngircd.barton.de</em>
-		(<a href="https://ngircd.barton.de/pub/ngircd/">http</a>&thinsp;🔒):
+		(<a href="https://ngircd.barton.de/pub/ngircd/">https</a>&thinsp;🔒):
 		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-24~rc1.tar.gz">ngircd-24~rc1.tar.gz</a>
 		(<a href="https://ngircd.barton.de/pub/ngircd/ngircd-24~rc1.tar.gz.sig">Sig</a>),
 		<a href="https://ngircd.barton.de/pub/ngircd/ngircd-24~rc1.tar.xz">tar.xz</a>

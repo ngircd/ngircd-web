@@ -32,7 +32,7 @@
 		(1.5.2 and newer on alpha, i386, m68k, sparc, x86_64, ... [GNU C])
 	</li>
 	<li>
-		<a href="http://www.obenbsd.org/">OpenBSD</a>
+		<a href="http://www.openbsd.org/">OpenBSD</a>
 		(3.4 and newer on hppa, i386, powerpc, x86_64 [GNU C])
 	</li>
 	<li>

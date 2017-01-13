@@ -44,7 +44,7 @@
 	</li>
 	<li>
 		<a href="http://brew.sh/">Homebrew</a>:
-		<a href="https://github.com/Homebrew/homebrew/blob/master/Library/Formula/ngircd.rb">Formula</a>
+		<a href="https://github.com/Homebrew/homebrew-core/blob/master/Formula/ngircd.rb">Formula</a>
 	</li>
 	<li>
 		<a href="http://www.macports.org/">Mac Ports</a>:

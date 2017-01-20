@@ -2,14 +2,14 @@
                      ngIRCd - Next Generation IRC Server
                            http://ngircd.barton.de/
 
-               (c)2001-2016 Alexander Barton and Contributors.
+               (c)2001-2017 Alexander Barton and Contributors.
                ngIRCd is free software and published under the
                    terms of the GNU General Public License.
 
                                   -- NEWS --
 
 
-ngIRCd 24
+ngIRCd 24 (2017-01-20)
 
   ngIRCd 24~rc1 (2017-01-07)
   - Log privilege violations and failed OPER request with log level "error"

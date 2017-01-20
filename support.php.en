@@ -10,7 +10,7 @@
 </h3>
 <p>
 	If you find any bugs or you have any ideas on developing ngIRCD, it
-	is best to put them into the <a href="#bugs">Bug-Tracker</a> of the
+	is best to put them into the <a href="bugtracker.php">Bug-Tracker</a> of the
 	ngIRCd. There is also a
 	<a href="#ml">mailing list</a> for discussions and questions concerning
 	the ngIRCd (and you don't need an account for posting).

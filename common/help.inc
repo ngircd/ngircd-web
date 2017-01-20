@@ -1,6 +1,6 @@
 ngIRCd 24-CHARCONV+DEBUG+IDENT+IPv6+IRCPLUS+PAM+SNIFFER+SSL+SYSLOG+TCPWRAP+ZLIB-x86_64/pc/linux-gnu
-Copyright (c)2001-2017 Alexander Barton (<alex@barton.de>) and Contributors.
-Homepage: <http://ngircd.barton.de/>
+Copyright (c)2001-2017 Alexander Barton (&lt;alex@barton.de&gt;) and Contributors.
+Homepage: &lt;http://ngircd.barton.de/&gt;
 
 This is free software; see the source for copying conditions. There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

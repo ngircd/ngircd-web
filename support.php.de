@@ -50,16 +50,6 @@
 <p>
 	E-Mail-Adresse: <a href="mailto:ngircd-ml@ngircd.barton.de">ngircd-ml@ngircd.barton.de</a>.
 </p>
-<h4 id="gmane">
-	GMANE
-</h4>
-<p>
-	Alle Mails der Mailingliste werden zudem von
-	<a href="http://gmane.org/">GMANE</a> als Gruppe
-	<a href="http://dir.gmane.org/gmane.network.irc.ngircd">gmane.network.irc.ngircd</a>
-	gef&uuml;hrt und kann dort &uuml;ber ein Web-Frontend, als RSS-Feed
-	oder &uuml;ber NNTP gelesen werden.
-</p>
 <h3>
 	Sonstiges
 </h3>

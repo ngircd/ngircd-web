@@ -49,15 +49,6 @@
 <p>
 	Email address: <a href="mailto:ngircd-ml@ngircd.barton.de">ngircd-ml@ngircd.barton.de</a>.
 </p>
-<h4 id="gmane">
-	GMANE
-</h4>
-<p>
-	All mails from the mailing list are also managed by
-	<a href="http://gmane.org/">GMANE</a> as a group
-	<a href="http://dir.gmane.org/gmane.network.irc.ngircd">gmane.network.irc.ngircd</a>
-	and can be read via a web frontend, RSS-feed or NNTP.
-</p>
 <h3>
 	Misc
 </h3>

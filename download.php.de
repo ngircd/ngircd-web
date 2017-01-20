@@ -33,7 +33,7 @@
 </h3>
 <p>
 	Der Quelltext und alle zum ngIRCd geh&ouml;renden Dateien werden mit
-	<a hreflang="en" href="http://git.or.cz/">Git</a>
+	<a hreflang="en" href="https://git-scm.com/">Git</a>
 	auf
 	<a hreflang="en" href="https://github.com/">GitHub</a> verwaltet:
 	<a hreflang="en" href="https://github.com/ngircd">https://github.com/ngircd</a>.

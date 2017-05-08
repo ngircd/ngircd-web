@@ -2,3 +2,11 @@ Options +MultiViews
 Redirect /bugzilla/index.cgi https://github.com/ngircd/ngircd/issues
 Redirect /bugzilla/enter_bug.cgi https://github.com/ngircd/ngircd/issues/new
 Redirect /bugzilla/query.cgi https://github.com/ngircd/ngircd/issues
+Redirect /doc/AUTHORS https://github.com/ngircd/ngircd/blob/master/AUTHORS
+Redirect /doc/COPYING https://github.com/ngircd/ngircd/blob/master/COPYING
+Redirect /doc/ChangeLog https://github.com/ngircd/ngircd/blob/master/ChangeLog
+Redirect /doc/INSTALL https://github.com/ngircd/ngircd/blob/master/INSTALL
+Redirect /doc/NEWS https://github.com/ngircd/ngircd/blob/master/NEWS
+Redirect /doc/README https://github.com/ngircd/ngircd/blob/master/README
+Redirect /doc/sample-ngircd.conf https://github.com/ngircd/ngircd/blob/master/doc/sample-ngircd.conf.tmpl
+Redirect /doc/ https://github.com/ngircd/ngircd/blob/master/doc/

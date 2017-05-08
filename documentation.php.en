@@ -67,7 +67,7 @@
 <p>
 	Documentation is compiled in the source package, some in the main
 	directory (such as INSTALL, README, NEWS und COPYING), and some in
-	the sub directory <samp>doc</samp> (such as GIT.txt, FAQ.txt and the
+	the sub directory <samp>doc</samp> (such as SSL.txt, FAQ.txt and the
 	exemplary configurations sample-ngircd.conf).
 </p>
 <p>
@@ -92,7 +92,6 @@
 	<li><a href="doc/Commands.txt">Commands.txt</a>
 	<li><a href="doc/Contributing.txt">Contributing.txt</a>
 	<li><a href="doc/COPYING">COPYING</a>
-	<li><a href="doc/GIT.txt">GIT.txt</a>
 	<li><a href="doc/HowToRelease.txt">HowToRelease.txt</a>
 	<li><a href="doc/Modes.txt">Modes.txt</a>
 	<li><a href="doc/PAM.txt">PAM.txt</a>

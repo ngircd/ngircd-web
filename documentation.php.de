@@ -70,7 +70,7 @@
 	Ein wenig Dokumentation ist im Quellpaket enthalten, zum Teil im
 	Hauptverzeichnis (so z. B. die Dokumente INSTALL, README, NEWS und
 	COPYING), andere im Unterverzeichnis <samp>doc</samp> (wie z. B.
-	GIT.txt, FAQ.txt und die Beispiel-Konfiguration sample-ngircd.conf).
+	SSL.txt, FAQ.txt und die Beispiel-Konfiguration sample-ngircd.conf).
 </p>
 <p>
 	Die Dateien der aktuellen Version sind hier im Web (in englischer
@@ -95,7 +95,6 @@
 	<li><a href="doc/Commands.txt">Commands.txt</a>
 	<li><a href="doc/Contributing.txt">Contributing.txt</a>
 	<li><a href="doc/COPYING">COPYING</a>
-	<li><a href="doc/GIT.txt">GIT.txt</a>
 	<li><a href="doc/HowToRelease.txt">HowToRelease.txt</a>
 	<li><a href="doc/Modes.txt">Modes.txt</a>
 	<li><a href="doc/PAM.txt">PAM.txt</a>

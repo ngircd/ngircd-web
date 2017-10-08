@@ -1,4 +1,9 @@
 Options +MultiViews
+AddLanguage en .en
+AddLanguage de .de
+AddType application/x-httpd-php .php
+DirectoryIndex index.php
+LanguagePriority en de
 Redirect /bugzilla/index.cgi https://github.com/ngircd/ngircd/issues
 Redirect /bugzilla/enter_bug.cgi https://github.com/ngircd/ngircd/issues/new
 Redirect /bugzilla/query.cgi https://github.com/ngircd/ngircd/issues

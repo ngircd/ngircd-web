@@ -109,6 +109,10 @@ a:link, a:visited {
 	color: #005555;
 }
 
+dd {
+	line-height: 150%;
+}
+
 div#vertical_slide {
 	border: 1px solid gray;
 	padding: 1em;
@@ -142,4 +146,3 @@ p#footer {
 }
 
 /* @end */
-

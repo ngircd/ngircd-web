@@ -68,4 +68,27 @@ function end_page() {
 	echo '</div></body></html>';
 }
 
+function download_links($rel, $server, $protocol = "https") {
+	echo "<dd>";
+	echo "Server: <em>$server</em>:";
+	/* Download folder */
+	echo "(<a href=\"$protocol://$server/pub/ngircd/\">$protocol</a>";
+	if ($protocol == "https")
+		echo "&thinsp;🔒";
+	echo "): ";
+	/* Archive files */
+	$count = 1;
+	foreach (array('tar.gz', 'tar.xz', 'tar.Z') as $suffix) {
+		if ($count > 1)
+			echo ', ';
+		echo "<a href=\"$protocol://$server/pub/ngircd/ngircd-$rel.$suffix\">";
+		if ($suffix == "tar.gz")
+			echo "ngircd-$rel.";
+		echo "$suffix</a> ";
+		echo "(<a href=\"$protocol://$server/pub/ngircd/ngircd-$rel.$suffix.sig\">Sig</a>)";
+		$count++;
+	}
+	echo "</dd>";
+}
+
 ?>

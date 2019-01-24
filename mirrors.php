@@ -9,7 +9,6 @@
 	<li><a href="https://ngircd.barton.de/">ngircd.barton.de</a>&thinsp;🔒
 </ul>
 <ul>
-	<li><a href="https://ngircd.mirror.3rz.org">ngircd.mirror.3rz.org</a>&thinsp;🔒
 	<li><a href="http://ngircd.sourceforge.net/">ngircd.sourceforge.net</a>
 </ul>
 

@@ -9,7 +9,7 @@
 	<li><a href="https://ngircd.barton.de/">ngircd.barton.de</a>&thinsp;🔒
 </ul>
 <ul>
-	<li><a href="http://ngircd.sourceforge.net/">ngircd.sourceforge.net</a>
+	<li><a href="https://ngircd.sourceforge.io/">ngircd.sourceforge.io</a>&thinsp;🔒
 </ul>
 
 <?php

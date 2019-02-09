@@ -70,7 +70,7 @@ function end_page() {
 
 function download_links($rel, $server, $protocol = "https") {
 	echo "<dd>";
-	echo "Server: <em>$server</em>:";
+	echo "Server: <em>$server</em> ";
 	/* Download folder */
 	echo "(<a href=\"$protocol://$server/pub/ngircd/\">$protocol</a>";
 	if ($protocol == "https")

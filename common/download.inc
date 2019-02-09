@@ -3,5 +3,5 @@
 		<strong>ngIRCd Release 25</strong> (2019-01-23):
 	</dt>
 	<?php download_links("25", "ngircd.barton.de"); ?>
-	<?php download_links("25", "ngircd.sourceforge.net", "http"); ?>
+	<?php download_links("25", "ngircd.sourceforge.io"); ?>
 </dl>

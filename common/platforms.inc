@@ -21,7 +21,7 @@
 	</li>
 	<li>
 		<a href="http://www.linux.org/">Linux</a>
-		(2.x.y, 3.x on hppa, i386, mipsel, powerpc, x86_64, ... [GNU C])
+		(2.x and newer; on hppa, i386, mipsel, powerpc, x86_64, ... [GNU C])
 	</li>
 	<li>
 		<a href="http://www.apple.com/macosx/">Mac OS X</a> (Darwin)

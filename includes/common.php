@@ -61,7 +61,7 @@ function begin_page($lang = 'en', $title = null) {
 
 function end_page() {
 	echo '</div>';
-	echo '<p id="footer">ngIRCd &copy;2001-2019 Alexander Barton and ';
+	echo '<p id="footer">ngIRCd &copy;2001-2020 Alexander Barton and ';
 	echo '<a href="doc/AUTHORS">Contributors</a>';
 	echo '</div></body></html>';
 }

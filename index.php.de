@@ -51,7 +51,7 @@
 	</li>
 </ul>
 <div id="preview">
-	<code><a id="v_toggle" href="#" name="v_toggle">ngircd --help</a></code><br>
+	<code><a id="v_toggle" href="#">ngircd --help</a></code><br>
 	<div id="vertical_slide">
 		<samp><?php include 'common/help.inc' ?></samp>
 	</div>

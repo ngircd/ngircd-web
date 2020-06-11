@@ -8,9 +8,9 @@
 </dl>
 <dl>
 	<dt>
-		<strong>ngIRCd Release 26~rc1</strong> (2020-05-10):
+		<strong>ngIRCd Test-Release 26~rc2</strong> (2020-06-11):
 	</dt>
-	<?php download_links("26~rc1", "ngircd.barton.de"); ?>
-	<?php download_links("26~rc1", "ngircd.mirror.3rz.de"); ?>
-	<?php download_links("26~rc1", "ngircd.sourceforge.io"); ?>
+	<?php download_links("26~rc2", "ngircd.barton.de"); ?>
+	<?php download_links("26~rc2", "ngircd.mirror.3rz.de"); ?>
+	<?php download_links("26~rc2", "ngircd.sourceforge.io"); ?>
 </dl>

@@ -5,9 +5,9 @@ function begin_page($lang = 'en', $title = null) {
 	echo '<html lang="' . $lang . '">' . "\n";
 	echo '<head>';
 	if ($title)
-		echo "<title>$title | ngIRCd: Next Generation IRC Daemon</title>";
+		echo "<title>$title | ngIRCd: Free, portable and lightweight Internet Relay Chat server</title>";
 	else
-		echo '<title>ngIRCd: Next Generation IRC Daemon</title>';
+		echo '<title>ngIRCd: Free, portable and lightweight Internet Relay Chat server</title>';
 	echo '<meta http-equiv="content-type" content="text/html; charset=utf-8">';
 	echo '<meta name="author" content="Alexander Barton">';
 	echo '<meta name="author-email" content="alex@barton.de">';

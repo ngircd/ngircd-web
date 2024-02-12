@@ -39,7 +39,7 @@
 </p>
 <p>
 	You can sign up via the
-	<a href="https://lists.barton.de">homepage of the mailing list</a>,
+	<a href="https://lists.barton.de/mailman3/postorius/lists/ngircd.lists.barton.de">homepage of the mailing list</a>,
 	but this is not required for posting to the list.
 </p>
 <p>
@@ -60,4 +60,3 @@
 <?php
 	end_page();
 ?>
-

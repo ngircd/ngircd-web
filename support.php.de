@@ -39,7 +39,7 @@
 </p>
 <p>
 	Die Anmeldung erfolgt &uuml;ber die
-	<a href="https://lists.barton.de">Hauptseite der Mailingliste</a>,
+	<a href="https://lists.barton.de/mailman3/postorius/lists/ngircd.lists.barton.de">Hauptseite der Mailingliste</a>,
 	ist zum Schreiben an die Liste jedoch nicht zwingend erforderlich.
 </p>
 <p>
@@ -62,4 +62,3 @@
 <?php
 	end_page();
 ?>
-

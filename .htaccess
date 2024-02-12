@@ -26,4 +26,7 @@ Redirect /doc/NEWS https://github.com/ngircd/ngircd/blob/master/NEWS
 Redirect /doc/README https://github.com/ngircd/ngircd/blob/master/README.md
 Redirect /doc/README.md https://github.com/ngircd/ngircd/blob/master/README.md
 Redirect /doc/sample-ngircd.conf https://github.com/ngircd/ngircd/blob/master/doc/sample-ngircd.conf.tmpl
+Redirect /doc/FAQ.txt https://github.com/ngircd/ngircd/blob/master/doc/FAQ.md
+Redirect /doc/SSL.txt https://github.com/ngircd/ngircd/blob/master/doc/SSL.md
+# Catch all
 Redirect /doc/ https://github.com/ngircd/ngircd/blob/master/doc/

@@ -38,10 +38,6 @@
 	<a hreflang="en" href="https://github.com/">GitHub</a>:
 	<a hreflang="en" href="https://github.com/ngircd">https://github.com/ngircd</a>.
 </p>
-<p style="vertical-align: middle;">
-	Current build status on <a href="https://travis-ci.org">Travis-CI</a>:
-	<a hreflang="en" href="https://travis-ci.org/ngircd/ngircd"><img style="vertical-align: middle;" src="https://travis-ci.org/ngircd/ngircd.png?branch=master"></a>
-</p>
 <?php
 	end_page();
 ?>

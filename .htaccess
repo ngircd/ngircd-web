@@ -1,12 +1,22 @@
+#
+# Apache .htaccess configuration file for the ngIRCd Website
+#
+
 Options +MultiViews
 AddLanguage en .en
 AddLanguage de .de
 AddType application/x-httpd-php .php
-DirectoryIndex index.php
+DirectoryIndex index.php index.html
 LanguagePriority en de
+
+# Issue Tracker
+
 Redirect /bugzilla/index.cgi https://github.com/ngircd/ngircd/issues
 Redirect /bugzilla/enter_bug.cgi https://github.com/ngircd/ngircd/issues/new
 Redirect /bugzilla/query.cgi https://github.com/ngircd/ngircd/issues
+
+# Documentation
+
 Redirect /doc/AUTHORS https://github.com/ngircd/ngircd/blob/master/AUTHORS
 Redirect /doc/COPYING https://github.com/ngircd/ngircd/blob/master/COPYING
 Redirect /doc/ChangeLog https://github.com/ngircd/ngircd/blob/master/ChangeLog

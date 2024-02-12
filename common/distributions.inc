@@ -1,53 +1,49 @@
 <h4>BSD</h4>
 <ul>
 	<li>
-		<a href="http://www.freebsd.org/">FreeBSD</a>:
-		<a href="http://www.freebsd.org/cgi/ports.cgi?query=ngircd&amp;stype=all">Port</a>
+		<a href="https://www.freebsd.org/">FreeBSD</a>:
+		<a href="https://ports.freebsd.org/cgi/ports.cgi?query=ngircd">Port</a>
 	</li>
 	<li>
-		<a href="http://www.openbsd.org/">OpenBSD</a>:
-		<a href="http://openports.se/net/ngircd">Port</a>
+		<a href="https://www.openbsd.org/">OpenBSD</a>:
+		<a href="https://openports.pl/path/net/ngircd">Port</a>
 	</li>
 </ul>
 <h4>Linux</h4>
 <ul>
 	<li>
-		<a href="http://www.archlinux.org/">Arch Linux</a>:
-		<a href="https://www.archlinux.org/packages/?q=ngircd">pkg</a>
+		<a href="https://www.debian.org/">Debian Linux</a>:
+		<a href="https://packages.debian.org/ngircd">deb</a>
 	</li>
 	<li>
-		<a href="http://www.debian.org/">Debian Linux</a>:
-		<a href="http://packages.debian.org/ngircd">deb</a>
+		<a href="https://fedoraproject.org/">Fedora Linux</a>:
+		<a href="https://packages.fedoraproject.org/pkgs/ngircd/ngircd/">rpm</a>
 	</li>
 	<li>
-		<a href="http://fedoraproject.org/">Fedora Linux</a>:
-		<a href="https://admin.fedoraproject.org/pkgdb/package/ngircd/">rpm</a>
+		<a href="https://www.gentoo.org/">Gentoo Linux</a>:
+		<a href="https://packages.gentoo.org/package/net-irc/ngircd">ebuild</a>
 	</li>
 	<li>
-		<a href="http://www.gentoo.org/">Gentoo Linux</a>:
-		<a href="http://packages.gentoo.org/package/net-irc/ngircd">ebuild</a>
+		<a href="https://www.opensuse.org/">OpenSUSE</a>:
+		<a href="https://software.opensuse.org/package/ngircd?search_term=ngircd">rpm</a>
 	</li>
 	<li>
-		<a href="http://www.opensuse.org/">OpenSUSE</a>:
-		<a href="http://download.opensuse.org/repositories/server:/irc/">rpm</a>
-	</li>
-	<li>
-		<a href="http://www.ubuntu.com/">Ubuntu Linux</a>:
-		<a href="http://packages.ubuntu.com/ngircd">deb</a>
+		<a href="https://www.ubuntu.com/">Ubuntu Linux</a>:
+		<a href="https://packages.ubuntu.com/ngircd">deb</a>
 	</li>
 </ul>
-<h4>OS X</h4>
+<h4>macOS</h4>
 <ul>
 	<li>
-		<a href="http://www.finkproject.org/">Fink Project</a>:
-		<a href="http://pdb.finkproject.org/pdb/package.php/ngircd">Port</a>
+		<a href="https://www.finkproject.org/">Fink Project</a>:
+		<a href="https://pdb.finkproject.org/pdb/package.php/ngircd">Port</a> (<em class="outdated">outdated!</em>)
 	</li>
 	<li>
-		<a href="http://brew.sh/">Homebrew</a>:
-		<a href="https://github.com/Homebrew/homebrew-core/blob/master/Formula/ngircd.rb">Formula</a>
+		<a href="https://brew.sh/">Homebrew</a>:
+		<a href="https://formulae.brew.sh/formula/ngircd">Formula</a>
 	</li>
 	<li>
-		<a href="http://www.macports.org/">Mac Ports</a>:
-		<a href="http://trac.macports.org/browser/trunk/dports/irc/ngircd/Portfile">Port</a>
+		<a href="https://www.macports.org/">Mac Ports</a>:
+		<a href="https://trac.macports.org/browser/trunk/dports/irc/ngircd/Portfile">Port</a> (<em class="outdated">outdated!</em>)
 	</li>
 </ul>

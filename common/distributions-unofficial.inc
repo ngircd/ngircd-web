@@ -1,5 +1,9 @@
 <ul>
 	<li>
+		<a href="https://www.archlinux.org/">Arch Linux</a>:
+		<a href="https://aur.archlinux.org/packages?K=ngircd">AUR</a>
+	</li>
+	<li>
 		<a href="http://www.debian.org/">Debian Linux</a>:
 		<a href="http://debian.barton.de/debian/pool/main/n/ngircd/">deb</a>
 		(Autor: Alex Barton)

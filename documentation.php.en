@@ -73,40 +73,7 @@
 <p>
 	The documents of tha actual version can be found online here:
 </p>
-<ul>
-	<li><a href="doc/README">README</a></li>
-	<li><a href="doc/INSTALL">INSTALL</a></li>
-</ul>
-<ul>
-	<li><a href="doc/sample-ngircd.conf">sample-ngircd.conf</a>
-</ul>
-<ul>
-	<li><a href="doc/FAQ.txt">FAQ.txt</a>
-	<li><a href="doc/NEWS">NEWS</a>
-	<li><a href="doc/ChangeLog">ChangeLog</a>
-</ul>
-<ul>
-	<li><a href="doc/AUTHORS">AUTHORS</a>
-	<li><a href="doc/Bopm.txt">Bopm.txt</a>
-	<li><a href="doc/Capabilities.txt">Capabilities.txt</a>
-	<li><a href="doc/Commands.txt">Commands.txt</a>
-	<li><a href="doc/Contributing.txt">Contributing.txt</a>
-	<li><a href="doc/COPYING">COPYING</a>
-	<li><a href="doc/HowToRelease.txt">HowToRelease.txt</a>
-	<li><a href="doc/Modes.txt">Modes.txt</a>
-	<li><a href="doc/PAM.txt">PAM.txt</a>
-	<li><a href="doc/Platforms.txt">Platforms.txt</a>
-	<li><a href="doc/Protocol.txt">Protocol.txt</a>
-	<li><a href="doc/RFC.txt">RFC.txt</a>
-	<li><a href="doc/Services.txt">Services.txt</a>
-	<li><a href="doc/SSL.txt">SSL.txt</a>
-</ul>
-<ul>
-	<li><a href="doc/README-AUX.txt">README-AUX.txt</a>
-	<li><a href="doc/README-BeOS.txt">README-BeOS.txt</a> (deutsch)
-	<li><a href="doc/README-Interix.txt">README-Interix.txt</a>
-</ul>
 <?php
+	include('common/documentation-links.inc');
 	end_page();
 ?>
-

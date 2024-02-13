@@ -13,7 +13,7 @@ function begin_page($lang = 'en', $title = null) {
 	echo '<meta name="author-email" content="alex@barton.de">';
 	echo '<meta name="MSSmartTagsPreventParsing" content="TRUE">';
 	echo '<link rel="stylesheet" href="common/styles.css" type="text/css" media="screen">';
-	echo '<link rel="author" href="mailto:alex@barton.de" title="E-Mail an Alex">';
+	echo '<link rel="author" href="mailto:alex+ngircd@barton.de" title="E-Mail Alex">';
 	echo '<script src="common/mootools.js"></script>';
 	echo '<script src="common/slide.js"></script>';
 	echo "</head>\n<body>";

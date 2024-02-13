@@ -6,48 +6,62 @@
 	ngIRCd
 </h2>
 <p>
-	ngIRCd is a free, portable and lightweight Internet Relay Chat server
+	ngIRCd is a free, portable and lightweight Internet Relay Chat
+	(<a href="https://wikipedia.org/wiki/Internet_Relay_Chat" hreflang="en">IRC</a>)
+	server
 	for small or private networks, developed under the GNU General Public
 	License
 	(<a href="doc/COPYING" hreflang="en">GPL</a>).
 </p>
 <p>
-	The server is quite easy to configure, can handle dynamic IP addresses,
-	and optionally supports IDENT, IPv6 connections, SSL-protected links,
-	and PAM for user authentication as well as character set conversion for
-	legacy clients. The server has been written from scratch and is not
-	based on the <q>forefather</q>, the daemon of the IRCNet.
+	The server is quite easy to configure and runs as a single-node server
+	or can be part of a network of ngIRCd servers in a LAN or across the
+	internet. It optionally supports the IPv6 protocol, SSL/TLS-protected
+	client-server and server-server links, the Pluggable Authentication
+	Modules (PAM) system for user authentication, IDENT requests, and
+	character set conversion for legacy clients.
 </p>
 <p>
-	The name <em>ngIRCd</em> means <em>next-generation IRC daemon</em>,
+	The name <em>ngIRCd</em> stands for <em>next-generation IRC daemon</em>,
 	which is a little bit exaggerated: <em>lightweight Internet Relay Chat
 	server</em> most probably would have been a better name :-)
 </p>
 <h2 id="why">
-	Advantages
+	Advantages and strengths
 </h2>
-<p>
-	Why you should be using ngIRCd? For these and other reasons:
-</p>
 <ul>
 	<li>
-		well arranged (lean) configuration file
+		Well arranged (lean) configuration file.
 	</li>
 	<li>
-		simple to build/install, configure and maintain
+		Simple to build, install, configure, and maintain.
 	</li>
 	<li>
-		optionally supports IDENT, IPv6, SSL, PAM and iconv.
+		Supports IPv6 and SSL.
 	</li>
 	<li>
-		no problems with servers that have dynamic IP addresses
+		Can use PAM for user authentication.
 	</li>
 	<li>
-		freely available, modern, portable and tidy C-source
+		Lots of popular user and channel modes are implemented.
 	</li>
 	<li>
-		ngIRCd is being actively developed since
-		<?php echo date("Y")-2001 ?> years
+		Supports "cloaking" of users.
+	</li>
+	<li>
+		No problems with servers that have dynamic IP addresses.
+	</li>
+	<li>
+		Freely available, modern, portable and tidy C source.
+	</li>
+	<li>
+		Wide field of supported platforms, including AIX, A/UX,
+		FreeBSD, HP-UX, IRIX, Linux, macOS, NetBSD, OpenBSD, Solaris
+		and Windows with WSL or Cygwin.
+	</li>
+	<li>
+		ngIRCd has been in development for
+		<?php echo date("Y")-2001 ?> years.
 	</li>
 </ul>
 <div id="preview">
@@ -60,18 +74,13 @@
 	Simplicity
 </h2>
 <p>
-	ngIRCd supports
-	<a href="doc/Platforms.txt">a whole range</a>
-	of platforms: Linux, BSD, Mac OS X, but
-	ngIRCd also runs on Solaris, HP-UX, AIX and other Unices.
-</p>
-<p>
-	After the installation of ngIRCd, which is executed via packet
-	installation or configure-make-make-install, and once you have edited
-	the ngircd.conf, you can get started after 5 minutes&nbsp;– only a
-	few lines need adapting, the rest is purely optional.
+	After installing ngIRCd (which is best done with the package manager of
+	the operating system or directly from the source code, see
+	<a href="doc/INSTALL">INSTALL.md</a>) and adjusting the configuration
+	in the <code>ngircd.conf</code> file, the IRC server can be ready for
+	use after just 5 minutes&nbsp;- only a few lines need to be changed
+	there, the rest is optional and can be used with the default values.
 </p>
 <?php
 	end_page();
 ?>
-

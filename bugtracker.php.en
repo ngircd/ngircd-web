@@ -14,12 +14,12 @@
 <p>
 	You can get
 	<a href="https://github.com/ngircd/ngircd/issues">information</a>
-	on all known bugs (and probable fixes) there.
+	on all known bugs (and probable fixes) there, and you can create
+	new issues for new bugs or wishlist items, too.
 </p>
 <p>
-	If you find any new mistakes, please create a
-	<a href="https://github.com/ngircd/ngircd/issues/new">bug report</a>!
-	Thank you!
+	Please try to describe your problem as precisely as possible, and of
+	course patches (pull requests) are always very welcome!
 </p>
 <?php
 	end_page();

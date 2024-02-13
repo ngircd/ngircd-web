@@ -6,19 +6,20 @@
 	Bug-Tracker
 </h2>
 <p>
-	Damit wir den Überlick über im ngIRCd vorhandene Bugs und
+	Damit wir den Überblick über im ngIRCd vorhandene Bugs und
 	Feature-Wünsche nicht verliere, nutzen wir das Bug-Tracking-System
 	auf <a href="https://github.com/">GitHub</a>:
 </p>
 <p>
 	Dort kannst du dich über bekannte und vielleicht bereits
 	behobene Fehler
-	<a href="https://github.com/ngircd/ngircd/issues">informieren</a>.
+	<a href="https://github.com/ngircd/ngircd/issues">informieren</a>
+	sowie neue <q>Issues</q> für Bugs oder weitere Punkte auf der
+	Wunschliste erstellen.
 </p>
 <p>
-	Solltest du einen neuen Fehler finden, so lege dort bitte einen
-	<a href="https://github.com/ngircd/ngircd/issues/new">Bug-Report</a>
-	an! Vielen Dank!
+	Bitte versuche dabei dein Problem so genau wie möglich zu beschreiben,
+	und  natürlich sind Patches (Pull Requests) immer sehr willkommen!
 </p>
 <?php
 	end_page();

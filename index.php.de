@@ -7,18 +7,21 @@
 </h2>
 <p>
 	ngIRCd ist ein freier, portabler und leichtgewichtiger Server für
-	den Internet Relay Chat (IRC), speziell für kleinere oder private
-	Netze, der unter der GNU General Public License
+	den Internet Relay Chat
+	(<a href="https://de.wikipedia.org/wiki/Internet_Relay_Chat" hreflang="de">IRC</a>),
+	speziell für kleinere oder private Netzwerke, der unter der
+	GNU General Public License
 	(<a href="doc/COPYING" hreflang="en">GPL</a>)
 	entwickelt wird.
 </p>
 <p>
-	Der Server ist recht einfach zu konfigurieren, kann mit dynamischen
-	IP-Adressen umgehen und unterstützt optional IDENT, IPv6-Verbindungen,
-	SSL-geschützte Links und PAM für die Benutzerauthentifizierung sowie
-	eine Zeichensatzkonvertierung für alte Clients. Der Server wurde von
-	Grund auf neu geschrieben und basiert nicht auf dem <q>Urvater</q>, dem
-	Dämon des IRCNet.
+	Der Server ist recht einfach zu konfigurieren und läuft als
+	Single-Node-Server oder kann Teil eines Netzwerks von ngIRCd-Servern
+	in einem LAN oder im Internet sein. Er unterstützt optional das
+	IPv6-Protokoll, SSL/TLS-verschlüsselte Client-Server- und
+	Server-Server-Verbindungen, das PAM-System (Pluggable Authentication
+	Modules) zur Benutzer-Authentifizierung, IDENT-Abfragen und
+	Zeichensatzkonvertierung für ältere Clients.
 </p>
 <p>
 	Der Name <em>ngIRCd</em> steht für <em>next generation IRC daemon</em>,
@@ -26,33 +29,41 @@
 	Chat Server</em> würde es wohl besser treffen :-)
 </p>
 <h2 id="why">
-	Vorteile
+	Vorteile und Stärken
 </h2>
-<p>
-	Warum man den ngIRCd benutzen sollte? Unter anderem aus diesen
-	Gründen:
-</p>
 <ul>
 	<li>
-		übersichtliche (schlanke) Konfigurationsdatei
+		Übersichtliche (schlanke) Konfigurationsdatei.
 	</li>
 	<li>
-		einfach zu compilieren/installieren, zu konfigurieren und
-		in Betrieb zu halten
+		Einfach zu compilieren, zu installieren, zu konfigurieren und
+		zu warten.
 	</li>
 	<li>
-		unterstützt optional IDENT, IPv6, SSL, PAM und iconv.
+		Unterstützt IPv6 und SSL.
 	</li>
 	<li>
-		keine Probleme mit Servern, deren IP-Adressen dynamisch sind
+		Kann PAM für die Benutzerauthentifizierung verwenden.
 	</li>
 	<li>
-		frei verfügbarer, moderner, portabler und „aufgeräumter“
-		C-Quellcode
+		Viele gängige Benutzer- und Kanalmodi sind implementiert.
 	</li>
 	<li>
-		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren aktiv
-		weiterentwickelt
+		Unterstützt das <q>Cloaking</q> (anonymisieren) von Benutzern.
+	</li>
+	<li>
+		Keine Probleme mit Servern, die dynamische IP-Adressen haben.
+	</li>
+	<li>
+		Frei verfügbarer, moderner, portabler und aufgeräumter C-Source.
+	</li>
+	<li>
+		Breites Feld von unterstützten Plattformen, einschließlich
+		AIX, A/UX, FreeBSD, HP-UX, IRIX, Linux, macOS, NetBSD, OpenBSD,
+		Solaris und Windows mit WSL oder Cygwin.
+	</li>
+	<li>
+		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren entwickelt.
 	</li>
 </ul>
 <div id="preview">
@@ -65,19 +76,14 @@
 	Einfachheit
 </h2>
 <p>
-	ngIRCd unterstützt aktiv
-	<a href="doc/Platforms.txt">eine ganze Reihe</a>
-	von Plattformen: Linux,
-	BSD, Mac OS X. Aber auch auf Solaris, HP-UX, AIX und anderen Unices
-	läuft ngIRCd.
-</p>
-<p>
-	Nach der Installation, die via Paketinstallation oder
-	configure-make-make-install erfolgt, kann man nach dem Editieren der
-	ngircd.conf bereits nach 5 Minuten loslegen&nbsp;– geändert werden
-	müssen dort nur wenige Zeilen, der Rest ist optional.
+	Nach der Installation von ngIRCd (am besten mit dem Paketmanager des
+	Betriebssystems oder direkt aus dem Quellcode, siehe
+	<a href="doc/INSTALL">INSTALL.md</a>) und der Anpassung der
+	Konfiguration in der Datei <code>ngircd.conf</code> ist der IRC-Server
+	nach nur 5 Minuten einsatzbereit&nbsp;- nur ein paar Zeilen müssen dort
+	geändert werden, der Rest ist optional und kann mit den Standardwerten
+	verwendet werden.
 </p>
 <?php
 	end_page();
 ?>
-

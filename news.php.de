@@ -18,9 +18,9 @@
 	<a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
 <p>
-	ngIRCd wird als Server-Software in produktiven internen und
-	öffentlichen IRC-Netzwerken verwendet und ist den den
-	Paket-Repositories verschiedener Betriebssysteme enthalten.
+	ngIRCd wird als Server-Software sowohl in internen als auch
+	öffentlichen IRC-Netzwerken verwendet und ist in den Paket-Repositories
+	verschiedener Betriebssysteme enthalten.
 </p>
 <h3 id="history">
 	Historie

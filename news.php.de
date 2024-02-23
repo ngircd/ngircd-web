@@ -16,6 +16,15 @@
 	<strong>Release 26.1</strong> vom 2. Januar 2021,
 	siehe auch die
 	<a href="download.php.de">Download-M&ouml;glichkeiten</a>.
+</p>
+<p>
+	ngIRCd wird als Server-Software in produktiven internen und
+	öffentlichen IRC-Netzwerken verwendet und ist den den
+	Paket-Repositories verschiedener Betriebssysteme enthalten.
+</p>
+<h3 id="history">
+	Historie
+</h3>
 <p>
 	Die Entwicklung von ngIRCd begann in 2001: Der Server wurde komplett
 	neu in C geschrieben, versucht allen relevanten Standards zu folgen und
@@ -26,15 +35,7 @@
 	"ircd" oder Spezialfälle aus den RFCs in ngIRCd einzubauen, sondern die
 	meisten nützlichen Befehle und Verhaltensweisen zu implementieren, die
 	von existierenden Clients genutzt werden.
-<p>
-	ngIRCd wird als Server-Software in produktiven internen und
-	öffentlichen IRC-Netzwerken verwendet und ist den den
-	Paket-Repositories verschiedener Betriebssysteme enthalten.
 </p>
-</p>
-<h3 id="history">
-	Historie
-</h3>
 <p class="security">
 	<strong>Achtung:</strong>
 	ngIRCd 20, 20.1 und 20.2 beinhalten einen Fehler,

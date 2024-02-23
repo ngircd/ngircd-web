@@ -18,6 +18,14 @@
 	options.
 </p>
 <p>
+	ngIRCd is used as the daemon in real-world in-house and public IRC
+	networks and included in the package repositories of various operating
+	systems.
+</p>
+<h3 id="history">
+	History
+</h3>
+<p>
 	Development of ngIRCd started back in 2001: The server has been written
 	from scratch in C, tries to follow all relevant standards, and is not
 	based on the forefather, the daemon of the IRCNet.
@@ -26,14 +34,7 @@
 	It is not the goal of ngIRCd to implement all the nasty behaviors of
 	the original ircd or corner-cases in the RFCs, but to implement most of
 	the useful commands and semantics that are used by existing clients.
-<p>
-	ngIRCd is used as the daemon in real-world in-house and public IRC
-	networks and included in the package repositories of various operating
-	systems.
 </p>
-<h3 id="history">
-	History
-</h3>
 <p class="security">
 	<strong>Caution:</strong>
 	ngIRCd 20, 20.1, and 20.2 contain an error that could crash

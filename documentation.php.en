@@ -10,7 +10,7 @@
 </h3>
 <p>
 	ngIRCd is mainly being developed and tested on current versions of
-	Linux, Mac OS X, and FreeBSD.
+	Linux, macOS, FreeBSD and OpenBSD.
 </p>
 <p>
 	In addition ngIRCd has been successfully compiled and run on the

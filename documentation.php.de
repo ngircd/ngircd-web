@@ -9,8 +9,8 @@
 	Unterstützte Plattformen
 </h3>
 <p>
-	ngIRCd wird vor allem unter aktuellen Versionen von Linux, Mac OS X und
-	FreeBSD entwickelt und getestet.
+	ngIRCd wird vor allem unter aktuellen Versionen von Linux, macOS,
+	FreeBSD und OpenBSD entwickelt und getestet.
 </p>
 <p>
 	Auf den folgenden Plattformen wurde der ngIRCd zudem bereits erfolgreich

@@ -78,5 +78,24 @@
 </p>
 <?php
 	include('common/documentation-links.inc');
+?>
+<h3>
+	Manual Pages
+</h3>
+<p>
+	Außerdem enthält ngIRCd zwei <q>manual pages</q>:
+	<code>ngircd(8)</code> (für den Daemon) und <code>ngircd.conf(5)</code>
+	(für seine Konfigurationsdatei). Sie enthalten noch mehr Details und
+	listen alle möglichen Kommandozeilenparameter und
+	Konfigurationsoptionen auf. Sie können sie mit dem
+	<code>man</code>-Befehl lesen (wenn sie lokal auf Ihrem System
+	installiert sind, z.B. `man 8 ngircd` und `man 5 ngircd.conf`) oder
+	online hier:
+</p>
+<ul>
+	<li>Server: <a href="man/ngircd.8.html">ngircd(8)</a></li>
+	<li>Konfigurationsdatei: <a href="man/ngircd.conf.5.html">ngircd.conf(5)</a></li>
+</ul>
+<?php
 	end_page();
 ?>

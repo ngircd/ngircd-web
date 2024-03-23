@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ngircd.conf</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ngircd.conf</h1>
+<p class="date">Sep 2023</p>
+</header>
+<h1>NAME</h1>
+<p>ngircd.conf - configuration file of ngIRCd</p>
+<h1>SYNOPSIS</h1>
+<p><strong>/usr/local/etc/ngircd.conf</strong></p>
+<h1>DESCRIPTION</h1>
+<p><strong>ngircd.conf</strong> is the configuration file of the
+<strong>ngircd</strong>(8) Internet Relay Chat (IRC) daemon, which must
+be customized to the local preferences and needs.</p>
+<p>Most variables can be modified while the ngIRCd daemon is already
+running: It will reload its configuration file when a HUP signal or
+REHASH command is received.</p>
+<h1>FILE FORMAT</h1>
+<p>The file consists of sections and parameters. A section begins with
+the name of the section in square brackets and continues until the next
+section begins.</p>
+<p>Sections contain parameters of the form</p>
+<blockquote>
+<p><em>name</em> = <em>value</em></p>
+</blockquote>
+<p>Empty lines and any line beginning with a semicolon (';') or a hash
+('#') character are treated as a comment and will be ignored. Leading
+and trailing whitespaces are trimmed before any processing takes
+place.</p>
+<p>The file format is line-based - that means, each non-empty
+newline-terminated line represents either a comment, a section name, or
+a parameter.</p>
+<p>Section and parameter names are not case sensitive.</p>
+<p>There are three types of variables: <em>booleans,</em> <em>text
+strings,</em> and <em>numbers.</em> Boolean values are <em>true</em> if
+they are "yes", "true", or any non-null integer. Text strings are used
+1:1 without leading and following spaces; there is no way to quote
+strings. And for numbers all decimal integer values are valid.</p>
+<p>In addition, some string or numerical variables accept lists of
+values, separated by commas (",").</p>
+<h1>SECTION OVERVIEW</h1>
+<p>The file can contain blocks of seven types: [Global], [Limits],
+[Options], [SSL], [Operator], [Server], and [Channel].</p>
+<p>The main configuration of the server is stored in the
+<em>[Global]</em> section, like the server name, administrative
+information and the ports on which the server should be listening. The
+variables in this section have to be adjusted to the local requirements
+most of the time, whereas all the variables in the other sections can be
+left on their defaults very often.</p>
+<p>Options in the <em>[Limits]</em> block are used to tweak different
+limits and timeouts of the daemon, like the maximum number of clients
+allowed to connect to this server. Variables in the <em>[Options]</em>
+section can be used to enable or disable specific features of ngIRCd,
+like support for IDENT, PAM, IPv6, and protocol and cloaking features.
+The <em>[SSL]</em> block contains all SSL-related configuration
+variables. These three sections are all optional.</p>
+<p>IRC operators of this server are defined in <em>[Operator]</em>
+blocks. Links to remote servers are configured in <em>[Server]</em>
+sections. And <em>[Channel]</em> blocks are used to configure
+pre-defined ("persistent") IRC channels.</p>
+<p>There can be more than one [Operator], [Server] and [Channel] section
+per configuration file, one for each operator, server, and channel.
+[Global], [Limits], [Options], and [SSL] sections can occur multiple
+times, too, but each variable overwrites itself, only the last
+assignment is relevant.</p>
+<h1>[GLOBAL]</h1>
+<p>The <em>[Global]</em> section is used to define the main
+configuration of the server, like the server name and the ports on which
+the server should be listening. These settings depend on your personal
+preferences, so you should make sure that they correspond to your
+installation and setup!</p>
+<dl>
+<dt><strong>Name</strong> (string)</dt>
+<dd>
+<p>Server name in the IRC network. This is an individual name of the IRC
+server, it is not related to the DNS host name. It must be unique in the
+IRC network and must contain at least one dot (".") character. When not
+set, ngIRCd tries to deduce a valid IRC server name from the local host
+name.</p>
+</dd>
+<dt><strong>AdminInfo1</strong>, <strong>AdminInfo2</strong>,
+<strong>AdminEMail</strong> (string)</dt>
+<dd>
+<p>Information about the server and the administrator, used by the ADMIN
+command. This information is not required by the server but by RFC!</p>
+</dd>
+<dt><strong>HelpFile</strong> (string)</dt>
+<dd>
+<p>Text file which contains the ngIRCd help text. This file is required
+to display help texts when using the "HELP &lt;cmd&gt;" command. Please
+note: Changes made to this file take effect when ngircd starts up or is
+instructed to re-read its configuration file. Default: a built-in
+standard path.</p>
+</dd>
+<dt><strong>Info</strong> (string)</dt>
+<dd>
+<p>Info text of the server. This will be shown by WHOIS and LINKS
+requests for example. Set to the server software name and version by
+default.</p>
+</dd>
+<dt><strong>Listen</strong> (list of strings)</dt>
+<dd>
+<p>A comma separated list of IP address on which the server should
+listen. If unset, the defaults value is "0.0.0.0" or, if ngIRCd was
+compiled with IPv6 support, "::,0.0.0.0". So the server listens on all
+configured IP addresses and interfaces by default.</p>
+</dd>
+<dt><strong>MotdFile</strong> (string)</dt>
+<dd>
+<p>Text file with the "message of the day" (MOTD). This message will be
+shown to all users connecting to the server. Please note: Changes made
+to this file take effect when ngircd starts up or is instructed to
+re-read its configuration file. Default: a built-in standard path.</p>
+</dd>
+<dt><strong>MotdPhrase</strong> (string)</dt>
+<dd>
+<p>A simple Phrase (&lt;127 chars) if you don't want to use a MOTD
+file.</p>
+</dd>
+<dt><strong>Network</strong> (string)</dt>
+<dd>
+<p>The name of the IRC network to which this server belongs. This name
+is optional, should only contain ASCII characters, and can't contain
+spaces. It is only used to inform clients. The default is empty, so no
+network name is announced to clients.</p>
+</dd>
+<dt><strong>Password</strong> (string)</dt>
+<dd>
+<p>Global password for all users needed to connect to the server. The
+default is empty, so no password is required. Please note: This feature
+is not available if ngIRCd is using PAM!</p>
+</dd>
+<dt><strong>PidFile</strong> (string)</dt>
+<dd>
+<p>This tells ngIRCd to write its current process ID to a file. Note
+that the "PID file" is written AFTER chroot and switching the user ID,
+therefore the directory the file resides in must be writable by the
+ngIRCd user and exist in the chroot directory (if configured, see
+above).</p>
+</dd>
+<dt><strong>Ports</strong> (list of numbers)</dt>
+<dd>
+<p>Port number(s) on which the server should listen for unencrypted
+connections. There may be more than one port, separated with commas
+(","). Default: 6667.</p>
+</dd>
+<dt><strong>ServerGID</strong> (string or number)</dt>
+<dd>
+<p>Group ID under which the ngIRCd daemon should run; you can use the
+name of the group or the numerical ID.</p>
+</dd>
+</dl>
+<blockquote>
+<p><strong>Attention:</strong><br />
+For this to work the server must have been started with root
+privileges!</p>
+</blockquote>
+<dl>
+<dt><strong>ServerUID</strong> (string or number)</dt>
+<dd>
+<p>User ID under which the ngIRCd daemon should run; you can use the
+name of the user or the numerical ID.</p>
+</dd>
+</dl>
+<blockquote>
+<p><strong>Attention:</strong><br />
+For this to work the server must have been started with root privileges!
+In addition, the configuration and MOTD files must be readable by this
+user, otherwise RESTART and REHASH won't work!</p>
+</blockquote>
+<h1>[LIMITS]</h1>
+<p>This section is used to define some limits and timeouts for this
+ngIRCd instance. Default values should be safe, but it is wise to
+double-check :-)</p>
+<dl>
+<dt><strong>ConnectRetry</strong> (number)</dt>
+<dd>
+<p>The server tries every &lt;ConnectRetry&gt; seconds to establish a
+link to not yet (or no longer) connected servers. Default: 60.</p>
+</dd>
+<dt><strong>IdleTimeout</strong> (number)</dt>
+<dd>
+<p>Number of seconds after which the whole daemon should shutdown when
+no connections are left active after handling at least one client (0:
+never). This can be useful for testing or when ngIRCd is started using
+"socket activation" with systemd(8), for example. Default: 0.</p>
+</dd>
+<dt><strong>MaxConnections</strong> (number)</dt>
+<dd>
+<p>Maximum number of simultaneous in- and outbound connections the
+server is allowed to accept (0: unlimited). Default: 0.</p>
+</dd>
+<dt><strong>MaxConnectionsIP</strong> (number)</dt>
+<dd>
+<p>Maximum number of simultaneous connections from a single IP address
+that the server will accept (0: unlimited). This configuration options
+lowers the risk of denial of service attacks (DoS). Default: 5.</p>
+</dd>
+<dt><strong>MaxJoins</strong> (number)</dt>
+<dd>
+<p>Maximum number of channels a user can be member of (0: no limit).
+Default: 10.</p>
+</dd>
+<dt><strong>MaxNickLength</strong> (number)</dt>
+<dd>
+<p>Maximum length of an user nickname (Default: 9, as in RFC 2812).
+Please note that all servers in an IRC network MUST use the same maximum
+nickname length!</p>
+</dd>
+<dt><strong>MaxPenaltyTime</strong> (number)</dt>
+<dd>
+<p>Maximum penalty time increase in seconds, per penalty event. Set to
+-1 for no limit (the default), 0 to disable penalties altogether. ngIRCd
+doesn't use penalty increases higher than 2 seconds during normal
+operation, so values greater than 1 rarely make sense.</p>
+</dd>
+<dt><strong>MaxListSize</strong> (number)</dt>
+<dd>
+<p>Maximum number of channels returned in response to a LIST command.
+Default: 100.</p>
+</dd>
+<dt><strong>PingTimeout</strong> (number)</dt>
+<dd>
+<p>After &lt;PingTimeout&gt; seconds of inactivity the server will send
+a PING to the peer to test whether it is alive or not. Default: 120.</p>
+</dd>
+<dt><strong>PongTimeout</strong> (number)</dt>
+<dd>
+<p>If a client fails to answer a PING with a PONG within
+&lt;PongTimeout&gt; seconds, it will be disconnected by the server.
+Default: 20.</p>
+</dd>
+</dl>
+<h1>[OPTIONS]</h1>
+<p>Optional features and configuration options to further tweak the
+behavior of ngIRCd are configured in this section. If you want to get
+started quickly, you most probably don't have to make changes here --
+they are all optional.</p>
+<dl>
+<dt><strong>AllowedChannelTypes</strong> (string)</dt>
+<dd>
+<p>List of allowed channel types (channel prefixes) for newly created
+channels on the local server. By default, all supported channel types
+are allowed. Set this variable to the empty string to disallow creation
+of new channels by local clients at all. Default: #&amp;+</p>
+</dd>
+<dt><strong>AllowRemoteOper</strong> (boolean)</dt>
+<dd>
+<p>If this option is active, IRC operators connected to remote servers
+are allowed to control this local server using administrative commands,
+for example like CONNECT, DIE, SQUIT etc. Default: no.</p>
+</dd>
+<dt><strong>ChrootDir</strong> (string)</dt>
+<dd>
+<p>A directory to chroot in when everything is initialized. It doesn't
+need to be populated if ngIRCd is compiled as a static binary. By
+default ngIRCd won't use the chroot() feature.</p>
+</dd>
+</dl>
+<blockquote>
+<p><strong>Attention:</strong><br />
+For this to work the server must have been started with root
+privileges!</p>
+</blockquote>
+<dl>
+<dt><strong>CloakHost</strong> (string)</dt>
+<dd>
+<p>Set this hostname for every client instead of the real one. Default:
+empty, don't change. Use %x to add the hashed value of the original
+hostname.</p>
+</dd>
+<dt><strong>CloakHostModeX</strong> (string)</dt>
+<dd>
+<p>Use this hostname for hostname cloaking on clients that have the user
+mode "+x" set, instead of the name of the server. Default: empty, use
+the name of the server. Use %x to add the hashed value of the original
+hostname</p>
+</dd>
+<dt><strong>CloakHostSalt</strong> (string)</dt>
+<dd>
+<p>The Salt for cloaked hostname hashing. When undefined a random hash
+is generated after each server start.</p>
+</dd>
+<dt><strong>CloakUserToNick</strong> (boolean)</dt>
+<dd>
+<p>Set every clients' user name and real name to their nickname and hide
+the one supplied by the IRC client. Default: no.</p>
+</dd>
+<dt><strong>ConnectIPv4</strong> (boolean)</dt>
+<dd>
+<p>Set this to no if you do not want ngIRCd to connect to other IRC
+servers using the IPv4 protocol. This allows the usage of ngIRCd in
+IPv6-only setups. Default: yes.</p>
+</dd>
+<dt><strong>ConnectIPv6</strong> (boolean)</dt>
+<dd>
+<p>Set this to no if you do not want ngIRCd to connect to other IRC
+servers using the IPv6 protocol. Default: yes.</p>
+</dd>
+<dt><strong>DefaultUserModes</strong> (string)</dt>
+<dd>
+<p>Default user mode(s) to set on new local clients. Please note that
+only modes can be set that the client could set using regular MODE
+commands, you can't set "a" (away) for example! Default: none.</p>
+</dd>
+<dt><strong>DNS</strong> (boolean)</dt>
+<dd>
+<p>If set to false, ngIRCd will not make any DNS lookups when clients
+connect. If you configure the daemon to connect to other servers, ngIRCd
+may still perform a DNS lookup if required. Default: yes.</p>
+</dd>
+<dt><strong>Ident</strong> (boolean)</dt>
+<dd>
+<p>If ngIRCd is compiled with IDENT support this can be used to disable
+IDENT lookups at run time. Users identified using IDENT are registered
+without the "~" character prepended to their user name. Default:
+yes.</p>
+</dd>
+<dt><strong>IncludeDir</strong> (string)</dt>
+<dd>
+<p>Directory containing configuration snippets (*.conf), that should be
+read in after parsing the current configuration file. Default: a
+built-in directory name when no configuration file was explicitly given
+on the command line (check "ngircd --configtest"), none (empty)
+otherwise.</p>
+</dd>
+</dl>
+<blockquote>
+<p>This way no default include directory is used when a possibly
+non-default configuration file was explicitly specified using
+"--config"/"-f" on the command line which (intentionally) did not
+specify an <em>IncludeDir</em> directive.</p>
+</blockquote>
+<dl>
+<dt><strong>MorePrivacy</strong> (boolean)</dt>
+<dd>
+<p>This will cause ngIRCd to censor user idle time, logon time as well
+as the PART/QUIT messages (that are sometimes used to inform everyone
+about which client software is being used). WHOWAS requests are also
+silently ignored, and NAMES output doesn't list any clients for
+non-members. This option is most useful when ngIRCd is being used
+together with anonymizing software such as TOR or I2P and one does not
+wish to make it too easy to collect statistics on the users. Default:
+no.</p>
+</dd>
+<dt><strong>NoticeBeforeRegistration</strong> (boolean)</dt>
+<dd>
+<p>Normally ngIRCd doesn't send any messages to a client until it is
+registered. Enable this option to let the daemon send "NOTICE *"
+messages to clients while connecting. Default: no.</p>
+</dd>
+<dt><strong>OperCanUseMode</strong> (boolean)</dt>
+<dd>
+<p>Should IRC Operators be allowed to use the MODE command even if they
+are not(!) channel-operators? Default: no.</p>
+</dd>
+<dt><strong>OperChanPAutoOp</strong> (boolean)</dt>
+<dd>
+<p>Should IRC Operators get AutoOp (+o) in persistent (+P) channels?
+Default: yes.</p>
+</dd>
+<dt><strong>OperServerMode</strong> (boolean)</dt>
+<dd>
+<p>If <strong>OperCanUseMode</strong> is enabled, this may lead the
+compatibility problems with Servers that run the ircd-irc2 Software.
+This Option "masks" mode requests by non-chanops as if they were coming
+from the server. Default: no; only enable it if you have ircd-irc2
+servers in your IRC network.</p>
+</dd>
+<dt><strong>PAM</strong> (boolean)</dt>
+<dd>
+<p>If ngIRCd is compiled with PAM support this can be used to disable
+all calls to the PAM library at runtime; all users connecting without
+password are allowed to connect, all passwords given will fail. Users
+identified using PAM are registered without the "~" character prepended
+to their user name. Default: yes.</p>
+</dd>
+<dt><strong>PAMIsOptional</strong> (boolean)</dt>
+<dd>
+<p>When PAM is enabled, all clients are required to be authenticated
+using PAM; connecting to the server without successful PAM
+authentication isn't possible. If this option is set, clients not
+sending a password are still allowed to connect: they won't become
+"identified" and keep the "~" character prepended to their supplied user
+name. Please note: To make some use of this behavior, it most probably
+isn't useful to enable "Ident", "PAM" and "PAMIsOptional" at the same
+time, because you wouldn't be able to distinguish between Ident'ified
+and PAM-authenticated users: both don't have a "~" character prepended
+to their respective user names! Default: no.</p>
+</dd>
+<dt><strong>PAMServiceName</strong> (string)</dt>
+<dd>
+<p>When PAM is enabled, this value determines the used PAM
+configuration. This setting allows running multiple ngIRCd instances
+with different PAM configurations on each instance. If you set it to
+"ngircd-foo", PAM will use /etc/pam.d/ngircd-foo instead of the default
+/etc/pam.d/ngircd. Default: ngircd.</p>
+</dd>
+<dt><strong>RequireAuthPing</strong> (boolean)</dt>
+<dd>
+<p>Let ngIRCd send an "authentication PING" when a new client connects,
+and register this client only after receiving the corresponding "PONG"
+reply. Default: no.</p>
+</dd>
+<dt><strong>ScrubCTCP</strong> (boolean)</dt>
+<dd>
+<p>If set to true, ngIRCd will silently drop all CTCP requests sent to
+it from both clients and servers. It will also not forward CTCP requests
+to any other servers. CTCP requests can be used to query user clients
+about which software they are using and which versions said software is.
+CTCP can also be used to reveal clients IP numbers. ACTION CTCP requests
+are not blocked, this means that /me commands will not be dropped, but
+please note that blocking CTCP will disable file sharing between users!
+Default: no.</p>
+</dd>
+<dt><strong>SyslogFacility</strong> (string)</dt>
+<dd>
+<p>Syslog "facility" to which ngIRCd should send log messages. Possible
+values are system dependent, but most probably "auth", "daemon", "user"
+and "local1" through "local7" are possible values; see syslog(3).
+Default is "local5" for historical reasons, you probably want to change
+this to "daemon", for example.</p>
+</dd>
+<dt><strong>WebircPassword</strong> (string)</dt>
+<dd>
+<p>Password required for using the WEBIRC command used by some
+Web-to-IRC gateways. If not set or empty, the WEBIRC command can't be
+used. Default: not set.</p>
+</dd>
+</dl>
+<h1>[SSL]</h1>
+<p>All SSL-related configuration variables are located in the
+<em>[SSL]</em> section. Please note that this whole section is only
+recognized by ngIRCd when it is compiled with support for SSL using
+OpenSSL or GnuTLS!</p>
+<dl>
+<dt><strong>CertFile</strong> (string)</dt>
+<dd>
+<p>SSL Certificate file of the private server key.</p>
+</dd>
+<dt><strong>CipherList</strong> (string)</dt>
+<dd>
+<p>Select cipher suites allowed for SSL/TLS connections. This defaults
+to "HIGH:!aNULL:@STRENGTH:!SSLv3" (OpenSSL) or "SECURE128:-VERS-SSL3.0"
+(GnuTLS). Please see 'man 1ssl ciphers' (OpenSSL) and 'man 3
+gnutls_priority_init' (GnuTLS) for details.</p>
+</dd>
+<dt><strong>DHFile</strong> (string)</dt>
+<dd>
+<p>Name of the Diffie-Hellman Parameter file. Can be created with GnuTLS
+"certtool --generate-dh-params" or "openssl dhparam". If this file is
+not present, it will be generated on startup when ngIRCd was compiled
+with GnuTLS support (this may take some time). If ngIRCd was compiled
+with OpenSSL, then (Ephemeral)-Diffie-Hellman Key Exchanges and several
+Cipher Suites will not be available.</p>
+</dd>
+<dt><strong>KeyFile</strong> (string)</dt>
+<dd>
+<p>Filename of SSL Server Key to be used for SSL connections. This is
+required for SSL/TLS support.</p>
+</dd>
+<dt><strong>KeyFilePassword</strong> (string)</dt>
+<dd>
+<p>OpenSSL only: Password to decrypt the private key file.</p>
+</dd>
+<dt><strong>Ports</strong> (list of numbers)</dt>
+<dd>
+<p>Same as <strong>Ports</strong> , except that ngIRCd will expect
+incoming connections to be SSL/TLS encrypted. Common port numbers for
+SSL-encrypted IRC are 6669 and 6697. Default: none.</p>
+</dd>
+</dl>
+<h1>[OPERATOR]</h1>
+<p><em>[Operator]</em> sections are used to define IRC Operators. There
+may be more than one <em>[Operator]</em> block, one for each local
+operator.</p>
+<dl>
+<dt><strong>Name</strong> (string)</dt>
+<dd>
+<p>ID of the operator (may be different of the nickname).</p>
+</dd>
+<dt><strong>Password</strong> (string)</dt>
+<dd>
+<p>Password of the IRC operator.</p>
+</dd>
+<dt><strong>Mask</strong> (string)</dt>
+<dd>
+<p>Mask that is to be checked before an /OPER for this account is
+accepted. Example: nick!ident@*.example.com</p>
+</dd>
+</dl>
+<h1>[SERVER]</h1>
+<p>Other servers are configured in <em>[Server]</em> sections. If you
+configure a port for the connection, then this ngIRCd tries to connect
+to the other server on the given port (active); if not, it waits for the
+other server to connect (passive).</p>
+<p>ngIRCd supports "server groups": You can assign an "ID" to every
+server with which you want this ngIRCd to link, and the daemon ensures
+that at any given time only one direct link exists to servers with the
+same ID. So if a server of a group won't answer, ngIRCd tries to connect
+to the next server in the given group (="with the same ID"), but never
+tries to connect to more than one server of this group
+simultaneously.</p>
+<p>There may be more than one <em>[Server]</em> block.</p>
+<dl>
+<dt><strong>Name</strong> (string)</dt>
+<dd>
+<p>IRC name of the remote server.</p>
+</dd>
+<dt><strong>Host</strong> (string)</dt>
+<dd>
+<p>Internet host name (or IP address) of the peer.</p>
+</dd>
+<dt><strong>Bind</strong> (string)</dt>
+<dd>
+<p>IP address to use as source IP for the outgoing connection. Default
+is to let the operating system decide.</p>
+</dd>
+<dt><strong>Port</strong> (number)</dt>
+<dd>
+<p>Port of the remote server to which ngIRCd should connect (active). If
+no port is assigned to a configured server, the daemon only waits for
+incoming connections (passive, default).</p>
+</dd>
+<dt><strong>MyPassword</strong> (string)</dt>
+<dd>
+<p>Own password for this connection. This password has to be configured
+as <strong>PeerPassword</strong> on the other server. Must not have ':'
+as first character.</p>
+</dd>
+<dt><strong>PeerPassword</strong> (string)</dt>
+<dd>
+<p>Foreign password for this connection. This password has to be
+configured as <strong>MyPassword</strong> on the other server.</p>
+</dd>
+<dt><strong>Group</strong> (number)</dt>
+<dd>
+<p>Group of this server (optional).</p>
+</dd>
+<dt><strong>Passive</strong> (boolean)</dt>
+<dd>
+<p>Disable automatic connection even if port value is specified.
+Default: false. You can use the IRC Operator command CONNECT later on to
+create the link.</p>
+</dd>
+<dt><strong>SSLConnect</strong> (boolean)</dt>
+<dd>
+<p>Connect to the remote server using TLS/SSL. Default: false.</p>
+</dd>
+<dt><strong>ServiceMask</strong> (string)</dt>
+<dd>
+<p>Define a (case insensitive) list of masks matching nicknames that
+should be treated as IRC services when introduced via this remote
+server, separated by commas (","). REGULAR SERVERS DON'T NEED this
+parameter, so leave it empty (which is the default).</p>
+</dd>
+</dl>
+<blockquote>
+<p>When you are connecting IRC services which mask as a IRC server and
+which use "virtual users" to communicate with, for example "NickServ"
+and "ChanServ", you should set this parameter to something like "*Serv",
+"*Serv,OtherNick", or "NickServ,ChanServ,XyzServ".</p>
+</blockquote>
+<h1>[CHANNEL]</h1>
+<p>Pre-defined channels can be configured in <em>[Channel]</em>
+sections. Such channels are created by the server when starting up and
+even persist when there are no more members left.</p>
+<p>Persistent channels are marked with the mode 'P', which can be set
+and unset by IRC operators like other modes on the fly.</p>
+<p>There may be more than one <em>[Channel]</em> block.</p>
+<dl>
+<dt><strong>Name</strong> (string)</dt>
+<dd>
+<p>Name of the channel, including channel prefix ("#" or "&amp;").</p>
+</dd>
+<dt><strong>Topic</strong> (string)</dt>
+<dd>
+<p>Topic for this channel.</p>
+</dd>
+<dt><strong>Modes</strong> (string)</dt>
+<dd>
+<p>Initial channel modes, as used in "MODE" commands. Modifying lists
+(ban list, invite list, exception list) is supported.</p>
+</dd>
+</dl>
+<blockquote>
+<p>This option can be specified multiple times, evaluated top to
+bottom.</p>
+</blockquote>
+<dl>
+<dt><strong>Autojoin</strong> (boolean)</dt>
+<dd>
+<p>Should ngIRCd automatically join ("autojoin") all users to this
+channel on connect? Note: The users must have permissions to access the
+channel, otherwise joining them will fail!</p>
+</dd>
+<dt><strong>KeyFile</strong> (string)</dt>
+<dd>
+<p>Path and file name of a "key file" containing individual channel keys
+for different users. The file consists of plain text lines with the
+following syntax (without spaces!):</p>
+</dd>
+</dl>
+<blockquote>
+<blockquote>
+<p><em>user</em> : <em>nick</em> : <em>key</em></p>
+</blockquote>
+<p><em>user</em> and <em>nick</em> can contain the wildcard character
+"*".<br />
+<em>key</em> is an arbitrary password.</p>
+<p>Valid examples are:</p>
+<blockquote>
+<p>*:*:KeY<br />
+*:nick:123<br />
+~user:*:xyz</p>
+</blockquote>
+<p>The key file is read on each JOIN command when this channel has a key
+(channel mode +k). Access is granted, if a) the channel key set using
+the MODE +k command or b) one of the lines in the key file match.</p>
+<p><strong>Please note:</strong><br />
+The file is not reopened on each access, so you can modify and overwrite
+it without problems, but moving or deleting the file will have not
+effect until the daemon re-reads its configuration!</p>
+</blockquote>
+<h1>HINTS</h1>
+<p>It's wise to use "ngircd --configtest" to validate the configuration
+file after changing it. See <strong>ngircd</strong>(8) for details.</p>
+<h1>AUTHOR</h1>
+<p>Alexander Barton, &lt;alex@barton.de&gt;<br />
+Florian Westphal, &lt;fw@strlen.de&gt;</p>
+<p>Homepage: http://ngircd.barton.de/</p>
+<h1>SEE ALSO</h1>
+<p><strong>ngircd</strong>(8)</p>
+</body>
+</html>

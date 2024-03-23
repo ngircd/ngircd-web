@@ -71,9 +71,27 @@
 	exemplary configurations sample-ngircd.conf).
 </p>
 <p>
-	The documents of tha actual version can be found online here:
+	The documents of the current version can be found online here:
 </p>
 <?php
 	include('common/documentation-links.inc');
+?>
+<h3>
+	Manual Pages
+</h3>
+<p>
+	In addition, ngIRCd comes with two manual pages: <code>ngircd(8)</code>
+	(for the daemon) and <code>ngircd.conf(5)</code> (for its configuration
+	file). They have even more details and list all possible command line
+	parameters and configuration options. You can read them with the
+	<code>man</code> command (when they are installed locally on your
+	system, e.g. <code>man 8 ngircd</code> and <code>man 5
+	ngircd.conf</code>) or online here:
+</p>
+<ul>
+	<li>Daemon: <a href="man/ngircd.8.html">ngircd(8)</a></li>
+	<li>Configuration file: <a href="man/ngircd.conf.5.html">ngircd.conf(5)</a></li>
+</ul>
+<?php
 	end_page();
 ?>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ngircd</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ngircd</h1>
+<p class="date">Sep 2023</p>
+</header>
+<h1>NAME</h1>
+<p>ngIRCd - the "next generation" IRC daemon</p>
+<h1>SYNOPSIS</h1>
+<p><strong>ngircd</strong> [ <em>Options</em> ]</p>
+<h1>DESCRIPTION</h1>
+<p><strong>ngIRCd</strong> is a free, portable and lightweight Internet
+Relay Chat (IRC) server for small or private networks, developed under
+the GNU General Public License (GPL).</p>
+<p>The server is quite easy to configure and runs as a single-node
+server or can be part of a network of ngIRCd servers in a LAN or across
+the internet. It optionally supports the IPv6 protocol,
+SSL/TLS-protected client-server and server-server links, the Pluggable
+Authentication Modules (PAM) system for user authentication, IDENT
+requests, and character set conversion for legacy clients.</p>
+<p>The name ngIRCd stands for <em>next-generation IRC daemon</em>, which
+is a little bit exaggerated: <em>lightweight Internet Relay Chat
+server</em> most probably would have been a better name :-)</p>
+<p>By default ngIRCd logs diagnostic and informational messages using
+the syslog mechanism, or writes directly to the console when running in
+the foreground (see below).</p>
+<h1>OPTIONS</h1>
+<p>The default behavior of <strong>ngircd</strong> is to read its
+standard configuration file (see below), to detach from the controlling
+terminal and to wait for clients.</p>
+<p>You can use these options to modify this default:</p>
+<dl>
+<dt><strong>-f</strong> <em>file</em>, <strong>--config</strong>
+<em>file</em></dt>
+<dd>
+<p>Use <em>file</em> as configuration file.</p>
+</dd>
+<dt><strong>-n</strong>, <strong>--nodaemon</strong></dt>
+<dd>
+<p>Don't fork a child and don't detach from controlling terminal. All
+log messages go to the console and you can use CTRL-C to terminate the
+server.</p>
+</dd>
+<dt><strong>-p</strong>, <strong>--passive</strong></dt>
+<dd>
+<p>Disable automatic connections to other servers. You can use the IRC
+command CONNECT later on as IRC Operator to link this ngIRCd to other
+servers.</p>
+</dd>
+<dt><strong>-y</strong>, <strong>--syslog</strong></dt>
+<dd>
+<p>Write log messages to the syslog even when running in the foreground.
+This only makes sense when <em>-n/--nodaemon</em> was given on the
+command line <em>before</em> this option!</p>
+</dd>
+</dl>
+<p>The following options prevent ngIRCd from starting regularly, but
+perform a specific action and then exit the daemon again:</p>
+<dl>
+<dt><strong>-h</strong>, <strong>--help</strong></dt>
+<dd>
+<p>Display a brief help text and exit.</p>
+</dd>
+<dt><strong>-t</strong>, <strong>--configtest</strong></dt>
+<dd>
+<p>Read, validate and display the configuration; then exit.</p>
+</dd>
+<dt><strong>-V</strong>, <strong>--version</strong></dt>
+<dd>
+<p>Output version information and exit.</p>
+</dd>
+</dl>
+<h1>FILES</h1>
+<p><em>/usr/local/etc/ngircd.conf</em></p>
+<blockquote>
+<p>The system wide default configuration file.</p>
+</blockquote>
+<p><em>/usr/local/etc/ngircd.motd</em></p>
+<blockquote>
+<p>Default "message of the day" (MOTD).</p>
+</blockquote>
+<h1>SIGNALS</h1>
+<p>The daemon understands the following signals:</p>
+<dl>
+<dt><strong>TERM</strong></dt>
+<dd>
+<p>Shut down all connections and terminate the daemon.</p>
+</dd>
+<dt><strong>HUP</strong></dt>
+<dd>
+<p>Shut down all listening sockets, re-read the configuration file and
+re-initialize the daemon.</p>
+</dd>
+</dl>
+<h1>HINTS</h1>
+<p>It is <em>always wise</em> to use "ngircd --configtest" to validate
+the configuration of ngIRCd after making changes to the configuration
+files!</p>
+<h1>DEBUGGING</h1>
+<p>When ngIRCd is compiled with debug code, that is, its source code has
+been ./configure'd with "--enable-debug" and/or "--enable-sniffer"
+(witch enables debug mode automatically as well), you can use two more
+command line options and two more signals to debug problems with the
+daemon itself or IRC clients:</p>
+<p><strong>Options:</strong></p>
+<dl>
+<dt><strong>-d</strong>, <strong>--debug</strong></dt>
+<dd>
+<p>Enable debug mode and log extra messages.</p>
+</dd>
+<dt><strong>-s</strong>, <strong>--sniffer</strong></dt>
+<dd>
+<p>Enable IRC protocol sniffer, which logs all sent and received IRC
+commands to the console/syslog. This option requires that ngIRCd has
+been ./configure'd with "--enable-sniffer" and enables debug mode
+automatically, too.</p>
+</dd>
+</dl>
+<p><strong>Signals:</strong></p>
+<dl>
+<dt><strong>USR1</strong></dt>
+<dd>
+<p>Toggle debug mode on and off during runtime.</p>
+</dd>
+<dt><strong>USR2</strong></dt>
+<dd>
+<p>Dump internal server state to the console/syslog when debug mode is
+on (use command line option --debug or signal USR1).</p>
+</dd>
+</dl>
+<h1>AUTHORS</h1>
+<p>Alexander Barton, &lt;alex@barton.de&gt;<br />
+Florian Westphal, &lt;fw@strlen.de&gt;</p>
+<p>Homepage: http://ngircd.barton.de/</p>
+<h1>SEE ALSO</h1>
+<p><strong>ngircd.conf</strong>(5), <strong>ircd</strong>(8)</p>
+</body>
+</html>

@@ -17,7 +17,8 @@ Redirect /bugzilla/query.cgi https://github.com/ngircd/ngircd/issues
 
 # Documentation
 
-Redirect /doc/AUTHORS https://github.com/ngircd/ngircd/blob/master/AUTHORS
+Redirect /doc/AUTHORS https://github.com/ngircd/ngircd/blob/master/AUTHORS.md
+Redirect /doc/AUTHORS.md https://github.com/ngircd/ngircd/blob/master/AUTHORS.md
 Redirect /doc/COPYING https://github.com/ngircd/ngircd/blob/master/COPYING
 Redirect /doc/ChangeLog https://github.com/ngircd/ngircd/blob/master/ChangeLog
 Redirect /doc/INSTALL https://github.com/ngircd/ngircd/blob/master/INSTALL.md

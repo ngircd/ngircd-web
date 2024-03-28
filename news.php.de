@@ -43,8 +43,8 @@
 	<q>NoticeAuth</q> aktiviert ist (was <em>nicht</em> der Default ist).
 	ngIRCd 20 und 20.1 beinhaltet zudem einen Fehler, der es jedem Nutzer
 	ermöglicht, den Server-Dienst zum Absturz zu bringen.
-	<strong>Alle Installationen sollten auf Version 20.3 (oder neuer)
-	aktualisiert werden!</strong>
+	<strong>Alle Installationen sollten auf Version 20.3 vom 23. August
+	2013 (oder neuer) aktualisiert werden!</strong>
 </p>
 <p>
 	Die <a href="doc/NEWS">NEWS</a>-Datei und das

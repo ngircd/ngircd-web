@@ -28,6 +28,9 @@
 		<a href="https://software.opensuse.org/package/ngircd?search_term=ngircd">rpm</a>
 	</li>
 	<li>
+		<a href="https://openwrt.org/">OpenWRT</a>:
+		<a href="https://openwrt.org/packages/pkgdata/ngircd">Package</a>
+	<li>
 		<a href="https://www.ubuntu.com/">Ubuntu Linux</a>:
 		<a href="https://packages.ubuntu.com/ngircd">deb</a>
 	</li>

@@ -109,6 +109,14 @@ a:link, a:visited {
 	color: #005555;
 }
 
+p {
+	margin: 1em 0;
+}
+
+dt {
+	margin: 1em 0 0.5em 0;
+}
+
 dd {
 	line-height: 150%;
 }

@@ -14,10 +14,7 @@
 </h3>
 <p>
 	The current stable version is
-	<strong>Release 26.1</strong> of January 1 2021,
-	and
-	<strong>Release 27~rc1</strong> of April 13 2024
-	is ready for testing;
+	<strong>Release 27</strong> of April 26 2024,
 	please refer to the <a href="download.php.en">Download</a>
 	options.
 </p>
@@ -41,13 +38,10 @@
 </p>
 <p class="security">
 	<strong>Caution:</strong>
-	ngIRCd 20, 20.1, and 20.2 contain an error that could crash
-	the server daemon when the configuration option <q>NoticeAuth</q> is
-	enabled (which is <em>not</em> the default).
-	ngIRCd 20 and 20.1 both contain an additional error that allows
-	arbitrary users to crash the server daemon.
-	<strong>All installations should be updated to version 20.3 (released
-	August 23, 2013) or newer!</strong>
+	ngIRCd up to and including release 26.1 did <em>not validate</em> SSL
+	certificates on server-server links! If you run a network of ngIRCd
+	daemons <strong>you should upgrade to ngIRCd 27 (released April 26,
+	2024) or newer!</strong>
 </p>
 <p>
 	The <a href="doc/NEWS">NEWS</a>-file and the

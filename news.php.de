@@ -14,10 +14,7 @@
 </h3>
 <p>
 	Die aktuelle stabile Version ist
-	<strong>Release 26.1</strong> vom 2. Januar 2021,
-	und
-	<strong>Release 27~rc1</strong> vom 13. April 2024
-	steht zum Test bereit;
+	<strong>Release 27</strong> vom 26. April 2024,
 	siehe auch die
 	<a href="download.php.de">Download-M&ouml;glichkeiten</a>.
 </p>
@@ -42,13 +39,11 @@
 </p>
 <p class="security">
 	<strong>Achtung:</strong>
-	ngIRCd 20, 20.1 und 20.2 beinhalten einen Fehler,
-	der zum Absturz des Servers führen kann, wenn die Konfigurationsoption
-	<q>NoticeAuth</q> aktiviert ist (was <em>nicht</em> der Default ist).
-	ngIRCd 20 und 20.1 beinhaltet zudem einen Fehler, der es jedem Nutzer
-	ermöglicht, den Server-Dienst zum Absturz zu bringen.
-	<strong>Alle Installationen sollten auf Version 20.3 vom 23. August
-	2013 (oder neuer) aktualisiert werden!</strong>
+	ngIRCd bis einschließlich Release 26.1 hat SSL-Zertifikate bei
+	Server-Server-Links <em>nicht validiert</em>! Falls ngIRCd in einem
+	Netzwerk mit mehreren Servern eingesetzt wird, <strong>sollte auf
+	Version 27 vom 26. April 2024 (oder neuer) aktualisiert
+	werden!</strong>
 </p>
 <p>
 	Die <a href="doc/NEWS">NEWS</a>-Datei und das

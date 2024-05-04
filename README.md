@@ -13,7 +13,7 @@ This source code is available on
 Use `pandoc` like this:
 
 ```bash
-pandoc -s -f man -t html -o ngircd.conf.5.html ../ngIRCd.git/man/ngircd.conf.5
+pandoc -s -f man -t html -o man/ngircd.conf.5.html ../ngIRCd.git/man/ngircd.conf.5
 pandoc -s -f man -t html -o man/ngircd.8.html ../ngIRCd.git/man/ngircd.8
 ```
 

@@ -590,6 +590,12 @@ used. Default: not set.</p>
 recognized by ngIRCd when it is compiled with support for SSL using
 OpenSSL or GnuTLS!</p>
 <dl>
+<dt><strong>CAFile</strong> (string)</dt>
+<dd>
+<p>Filename pointing to the Trusted CA Certificates. This is required
+for verifying peer certificates. Default: not set, so no certificates
+are trusted.</p>
+</dd>
 <dt><strong>CertFile</strong> (string)</dt>
 <dd>
 <p>SSL Certificate file of the private server key.</p>
@@ -600,6 +606,10 @@ OpenSSL or GnuTLS!</p>
 to "HIGH:!aNULL:@STRENGTH:!SSLv3" (OpenSSL) or "SECURE128:-VERS-SSL3.0"
 (GnuTLS). Please see 'man 1ssl ciphers' (OpenSSL) and 'man 3
 gnutls_priority_init' (GnuTLS) for details.</p>
+</dd>
+<dt><strong>CRLFile</strong> (string)</dt>
+<dd>
+<p>Filename of Certificate Revocation List.</p>
 </dd>
 <dt><strong>DHFile</strong> (string)</dt>
 <dd>
@@ -702,6 +712,11 @@ create the link.</p>
 <dt><strong>SSLConnect</strong> (boolean)</dt>
 <dd>
 <p>Connect to the remote server using TLS/SSL. Default: false.</p>
+</dd>
+<dt><strong>SSLVerify</strong> (boolean)</dt>
+<dd>
+<p>Verify the TLS certificate presented by the remote server. Default:
+yes.</p>
 </dd>
 <dt><strong>ServiceMask</strong> (string)</dt>
 <dd>

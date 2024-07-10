@@ -25,11 +25,13 @@
 	</li>
 	<li>
 		<a href="https://www.linux.com">Linux</a>
-		(2.x and newer; on hppa, i386, mipsel, powerpc, x86_64, ... [GNU C])
+		(2.x and newer; on aarch64, armhf, hppa, i386, mipsel, powerpc,
+		x86_64, ... [GNU C, Clang, PCC &amp; TCC])
 	</li>
 	<li>
 		<a href="https://www.apple.com/macos">macOS</a> (Darwin)
-		(10.0 and newer on i386, powerpc, x86_64 [GNU C 2.95.x, 3.x, 4.x])
+		(10.0 and newer on i386, powerpc, x86_64 &amp; aarch64
+		[GNU C 2.95.x, 3.x, 4.x &amp; Apple Clang])
 	</li>
 	<li>
 		<a href="https://www.netbsd.org/">NetBSD</a>

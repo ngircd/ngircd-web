@@ -59,8 +59,8 @@
 	</li>
 	<li>
 		Breites Feld von unterstützten Plattformen, einschließlich
-		AIX, A/UX, FreeBSD, HP-UX, IRIX, Linux, macOS, NetBSD, OpenBSD,
-		Solaris und Windows mit WSL oder Cygwin.
+		AIX, A/UX, FreeBSD, Haiku, HP-UX, IRIX, Linux, macOS, NetBSD,
+		OpenBSD, Solaris und Windows mit WSL oder Cygwin.
 	</li>
 	<li>
 		ngIRCd wird seit <?php echo date("Y")-2001 ?> Jahren entwickelt.

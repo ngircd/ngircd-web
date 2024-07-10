@@ -12,6 +12,10 @@
 		(4.5 and newer on i386, x86_64 [GNU C])
 	</li>
 	<li>
+		<a href="https://www.haiku-os.org/">Haiku</a>
+		(on x86_64 [GNU C])
+	</li>
+	<li>
 		<a href="https://www.hpe.com">HP-UX</a>
 		(9.10, 10.20, 11.11 on hppa, m68k [HP-UX cc, GNU C])
 	</li>

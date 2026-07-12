@@ -13,7 +13,7 @@
 </h3>
 <p>
 	The current stable version is
-	<strong>Release 27</strong> of April 26 2024,
+	<strong>Release 28</strong> of July 12 2026,
 	please refer to the <a href="download.php.en">Download</a>
 	options.
 </p>
@@ -37,10 +37,10 @@
 </p>
 <p class="security">
 	<strong>Caution:</strong>
-	ngIRCd up to and including release 26.1 did <em>not validate</em> SSL
-	certificates on server-server links! If you run a network of ngIRCd
-	daemons <strong>you should upgrade to ngIRCd 27 (released April 26,
-	2024) or newer!</strong>
+	ngIRCd up to and including release 27 has a bug, which can result in
+	100% CPU usage on a single core (DoS) while handling certain malicious
+	connections. <strong>All installations should be upgraded to ngIRCd 28
+	(released July 12, 2026) or newer!</strong>
 </p>
 <p>
 	The <a href="doc/NEWS">NEWS</a>-file and the

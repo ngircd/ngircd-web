@@ -5,6 +5,10 @@
 		<a href="https://ports.freebsd.org/cgi/ports.cgi?query=ngircd">Port</a>
 	</li>
 	<li>
+		<a href="https://www.netbsd.org/">NetBSD</a>:
+		<a href="https://pkgsrc.se/search.php?so=ngircd">pkgsrc</a>
+	</li>
+	<li>
 		<a href="https://www.openbsd.org/">OpenBSD</a>:
 		<a href="https://openports.pl/path/net/ngircd">Port</a>
 	</li>

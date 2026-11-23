@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ super() }}{% endblock %}
+{% block content %}
+<h1>{{ page.title }}</h1>
+{{ page.content | replace(from=config.base_url ~ current_path ~ "#", to="#") | safe }}
+{% endblock %}

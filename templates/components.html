@@ -1,0 +1,39 @@
+{#- Components used in the Markdown content (they replace the shortcodes). -#}
+
+{#- Current stable release and its date, e.g. "28 of 2026-07-12". -#}
+{% component release(@config) -%}
+{{ config.extra.release }} of {{ config.extra.release_date }}
+{%- endcomponent release %}
+
+{#- Years of development since first_year. -#}
+{% component years(@config) -%}
+{{ now() | date(format="%Y") | int - config.extra.first_year }}
+{%- endcomponent years %}
+
+{#- Download links of the current release: the main source, then the mirrors. -#}
+{% component download_links(@config) -%}
+{%- set rel = config.extra.release -%}
+{%- set main = [dl for dl in config.extra.downloads if dl.main][0] -%}
+{%- set files = main.files | replace(from="{release}", to=rel) -%}
+<div class="download">
+<p><strong>ngIRCd Release {{ rel }}</strong> ({{ config.extra.release_date }})</p>
+<p class="download-main">{{ main.name }}
+{%- if main.listing %} (<a href="{{ main.listing | replace(from="{release}", to=rel) }}">{{ main.listing_label or "directory" }}</a>){% endif %}:
+{%- for suffix in config.extra.archive_suffixes %}
+<a href="{{ files }}ngircd-{{ rel }}.{{ suffix }}">{% if loop.first %}ngircd-{{ rel }}.{% endif %}{{ suffix }}</a>
+(<a href="{{ files }}ngircd-{{ rel }}.{{ suffix }}.sig">sig</a>){% if not loop.last %} ·{% endif %}
+{%- endfor %}</p>
+<p class="mirrors-title">Mirrors:</p>
+<ul class="mirrors">
+{%- for dl in [dl for dl in config.extra.downloads if not dl.main] %}
+{%- set files = dl.files | replace(from="{release}", to=rel) %}
+<li>{{ dl.name }}
+{%- if dl.listing %} (<a href="{{ dl.listing | replace(from="{release}", to=rel) }}">{{ dl.listing_label or "directory" }}</a>){% endif %}:
+{%- for suffix in config.extra.archive_suffixes %}
+<a href="{{ files }}ngircd-{{ rel }}.{{ suffix }}">{% if loop.first %}ngircd-{{ rel }}.{% endif %}{{ suffix }}</a>
+(<a href="{{ files }}ngircd-{{ rel }}.{{ suffix }}.sig">sig</a>){% if not loop.last %} ·{% endif %}
+{%- endfor %}</li>
+{%- endfor %}
+</ul>
+</div>
+{%- endcomponent download_links %}

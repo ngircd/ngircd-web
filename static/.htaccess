@@ -1,0 +1,32 @@
+#
+# Apache configuration for the generated site.
+#
+# This is the only mechanism redirecting the URLs of the old PHP site (and its
+# /doc/ files) to their new locations: the site is only served by Apache, and
+# new mirrors never hosted the old URLs.
+#
+
+ErrorDocument 404 /404.html
+
+RedirectMatch permanent ^/index\.php(\.en|\.de)?$ /
+RedirectMatch permanent ^/(news|download|documentation|support)\.php(\.en|\.de)?$ /$1/
+RedirectMatch permanent ^/bugtracker(/|\.php(\.en|\.de)?)?$ /support/
+RedirectMatch permanent ^/mirrors(/|\.php)?$ /
+Redirect permanent /platforms.html /documentation/
+RedirectMatch permanent ^/bugzilla/ https://github.com/ngircd/ngircd/issues
+
+# Documentation (first match wins, so the catch-all comes last)
+Redirect /doc/AUTHORS.md https://github.com/ngircd/ngircd/blob/master/AUTHORS.md
+Redirect /doc/AUTHORS https://github.com/ngircd/ngircd/blob/master/AUTHORS.md
+Redirect /doc/COPYING https://github.com/ngircd/ngircd/blob/master/COPYING
+Redirect /doc/ChangeLog https://github.com/ngircd/ngircd/blob/master/ChangeLog
+Redirect /doc/INSTALL.md https://github.com/ngircd/ngircd/blob/master/INSTALL.md
+Redirect /doc/INSTALL https://github.com/ngircd/ngircd/blob/master/INSTALL.md
+Redirect /doc/NEWS https://github.com/ngircd/ngircd/blob/master/NEWS
+Redirect /doc/README.md https://github.com/ngircd/ngircd/blob/master/README.md
+Redirect /doc/README https://github.com/ngircd/ngircd/blob/master/README.md
+Redirect /doc/sample-ngircd.conf https://github.com/ngircd/ngircd/blob/master/doc/sample-ngircd.conf.tmpl
+Redirect /doc/FAQ.txt https://github.com/ngircd/ngircd/blob/master/doc/FAQ.md
+Redirect /doc/SSL.txt https://github.com/ngircd/ngircd/blob/master/doc/SSL.md
+Redirect /doc/Contributing.txt https://github.com/ngircd/ngircd/blob/master/CONTRIBUTING.md
+Redirect /doc/ https://github.com/ngircd/ngircd/blob/master/doc/

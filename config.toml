@@ -1,0 +1,50 @@
+# Zola configuration for the ngIRCd homepage.
+# Build: "zola build" (output in public/), preview: "zola serve".
+
+base_url = "https://ngircd.barton.de"
+title = "ngIRCd"
+description = "ngIRCd is a free, portable and lightweight Internet Relay Chat (IRC) server for small or private networks."
+default_language = "en"
+
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+
+[markdown]
+smart_punctuation = false
+
+[extra]
+# Canonical host of the site, used in the canonical links of all pages, so
+# that mirrors (built with another "--base-url") point to the main site.
+canonical_url = "https://ngircd.barton.de"
+
+# Current stable release, used on the home and download pages.
+release = "28"
+release_date = "2026-07-12"
+# Download sources of the release archives: "files" is the base URL of the
+# archives and their signatures, "listing" an optional page listing them;
+# "{release}" is replaced by the release number. The "main" source is linked
+# prominently, all others are listed as mirrors.
+downloads = [
+	{ name = "GitHub", main = true, files = "https://github.com/ngircd/ngircd/releases/download/rel-{release}/", listing = "https://github.com/ngircd/ngircd/releases/tag/rel-{release}", listing_label = "release page" },
+	{ name = "ngircd.barton.de", files = "https://ngircd.barton.de/pub/ngircd/", listing = "https://ngircd.barton.de/pub/ngircd/" },
+	{ name = "ngircd.mirror.3rz.de", files = "https://ngircd.mirror.3rz.de/pub/ngircd/", listing = "https://ngircd.mirror.3rz.de/pub/ngircd/" },
+	{ name = "ngircd.sourceforge.io", files = "https://ngircd.sourceforge.io/pub/ngircd/" },
+]
+# Archive formats, the first one is the preferred format.
+archive_suffixes = ["tar.xz", "tar.gz", "tar.Z"]
+first_year = 2001
+
+# Mirrors of this web site, listed in the footer.
+site_mirrors = ["ngircd.barton.de", "ngircd.mirror.3rz.de", "ngircd.github.io"]
+
+github = "https://github.com/ngircd/ngircd"
+mastodon = "https://social.tchncs.de/@ngircd"
+
+nav = [
+	{ title = "ngIRCd", path = "/" },
+	{ title = "News", path = "/news/" },
+	{ title = "Download", path = "/download/" },
+	{ title = "Documentation", path = "/documentation/" },
+	{ title = "Support", path = "/support/" },
+]

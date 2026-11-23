@@ -1,0 +1,57 @@
+{#- Relative prefix of the site root, so that the site works on all mirrors and
+    in subdirectories: "./" on the home page, "../" one level down, and so on.
+    The 404 page is served at arbitrary paths and uses "/" instead. -#}
+{%- set_global rel = "/" %}
+{%- if current_path %}
+{%- set_global rel = "" %}
+{%- for s in current_path | split(pat="/") %}
+{%- if s %}{% set_global rel = rel ~ "../" %}{% endif %}
+{%- endfor %}
+{%- if not rel %}{% set_global rel = "./" %}{% endif %}
+{%- endif -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ config.title }}: Free, portable and lightweight Internet Relay Chat server{% endblock %}</title>
+<meta name="description" content="{{ config.description }}">
+<meta name="author" content="Alexander Barton">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) | replace(from=config.base_url ~ "/", to=rel) | safe }}">
+<link rel="icon" href="{{ rel }}favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="og:title" content="{{ page?.title or section?.title or config.title }}">
+<meta property="og:description" content="{{ config.description }}">
+{%- if current_path %}
+<meta property="og:url" content="{{ config.extra.canonical_url ~ current_path | safe }}">
+{%- endif %}
+<meta property="og:image" content="{{ config.extra.canonical_url }}/ngircd-300x300.png">
+<link rel="me" href="{{ config.extra.mastodon }}">
+{%- if current_path %}
+<link rel="canonical" href="{{ config.extra.canonical_url ~ current_path | safe }}">
+{%- endif %}
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header>
+<p class="site-title"><a href="{{ rel }}">ng<span>IRC</span>d</a></p>
+<nav aria-label="Main">
+<ul>
+{%- set here = current_path | default(value="/") %}
+{%- for item in config.extra.nav %}
+<li><a href="{{ (rel ~ item.path) | replace(from="//", to="/") }}"{% if here == item.path %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+{%- endfor %}
+</ul>
+</nav>
+</header>
+<main id="content">
+{% block content %}{% endblock %}
+</main>
+<footer>
+<p>ngIRCd © {{ config.extra.first_year }}–{{ now() | date(format="%Y") }} Alexander Barton and <a href="{{ config.extra.github }}/blob/master/AUTHORS.md">Contributors</a>.
+Source of this site on <a href="https://github.com/ngircd/ngircd-web">GitHub</a> · Mirrors:{% for host in config.extra.site_mirrors %} <a href="https://{{ host }}/">{{ host }}</a>{% if not loop.last %},{% endif %}{% endfor %} · <a href="{{ config.extra.mastodon }}">Mastodon</a></p>
+</footer>
+</body>
+</html>

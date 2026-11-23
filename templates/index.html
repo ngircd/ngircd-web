@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ section.title }}</h1>
+<p class="release"><strong>Current release: ngIRCd {{ config.extra.release }}</strong> ({{ config.extra.release_date }}) – <a href="download/">Download</a></p>
+{{ section.content | replace(from=config.base_url ~ current_path ~ "#", to="#") | safe }}
+{% endblock %}

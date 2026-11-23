@@ -2,5 +2,6 @@
 {% block content %}
 <h1>{{ section.title }}</h1>
 <p class="release"><strong>Current release: ngIRCd {{ config.extra.release }}</strong> ({{ config.extra.release_date }}) – <a href="download/">Download</a></p>
+<p class="quickstart"><strong>Quick start:</strong> install the package of your operating system (e.g. <code>apt install ngircd</code> or <code>brew install ngircd</code>) or <a href="documentation/#install">build it from source</a>, then follow <a href="{{ config.extra.github }}/blob/rel-{{ config.extra.release }}/doc/QuickStart.md">QuickStart.md</a>.</p>
 {{ section.content | replace(from=config.base_url ~ current_path ~ "#", to="#") | safe }}
 {% endblock %}

@@ -1,6 +1,7 @@
 +++
 title = "Documentation"
 +++
+{% set src = config.extra.github ~ "/blob/rel-" ~ config.extra.release -%}
 
 ## Supported platforms {#platforms}
 
@@ -35,76 +36,65 @@ systems.
 
 ## Installation {#install}
 
-ngIRCd is designed for UNIXoid systems and the installation on a modern
-UNIX-like system, which is supported by GNU automake and GNU autoconf,
-shouldn't cause any problems.
-
-Typically it looks like this:
+Building ngIRCd from source on a UNIX-like system with a C compiler and
+`make` usually looks like this:
 
 ```
-tar xzf ngircd-<version>.tar.gz
+tar xJf ngircd-<version>.tar.xz
 cd ngircd-<version>
 ./configure
 make
-```
-
-Now, the executing server (normally `ngircd`) should be in `src/ngircd`.
-
-```
 make install
 ```
 
-The executing server has now been installed in `/usr/local/sbin`.
+This installs the `ngircd` daemon in `/usr/local/sbin`. A configuration file
+is optional since ngIRCd 27; if present, it is read from
+`/usr/local/etc/ngircd.conf` (see `doc/sample-ngircd.conf` for an example).
 
-The configuration file `ngircd.conf` is now expected in the server directory
-`/usr/local/etc`; an exemplary configuration file can be found in the
-directory `doc`.
-
-Further comments on the installation and configuration can be found in the
-file [INSTALL.md](https://github.com/ngircd/ngircd/blob/master/INSTALL.md).
+To get started, have a look at [QuickStart.md]({{ src }}/doc/QuickStart.md);
+[INSTALL.md]({{ src }}/INSTALL.md) has all the details on installing and
+upgrading. And [Container.md]({{ src }}/doc/Container.md) describes how to run
+ngIRCd in a container using Podman or Docker.
 
 ## Documentation {#documentation}
 
-Documentation is included in the source package, some in the main directory
-(such as INSTALL.md, README.md, NEWS and COPYING), and some in the sub
-directory `doc` (such as SSL.md, FAQ.md and the exemplary configuration
-sample-ngircd.conf).
+The documentation is included in the source package, in the main directory and
+in the `doc` directory. These are the files of the current release:
 
-The documents of the current version can be found online here:
+**Getting started**, for setting up a server:
+[QuickStart.md]({{ src }}/doc/QuickStart.md),
+[INSTALL.md]({{ src }}/INSTALL.md),
+[FAQ.md]({{ src }}/doc/FAQ.md),
+[sample-ngircd.conf]({{ src }}/doc/sample-ngircd.conf.tmpl),
+[Container.md]({{ src }}/doc/Container.md).
 
-- [README.md](https://github.com/ngircd/ngircd/blob/master/README.md),
-  [INSTALL.md](https://github.com/ngircd/ngircd/blob/master/INSTALL.md),
-  [QuickStart.md](https://github.com/ngircd/ngircd/blob/master/doc/QuickStart.md),
-  [FAQ.md](https://github.com/ngircd/ngircd/blob/master/doc/FAQ.md)
-- [sample-ngircd.conf](https://github.com/ngircd/ngircd/blob/master/doc/sample-ngircd.conf.tmpl)
-- [NEWS](https://github.com/ngircd/ngircd/blob/master/NEWS),
-  [ChangeLog](https://github.com/ngircd/ngircd/blob/master/ChangeLog)
-- [AUTHORS.md](https://github.com/ngircd/ngircd/blob/master/AUTHORS.md),
-  [CONTRIBUTING.md](https://github.com/ngircd/ngircd/blob/master/CONTRIBUTING.md),
-  [COPYING](https://github.com/ngircd/ngircd/blob/master/COPYING)
-- [Bopm.txt](https://github.com/ngircd/ngircd/blob/master/doc/Bopm.txt),
-  [Capabilities.txt](https://github.com/ngircd/ngircd/blob/master/doc/Capabilities.txt),
-  [Commands.txt](https://github.com/ngircd/ngircd/blob/master/doc/Commands.txt),
-  [Container.md](https://github.com/ngircd/ngircd/blob/master/doc/Container.md),
-  [HowToRelease.txt](https://github.com/ngircd/ngircd/blob/master/doc/HowToRelease.txt),
-  [Modes.txt](https://github.com/ngircd/ngircd/blob/master/doc/Modes.txt),
-  [PAM.txt](https://github.com/ngircd/ngircd/blob/master/doc/PAM.txt),
-  [Platforms.txt](https://github.com/ngircd/ngircd/blob/master/doc/Platforms.txt),
-  [Protocol.txt](https://github.com/ngircd/ngircd/blob/master/doc/Protocol.txt),
-  [RFC.txt](https://github.com/ngircd/ngircd/blob/master/doc/RFC.txt),
-  [Services.txt](https://github.com/ngircd/ngircd/blob/master/doc/Services.txt),
-  [SSL.md](https://github.com/ngircd/ngircd/blob/master/doc/SSL.md)
-- [README-AUX.txt](https://github.com/ngircd/ngircd/blob/master/doc/README-AUX.txt),
-  [README-BeOS.txt](https://github.com/ngircd/ngircd/blob/master/doc/README-BeOS.txt) (German),
-  [README-Interix.txt](https://github.com/ngircd/ngircd/blob/master/doc/README-Interix.txt)
+**Manual pages**, listing all command line parameters and configuration
+options (also installed with ngIRCd, see `man 8 ngircd` and `man 5 ngircd.conf`):
+[ngircd(8)](../man/ngircd.8.html),
+[ngircd.conf(5)](../man/ngircd.conf.5.html).
 
-## Manual pages {#man}
+**Reference**, for all the details:
+[Commands.txt]({{ src }}/doc/Commands.txt),
+[Modes.txt]({{ src }}/doc/Modes.txt),
+[Capabilities.txt]({{ src }}/doc/Capabilities.txt),
+[Protocol.txt]({{ src }}/doc/Protocol.txt),
+[RFC.txt]({{ src }}/doc/RFC.txt),
+[Services.txt]({{ src }}/doc/Services.txt),
+[PAM.txt]({{ src }}/doc/PAM.txt),
+[SSL.md]({{ src }}/doc/SSL.md).
 
-In addition, ngIRCd comes with two manual pages: `ngircd(8)` (for the daemon)
-and `ngircd.conf(5)` (for its configuration file). They have even more details
-and list all possible command line parameters and configuration options. You
-can read them with the `man` command (when they are installed locally on your
-system, e.g. `man 8 ngircd` and `man 5 ngircd.conf`) or online here:
+**Project**, its history and license:
+[NEWS]({{ src }}/NEWS),
+[ChangeLog]({{ src }}/ChangeLog),
+[AUTHORS.md]({{ src }}/AUTHORS.md),
+[Contributing.txt]({{ src }}/doc/Contributing.txt),
+[COPYING]({{ src }}/COPYING).
 
-- Daemon: [ngircd(8)](/man/ngircd.8.html)
-- Configuration file: [ngircd.conf(5)](/man/ngircd.conf.5.html)
+**Other files**:
+[README.md]({{ src }}/README.md),
+[Platforms.txt]({{ src }}/doc/Platforms.txt),
+[README-AUX.txt]({{ src }}/doc/README-AUX.txt),
+[README-BeOS.txt]({{ src }}/doc/README-BeOS.txt) (German),
+[README-Interix.txt]({{ src }}/doc/README-Interix.txt),
+[Bopm.txt]({{ src }}/doc/Bopm.txt),
+[HowToRelease.txt]({{ src }}/doc/HowToRelease.txt).

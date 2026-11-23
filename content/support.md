@@ -1,21 +1,21 @@
 +++
 title = "Support"
 +++
-
-## Contact {#people}
+{% set src = config.extra.github ~ "/blob/rel-" ~ config.extra.release -%}
 
 If you find any bugs or you have any ideas on developing ngIRCd, it is best to
 put them into the [bug tracker](#bugs) of ngIRCd. There is also a
 [mailing list](#ml) for discussions and questions concerning ngIRCd (and you
 don't need an account for posting).
 
-Alexander Barton (<alex@barton.de>) had the idea to develop ngIRCd; he is
-responsible for big parts of today's source code.
+## IRC {#irc}
 
-BTW: We are always happy to receive patches, feedback and additional
-supporters!
+Meet us in the channel `#ngircd` on <irc://irc.barton.de/ngircd>.
 
-ngIRCd in IRC: <irc://irc.barton.de/ngircd>.
+## Mastodon {#mastodon}
+
+News about ngIRCd is posted to
+[@ngircd@social.tchncs.de](https://social.tchncs.de/@ngircd).
 
 ## Bug tracker {#bugs}
 
@@ -45,8 +45,15 @@ All posts are archived in the
 
 Email address: <ngircd@lists.barton.de>.
 
-## Misc
+## Contributing {#contributing}
+
+We are always happy to receive patches, feedback and additional supporters!
+Please see [Contributing.txt]({{ src }}/doc/Contributing.txt) for how to
+contribute to ngIRCd.
+
+Alexander Barton (<alex@barton.de>) had the idea to develop ngIRCd; he is
+responsible for big parts of today's source code.
 
 Many thanks to all who contributed by sending in feedback. A list (with no
 claim to be complete) of all contributors can be found in the file
-[AUTHORS.md](https://github.com/ngircd/ngircd/blob/master/AUTHORS.md).
+[AUTHORS.md]({{ src }}/AUTHORS.md).

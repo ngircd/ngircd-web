@@ -1,15 +1,16 @@
 +++
 title = "ngIRCd – Next Generation IRC Daemon"
 +++
+{% set src = config.extra.github ~ "/blob/rel-" ~ config.extra.release -%}
 
 ngIRCd is a free, portable and lightweight Internet Relay Chat
 ([IRC](https://wikipedia.org/wiki/Internet_Relay_Chat)) server for small or
 private networks, developed under the GNU General Public License
-([GPL](https://github.com/ngircd/ngircd/blob/master/COPYING)).
+([GPL]({{ src }}/COPYING)).
 
 The server is quite easy to configure and runs as a single-node server or can
 be part of a network of ngIRCd servers in a LAN or across the internet. It
-optionally supports the IPv6 protocol, SSL/TLS-protected client-server and
+optionally supports the IPv6 protocol, TLS-protected client-server and
 server-server links, the Pluggable Authentication Modules (PAM) system for user
 authentication, IDENT requests, and character set conversion for legacy
 clients.
@@ -20,18 +21,17 @@ have been a better name :-)
 
 ## Advantages and strengths {#why}
 
-- Well arranged (lean) configuration file.
-- Simple to build, install, configure, and maintain.
-- Supports IPv6 and SSL.
-- Can use PAM for user authentication.
-- Lots of popular user and channel modes are implemented.
-- Supports "cloaking" of users.
+- Simple to build, install, configure and maintain, with a clear and lean
+  configuration file.
+- Supports IPv6, TLS, PAM authentication, IDENT requests and character set
+  conversion.
+- Lots of popular user and channel modes, including "cloaking" of hostnames.
 - No problems with servers that have dynamic IP addresses.
-- Freely available, modern, portable and tidy C source.
-- Wide field of supported platforms, including AIX, A/UX, FreeBSD, Haiku,
-  HP-UX, IRIX, Linux, macOS, NetBSD, OpenBSD, Solaris and Windows with WSL or
-  Cygwin.
-- ngIRCd has been in development for {{ <years /> }} years.
+- Free software ([GPL]({{ src }}/COPYING)) with modern, portable and tidy C
+  source code.
+- Runs on a wide range of platforms: AIX, A/UX, FreeBSD, Haiku, HP-UX, IRIX,
+  Linux, macOS, NetBSD, OpenBSD, Solaris and Windows (WSL or Cygwin).
+- In development since {{ config.extra.first_year }} – for {{ <years /> }} years now.
 
 <details>
 <summary><code>ngircd --help</code></summary>
@@ -60,7 +60,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 After installing ngIRCd (which is best done with the package manager of the
 operating system or directly from the source code, see
-[INSTALL.md](https://github.com/ngircd/ngircd/blob/master/INSTALL.md)) and adjusting the configuration in the
+[INSTALL.md]({{ src }}/INSTALL.md)) and adjusting the configuration in the
 `ngircd.conf` file, the IRC server can be ready for use after just 5 minutes –
 only a few lines need to be changed there, the rest is optional and can be used
 with the default values.

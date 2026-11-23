@@ -135,7 +135,6 @@ nav a[aria-current="page"] {
 .mirrors { list-style: none; padding: 0; margin-top: 0; }
 .mirrors li { margin: 0.15rem 0; }
 details summary { cursor: pointer; }
-.outdated { color: var(--muted); }
 
 footer {
 	margin-top: 3rem;

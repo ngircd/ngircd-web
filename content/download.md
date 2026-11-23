@@ -10,6 +10,16 @@ All previous versions, GnuPG signatures of the archives, and test versions from
 Git sources (if available) can be downloaded from the
 [download directory](https://ngircd.barton.de/pub/ngircd/).
 
+The archives are signed with the GnuPG key of Alexander Barton, key ID
+`FE8B05CE1FA6365E`, fingerprint
+`5F22 A309 911C 1C6E FA1B 69C1 FE8B 05CE 1FA6 365E`, which is available from
+[keys.openpgp.org](https://keys.openpgp.org/vks/v1/by-fingerprint/5F22A309911C1C6EFA1B69C1FE8B05CE1FA6365E).
+Verify an archive with its signature like this:
+
+```
+gpg --verify ngircd-<version>.tar.xz.sig ngircd-<version>.tar.xz
+```
+
 ## Packages {#packages}
 
 Precompiled ngIRCd packages are available for the following distributions:
@@ -40,20 +50,8 @@ Precompiled ngIRCd packages are available for the following distributions:
 
 ### macOS
 
-- [Fink Project](https://www.finkproject.org/):
-  [Port](https://pdb.finkproject.org/pdb/package.php/ngircd)
-  (<em class="outdated">outdated!</em>)
 - [Homebrew](https://brew.sh/):
   [Formula](https://formulae.brew.sh/formula/ngircd)
-- [MacPorts](https://www.macports.org/):
-  [Port](https://trac.macports.org/browser/trunk/dports/irc/ngircd/Portfile)
-  (<em class="outdated">outdated!</em>)
-
-### Other
-
-- [Amiga.sf](http://amiga.sourceforge.net/):
-  [Port](http://amiga.sourceforge.net/index.php?showpackage=ngIRCd)
-  (<em class="outdated">outdated!</em>)
 
 ### Unofficial packages
 
@@ -62,11 +60,6 @@ Precompiled ngIRCd packages are available for the following distributions:
 - [Debian Linux](https://www.debian.org/):
   [deb](https://debian.barton.de/debian/pool/main/n/ngircd/)
   (author: Alex Barton)
-  - "ngircd": the *standard distribution*, including support for syslog
-    logging and compressed server-links.
-  - "ngircd-full": "standard" + TCP wrappers, IDENT requests, IPv6 and SSL.
-  - "ngircd-full-dbg": "full" including debug code and debug symbols
-    ("not stripped").
 
 ## Git repository {#git}
 

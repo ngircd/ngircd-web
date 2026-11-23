@@ -27,13 +27,16 @@ JavaScript, no content that is only visible with CSS. Check with e.g.
 
 Old URLs of the former PHP site are redirected by `static/.htaccess` (Apache).
 
-## Building the Manual Pages
+## Updating the Manual Pages
 
-Use `pandoc` like this:
+The HTML manual pages in `static/man/` are generated from the manual page
+templates of an ngIRCd release tag using `pandoc`:
 
 ```bash
-pandoc -s -f man -t html -o static/man/ngircd.conf.5.html ../ngIRCd.git/man/ngircd.conf.5
-pandoc -s -f man -t html -o static/man/ngircd.8.html ../ngIRCd.git/man/ngircd.8
+./update-manpages.sh [<ngircd-repository> [<release>]]
 ```
 
-Don't forget to add the updates HTML files to the Git repository!
+The defaults are the ngIRCd sources in `../ngIRCd` and the release set in
+`config.toml`.
+
+Commit the updated HTML files afterwards.

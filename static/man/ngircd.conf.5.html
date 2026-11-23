@@ -7,9 +7,6 @@
   <title>ngircd.conf</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -58,6 +58,10 @@
       color: #1a1a1a;
     }
     img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -84,9 +88,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,17 +153,25 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">ngircd.conf</h1>
-<p class="date">Sep 2023</p>
+<p class="date">May 2026</p>
 </header>
 <h1>NAME</h1>
 <p>ngircd.conf - configuration file of ngIRCd</p>
@@ -166,11 +179,13 @@
 <p><strong>/usr/local/etc/ngircd.conf</strong></p>
 <h1>DESCRIPTION</h1>
 <p><strong>ngircd.conf</strong> is the configuration file of the
-<strong>ngircd</strong>(8) Internet Relay Chat (IRC) daemon, which must
-be customized to the local preferences and needs.</p>
+<strong>ngircd</strong>(8) Internet Relay Chat (IRC) daemon. All
+configuration options as well as the file itself are optional, but can
+be used to configure <strong>ngircd</strong>(8) for the local
+preferences and needs when the defaults are not enough.</p>
 <p>Most variables can be modified while the ngIRCd daemon is already
-running: It will reload its configuration file when a HUP signal or
-REHASH command is received.</p>
+running: It will reload its configuration file when a HUP signal or the
+"REHASH" IRC command is received.</p>
 <h1>FILE FORMAT</h1>
 <p>The file consists of sections and parameters. A section begins with
 the name of the section in square brackets and continues until the next
@@ -430,7 +445,8 @@ hostname.</p>
 <p>Use this hostname for hostname cloaking on clients that have the user
 mode "+x" set, instead of the name of the server. Default: empty, use
 the name of the server. Use %x to add the hashed value of the original
-hostname</p>
+hostname. If this variable is empty, regular users cannot set mode "+x"
+themselves.</p>
 </dd>
 <dt><strong>CloakHostSalt</strong> (string)</dt>
 <dd>
@@ -452,6 +468,10 @@ IPv6-only setups. Default: yes.</p>
 <dd>
 <p>Set this to no if you do not want ngIRCd to connect to other IRC
 servers using the IPv6 protocol. Default: yes.</p>
+</dd>
+<dt><strong>DefaultChannelModes</strong> (string)</dt>
+<dd>
+<p>Default channel mode(s) to set on new channels. Default: none.</p>
 </dd>
 <dt><strong>DefaultUserModes</strong> (string)</dt>
 <dd>

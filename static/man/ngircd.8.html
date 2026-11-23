@@ -7,9 +7,6 @@
   <title>ngircd</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -58,6 +58,10 @@
       color: #1a1a1a;
     }
     img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -84,9 +88,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -148,17 +153,25 @@
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">ngircd</h1>
-<p class="date">Sep 2023</p>
+<p class="date">May 2026</p>
 </header>
 <h1>NAME</h1>
 <p>ngIRCd - the "next generation" IRC daemon</p>
@@ -182,8 +195,8 @@ the syslog mechanism, or writes directly to the console when running in
 the foreground (see below).</p>
 <h1>OPTIONS</h1>
 <p>The default behavior of <strong>ngircd</strong> is to read its
-standard configuration file (see below), to detach from the controlling
-terminal and to wait for clients.</p>
+optional standard configuration file (see below), to detach from the
+controlling terminal and to wait for clients.</p>
 <p>You can use these options to modify this default:</p>
 <dl>
 <dt><strong>-f</strong> <em>file</em>, <strong>--config</strong>
@@ -191,6 +204,13 @@ terminal and to wait for clients.</p>
 <dd>
 <p>Use <em>file</em> as configuration file.</p>
 </dd>
+</dl>
+<blockquote>
+<p>You can use <em>/dev/null</em> to force ngIRCd to ignore its standard
+configuration file, which will disable the built-in value of the
+<strong>IncludeDir</strong> configuration option, too.</p>
+</blockquote>
+<dl>
 <dt><strong>-n</strong>, <strong>--nodaemon</strong></dt>
 <dd>
 <p>Don't fork a child and don't detach from controlling terminal. All

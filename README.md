@@ -27,6 +27,24 @@ JavaScript, no content that is only visible with CSS. Check with e.g.
 
 Old URLs of the former PHP site are redirected by `static/.htaccess` (Apache).
 
+## Conventions
+
+- Build with `zola build` without any warnings, using the Zola version of the
+  GitHub workflow (`.github/workflows/`). Never commit `public/`.
+- Internal links and assets must be relative (e.g. `../download/`, or `rel` in
+  `templates/base.html`), so that the site works on all mirrors and in
+  subdirectories. Don't use `@/` links in the content, Zola renders them as
+  absolute URLs. Only the canonical link, `og:url`, `og:image` and the
+  sitemap use the main site on purpose.
+- Shortcodes are Tera components in `templates/components.html` (e.g.
+  `{{ <release /> }}`, `{{ <years /> }}`), used in the Markdown content.
+- Never write the release number, its date, or the number of years literally
+  into the text: use `config.extra` (`release`, `release_date`,
+  `first_year`) or the components.
+- Link files of the ngIRCd sources via `{{ src }}` (set at the top of each
+  content file), i.e. on the tag of the current release, not on `master`.
+  Make sure every linked file exists at that tag.
+
 ## Updating the Manual Pages
 
 The HTML manual pages in `static/man/` are generated from the manual page
@@ -40,3 +58,12 @@ The defaults are the ngIRCd sources in `../ngIRCd` and the release set in
 `config.toml`.
 
 Commit the updated HTML files afterwards.
+
+## Releasing a New ngIRCd Version
+
+1. `config.toml`: update `release` and `release_date`.
+2. `content/news.md`: add the release on top of "Recent releases" (keep five
+   entries), and review the warning box.
+3. Regenerate the manual pages with `update-manpages.sh` (see above).
+4. `content/_index.md`: update the `ngircd --help` output.
+5. Check that all `{{ src }}` links exist at the new tag.

@@ -87,7 +87,7 @@ options (also installed with ngIRCd, see `man 8 ngircd` and `man 5 ngircd.conf`)
 [NEWS]({{ src }}/NEWS),
 [ChangeLog]({{ src }}/ChangeLog),
 [AUTHORS.md]({{ src }}/AUTHORS.md),
-[Contributing.txt]({{ src }}/doc/Contributing.txt),
+[CONTRIBUTING.md]({{ src }}/CONTRIBUTING.md),
 [COPYING]({{ src }}/COPYING).
 
 **Other files**:

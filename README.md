@@ -51,11 +51,13 @@ The HTML manual pages in `static/man/` are generated from the manual page
 templates of an ngIRCd release tag using `pandoc`:
 
 ```bash
-./update-manpages.sh [<ngircd-repository> [<release>]]
+./update-manpages.sh [<ngircd-repository> [<release> [<revision>]]]
 ```
 
-The defaults are the ngIRCd sources in `../ngIRCd` and the release set in
-`config.toml`.
+The defaults are the ngIRCd sources in `../ngIRCd`, the release set in
+`config.toml`, and its tag `rel-<release>`. Pass another Git revision to
+generate the pages of a release that is not tagged yet, and regenerate them
+from the tag once it exists.
 
 Commit the updated HTML files afterwards.
 

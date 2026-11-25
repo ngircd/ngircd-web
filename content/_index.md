@@ -37,7 +37,7 @@ have been a better name :-)
 <summary><code>ngircd --help</code></summary>
 
 ```
-ngIRCd 28-CHARCONV+IDENT+IPv6+IRCPLUS+PAM+SSL+SYSLOG+TCPWRAP+ZLIB-x86_64/pc/linux-gnu
+ngIRCd 29-CHARCONV+IDENT+IPv6+IRCPLUS+PAM+SSL+SYSLOG+TCPWRAP+ZLIB-x86_64/pc/linux-gnu
 Copyright (c)2001-2026 Alexander Barton (<alex@barton.de>) and Contributors.
 Homepage: <http://ngircd.barton.de/>
 

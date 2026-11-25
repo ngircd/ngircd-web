@@ -48,7 +48,7 @@ Email address: <ngircd@lists.barton.de>.
 ## Contributing {#contributing}
 
 We are always happy to receive patches, feedback and additional supporters!
-Please see [Contributing.txt]({{ src }}/doc/Contributing.txt) for how to
+Please see [CONTRIBUTING.md]({{ src }}/CONTRIBUTING.md) for how to
 contribute to ngIRCd.
 
 Alexander Barton (<alex@barton.de>) had the idea to develop ngIRCd; he is

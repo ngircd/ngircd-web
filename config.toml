@@ -19,8 +19,8 @@ smart_punctuation = false
 canonical_url = "https://ngircd.barton.de"
 
 # Current stable release, used on the home and download pages.
-release = "28"
-release_date = "2026-07-12"
+release = "29"
+release_date = "2026-11-27"
 # Download sources of the release archives: "files" is the base URL of the
 # archives and their signatures, "listing" an optional page listing them;
 # "{release}" is replaced by the release number. The "main" source is linked

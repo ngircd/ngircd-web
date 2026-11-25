@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>ngircd.conf</title>
+  <title>NGIRCD.CONF</title>
   <style>
     html {
       color: #1a1a1a;
@@ -170,8 +170,8 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">ngircd.conf</h1>
-<p class="date">May 2026</p>
+<h1 class="title">NGIRCD.CONF</h1>
+<p class="date">November 2026</p>
 </header>
 <h1>NAME</h1>
 <p>ngircd.conf - configuration file of ngIRCd</p>
@@ -244,10 +244,10 @@ installation and setup!</p>
 <dt><strong>Name</strong> (string)</dt>
 <dd>
 <p>Server name in the IRC network. This is an individual name of the IRC
-server, it is not related to the DNS host name. It must be unique in the
+server, it is not related to the DNS hostname. It must be unique in the
 IRC network and must contain at least one dot (".") character. When not
-set, ngIRCd tries to deduce a valid IRC server name from the local host
-name.</p>
+set, ngIRCd tries to deduce a valid IRC server name from the local
+hostname.</p>
 </dd>
 <dt><strong>AdminInfo1</strong>, <strong>AdminInfo2</strong>,
 <strong>AdminEMail</strong> (string)</dt>
@@ -281,7 +281,11 @@ configured IP addresses and interfaces by default.</p>
 <p>Text file with the "message of the day" (MOTD). This message will be
 shown to all users connecting to the server. Please note: Changes made
 to this file take effect when ngircd starts up or is instructed to
-re-read its configuration file. Default: a built-in standard path.</p>
+re-read its configuration file. The MOTD is sent in one go and must fit
+into the 32 KiB write buffer of clients, so keep it below about 250
+lines of 80 characters: otherwise clients may be disconnected ("Write
+buffer space exhausted") when the server can't send it fast enough.
+Default: a built-in standard path.</p>
 </dd>
 <dt><strong>MotdPhrase</strong> (string)</dt>
 <dd>
@@ -471,7 +475,10 @@ servers using the IPv6 protocol. Default: yes.</p>
 </dd>
 <dt><strong>DefaultChannelModes</strong> (string)</dt>
 <dd>
-<p>Default channel mode(s) to set on new channels. Default: none.</p>
+<p>Default channel mode(s) to set on new channels created by local
+users; they are announced to the other servers in the network. Only
+channel modes without parameters are allowed: "i", "m", "M", "n", "N",
+"O", "P", "Q", "R", "s", "t", "V", and "z". Default: none.</p>
 </dd>
 <dt><strong>DefaultUserModes</strong> (string)</dt>
 <dd>
@@ -695,7 +702,7 @@ simultaneously.</p>
 </dd>
 <dt><strong>Host</strong> (string)</dt>
 <dd>
-<p>Internet host name (or IP address) of the peer.</p>
+<p>Internet hostname (or IP address) of the peer.</p>
 </dd>
 <dt><strong>Bind</strong> (string)</dt>
 <dd>
@@ -808,6 +815,14 @@ following syntax (without spaces!):</p>
 <p>The key file is read on each JOIN command when this channel has a key
 (channel mode +k). Access is granted, if a) the channel key set using
 the MODE +k command or b) one of the lines in the key file match.</p>
+<p>To grant access only to the users listed in the key file, set the
+channel key to "?" (MODE +k ?): this key can't be used to join the
+channel. But note that the key file is only known to the local server:
+users of other servers of the network can't join such a channel (or can
+join it using the key "?" when their server doesn't support this yet).
+And clients and bouncers which remember the channel key that they see
+(like ZNC) will store "?" instead of the individual key of their user
+and fail to join the channel later on.</p>
 <p><strong>Please note:</strong><br />
 The file is not reopened on each access, so you can modify and overwrite
 it without problems, but moving or deleting the file will have not

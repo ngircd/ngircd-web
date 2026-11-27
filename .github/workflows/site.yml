@@ -1,8 +1,8 @@
 # Build the ngIRCd homepage with Zola.
 #
-# DRAFT: the site is built (and the result uploaded as an artifact) on every
-# push and pull request, but publishing is disabled. To enable a deploy job
-# below, remove its "if: false".
+# The site is built (and the result uploaded as an artifact) on every push
+# and pull request. Pushes to "master" are published to ngircd.github.io;
+# the rsync job is still disabled, to enable it remove its "if: false".
 
 name: Site
 
@@ -38,9 +38,9 @@ jobs:
   # index.html gets replaced). One-time setup:
   # - ngircd/ngircd.github.io: add a deploy key with write access, and set
   #   Settings -> Pages -> Source to "Deploy from a branch", branch "master".
-  # - ngircd/ngircd-web: store the private key as secret GITHUB_IO_DEPLOY_KEY.
+  # - ngircd/ngircd-web: store the private key as secret PAGES_DEPLOY_KEY.
   deploy-github-io:
-    if: false
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     env:
@@ -58,7 +58,7 @@ jobs:
           touch site/.nojekyll
       - name: Push to ngircd.github.io
         env:
-          SSH_KEY: ${{ secrets.GITHUB_IO_DEPLOY_KEY }}
+          SSH_KEY: ${{ secrets.PAGES_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh && printf '%s\n' "$SSH_KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
           ssh-keyscan github.com >> ~/.ssh/known_hosts

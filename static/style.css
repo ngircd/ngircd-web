@@ -10,6 +10,8 @@
 	--border: #c9d6d4;
 	--warn-bg: #fff4e5;
 	--warn-border: #d98200;
+	--logo-ng: #969696;
+	--logo-irc: #005555;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +25,8 @@
 		--border: #334042;
 		--warn-bg: #2e2414;
 		--warn-border: #d98200;
+		--logo-ng: #9aa6a7;
+		--logo-irc: #5ec4c0;
 	}
 }
 
@@ -83,14 +87,28 @@ header {
 	border-bottom: 3px solid var(--accent);
 	padding-top: 1.5rem;
 }
+/* Logo as inline SVG, its text for text-mode browsers and screen readers. */
 .site-title {
 	margin: 0 0 1rem;
-	font-size: 2.2rem;
-	font-weight: 700;
-	letter-spacing: -0.02em;
+	font-size: 2.8rem;
+	line-height: 1;
 }
-.site-title a { color: var(--muted); text-decoration: none; }
-.site-title span { color: var(--accent); }
+.site-title a { display: inline-block; }
+.site-title svg {
+	display: block;
+	height: 0.95em;
+	width: auto;
+}
+.site-title span {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+.logo-ng { fill: var(--logo-ng); }
+.logo-irc { fill: var(--logo-irc); }
 
 nav ul {
 	display: flex;
@@ -151,5 +169,5 @@ footer {
 
 @media (max-width: 30rem) {
 	h1 { font-size: 1.5rem; }
-	.site-title { font-size: 1.8rem; }
+	.site-title { font-size: 2.2rem; }
 }

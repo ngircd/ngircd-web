@@ -27,7 +27,10 @@
 {%- if current_path %}
 <meta property="og:url" content="{{ config.extra.canonical_url ~ current_path | safe }}">
 {%- endif %}
-<meta property="og:image" content="{{ config.extra.canonical_url }}/ngircd-300x300.png">
+<meta property="og:image" content="{{ config.extra.canonical_url }}/ngircd-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ngIRCd logo">
 <link rel="me" href="{{ config.extra.mastodon }}">
 {%- if current_path %}
 <link rel="canonical" href="{{ config.extra.canonical_url ~ current_path | safe }}">

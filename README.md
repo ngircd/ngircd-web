@@ -69,3 +69,19 @@ Commit the updated HTML files afterwards.
 3. Regenerate the manual pages with `update-manpages.sh` (see above).
 4. `content/_index.md`: update the `ngircd --help` output.
 5. Check that all `{{ src }}` links exist at the new tag.
+
+## Publishing
+
+Pushes to `master` are published to <https://ngircd.github.io> automatically
+by the GitHub workflow. The main site <https://ngircd.barton.de> is updated by
+hand on its web server:
+
+```bash
+zola build -o "${TMPDIR:-/tmp}"/ngircd-web --force
+rsync -rlc --delete -i "${TMPDIR:-/tmp}"/ngircd-web/ /srv/web/ngircd.barton.de/
+```
+
+Don't build into the DocumentRoot directly: `zola build --force` removes the
+output directory first. Zola rewrites all files on every build, so `rsync -c`
+compares their contents: only changed files are copied, unchanged ones keep
+their modification time.
